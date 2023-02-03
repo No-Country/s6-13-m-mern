@@ -13,12 +13,12 @@ const Header = () => {
     return (
         <header>
             <nav
-                className="flex flex-wrap items-center justify-between md:justify-around w-full py-4 md:py-0 px-4 text-[15px] bg-blueDark">
+                className="flex flex-wrap items-center justify-between md:justify-around w-full py-4 md:py-0 px-4 text-[15px] bg-blueDark fixed">
                 <img src="/Logo-navBar.png" alt="" className='h-[91px] cursor-pointer' />
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     id="menu-button"
-                    className="h-6 w-6 cursor-pointer md:hidden block"
+                    className="h-6 w-6 cursor-pointer md:hidden block text-white"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -60,9 +60,9 @@ const Header = () => {
                             >
                         </li>
                     </ul>
-                    <section className='flex md:pl-32 gap-5'>
-                        <button className='uppercase px-4 py-1 bg-blue rounded-[16px] text-white w-100%'>Log In</button>
-                        <button className='uppercase px-4 py-1 bg-blueDark rounded-[16px] text-[#3189FF] border-[1px] border-[#3189FF] w-100%'> Sign In</button>
+                    <section className='flex md:pl-20 gap-5'>
+                        <button className='uppercase px-8 py-1 bg-blue rounded-[16px] text-white '>Log In</button>
+                        <button className='uppercase px-8 py-1 bg-blueDark rounded-[16px] text-[#3189FF] border-[1px] border-[#3189FF] hover:border-[#ffff] hover:text-[#ffff] transition duration-300 ease-out hover:ease-in'> Sign In</button>
                     </section>
                 </div>
             </nav>
