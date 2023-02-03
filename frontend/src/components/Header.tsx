@@ -30,39 +30,39 @@ const Header = () => {
                         d="M4 6h16M4 12h16M4 18h16"
                     />
                 </svg>
-                <div className={(isNavOpen ? 'hidden ' : '') + 'w-full md:flex md:items-center md:w-auto'} id="menu">
+                <div className={(isNavOpen ? '' : 'hidden ') + 'w-full md:flex md:items-center md:w-auto'} id="menu">
                     <ul
-                        className="pt-4 text-[15px] text-white md:flex md:justify-between md:pt-0">
-                        <li>
-                            <a className="uppercase md:p-4 py-2 block hover:underline hover:scale-110 transition duration-300 ease-out hover:ease-in" href="#"
+                        className="pt-4 text-[15px] text-white md:flex md:flex-row flex flex-col items-center md:justify-between md:pt-0">
+                        <li className='min-w-fit'>
+                            <a className="uppercase md:p-4 py-2 block hover:underline md:hover:scale-110 transition duration-300 ease-out hover:ease-in" href="#"
                             >Home</a>
                         </li>
-                        <li>
-                            <a className="uppercase md:p-4 py-2 block hover:underline hover:scale-110 transition duration-300 ease-out hover:ease-in" href="#"
+                        <li className='min-w-fit'>
+                            <a className="uppercase md:p-4 py-2 block hover:underline md:hover:scale-110 transition duration-300 ease-out hover:ease-in" href="#"
                             >About Us</a
                             >
                         </li>
-                        <li>
-                            <a className="uppercase md:p-4 py-2 block hover:underline hover:scale-110 transition duration-300 ease-out hover:ease-in" href="#"
+                        <li className='min-w-fit'>
+                            <a className="uppercase md:p-4 py-2 block hover:underline md:hover:scale-110 transition duration-300 ease-out hover:ease-in" href="#"
                             >Contact</a
                             >
                         </li>
-                        <li>
-                            <a className="uppercase md:p-4 py-2 block hover:underline hover:scale-110 transition duration-300 ease-out hover:ease-in" href="#"
+                        <li className='min-w-fit'>
+                            <a className="uppercase md:p-4 py-2 block hover:underline md:hover:scale-110 transition duration-300 ease-out hover:ease-in" href="#"
                             >Features</a
                             >
                         </li>
-                        <li>
+                        <li className='min-w-fit'>
                             <a
-                                className="uppercase md:p-4 py-2 block hover:underline hover:scale-110 transition duration-300 ease-out hover:ease-in"
+                                className="uppercase md:p-4 py-2 block hover:underline md:hover:scale-110 transition duration-300 ease-out hover:ease-in"
                                 href="#"
                             >Prices</a
                             >
                         </li>
                     </ul>
-                    <section className='flex md:pl-20 gap-5'>
-                        <button className='uppercase px-8 py-1 bg-blue rounded-[16px] text-white '>Log In</button>
-                        <button className='uppercase px-8 py-1 bg-blueDark rounded-[16px] text-[#3189FF] border-[1px] border-[#3189FF] hover:border-[#ffff] hover:text-[#ffff] transition duration-300 ease-out hover:ease-in'> Sign In</button>
+                    <section className='flex justify-center md:pl-10 md:pr-10 gap-5'>
+                        <button className='uppercase px-8 py-1 bg-blue rounded-[16px] text-white min-w-fit hover:brightness-150 transition duration-300 ease-out hover:ease-in '>Log In</button>
+                        <button className='uppercase px-8 py-1 bg-blueDark rounded-[16px] text-[#3189FF] border-[1px] border-[#3189FF] hover:border-[#ffff] hover:text-[#ffff] transition duration-300 ease-out hover:ease-in min-w-fit'> Sign In</button>
                     </section>
                 </div>
             </nav>
