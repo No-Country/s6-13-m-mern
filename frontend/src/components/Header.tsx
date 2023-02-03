@@ -60,7 +60,7 @@ const Header = () => {
                             >
                         </li>
                     </ul>
-                    <section className='flex justify-center md:pl-10 md:pr-10 gap-5'>
+                    <section className='flex justify-center md:pl-28 md:pr-8 gap-5'>
                         <button className='uppercase px-8 py-1 bg-blue rounded-[16px] text-white min-w-fit hover:brightness-150 transition duration-300 ease-out hover:ease-in '>Log In</button>
                         <button className='uppercase px-8 py-1 bg-blueDark rounded-[16px] text-[#3189FF] border-[1px] border-[#3189FF] hover:border-[#ffff] hover:text-[#ffff] transition duration-300 ease-out hover:ease-in min-w-fit'> Sign In</button>
                     </section>
