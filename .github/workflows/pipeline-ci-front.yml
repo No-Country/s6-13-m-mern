@@ -2,7 +2,7 @@ name: Deployment FrontEnd
 
 on: 
   push: 
-   branches: [main,dev]
+   branches: [main,de,11-create-pipelines-basic-front]
    paths:
     - 'frontend/**'
   pull_request:
