@@ -31,14 +31,18 @@ jobs:
         path: frontend 
         fetch-depth: 0          
     - uses: actions/setup-node@v3
-      with:                  
+      with:  
+                      
         cache: 'npm' 
         cache-dependency-path: frontend      
         node-version: 16 
-    - run: cd /home/runner/work/s6-13-m-mern/s6-13-m-mern/
-    - run: ls         
+    
+            
     - name: Install dependencies              
-      run: npm i      
+      run: |
+          cd ./frontend
+          npm ci 
+            
     - name: Run Eslint in all frontend files
       run: npm run eslint
        
