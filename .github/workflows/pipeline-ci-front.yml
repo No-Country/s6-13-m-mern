@@ -62,7 +62,9 @@ jobs:
           cd ./frontend
           npm i 
      - name: Test
-       run: npm test   
+       run: | 
+         cd ./frontend
+         npm test   
 
        
 
