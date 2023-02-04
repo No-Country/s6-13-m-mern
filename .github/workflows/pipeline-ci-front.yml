@@ -2,41 +2,41 @@ name: Deployment FrontEnd
 
 on: 
   push: 
-    branches: [main,dev]
-    paths:
-      - 'frontend/**'
+   branches: [main,dev]
+   paths:
+    - 'frontend/**'
   pull_request:
-    branches: [main,dev]
-    types: [opened, synchronize]
-    paths:
-      - 'frontend/**'
+   branches: [main,dev]
+   types: [opened, synchronize]
+   paths:
+    - 'frontend/**'
 
 jobs:
 
   avoid_reduncy:
    runs-on: ubuntu-22.04
    steps:
-      - name: Cancel Previous Redundant Builds
-        uses: styfle/cancel-workflow-action@0.9.1
-        with:
-          access_token: ${{ github.token }}      
+    - name: Cancel Previous Redundant Builds
+      uses: styfle/cancel-workflow-action@0.9.1
+      with:
+       access_token: ${{ github.token }}      
 
 
   eslint: 
-    runs-on: ubuntu-20.04
-    steps:
-      - uses: actions/checkout@v3
-        with:
-         fetch-depth: 0
-         path: 'frontend/**'  
-      - uses: actions/setup-node@v3
-        with:
-         cache: 'npm'
-         node-version: 16
-      - name: Install dependencies   
-        run: npm ci 
-      - name: Run Eslint in all frontend files
-        run: npm run eslint
+   runs-on: ubuntu-20.04
+   steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+        path: 'frontend/**'  
+    - uses: actions/setup-node@v3
+      with:
+        cache: 'npm'
+        node-version: 16
+    - name: Install dependencies   
+      run: npm ci 
+    - name: Run Eslint in all frontend files
+      run: npm run eslint
        
 
 # jobs:
