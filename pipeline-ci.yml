@@ -1,7 +1,9 @@
 name: Prueba
 
 on: 
-  push:
+  push: 
+    branches:
+      - 11-create-deploy-task
     paths:
       - '/frontend'
 
