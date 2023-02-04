@@ -1,17 +1,72 @@
-name: Prueba Back
+name: CI Backend
 
 on: 
   push: 
-    branches:
-      - 11-create-deploy-task
-    paths:
-      - 'backend/**'
+   branches: 
+    - main
+    - dev     
+   paths:
+    - 'backend/**'
+  pull_request:
+   branches:
+    - main
+    - dev
+   types: [opened, synchronize,reopened]
+   paths:
+    - 'backend/**'
 
 jobs:
-  hello_world:
-    runs-on: ubuntu-18.04
-    steps:
-      - name: Echo the message
-        run: |
-          echo "Modifico backend"
-     
+
+  avoid_reduncy:
+   runs-on: ubuntu-22.04
+   steps:
+    - name: Cancel Previous Redundant Builds
+      uses: styfle/cancel-workflow-action@0.9.1
+      with:
+       access_token: ${{ github.token }}      
+
+
+  eslint: 
+   runs-on: ubuntu-20.04
+   steps:
+   
+    - uses: actions/checkout@v3
+      with:       
+        fetch-depth: 0          
+    - uses: actions/setup-node@v3
+      with:                     
+        cache: 'npm' 
+        cache-dependency-path: backend      
+        node-version: 16             
+    - name: Install dependencies              
+      run: |
+          cd ./backend
+          npm i             
+    - name: Run Eslint in all frontend files
+      run: |
+           cd ./backend 
+           npm run eslint
+
+  test:
+   needs: [eslint]
+   runs-on: ubuntu-20.04
+   steps:
+     - uses: actions/checkout@v3
+       with: 
+         fetch-depth: 0
+     - uses: actions/setup-node@v3
+       with:                     
+        cache: 'npm' 
+        cache-dependency-path: backend     
+        node-version: 16    
+     - name: Install dependencies              
+       run: |
+          cd ./backend
+          npm i 
+     - name: Test
+       run: | 
+         cd ./backend
+         npm test   
+
+       
+
