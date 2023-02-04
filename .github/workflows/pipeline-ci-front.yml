@@ -2,7 +2,7 @@ name: Deployment FrontEnd
 
 on: 
   push: 
-   branches: [main,dev]
+   branches: [main,dev,11-create-deploy-task]
    paths:
     - 'frontend/**'
   pull_request:
