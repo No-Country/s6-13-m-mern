@@ -8,7 +8,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "eslint": "eslint --fix --ext .ts,.tsx",
-    "test": "jest --watchAll"
+    "test": "jest "
   },
   "dependencies": {
     "react": "^18.2.0",
