@@ -25,15 +25,16 @@ jobs:
   eslint: 
    runs-on: ubuntu-20.04
    steps:
-    - run: cd frontend 
+   
     - uses: actions/checkout@v3
       with:
         fetch-depth: 0
-        path: 'frontend/'  
+          
     - uses: actions/setup-node@v3
       with:        
         cache: 'npm'        
-        node-version: 16      
+        node-version: 16
+    - run: cd frontend   
     - name: Install dependencies      
       run: npm i 
     - name: Run Eslint in all frontend files
