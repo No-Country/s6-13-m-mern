@@ -2,7 +2,7 @@ name: Deployment FrontEnd
 
 on: 
   push: 
-   branches: [main,dev,11-create-pipelines-basic-front)es-basic-front]
+   branches: [main,dev]
    paths:
     - 'frontend/**'
   pull_request:
@@ -68,3 +68,29 @@ jobs:
 
        
 
+# jobs:
+#   hello_world:
+#     runs-on: ubuntu-18.04
+#     steps:
+#       - name: Echo the message
+#         run: |
+#           echo "Modifico frontend"
+    
+
+# name: Say hello
+
+# on:
+#   push:
+#     branches:
+#       - 11-create-deploy-task
+
+# jobs:
+#   hello_world:
+#     runs-on: ubuntu-18.04
+#     steps:
+#       - name: Echo the message
+#         run: |
+#           echo "Hola midu!"
+#       - name: Dime la fecha
+#         run: date
+#       - run: ls -l

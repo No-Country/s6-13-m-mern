@@ -1,0 +1,17 @@
+name: Prueba Back
+
+on: 
+  push: 
+    branches:
+      - 11-create-deploy-task
+    paths:
+      - 'backend/**'
+
+jobs:
+  hello_world:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Echo the message
+        run: |
+          echo "Modifico backend"
+     
