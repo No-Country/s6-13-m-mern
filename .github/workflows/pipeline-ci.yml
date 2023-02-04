@@ -5,7 +5,7 @@ on:
     branches:
       - 11-create-deploy-task
     paths:
-      - '/frontend'
+      - 'frontend/**'
 
 jobs:
   hello_world:
