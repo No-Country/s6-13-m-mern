@@ -7,7 +7,9 @@
     "test": "jest --verbose --silent --detectOpenHandles",
     "start": "node dist/index.js",
     "build": "tsc",
-    "dev": "ts-node-dev src/index.ts"
+    "dev": "ts-node-dev src/index.ts",
+    "eslint":"eslint --fix --ext .ts"
+
   },
   "author": "",
   "license": "ISC",
