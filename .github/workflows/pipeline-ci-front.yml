@@ -1,0 +1,100 @@
+name: Deployment FrontEnd
+
+on: 
+  push: 
+   branches: 
+    - main
+    - dev     
+   paths:
+    - 'frontend/**'
+  pull_request:
+   branches:
+    - main
+    - dev
+   types: [opened, synchronize,reopened]
+   paths:
+    - 'frontend/**'
+
+jobs:
+
+  avoid_reduncy:
+   runs-on: ubuntu-22.04
+   steps:
+    - name: Cancel Previous Redundant Builds
+      uses: styfle/cancel-workflow-action@0.9.1
+      with:
+       access_token: ${{ github.token }}      
+
+
+  eslint: 
+   runs-on: ubuntu-20.04
+   steps:
+   
+    - uses: actions/checkout@v3
+      with:       
+        fetch-depth: 0          
+    - uses: actions/setup-node@v3
+      with:  
+        args: --dir=frontend/             
+        cache: 'npm' 
+        cache-dependency-path: frontend      
+        node-version: 16             
+    - name: Install dependencies              
+      run: |
+          cd ./frontend
+          npm i             
+    - name: Run Eslint in all frontend files
+      run: |
+           cd ./frontend 
+           npm run eslint
+
+  test:
+   needs: [eslint]
+   runs-on: ubuntu-20.04
+   steps:
+     - uses: actions/checkout@v3
+       with: 
+         fetch-depth: 0
+     - uses: actions/setup-node@v3
+       with:  
+        args: --dir=frontend/             
+        cache: 'npm' 
+        cache-dependency-path: frontend      
+        node-version: 16    
+     - name: Install dependencies              
+       run: |
+          cd ./frontend
+          npm i 
+     - name: Test
+       run: | 
+         cd ./frontend
+         npm test   
+
+       
+
+# jobs:
+#   hello_world:
+#     runs-on: ubuntu-18.04
+#     steps:
+#       - name: Echo the message
+#         run: |
+#           echo "Modifico frontend"
+    
+
+# name: Say hello
+
+# on:
+#   push:
+#     branches:
+#       - 11-create-deploy-task
+
+# jobs:
+#   hello_world:
+#     runs-on: ubuntu-18.04
+#     steps:
+#       - name: Echo the message
+#         run: |
+#           echo "Hola midu!"
+#       - name: Dime la fecha
+#         run: date
+#       - run: ls -l

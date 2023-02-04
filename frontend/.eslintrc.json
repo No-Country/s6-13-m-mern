@@ -1,0 +1,18 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+    
+  },
+  "extends": ["plugin:react/recommended","eslint-config-prettier", "standard-with-typescript","eslint:recommended", "plugin:@typescript-eslint/recommended"],
+  "overrides": [],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "root": true,
+ " parser": "@typescript-eslint/parser",
+  "plugins": ["react","@typescript-eslint"],
+  "ignorePatterns": ["dist", "build", "tailwind.config.cjs", "postcss.config.cjs","jest.config.js","babel.config.js"],
+  "rules": {}
+}
