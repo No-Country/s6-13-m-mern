@@ -44,7 +44,9 @@ jobs:
           npm i 
             
     - name: Run Eslint in all frontend files
-      run: npm run eslint
+      run: |
+           cd ./frontend 
+           npm run eslint
        
 
 # jobs:
