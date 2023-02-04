@@ -35,7 +35,7 @@ jobs:
         cache: 'npm' 
         cache-dependency-path: frontend      
         node-version: 16 
-    - run: cd frontend 
+    - run: cd /home/runner/work/s6-13-m-mern/s6-13-m-mern/
     - run: ls         
     - name: Install dependencies              
       run: npm i      
