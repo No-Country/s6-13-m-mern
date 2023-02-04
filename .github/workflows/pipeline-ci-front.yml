@@ -40,7 +40,7 @@ jobs:
             
     - name: Install dependencies              
       run: |
-          cd ./frontend/package.json
+          cd ./frontend/
           npm i 
             
     - name: Run Eslint in all frontend files
