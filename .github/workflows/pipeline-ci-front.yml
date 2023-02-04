@@ -2,12 +2,18 @@ name: Deployment FrontEnd
 
 on: 
   push: 
-   branches: [main,dev]
+   branches: 
+    - main
+    - dev     
    paths:
     - 'frontend/**'
   pull_request:
-   branches: [main,dev]
-   
+   branches:
+    - main
+    - dev
+   types: [opened, synchronize,reopened]
+   paths:
+    - 'frontend/**'
 
 jobs:
 
