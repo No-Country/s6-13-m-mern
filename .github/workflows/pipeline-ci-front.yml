@@ -31,12 +31,13 @@ jobs:
         path: frontend 
         fetch-depth: 0          
     - uses: actions/setup-node@v3
-      with:
-        path: frontend            
+      with:                  
         cache: 'npm' 
-        cache-dependency-path: frontend/package-lock.json      
-        node-version: 16      
-    - name: Install dependencies          
+        cache-dependency-path: frontend      
+        node-version: 16 
+    - run: cd frontend 
+    - run: ls         
+    - name: Install dependencies              
       run: npm i      
     - name: Run Eslint in all frontend files
       run: npm run eslint
