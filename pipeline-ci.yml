@@ -1,11 +1,29 @@
-name: Prueba
+# name: Prueba
 
-on: 
-  push: 
+# on: 
+#   push: 
+#     branches:
+#       - 11-create-deploy-task
+#     paths:
+#       - '/frontend'
+
+# jobs:
+#   hello_world:
+#     runs-on: ubuntu-18.04
+#     steps:
+#       - name: Echo the message
+#         run: |
+#           echo "Hola midu!"
+#       - name: Dime la fecha
+#         run: date
+#       - run: ls -l
+
+name: Say hello
+
+on:
+  push:
     branches:
       - 11-create-deploy-task
-    paths:
-      - '/frontend'
 
 jobs:
   hello_world:
