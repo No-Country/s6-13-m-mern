@@ -1,7 +1,7 @@
 import { Schema, model } from "mongoose";
 import { IConsortium } from "../interfaces/consortium";
 
-const consortiumSchema = new Schema({
+const consortiumSchema = new Schema<IConsortium>({
   name: {
     type: String,
     required: true
@@ -36,4 +36,4 @@ const consortiumSchema = new Schema({
   ]
 });
 
-export default model<IConsortium>("Consortium", consortiumSchema);
+export default model("Consortium", consortiumSchema);
