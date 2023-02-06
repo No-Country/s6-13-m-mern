@@ -1,0 +1,73 @@
+name: CI Backend
+
+on: 
+  push: 
+   branches: 
+    - main
+    - dev  
+
+   paths:
+    - 'backend/**'
+  pull_request:
+   branches:
+    - main
+    - dev
+   types: [opened, synchronize,reopened]
+   paths:
+    - 'backend/**'
+
+jobs:
+
+  avoid_reduncy:
+   runs-on: ubuntu-22.04
+   steps:
+    - name: Cancel Previous Redundant Builds
+      uses: styfle/cancel-workflow-action@0.9.1
+      with:
+       access_token: ${{ github.token }}      
+
+
+  eslint: 
+   runs-on: ubuntu-20.04
+   steps:
+   
+    - uses: actions/checkout@v3
+      with:       
+        fetch-depth: 0          
+    - uses: actions/setup-node@v3
+      with:                     
+        cache: 'npm' 
+        cache-dependency-path: backend      
+        node-version: 16             
+    - name: Install dependencies              
+      run: |
+          cd ./backend
+          npm i             
+    - name: Run Eslint in all frontend files
+      run: |
+           cd ./backend 
+           npm run eslint
+
+  test:
+   needs: [eslint]
+   runs-on: ubuntu-20.04
+   steps:
+     - uses: actions/checkout@v3
+       with: 
+         fetch-depth: 0
+     - uses: actions/setup-node@v3
+       with:                     
+        cache: 'npm' 
+        cache-dependency-path: backend     
+        node-version: 16    
+     - name: Install dependencies              
+       run: |
+          cd ./backend
+          npm i 
+     - name: Test
+       run: | 
+         cd ./backend
+         npm test   
+
+       
+
