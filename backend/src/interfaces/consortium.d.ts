@@ -1,3 +1,4 @@
+import { ObjectId } from "mongoose";
 // TODO
 // Uncomment import below when push to dev
 // import { IUser } from "./User.js";
@@ -6,9 +7,9 @@
 export interface IConsortium {
   name: string,
   address: string,
-  users: string[],
-  admin: string,
+  users: ObjectId[],
+  admin: ObjectId,
   floor: number,
   apt: number,
-  amenities: string[]
+  amenities: ObjectId[]
 };
