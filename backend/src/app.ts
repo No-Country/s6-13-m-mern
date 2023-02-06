@@ -5,6 +5,9 @@ import dotenv from 'dotenv'
 import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
 
+import authRoutes from "./routes/authRoutes"
+import userRoutes from "./routes/userRoutes"
+
 dotenv.config()
 const app = express()
 
@@ -24,12 +27,13 @@ app.use(express.json())
 app.use(bodyParser.json())
 app.use(cookieParser())
 
+//* Testing route
+app.get('/healthCheckApi', (_req, res:Response) => {
+    res.json({ok:"Ok"})
+  })
+
 // Routes
-app.get('/healthCheckApi', (_req, res: Response) => {
-    res.json({ ok: 'Ok' })
-})
-app.use('/', (_req: Request, res: Response) => {
-    res.send(`Api on https://localhost:${app.get('port')}`)
-})
+app.use("/api/auth",authRoutes)
+app.use("/api/user",userRoutes)
 
 export default app
