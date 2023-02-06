@@ -1,12 +1,14 @@
 import { Link, useRouteError } from 'react-router-dom';
 
+interface NotFoundMsg {
+  statusText: string;
+  status: number;
+  data: string;
+}
+
 const NotFound = () => {
-  interface NotFoundMsg {
-    statusText: string;
-    status: number;
-    data: string;
-  }
-  const error: NotFoundMsg = useRouteError();
+  //TODO tipar bien any
+  const error: any = useRouteError();
 
   return (
     <div>
