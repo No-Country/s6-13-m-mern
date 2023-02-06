@@ -1,18 +1,5 @@
-import { Schema, model, Document } from "mongoose";
-// TODO
-// Uncomment import below when push to dev
-// import { IUser } from "./User.js";
-// Replace interface types (users/admin/amenities) with their own interfaces, ex:
-// users: IUsers[]
-export interface IConsortium extends Document {
-  name: string,
-  address: string,
-  users: string[],
-  admin: string,
-  floor: number,
-  apt: number,
-  amenities: string[]
-};
+import { Schema, model } from "mongoose";
+import { IConsortium } from "../interfaces/consortium";
 
 const consortiumSchema = new Schema({
   name: {
