@@ -15,6 +15,10 @@ module.exports = {
         greyLight: '##A6A6A6',
         redLight: '#D9C0C0',
       },
+      fontSize: {
+        '2.5xl': ['1.8rem', '2.3rem'],
+        '4.5xl': ['2.5rem', '3.2rem'],
+      }
     },
   },
   plugins: [],

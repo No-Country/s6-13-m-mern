@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 
 const Layout = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen ">
       <div className="h-[96px]">
         <Header />
       </div>
