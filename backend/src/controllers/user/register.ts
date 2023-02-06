@@ -26,16 +26,16 @@ export const register = async (req: Request, res: Response) => {
 
         //* Comprobar error del servidor
         if (!ok && status === 500) {
-            return res.status(status).json({ ok, msg: 'Error del servidor' })
+            return res.status(status).json({ ok, msg: 'Server error' })
         }
 
         //* Comprobar que el mail este registrado
         if (!ok && status === 400) {
-            return res.status(status).json({ ok, msg: 'Email in use' })
+            return res.status(status).json({ ok, msg: 'Email used' })
         }
 
         return res.status(status).json({ ok, msg: 'User created' })
-    } catch (e) {
-        return res.status(500).json({ msg: e })
+    } catch (error) {
+        return res.status(500).send({ error })
     }
 }
