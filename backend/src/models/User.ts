@@ -1,26 +1,8 @@
-import {Schema, model, Document} from "mongoose"
-import bcrypt from "bcrypt"
+import {Schema, model} from "mongoose"
+import { EStatus } from "../utils/enums";
+import { IUser } from "../interfaces";
 
-enum EStatus {
-    Actived ,
-    Disabled
-}
-
-export interface IUser extends Document  {
-    username: string,
-    email: string,
-    password: string,
-    isAdmin: boolean,
-    googleId: string,
-    isValidated: boolean,
-    status: string,
-    token: string,
-    apt: string,
-    consortium: string[],
-    comparePassword: (password: string) => Promise<Boolean>
-}
-
-const userSchema = new Schema(
+const userSchema = new Schema<IUser>(
     {
         username: {
             type: String,
@@ -43,18 +25,18 @@ const userSchema = new Schema(
             type: Boolean,
             default: false,
         },
-        // googleId: {
-        //     type: String,
-        //     unique: true,
-        //     trim: true
-        // },
         isValidated: {
             type: Boolean,
             default: false,
         },
+        externalId:{
+            type: String,
+            default: ""
+        },
         status: {
             type: String,
-            enum: EStatus
+            enum: EStatus,
+            default: "active"
         },
         token: {
             type: String,
@@ -78,17 +60,4 @@ const userSchema = new Schema(
     }
 )
 
-userSchema.pre<IUser>("save", async function(next) {  
-    if (!this.isModified("password")) return next();
-    const salt = await bcrypt.genSalt(10);
-    this.password = await bcrypt.hash(this.password, salt);
-    next()
-  });
-  
-  userSchema.methods.comparePassword = async function(
-    password: string
-  ): Promise<Boolean> {
-    return await bcrypt.compare(password, this.password);
-  };
-  
-  export default model<IUser>("User", userSchema);
+export default model("User", userSchema);
