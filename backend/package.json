@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "test": "jest --verbose --silent --detectOpenHandles",
-        "start": "node dist/index.js",
+        "start": "node dist/src/index.js",
         "build": "tsc",
         "dev": "ts-node-dev src/index.ts",
         "eslint": "eslint --fix --ext .ts",
