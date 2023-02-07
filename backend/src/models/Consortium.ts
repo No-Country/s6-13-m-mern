@@ -1,5 +1,5 @@
 import { Schema, model } from "mongoose";
-import { IConsortium } from "../interfaces/consortium";
+import { type IConsortium } from "../interfaces/consortium";
 
 const consortiumSchema = new Schema<IConsortium>({
   name: {
@@ -13,7 +13,8 @@ const consortiumSchema = new Schema<IConsortium>({
   users: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'User'
+      ref: 'User',
+      default: []
     }
   ],
   admin: {
@@ -31,7 +32,8 @@ const consortiumSchema = new Schema<IConsortium>({
   amenities: [
     {
       tpe: Schema.Types.ObjectId,
-      ref: 'Amenity'
+      ref: 'Amenity',
+      default: []
     }
   ]
 });
