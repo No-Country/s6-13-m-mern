@@ -1,4 +1,4 @@
-import express, { Request, Response } from 'express'
+import express, { Request, type Response } from 'express'
 import cors from 'cors'
 import morgan from 'morgan'
 import dotenv from 'dotenv'
@@ -29,7 +29,7 @@ app.use(cookieParser())
 
 //* Testing route
 app.get('/healthCheckApi', (_req, res:Response) => {
-    res.json({ok:"Ok"})
+    res.json({ok: "Ok"})
   })
 
 // Routes
