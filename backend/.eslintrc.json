@@ -9,5 +9,8 @@
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
+    "exclude": [
+        "node_modules","dist","tsconfig.json","package-lock.json"
+      ],
     "rules": {}
 }
