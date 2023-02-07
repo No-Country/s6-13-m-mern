@@ -1,21 +1,22 @@
 import User from '../../models/User'
 
-export const getUserService = async (id: string) => {
+export const getAllUsersService = async () => {
     try {
-        const user = await User.findById(id).select(
+        const allUsers = await User.find().select(
             '-password -createdAt -updatedAt -externalId -token -isValidated'
         )
-        if (!user) {
+        if (allUsers.length < 1) {
             const response = {
                 ok: false,
                 status: 404,
             }
             return response
         }
+
         const response = {
             ok: true,
             status: 200,
-            user,
+            user: allUsers,
         }
         return response
     } catch (error) {

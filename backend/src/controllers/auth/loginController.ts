@@ -5,7 +5,7 @@ import { comparePasswords, jwtGenerate } from '../../utils'
 
 const expression: RegExp = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
 
-export const login = async (req: Request, res: Response) => {
+export const loginController = async (req: Request, res: Response) => {
     const { email, password } = req.body
 
     // TODO: Mover a un middleware
@@ -19,23 +19,22 @@ export const login = async (req: Request, res: Response) => {
     }
 
     try {
-        const { ok, msg, status, user, id } = (await loginService(
+        const { ok, status, user, id } = (await loginService(
             email
         )) as IResponse
 
-        //* Comprobar error del servidor
-        if (!ok && status === 500) {
-            return res.status(status).json({ ok, msg: 'Error del servidor' })
-        }
-
         //* Comprobar que el mail este registrado
-        if (!ok && msg === 'El email no esta registrado') {
-            return res.status(status).json({ ok: false, msg: msg })
+        if (!ok && status === 404) {
+            return res
+                .status(status)
+                .json({ ok: false, msg: 'Email not registered' })
         }
 
         //* Comprobar si el mail esta validado
-        if (!ok && msg === 'El email no esta verificado') {
-            return res.status(status).json({ ok: false, msg: msg, id, email })
+        if (!ok && status === 401) {
+            return res
+                .status(status)
+                .json({ ok: false, msg: 'Unverified email', id, email })
         }
 
         //* Comprobar que las contraseñas coincidan
@@ -43,7 +42,7 @@ export const login = async (req: Request, res: Response) => {
         if (!validPassword) {
             return res.status(404).json({
                 ok: false,
-                msg: 'Password Incorrecta',
+                msg: 'Invalid password',
             })
         }
 
@@ -57,9 +56,10 @@ export const login = async (req: Request, res: Response) => {
             admin: user.admin,
         })
     } catch (error) {
+        console.log(error)
         return res.status(500).json({
             ok: false,
-            msg: 'Ocurrio un error, contacta con un administrador',
+            msg: 'Server Error',
             error,
         })
     }

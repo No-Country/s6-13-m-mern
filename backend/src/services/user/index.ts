@@ -1,3 +1,4 @@
-export * from './getUserService';
-export * from './index';
-export * from './registerService';
+export * from './getAllUsersService'
+export * from './getUserService'
+export * from './index'
+export * from './registerService'
