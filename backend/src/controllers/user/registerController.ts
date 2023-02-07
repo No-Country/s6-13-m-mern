@@ -4,7 +4,7 @@ import { registerService } from '../../services'
 
 const expression: RegExp = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
 
-export const register = async (req: Request, res: Response) => {
+export const registerController = async (req: Request, res: Response) => {
     const { username, email, password } = req.body
 
     // TODO: Mover a un middleware
@@ -24,11 +24,6 @@ export const register = async (req: Request, res: Response) => {
             password
         )) as IResponse
 
-        //* Comprobar error del servidor
-        if (!ok && status === 500) {
-            return res.status(status).json({ ok, msg: 'Server error' })
-        }
-
         //* Comprobar que el mail este registrado
         if (!ok && status === 400) {
             return res.status(status).json({ ok, msg: 'Email used' })
@@ -36,6 +31,11 @@ export const register = async (req: Request, res: Response) => {
 
         return res.status(status).json({ ok, msg: 'User created' })
     } catch (error) {
-        return res.status(500).send({ error })
+        console.log(error)
+        return res.status(500).json({
+            ok: false,
+            msg: 'Server Error',
+            error,
+        })
     }
 }

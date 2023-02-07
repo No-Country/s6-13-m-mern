@@ -2,14 +2,9 @@ import { Request, Response } from 'express'
 import { IResponse } from '../../interfaces'
 import { getAllUsersService } from '../../services'
 
-export const getAllUsers = async (_req: Request, res: Response) => {
+export const getAllUsersController = async (_req: Request, res: Response) => {
     try {
         const { ok, status, user } = (await getAllUsersService()) as IResponse
-
-        //* Comprobar error del servidor
-        if (!ok && status === 500) {
-            return res.status(status).json({ ok, msg: 'Server error' })
-        }
 
         //* Comprobar si hay usuarios creados
         if (!ok && status === 404) {
@@ -18,6 +13,11 @@ export const getAllUsers = async (_req: Request, res: Response) => {
 
         return res.status(status).json({ ok, users: user })
     } catch (error) {
-        return res.status(500).send({ error })
+        console.log(error)
+        return res.status(500).json({
+            ok: false,
+            msg: 'Server Error',
+            error,
+        })
     }
 }

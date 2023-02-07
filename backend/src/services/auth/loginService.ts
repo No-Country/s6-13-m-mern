@@ -1,8 +1,8 @@
-import User from "../../models/User";
+import User from '../../models/User'
 
-export const loginService = async(email: string) => {
+export const loginService = async (email: string) => {
     try {
-        const user = await User.findOne({email})
+        const user = await User.findOne({ email })
 
         if (!user) {
             const response = {
@@ -24,10 +24,6 @@ export const loginService = async(email: string) => {
         const response = { ok: true, status: 200, user }
         return response
     } catch (error) {
-        const response = {
-            status: 500,
-            ok: false,
-        }
-        return response
+        return error
     }
 }

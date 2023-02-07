@@ -19,11 +19,7 @@ export const getAllUsersService = async () => {
             user: allUsers,
         }
         return response
-    } catch (e) {
-        const response = {
-            ok: false,
-            status: 500,
-        }
-        return response
+    } catch (error) {
+        return error
     }
 }

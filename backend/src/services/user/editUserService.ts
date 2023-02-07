@@ -1,21 +1,26 @@
+import { IUser } from '../../interfaces'
 import User from '../../models/User'
 
-export const getUserService = async (id: string) => {
+export const edituserService = async (id: string, data: IUser) => {
     try {
-        const user = await User.findById(id).select(
+        const updatedUser = await User.findByIdAndUpdate(id, data, {
+            new: true,
+        }).select(
             '-password -createdAt -updatedAt -externalId -token -isValidated'
         )
-        if (!user) {
+
+        if (!updatedUser) {
             const response = {
                 ok: false,
                 status: 404,
             }
             return response
         }
+
         const response = {
             ok: true,
             status: 200,
-            user,
+            user: updatedUser,
         }
         return response
     } catch (error) {

@@ -1,9 +1,13 @@
-import User from "../../models/User";
-import { hashPassword } from "../../utils";
+import User from '../../models/User'
+import { hashPassword } from '../../utils'
 
-export const registerService = async(username:string, email: string, password: string) => {
+export const registerService = async (
+    username: string,
+    email: string,
+    password: string
+) => {
     try {
-        const user = await User.findOne({email})
+        const user = await User.findOne({ email })
         if (user) {
             const response = {
                 ok: false,
@@ -13,20 +17,16 @@ export const registerService = async(username:string, email: string, password: s
         }
 
         const hPassword = await hashPassword(password)
-        const newUser = new User({username, email, password:hPassword})
+        const newUser = new User({ username, email, password: hPassword })
         await newUser.save()
 
         const response = {
             status: 201,
             ok: true,
         }
-    
+
         return response
     } catch (error) {
-        const response = {
-            status: 500,
-            ok: false,
-        }
-        return response
+        return error
     }
 }
