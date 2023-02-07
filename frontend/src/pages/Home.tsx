@@ -42,13 +42,21 @@ const Home = () => {
                 <div className="relative w-[630px] h-[600px]">
                   <div className="absolute bg-white top-0 left-0 rounded origin-top-left rotate-[-1.75deg] border-2 border-black drop-shadow-[0px_4px_1px_rgba(0,0,0,0.5)] transition ease-in-out delay-100 hover:-translate-y-10 hover:-translate-x-10  duration-200">
                     <img
+<<<<<<< HEAD
                       src={'./assets/people2.svg'}
+=======
+                      src={'../../src/assets/people2.svg'}
+>>>>>>> f019976be02c8e3ae8caec4b2d80ec093a2011c0
                       className="w-full"
                     />
                   </div>
                   <div className="absolute bg-white bottom-0 right-0 rounded origin-bottom-right rotate-[6.12deg] border-2 border-black drop-shadow-[0px_4px_1px_rgba(0,0,0,0.5)] transition ease-in-out delay-100 hover:-translate-y-10 hover:translate-x-10  duration-300">
                     <img
+<<<<<<< HEAD
                       src={'./assets/people1.svg'}
+=======
+                      src={'../../src/assets/people1.svg'}
+>>>>>>> f019976be02c8e3ae8caec4b2d80ec093a2011c0
                       className="w-full"
                     />
                   </div>
