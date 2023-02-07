@@ -14,6 +14,8 @@ module.exports = {
         grey: '#4B4B4B',
         greyLight: '##A6A6A6',
         redLight: '#D9C0C0',
+        red: '#ff0000',
+        palePink: "#F6EAEA"
       },
       fontSize: {
         '2.5xl': ['1.8rem', '2.3rem'],
