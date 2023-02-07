@@ -8,8 +8,7 @@
         "start": "node dist/src/index.js",
         "build": "tsc",
         "dev": "ts-node-dev src/index.ts",
-        "eslint": "eslint --fix --ext .ts",
-        "heroku-postbuild": "npm run build"
+        "eslint": "eslint --fix --ext .ts"
     },
     "author": "",
     "license": "ISC",
