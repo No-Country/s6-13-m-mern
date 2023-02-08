@@ -4,10 +4,14 @@ import { IUser } from '../interfaces'
 
 const userSchema = new Schema<IUser>(
     {
-        username: {
+        name: {
             type: String,
             required: true,
-            unique: true,
+            trim: true,
+        },
+        lastname: {
+            type: String,
+            required: true,
             trim: true,
         },
         email: {
@@ -48,11 +52,12 @@ const userSchema = new Schema<IUser>(
             trim: true,
             default: '',
         },
-        consortium: {
-            type: Schema.Types.ObjectId,
-            ref: 'Consortium',
-            default: [],
-        },
+        consortium: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Consortium',
+            },
+        ],
     },
     {
         timestamps: true,

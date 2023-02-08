@@ -1,27 +1,18 @@
 import { Request, Response } from 'express'
 import { IResponse } from '../../interfaces'
 import { registerService } from '../../services'
-
-const expression: RegExp = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
+import { hashPassword } from '../../utils'
 
 export const registerController = async (req: Request, res: Response) => {
-    const { username, email, password } = req.body
-
-    // TODO: Mover a un middleware
-    if (!username || !email || !password) {
-        const error = new Error('Missing values')
-        return res.status(400).json({ msg: error.message })
-    }
-    if (!expression.test(email)) {
-        const error = new Error('Invalid email format')
-        return res.status(400).json({ msg: error.message })
-    }
+    const { name, lastname, email, password } = req.body
 
     try {
+        const hPassword = await hashPassword(password)
         const { ok, status } = (await registerService(
-            username,
+            name,
+            lastname,
             email,
-            password
+            hPassword
         )) as IResponse
 
         //* Comprobar que el mail este registrado
