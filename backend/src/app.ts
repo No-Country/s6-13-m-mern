@@ -5,6 +5,10 @@ import dotenv from 'dotenv'
 import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
 
+// Swagger
+import swaggerUI from 'swagger-ui-express'
+import swaggerSetup from './docs/swaggerOptions'
+
 import authRoutes from './routes/authRoutes'
 import userRoutes from './routes/userRoutes'
 
@@ -35,5 +39,8 @@ app.get('/healthCheckApi', (_req: Request, res: Response) => {
 // Routes
 app.use('/api/auth', authRoutes)
 app.use('/api/user', userRoutes)
+
+//* documentation
+app.use('/doc', swaggerUI.serve, swaggerUI.setup(swaggerSetup))
 
 export default app
