@@ -5,7 +5,7 @@ import Hero from '../components/Hero';
 const NotFound = () => {
   return (
     <section className="bg-content bg-redLight w-full">
-      <Hero imageUrl="src/assets/buildings.svg">
+      <Hero imageUrl="./assets/buildings.svg">
       <Container>
         <div className="flex flex-col items-center pt-16 gap-8">
           <h2 className="text-4.5xl text-blueDark font-bold">Page not found</h2>
