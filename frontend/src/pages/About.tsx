@@ -5,7 +5,7 @@ import Hero from '../components/Hero';
 const About = () => {
   return (
     <section className="bg-redLight w-full">
-      <Hero imageUrl="src/assets/boy-and-city.svg">
+      <Hero imageUrl="./assets/boy-and-city.svg">
         <Container>
           <div className="w-full h-full flex items-center justify-center">
             <div className="w-full flex flex-row justify-between">
@@ -26,14 +26,14 @@ const About = () => {
               <div className="relative w-[640px] h-[720px]">
                 <div className="absolute w-[467px] h-[346px] bg-white top-0 left-0 rounded border-2 border-black drop-shadow-[0px_4px_1px_rgba(0,0,0,0.5)] transition ease-in-out delay-100 duration-300 hover:scale-105">
                   <img
-                    src={'src/assets/people3.svg'}
+                    src={'./assets/people3.svg'}
                     className="w-full"
                   />
                   <div className="absolute bottom-0 w-full h-full bg-[rgba(252,207,189,0.2)] transition ease-in-out delay-100 hover:opacity-[0] duration-300"></div>
                 </div>
                 <div className="absolute w-[446px] h-[346px] bg-white bottom-0 right-0 rounded border-2 border-black drop-shadow-[0px_4px_1px_rgba(0,0,0,0.5)] transition ease-in-out delay-100 duration-300 hover:scale-105">
                   <img
-                    src={'src/assets/people4.svg'}
+                    src={'./assets/people4.svg'}
                     className="w-full"
                   />
                   <div className="absolute bottom-0 w-full h-full bg-[rgba(11,103,123,0.2)] transition ease-in-out delay-100 hover:opacity-[0] duration-300"></div>
@@ -65,7 +65,7 @@ const About = () => {
           </div>
         </Container>
         <div className="absolute right-0 top-0 w-[62%] mw-[950px] h-full">
-          <BackgroundImage imageUrl="src/assets/people5.svg" />
+          <BackgroundImage imageUrl="./assets/people5.svg" />
         </div>
       </div>
     </section>
