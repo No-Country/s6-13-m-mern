@@ -12,3 +12,11 @@
     font-family: 'Open Sans', sans-serif;
   }
 }
+
+.curved {
+  height: 13vh;
+  border-bottom-left-radius: 50% 37%;
+  border-bottom-right-radius: 50% 37%;
+  z-index: 1
+}
+
