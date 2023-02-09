@@ -9,10 +9,12 @@ const scheduleSchema = new Schema<Schedule>(
             unique: true,
             trim: true,
         },
-        reserve: {
-            type: Types.ObjectId,
-            ref: 'Reserve',
-        },
+        reserve: [
+            {
+                type: Types.ObjectId,
+                ref: 'Reserve',
+            },
+        ],
     },
     {
         timestamps: true,

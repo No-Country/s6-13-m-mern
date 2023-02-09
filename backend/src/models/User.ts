@@ -25,6 +25,11 @@ const userSchema = new Schema<IUser>(
             required: true,
             trim: true,
         },
+        img: {
+            type: String,
+            default:
+                'https://www.softzone.es/app/uploads-softzone.es/2018/04/guest.png',
+        },
         role: {
             type: String,
             enum: ERoles,
@@ -32,7 +37,7 @@ const userSchema = new Schema<IUser>(
         },
         isValidated: {
             type: Boolean,
-            default: false,
+            default: true,
         },
         externalId: {
             type: String,

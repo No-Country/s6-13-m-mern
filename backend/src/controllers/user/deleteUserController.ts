@@ -4,6 +4,7 @@ import { deleteUSerService } from '../../services/user/deleteUserService'
 
 export const deleteUserController = async (req: Request, res: Response) => {
     const { id } = req.params
+
     // TODO: Mover a un middleware
     if (!id) {
         const error = new Error('Empty id')

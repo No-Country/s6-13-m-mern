@@ -6,6 +6,7 @@ export interface IUser {
     lastname: string
     email: string
     password: string
+    img: string
     role?: ERoles
     googleId: string
     isValidated: boolean

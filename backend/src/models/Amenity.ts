@@ -18,6 +18,11 @@ const amenitySchema = new Schema<Amenity>(
             type: Boolean,
             default: false,
         },
+        img: {
+            type: String,
+            default:
+                'https://thumbs.dreamstime.com/b/no-image-available-icon-photo-camera-flat-vector-illustration-132483141.jpg',
+        },
         size: {
             type: Number,
             required: true,
