@@ -7,6 +7,7 @@ import cookieParser from 'cookie-parser'
 
 import authRoutes from './routes/authRoutes'
 import userRoutes from './routes/userRoutes'
+import consortiumRoutes from './routes/consortiumRoutes'
 
 dotenv.config()
 const app = express()
@@ -35,5 +36,6 @@ app.get('/healthCheckApi', (_req: Request, res: Response) => {
 // Routes
 app.use('/api/auth', authRoutes)
 app.use('/api/user', userRoutes)
+app.use('/api/consortium', consortiumRoutes)
 
 export default app
