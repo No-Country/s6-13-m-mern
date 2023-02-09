@@ -67,7 +67,7 @@ const swaggerDefinition: OAS3Definition = {
             },
         },
         '/api/user/register': {
-            get: {
+            post: {
                 tags: ['user'],
                 summary: 'Register a new user',
                 requestBody: {
@@ -136,6 +136,9 @@ const swaggerDefinition: OAS3Definition = {
                                 },
                             },
                         },
+                    },
+                    '401': {
+                        description: 'User is disabled',
                     },
                     '404': {
                         description: 'User not found',
@@ -208,9 +211,15 @@ const swaggerDefinition: OAS3Definition = {
                         example:
                             '$2b$10$tb8Mc6H2D4uvTssHxfQoVuBvHwx7TAwCX1HsnW2PZR4wlwChHGOFq',
                     },
-                    isAdmin: {
-                        type: 'boolean',
-                        example: false,
+                    role: {
+                        type: 'string',
+                        description: 'user role',
+                        example: 'user',
+                        enum: {
+                            user: 'user',
+                            tenant: 'tenant',
+                            admin: 'admin',
+                        },
                     },
                     isValidated: {
                         type: 'boolean',
@@ -222,12 +231,12 @@ const swaggerDefinition: OAS3Definition = {
                     },
                     status: {
                         type: 'string',
-                        description: ' Order Status',
-                        example: 'approved',
+                        description: 'account status',
+                        example: 'active',
                         enum: {
-                            placed: 'placed',
-                            approved: 'approved',
-                            delivered: 'delivered',
+                            active: 'active',
+                            disabled: 'disabled',
+                            banned: 'banned',
                         },
                     },
                     token: {

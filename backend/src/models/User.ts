@@ -1,5 +1,5 @@
 import { Schema, model } from 'mongoose'
-import { EStatus } from '../utils/enums'
+import { ERoles, EStatus } from '../utils/enums'
 import { IUser } from '../interfaces'
 
 const userSchema = new Schema<IUser>(
@@ -25,9 +25,10 @@ const userSchema = new Schema<IUser>(
             required: true,
             trim: true,
         },
-        isAdmin: {
-            type: Boolean,
-            default: false,
+        role: {
+            type: String,
+            enum: ERoles,
+            default: 'user',
         },
         isValidated: {
             type: Boolean,

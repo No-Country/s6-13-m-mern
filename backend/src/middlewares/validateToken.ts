@@ -22,7 +22,7 @@ export const validateToken = (
         jwt.verify(token, `${process.env.JWT_SECRET}`) as IPayload
 
         // req.id = id
-        // req.admin = admin
+        // req.role = role
 
         return next()
     } catch (error) {

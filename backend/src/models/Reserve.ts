@@ -1,28 +1,27 @@
-import { Schema, model, Types } from "mongoose"
-import { Reserve } from "../interfaces/reserve"
+import { Schema, model } from 'mongoose'
+import { Reserve } from '../interfaces/reserve'
 
 const reserveSchema = new Schema<Reserve>(
     {
-        id: {
-            type: Types.ObjectId,
-            required: true,
-            unique: true
-        },
         user: {
             type: String,
             required: true,
-            ref: 'User'
+            ref: 'User',
         },
-        date: {
+        startDate: {
             type: Date,
             required: true,
         },
-      },
+        endDate: {
+            type: Date,
+            required: true,
+        },
+    },
     {
         timestamps: true,
-        versionKey: false
+        versionKey: false,
     }
 )
-  
+
 const Reserve = model('Reserve', reserveSchema)
 export default Reserve

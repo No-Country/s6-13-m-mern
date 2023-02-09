@@ -1,4 +1,6 @@
+import { ERoles } from '../utils'
+
 export interface IPayload {
     id: string
-    admin: boolean
+    role: ERoles
 }

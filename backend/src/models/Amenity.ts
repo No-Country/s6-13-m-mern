@@ -1,23 +1,18 @@
-import { Schema, model, Types } from "mongoose"
-import { Amenity } from "../interfaces/amenity"
+import { Schema, model, Types } from 'mongoose'
+import { Amenity } from '../interfaces/amenity'
 
 const amenitySchema = new Schema<Amenity>(
     {
-        id: {
-            type: Types.ObjectId,
-            required: true,
-            unique: true
-        },
         name: {
             type: String,
             required: true,
             unique: true,
-            trim: true
+            trim: true,
         },
         description: {
             type: String,
             required: true,
-            trim: true
+            trim: true,
         },
         reservable: {
             type: Boolean,
@@ -25,18 +20,18 @@ const amenitySchema = new Schema<Amenity>(
         },
         size: {
             type: Number,
-            required: true
+            required: true,
         },
         schedule: {
             type: Types.ObjectId,
-            ref: 'Schedule'
+            ref: 'Schedule',
         },
-      },
+    },
     {
         timestamps: true,
-        versionKey: false
+        versionKey: false,
     }
 )
-  
+
 const Amenity = model('Amenity', amenitySchema)
 export default Amenity
