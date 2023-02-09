@@ -16,8 +16,8 @@ const Footer = () => {
           ></path>
         </svg>
       </div>
-      <footer className="absolute top-[100%] min-w-full text-white bg-grey footer_bottom">
-        <div className="flex justify-around gap-4 w-full mt-5">
+      <footer className="absolute top-[100%] min-w-full text-white bg-grey footer_bottom mt-[-1px]">
+        <div className="flex justify-around gap-4 w-full mt-5 ">
           <div>
             <h3 className="mb-5">Contact us</h3>
             <ul>
