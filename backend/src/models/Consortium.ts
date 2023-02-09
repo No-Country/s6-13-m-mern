@@ -30,7 +30,7 @@ const consortiumSchema = new Schema<IConsortium>({
     },
     amenities: [
         {
-            tpe: Schema.Types.ObjectId,
+            type: Schema.Types.ObjectId,
             ref: 'Amenity',
         },
     ],

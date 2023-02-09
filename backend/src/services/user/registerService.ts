@@ -1,8 +1,8 @@
 import User from '../../models/User'
-import { hashPassword } from '../../utils'
 
 export const registerService = async (
-    username: string,
+    name: string,
+    lastname: string,
     email: string,
     password: string
 ) => {
@@ -16,8 +16,7 @@ export const registerService = async (
             return response
         }
 
-        const hPassword = await hashPassword(password)
-        const newUser = new User({ username, email, password: hPassword })
+        const newUser = new User({ name, lastname, email, password })
         await newUser.save()
 
         const response = {

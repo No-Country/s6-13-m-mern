@@ -67,7 +67,7 @@ const Contact = () => {
                     <div className="relative w-full">
                       <input
                         type={'text'}
-                        className="p-3 w-full h-[4.2rem] rounded border-2 border-black rounded-md bg-palePink"
+                        className="p-3 w-full h-[4.2rem] border-2 border-black rounded-md bg-palePink"
                         placeholder={'Name'}
                         name={'name'}
                         value={name}
@@ -82,7 +82,7 @@ const Contact = () => {
                     <div className="relative w-full">
                       <input
                         type={'email'}
-                        className="p-3 w-full h-[4.2rem] rounded border-2 border-black rounded-md bg-palePink"
+                        className="p-3 w-full h-[4.2rem] border-2 border-black rounded-md bg-palePink"
                         placeholder={'Email'}
                         name={'email'}
                         value={email}
@@ -98,7 +98,7 @@ const Contact = () => {
                   <div className="relative w-full mt-10">
                     <input
                       type={'text'}
-                      className="p-3 w-full h-[4.2rem] rounded border-2 border-black rounded-md bg-palePink"
+                      className="p-3 w-full h-[4.2rem] border-2 border-black rounded-md bg-palePink"
                       placeholder={'Subject'}
                       name={'subject'}
                       value={subject}
@@ -113,7 +113,7 @@ const Contact = () => {
 
                   <div className="relative w-full mt-10">
                     <textarea
-                      className="p-3 w-full h-[23rem] rounded border-2 border-black rounded-md bg-palePink"
+                      className="p-3 w-full h-[23rem] border-2 border-black rounded-md bg-palePink"
                       placeholder={'Message'}
                       name={'message'}
                       value={message}
@@ -129,7 +129,7 @@ const Contact = () => {
                   <div className="w-full mt-10 text-white">
                     <input
                       type={'submit'}
-                      className="p-3 w-full h-[5rem] rounded rounded-md bg-blueDark"
+                      className="p-3 w-full h-[5rem] rounded-md bg-blueDark"
                     />
                   </div>
                 </form>
@@ -139,7 +139,7 @@ const Contact = () => {
         </div>
       </Container>
 
-      <div className="box-border w-full h-[49rem] border border-[2.5px] border-grey rounded-lg overflow-hidden">
+      <div className="box-border w-full h-[49rem] border-[2.5px] border-grey rounded-lg overflow-hidden">
         <iframe
           className="w-full h-full"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3285.300203244893!2d-58.46197998417577!3d-34.57126976329002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb5d9ca1ded77%3A0xf196efb54eb631d0!2sCap.%20Gral.%20Ram%C3%B3n%20Freire%201609%2C%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1675630330397!5m2!1ses!2sar"
