@@ -1,7 +1,7 @@
 import { Schema, model, Types } from 'mongoose'
-import { Amenity } from '../interfaces/amenity'
+import { IAmenity } from '../interfaces/amenity'
 
-const amenitySchema = new Schema<Amenity>(
+const amenitySchema = new Schema<IAmenity>(
     {
         name: {
             type: String,

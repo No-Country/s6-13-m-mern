@@ -1,4 +1,4 @@
-export interface Amenity {
+export interface IAmenity {
     id: Types.ObjectId
     name: String
     description: String

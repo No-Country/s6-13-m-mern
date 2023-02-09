@@ -1,4 +1,4 @@
-export interface Reserve {
+export interface IReserve {
     user: user.id
     startDate: date
     endDate: date

@@ -1,7 +1,7 @@
 import { Schema, model } from 'mongoose'
-import { Reserve } from '../interfaces/reserve'
+import { IReserve } from '../interfaces/reserve'
 
-const reserveSchema = new Schema<Reserve>(
+const reserveSchema = new Schema<IReserve>(
     {
         user: {
             type: String,

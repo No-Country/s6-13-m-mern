@@ -1,7 +1,7 @@
 import { Schema, model, Types } from 'mongoose'
-import { Schedule } from '../interfaces/schedule'
+import { ISchedule } from '../interfaces/schedule'
 
-const scheduleSchema = new Schema<Schedule>(
+const scheduleSchema = new Schema<ISchedule>(
     {
         name: {
             type: String,
