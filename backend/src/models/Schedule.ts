@@ -9,7 +9,7 @@ const scheduleSchema = new Schema<ISchedule>(
             unique: true,
             trim: true,
         },
-        reserve: [
+        reserved: [
             {
                 type: Types.ObjectId,
                 ref: 'Reserve',
