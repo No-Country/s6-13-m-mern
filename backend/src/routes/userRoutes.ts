@@ -7,11 +7,11 @@ import {
     registerController,
 } from '../controllers'
 
-import { validateToken } from '../middlewares'
+import { registerValidate, validateToken } from '../middlewares'
 
 const router = Router()
 
-router.post('/register', registerController)
+router.post('/register', registerValidate, registerController)
 router.get('/getuser/:id', validateToken, getUserController)
 router.get('/getAllUsers', getAllUsersController)
 router.put('/update/:id', validateToken, editUserController)
