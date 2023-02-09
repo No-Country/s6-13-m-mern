@@ -1,9 +1,10 @@
 import User from '../../models/User'
+import { EStatus } from '../../utils'
 
 export const deleteUSerService = async (id: string) => {
     try {
-        const deletedUser = await User.findByIdAndDelete(id)
-        console.log(deletedUser)
+        const deletedUser = await User.findById(id)
+
         if (!deletedUser) {
             const response = {
                 ok: false,
@@ -11,6 +12,9 @@ export const deleteUSerService = async (id: string) => {
             }
             return response
         }
+
+        deletedUser.status = EStatus.disabled
+        await deletedUser.save()
         const response = {
             ok: true,
             status: 200,

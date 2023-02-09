@@ -1,5 +1,5 @@
-import { Schema, model, Types } from "mongoose"
-import { ISchedule } from "../interfaces/schedule"
+import { Schema, model, Types } from 'mongoose'
+import { ISchedule } from '../interfaces/schedule'
 
 const scheduleSchema = new Schema<ISchedule>(
     {
@@ -7,18 +7,20 @@ const scheduleSchema = new Schema<ISchedule>(
             type: String,
             required: true,
             unique: true,
-            trim: true
+            trim: true,
         },
-        reserved: {
-            type: Types.ObjectId,
-            ref: 'Reserve'
-        },
-      },
+        reserve: [
+            {
+                type: Types.ObjectId,
+                ref: 'Reserve',
+            },
+        ],
+    },
     {
         timestamps: true,
-        versionKey: false
+        versionKey: false,
     }
 )
-  
+
 const Schedule = model('Schedule', scheduleSchema)
 export default Schedule
