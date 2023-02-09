@@ -1,5 +1,5 @@
-export interface Schedule {
+export interface ISchedule {
   id: Types.ObjectId;
   name: String;
-  reserve: Types.ObjectId;
+  reserved: Types.ObjectId;
 }
