@@ -1,25 +1,29 @@
-import {Schema, model} from "mongoose"
-import { EStatus } from "../utils/enums";
-import { IUser } from "../interfaces";
+import { Schema, model } from 'mongoose'
+import { EStatus } from '../utils/enums'
+import { IUser } from '../interfaces'
 
 const userSchema = new Schema<IUser>(
     {
-        username: {
+        name: {
             type: String,
             required: true,
-            unique: true,
-            trim: true
+            trim: true,
+        },
+        lastname: {
+            type: String,
+            required: true,
+            trim: true,
         },
         email: {
             type: String,
             required: true,
             unique: true,
-            trim: true
+            trim: true,
         },
         password: {
             type: String,
             required: true,
-            trim: true
+            trim: true,
         },
         isAdmin: {
             type: Boolean,
@@ -29,35 +33,36 @@ const userSchema = new Schema<IUser>(
             type: Boolean,
             default: false,
         },
-        externalId:{
+        externalId: {
             type: String,
-            default: ""
+            default: '',
         },
         status: {
             type: String,
             enum: EStatus,
-            default: "active"
+            default: 'active',
         },
         token: {
             type: String,
             trim: true,
-            default: ""
+            default: '',
         },
-        apt:{
+        apt: {
             type: String,
             trim: true,
-            default: ""
+            default: '',
         },
-        // consortium: {
-        //     type: mongoose.Schema.Types.ObjectId,
-        //     ref: "Consortium",
-        //     default: []
-        // }
+        consortium: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Consortium',
+            },
+        ],
     },
     {
         timestamps: true,
-        versionKey: false
+        versionKey: false,
     }
 )
 
-export default model("User", userSchema);
+export default model('User', userSchema)

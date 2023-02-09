@@ -1,13 +1,8 @@
-import { Schema, model, Types } from "mongoose"
-import { Reserve } from "../interfaces/reserve"
+import { Schema, model } from "mongoose"
+import { IReserve } from "../interfaces/reserve"
 
-const reserveSchema = new Schema<Reserve>(
+const reserveSchema = new Schema<IReserve>(
     {
-        id: {
-            type: Types.ObjectId,
-            required: true,
-            unique: true
-        },
         user: {
             type: String,
             required: true,
