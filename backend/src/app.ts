@@ -7,6 +7,9 @@ import cookieParser from 'cookie-parser'
 
 import authRoutes from './routes/authRoutes'
 import userRoutes from './routes/userRoutes'
+import amenityRoutes from './routes/amenityRoutes'
+import reserveRoutes from './routes/reserveRoutes'
+import scheduleRoutes from './routes/scheduleRoutes'
 
 dotenv.config()
 const app = express()
@@ -35,5 +38,8 @@ app.get('/healthCheckApi', (_req: Request, res: Response) => {
 // Routes
 app.use('/api/auth', authRoutes)
 app.use('/api/user', userRoutes)
+app.use('/api/amenity', amenityRoutes)
+app.use('/api/reserve', reserveRoutes)
+app.use('/api/schedule', scheduleRoutes)
 
 export default app

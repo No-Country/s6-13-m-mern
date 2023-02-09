@@ -1,20 +1,15 @@
 import { Schema, model, Types } from "mongoose"
-import { Schedule } from "../interfaces/schedule"
+import { ISchedule } from "../interfaces/schedule"
 
-const scheduleSchema = new Schema<Schedule>(
+const scheduleSchema = new Schema<ISchedule>(
     {
-        id: {
-            type: Types.ObjectId,
-            required: true,
-            unique: true
-        },
         name: {
             type: String,
             required: true,
             unique: true,
             trim: true
         },
-        reserve: {
+        reserved: {
             type: Types.ObjectId,
             ref: 'Reserve'
         },
