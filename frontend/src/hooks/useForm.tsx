@@ -12,7 +12,7 @@ const useForm = <T extends Object>(initState: T) => {
   return {
     form,
     handleChange,
-    ...form,
+    ...form
   };
 };
 
