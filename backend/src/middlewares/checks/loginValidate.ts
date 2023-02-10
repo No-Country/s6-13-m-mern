@@ -15,6 +15,7 @@ export const loginValidate = [
         if (!errors.isEmpty()) {
             return res.status(403).json({ ok: false, error: errors.array() })
         }
+        // eslint-disable-next-line @typescript-eslint/no-confusing-void-expression
         return next()
     },
 ]

@@ -1,6 +1,6 @@
-import BackgroundImage from '../components/BackgroundImage';
-import Container from '../components/Container';
-import Hero from '../components/Hero';
+import BackgroundImage from '../components/BackgroundImage'
+import Container from '../components/Container'
+import Hero from '../components/Hero'
 
 const About = () => {
   return (
@@ -12,7 +12,7 @@ const About = () => {
               <div className="w-[650px] py-16">
                 <h1 className="text-4.5xl">About Us</h1>
                 <h2 className="text-2.5xl ml-11 py-3 mt-1">
-                  We are a team that work everyday to develop great products that make people's lives easier
+                  We are a team that work everyday to develop great products that make people&apos;s lives easier
                 </h2>
                 <ul className="text-2.5xl mt-24 h-[130px] flex flex-col justify-between">
                   <li className="text-transparent bg-clip-text bg-gradient-to-b from-blue to-black opacity-[.8]">
@@ -69,7 +69,7 @@ const About = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default About;
+export default About

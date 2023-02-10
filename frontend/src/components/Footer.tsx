@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Footer = () => {
   return (
     <div className="relative txt-[13px]">
@@ -79,7 +77,7 @@ const Footer = () => {
         </section>
       </footer>
     </div>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

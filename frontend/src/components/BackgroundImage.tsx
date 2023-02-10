@@ -1,8 +1,8 @@
-import React from 'react';
+import type React from 'react'
 
 type Props = {
-  imageUrl: string;
-} & React.ComponentProps<'div'>;
+  imageUrl: string
+} & React.ComponentProps<'div'>
 
 const BackgroundImage = ({ imageUrl, children }: Props) => {
   return (
@@ -15,7 +15,7 @@ const BackgroundImage = ({ imageUrl, children }: Props) => {
     >
       {children}
     </div>
-  );
-};
+  )
+}
 
-export default BackgroundImage;
+export default BackgroundImage

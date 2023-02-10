@@ -3,12 +3,15 @@ import Reserve from '../../models/Reserve'
 
 export const postReserveService = async (reserve: IReserve) => {
     try {
-        const findByName = await Reserve.findOne({ date: reserve.startDate })
+        const findByName = await Reserve.findOne({
+            //! Ver aca ahora que hay dos fechas de inicio y fin
+            startDate: reserve.startDate,
+        })
         if (findByName === null) {
             const reserveToCreate = await Reserve.create(reserve)
             await reserveToCreate.save()
 
-            const { user, startDate } = reserveToCreate
+            const { user, startDate, endDate } = reserveToCreate
 
             const response = {
                 msg: 'Reserve created',
@@ -16,6 +19,7 @@ export const postReserveService = async (reserve: IReserve) => {
                 ok: true,
                 user,
                 startDate,
+                endDate,
             }
             return response
         }

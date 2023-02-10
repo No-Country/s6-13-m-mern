@@ -8,11 +8,11 @@ export const putReserveService = async (id: string, body: IReserve) => {
         }).select('-createdAt -updatedAt')
 
         if (reserveUpdate) {
-            const { user, startDate } = reserveUpdate
+            const { user, startDate, endDate } = reserveUpdate //! Cuidado que aca se cambio por dos fechas nuevas
             const response = {
                 status: 200,
                 msg: 'Reserve actualizada con exito',
-                reserve: { user, startDate },
+                reserve: { user, startDate, endDate },
                 ok: true,
             }
             return response

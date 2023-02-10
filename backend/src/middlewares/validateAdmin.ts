@@ -22,7 +22,7 @@ export const validateAdmin = async (
 
         const { role } = jwt.verify(
             token,
-            `${process.env.JWT_SECRET}`
+            `${process.env.JWT_SECRET || ''}`
         ) as IPayload
 
         //* Compruebo que sea un admin
@@ -34,7 +34,8 @@ export const validateAdmin = async (
             })
         }
 
-        return next()
+        next()
+        return
     } catch (error) {
         console.log(error)
         return res.status(404).json({

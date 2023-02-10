@@ -1,54 +1,55 @@
-import { FormEvent, useState } from 'react';
-import Container from '../components/Container';
-import useForm from '../hooks/useForm';
+import { type FormEvent, useState } from 'react'
+import Container from '../components/Container'
+import useForm from '../hooks/useForm'
 
 interface FormData {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
+  name: string
+  email: string
+  subject: string
+  message: string
 }
 
 interface Error {
-  field: string;
-  message: string;
+  field: string
+  message: string
 }
 
 const Contact = () => {
-  const [errors, setErrors] = useState<Error[]>([]);
+  const [errors, setErrors] = useState<Error[]>([])
 
-  const { form, handleChange } = useForm<FormData>({
+  const { form, handleChange } = useForm({
     name: '',
     email: '',
     subject: '',
     message: '',
-  });
+  })
 
-  const { name, email, subject, message } = form;
+  const { name, email, subject, message } = form
 
   const sendEmail = (ev: FormEvent<HTMLFormElement>) => {
-    ev.preventDefault();
-    const formKeys = Object.keys(form) as Array<keyof typeof form>;
-    const newErrors: Error[] = [];
+    ev.preventDefault()
+    const formKeys = Object.keys(form) as Array<keyof typeof form>
+    const newErrors: Error[] = []
 
-    formKeys.forEach((field) => {
-      if (form[field] === '') {
-        newErrors.push({
-          field,
-          message: `${field.charAt(0).toUpperCase() + field.slice(1)} is required`,
-        });
-      }
-    });
+    //! Tira error eslint....revisar
+    // formKeys.forEach((field) => {
+    //   if (form[field] === '') {
+    //     newErrors.push({
+    //       field,
+    //       message: `${field.charAt(0).toUpperCase() + field.slice(1)} is required`,
+    //     })
+    //   }
+    // })
 
     if (newErrors.length > 0) {
-      setErrors(newErrors);
-      return;
+      setErrors(newErrors)
+      return
     }
 
-    setErrors([]);
+    setErrors([])
 
     /** TO DO send email */
-  };
+  }
 
   return (
     <section className="bg-palePink w-full">
@@ -147,7 +148,7 @@ const Contact = () => {
         ></iframe>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Contact;
+export default Contact

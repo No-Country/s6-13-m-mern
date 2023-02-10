@@ -4,15 +4,27 @@
     "es2021": true
     
   },
-  "extends": ["plugin:react/recommended","eslint-config-prettier", "standard-with-typescript","eslint:recommended", "plugin:@typescript-eslint/recommended"],
+  "parser": "@typescript-eslint/parser",
+  "extends": ["eslint:recommended","plugin:react/recommended","plugin:react/jsx-runtime","eslint-config-prettier", "prettier","standard-with-typescript", "plugin:@typescript-eslint/recommended"],
   "overrides": [],
   "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
     "ecmaVersion": "latest",
-    "sourceType": "module"
+    "sourceType": "module",
+    "project": ["**/tsconfig.json"]
+    // "extraFileExtensions": ["*.test.tsx"]
   },
   "root": true,
- " parser": "@typescript-eslint/parser",
+ 
   "plugins": ["react","@typescript-eslint"],
-  "ignorePatterns": ["dist", "build", "tailwind.config.cjs", "postcss.config.cjs","jest.config.js","babel.config.js"],
-  "rules": {}
+  "ignorePatterns": ["dist", "build", "tailwind.config.cjs", "postcss.config.cjs","jest.config.js","babel.config.js", "*.test.tsx","*.test.ts","*.css","*.txt"],
+  "rules": {
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "comma-dangle": "off",
+    "@typescript-eslint/comma-dangle": "off",
+    "@typescript-eslint/strict-boolean-expressions": "off",
+    "@typescript-eslint/prefer-nullish-coalescing": "off"
+  }
 }

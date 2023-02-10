@@ -1,6 +1,6 @@
-import BackgroundImage from '../components/BackgroundImage';
-import Container from '../components/Container';
-import Hero from '../components/Hero';
+import BackgroundImage from '../components/BackgroundImage'
+import Container from '../components/Container'
+import Hero from '../components/Hero'
 
 const Home = () => {
   return (
@@ -87,16 +87,17 @@ const Home = () => {
           <Container>
             <div className="w-full h-full pt-52">
               <div className="w-full">
-                <h2 className="font-bold text-3xl text-blueDark">What's S.O.S Consortia?</h2>
+                <h2 className="font-bold text-3xl text-blueDark">What&apos;s S.O.S Consortia?</h2>
                 <p className="text-2xl font-inter">
-                  It's a software that provides the <b>easiest</b> way to manage the key information of you consortium
+                  It&apos;s a software that provides the <b>easiest</b> way to manage the key information of you
+                  consortium
                 </p>
                 <ul className="relative list-disc text-2xl mt-12 font-inter w-full">
                   <li className="relative left-[16vw] p-3 max-w-max">Create a dashboard</li>
                   <li className="relative left-[48vw] p-3 max-w-max">Establishes rules of coexistence</li>
                   <li className="relative left-[27vw] p-3 max-w-max">Know the relevant data</li>
                   <li className="relative left-[8vw] p-3 max-w-max">Add your users</li>
-                  <li className="relative -left-[2vw] p-3 max-w-max">Show everyone's debts</li>
+                  <li className="relative -left-[2vw] p-3 max-w-max">Show everyone&apos;s debts</li>
                 </ul>
               </div>
             </div>
@@ -104,7 +105,7 @@ const Home = () => {
         </BackgroundImage>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home
