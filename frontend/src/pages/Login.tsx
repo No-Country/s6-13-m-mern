@@ -38,7 +38,7 @@ const Login = () => {
           <h1 className="text-[30px]">Welcome!</h1>
           <h2 className="ml-6 mb-8">Please fill your info to start</h2>
           <div className="w-[454px]">
-            <form onSubmit={handleSubmit(customSubmit)}>
+            <form onSubmit={() => handleSubmit(customSubmit)}>
               <input
                 className={`border-2 ${
                   !errors.email ? 'border-blueDark' : 'border-red'

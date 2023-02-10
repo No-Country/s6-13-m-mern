@@ -63,7 +63,7 @@ const Signin = () => {
           <h1 className="text-[30px]">Welcome!</h1>
           <h2 className="ml-6 mb-8">Please fill your info to start</h2>
           <div className="w-full">
-            <form onSubmit={handleSubmit(customSubmit)}>
+            <form onSubmit={() => handleSubmit(customSubmit)}>
               <div className="flex justify-between">
                 <div className="mx-auto w-[400px]">
                   <input
@@ -124,6 +124,7 @@ const Signin = () => {
                     type="text"
                     placeholder="Enter your phone"
                     autoComplete="off"
+                    // eslint-disable-next-line no-useless-escape
                     {...register('phone', { pattern: /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/ })}
                   />
                 </div>
