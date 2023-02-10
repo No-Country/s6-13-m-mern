@@ -1,9 +1,0 @@
-{
-  "development": {
-    "VITE_BASE_URL": "mongodb+srv://admin:cxgEXzwgDMa32i3g@sosapi.ylrucre.mongodb.net/development",
-    "VITE_LOCAL_BASE_URL": "http://localhost:3002"
-  },
-  "production": {
-    "VITE_BASE_URL": "Estas en produccion"
-  }
-}
