@@ -16,9 +16,6 @@ const swaggerDefinition: OAS3Definition = {
         {
             url: 'http://localhost:3002',
         },
-        {
-            url: 'https://sos-consortia.herokuapp.com/',
-        },
     ],
     components: {
         securitySchemes: {
