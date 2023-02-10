@@ -20,6 +20,21 @@ module.exports = {
       fontSize: {
         '2.5xl': ['1.8rem', '2.3rem'],
         '4.5xl': ['2.5rem', '3.2rem'],
+      },
+      keyframes: {
+        fadeInRight: {
+          '0%': { transform: 'translateX(50px)', opacity: '0' },
+          '100%': { transform: 'translateX(0deg)', opacity: '1' },
+        }
+        ,
+        fadeInBottom: {
+          '0%': { transform: 'translateY(50px)', opacity: '0' },
+          '100%': { transform: 'translateY(0px)', opacity: '1' },
+        }
+      },
+      animation: {
+        'fadeInRight': 'fadeInRight 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940)',
+        'fadeInBottom': 'fadeInBottom 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000)'
       }
     },
   },

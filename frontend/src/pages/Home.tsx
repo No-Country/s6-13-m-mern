@@ -10,7 +10,7 @@ const Home = () => {
           <Container>
             <div className="relative w-full h-full flex items-center justify-center">
               <div className="relative w-full h-[600px] flex flex-row justify-between">
-                <div>
+                <div className="animate-fadeInBottom">
                   <h1 className="text-4.5xl text-blueDark font-bold py-2">
                     Your Ideal Software For
                     <br /> Consortia Management
@@ -20,7 +20,7 @@ const Home = () => {
                     <br /> with your community.
                   </h2>
                   <div className="absolute bottom-7">
-                    <button className="flex items-center  bg-[#00BB2D] rounded-full text-white text-2xl font-bold gap-x-6 pl-9 pr-11 py-3 drop-shadow-[0px_5px_1px_rgba(0,0,0,0.5)] hover:-translate-y-1 hover:translate-x-1 hover:bg-[#34b7f1] hover:drop-shadow-[-3px_8px_1px_rgba(0,0,0,0.4)] transition duration:100 hover:scale-105">
+                    <button className="flex items-center bg-[#00BB2D] rounded-full text-white text-2xl font-bold gap-x-6 pl-9 pr-11 py-3 drop-shadow-[0px_5px_1px_rgba(0,0,0,0.5)] hover:-translate-y-1 hover:translate-x-1 hover:bg-[#34b7f1] hover:drop-shadow-[-3px_8px_1px_rgba(0,0,0,0.4)] transition duration:100 hover:scale-105 fa">
                       <svg
                         width="54"
                         height="53"
@@ -39,7 +39,7 @@ const Home = () => {
                     </button>
                   </div>
                 </div>
-                <div className="relative w-[630px] h-[600px]">
+                <div className="relative w-[630px] h-[600px] animate-fadeInRight">
                   <div className="absolute bg-white top-0 left-0 rounded origin-top-left rotate-[-1.75deg] border-2 border-black drop-shadow-[0px_4px_1px_rgba(0,0,0,0.5)] transition ease-in-out delay-100 hover:-translate-y-10 hover:-translate-x-10  duration-200">
                     <img
                       src={'./assets/people2.svg'}
@@ -82,8 +82,8 @@ const Home = () => {
         </Hero>
       </div>
 
-      <div className="w-full h-screen drop-shadow-[0px_10px_7px_rgba(0,0,0,0.5)]">
-        <BackgroundImage imageUrl="src/assets/night-city.svg">
+      <div className="w-full h-screen min-h-[800px]">
+        <BackgroundImage imageUrl="./assets/night-city.svg">
           <Container>
             <div className="w-full h-full pt-52">
               <div className="w-full">

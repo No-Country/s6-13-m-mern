@@ -6,7 +6,7 @@ type Props = {
 
 const Hero = ({ imageUrl, children }: Props) => {
   return (
-    <div className="w-full h-screen">
+    <div className="w-full h-screen min-h-[800px]">
       <BackgroundImage imageUrl={imageUrl}>{children}</BackgroundImage>
     </div>
   )
