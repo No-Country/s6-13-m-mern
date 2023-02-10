@@ -8,7 +8,7 @@ export const deleteScheduleService = async(id: string) => {
       const { id } = scheduleDeleted
       const response = {
         status: 200,
-        msg : 'Schedule eliminada con exito',
+        msg: 'Schedule eliminada con exito',
         ok: true,
         id
       }

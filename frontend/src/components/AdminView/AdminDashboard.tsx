@@ -1,8 +1,8 @@
-import { FC } from 'react';
-import { Link } from 'react-router-dom';
+import { type FC } from 'react'
+import { Link } from 'react-router-dom'
 
 interface AdminDashboardProps {
-  name?: string;
+  name?: string
 }
 
 const actions = [
@@ -36,7 +36,7 @@ const actions = [
     name: 'Authorizations',
     path: 'authorizations',
   },
-];
+]
 // src={'./assets/adm/}
 
 export const AdminDashboard: FC<AdminDashboardProps> = ({ name = 'Alberto' }: AdminDashboardProps) => {
@@ -44,7 +44,7 @@ export const AdminDashboard: FC<AdminDashboardProps> = ({ name = 'Alberto' }: Ad
     <div className=" w-full m-auto flex flex-col justify-start items-center gap-4 py-10 relative ">
       <div className="absolute top-0 w-full h-[45%] -z-10 border-b-2 bg-blue border-black" />
       <div
-        className="text-white w-full p-10 max-w-screen-xl m-auto text-2xl font-bold font-inter 
+        className="text-white w-full p-10 max-w-screen-xl m-auto text-2xl font-bold font-inter
                     md:text-left md:text-3xl"
       >
         Welcome {name}!
@@ -72,5 +72,5 @@ export const AdminDashboard: FC<AdminDashboardProps> = ({ name = 'Alberto' }: Ad
         ))}
       </div>
     </div>
-  );
-};
+  )
+}

@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
-  const [isNavOpen, setisNavOpen] = useState(false);
+  const [isNavOpen, setisNavOpen] = useState(false)
 
   const handleOpenNav = () => {
-    setisNavOpen(!isNavOpen);
-  };
+    setisNavOpen(!isNavOpen)
+  }
 
-  console.log(isNavOpen);
+  console.log(isNavOpen)
 
   return (
     <header>
@@ -95,7 +95,7 @@ const Header = () => {
         </div>
       </nav>
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

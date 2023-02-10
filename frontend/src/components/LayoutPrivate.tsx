@@ -1,11 +1,11 @@
-import { Navigate, Outlet } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom'
 
 const LayoutPrivate = () => {
-  //TODO: Traer del estado el user logueado o el token!
+  // TODO: Traer del estado el user logueado o el token!
 
-  const userLogged = false;
+  const userLogged = false
 
-  return <div>{userLogged ? <Outlet /> : <Navigate to="/login" />}</div>;
-};
+  return <div>{userLogged ? <Outlet /> : <Navigate to="/login" />}</div>
+}
 
-export default LayoutPrivate;
+export default LayoutPrivate

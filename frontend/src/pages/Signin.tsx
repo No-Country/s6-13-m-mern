@@ -1,22 +1,22 @@
-import { Link } from 'react-router-dom';
-import Container from '../components/Container';
-import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom'
+import Container from '../components/Container'
+import { useEffect, useState } from 'react'
 
 const Signin = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [password2, setPassword2] = useState('');
-  const [name, setName] = useState('');
-  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [password2, setPassword2] = useState('')
+  const [name, setName] = useState('')
+  const [lastName, setLastName] = useState('')
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log(email, password);
-  };
+    e.preventDefault()
+    console.log(email, password)
+  }
 
   useEffect(() => {
-    console.log(email);
-  }, [email]);
+    console.log(email)
+  }, [email])
 
   return (
     <Container>
@@ -37,7 +37,9 @@ const Signin = () => {
                 autoComplete="off"
                 name="name"
                 value={name}
-                onChange={(e) => setName(e.target.value)}
+                onChange={(e) => {
+                  setName(e.target.value)
+                }}
               />
               <h2 className="mb-3">Last Name</h2>
               <input
@@ -46,7 +48,9 @@ const Signin = () => {
                 placeholder="Enter your last name"
                 name="lastname"
                 value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
+                onChange={(e) => {
+                  setLastName(e.target.value)
+                }}
               />
             </div>
             <div className="mr-auto">
@@ -58,7 +62,9 @@ const Signin = () => {
                 autoComplete="off"
                 name="email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => {
+                  setEmail(e.target.value)
+                }}
               />
               <h2 className="mb-3">Password</h2>
               <input
@@ -67,7 +73,9 @@ const Signin = () => {
                 placeholder="Enter your password"
                 name="password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) => {
+                  setPassword(e.target.value)
+                }}
               />
               <h2 className="mb-3">Repeat Password</h2>
               <input
@@ -76,7 +84,9 @@ const Signin = () => {
                 placeholder="Repeat your password"
                 name="password2"
                 value={password2}
-                onChange={(e) => setPassword2(e.target.value)}
+                onChange={(e) => {
+                  setPassword2(e.target.value)
+                }}
               />
               <button
                 type="submit"
@@ -119,7 +129,7 @@ const Signin = () => {
         </div>
       </div>
     </Container>
-  );
-};
+  )
+}
 
-export default Signin;
+export default Signin

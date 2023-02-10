@@ -8,7 +8,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "test": "jest",
-    "eslint": "eslint --fix --ext .ts,.tsx",
+    "eslint": "eslint src/** --ext .ts,.tsx --fix",
     "start": "env-cmd -e production vite"
   },
   "dependencies": {

@@ -1,20 +1,20 @@
-import { useEffect, useState } from 'react';
-import Container from '../components/Container';
-import { Link } from 'react-router-dom';
-import BackgroundImage from '../components/BackgroundImage';
+import { useEffect, useState } from 'react'
+import Container from '../components/Container'
+import { Link } from 'react-router-dom'
+import BackgroundImage from '../components/BackgroundImage'
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log(email, password);
-  };
+    e.preventDefault()
+    console.log(email, password)
+  }
 
   useEffect(() => {
-    console.log(email);
-  }, [email]);
+    console.log(email)
+  }, [email])
 
   return (
     <BackgroundImage imageUrl="src/assets/oneBuild.svg">
@@ -32,7 +32,9 @@ const Login = () => {
                 autoComplete="off"
                 name="email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => {
+                  setEmail(e.target.value)
+                }}
               />
               <h2 className="mb-3">Password</h2>
               <input
@@ -41,7 +43,9 @@ const Login = () => {
                 placeholder="Enter your password"
                 name="password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) => {
+                  setPassword(e.target.value)
+                }}
               />
               <button
                 type="submit"
@@ -69,7 +73,7 @@ const Login = () => {
         </div>
       </Container>
     </BackgroundImage>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login

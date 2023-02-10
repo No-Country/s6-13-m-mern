@@ -15,7 +15,7 @@ export const postAmenityService = async(amenity:IAmenity) => {
         msg: 'Amenity created',
         status: 200,
         ok: true,
-        id: id,
+        id,
         name,
         description
       }

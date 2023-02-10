@@ -19,12 +19,13 @@ export const validateToken = (
             })
         }
 
-        jwt.verify(token, `${process.env.JWT_SECRET}`) as IPayload
+        jwt.verify(token, `${process.env.JWT_SECRET || ''}`) as IPayload
 
         // req.id = id
         // req.role = role
 
-        return next()
+        next()
+        return
     } catch (error) {
         console.log(error)
         return res.status(404).json({

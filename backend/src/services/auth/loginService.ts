@@ -12,7 +12,7 @@ export const loginService = async (email: string) => {
             return response
         }
 
-        if (user.isValidated === false) {
+        if (!user.isValidated) {
             const response = {
                 ok: false,
                 status: 401,

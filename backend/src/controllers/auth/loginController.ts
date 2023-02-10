@@ -35,7 +35,7 @@ export const loginController = async (req: Request, res: Response) => {
         }
 
         //* Creacion de jwt
-        const token = await jwtGenerate(user._id, user.role)
+        const token = jwtGenerate(user._id, user.role)
 
         return res.status(200).json({
             ok: true,
