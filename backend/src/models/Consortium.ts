@@ -28,6 +28,10 @@ const consortiumSchema = new Schema<IConsortium>({
         type: Number,
         required: true,
     },
+    schedule: {
+        type: Schema.Types.ObjectId,
+        ref: 'Schedule',
+    },
     amenities: [
         {
             type: Schema.Types.ObjectId,

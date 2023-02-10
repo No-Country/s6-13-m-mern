@@ -1,4 +1,11 @@
 export enum EStatus {
-    active,
-    disabled
+    active = 'active',
+    disabled = 'disabled',
+    banned = 'banned',
+}
+
+export enum ERoles {
+    admin = 'admin',
+    tenant = 'tenant',
+    user = 'user',
 }

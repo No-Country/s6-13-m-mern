@@ -2,7 +2,7 @@ import User from '../../models/User'
 
 export const getAllUsersService = async () => {
     try {
-        const allUsers = await User.find().select(
+        const allUsers = await User.find({ status: 'active' }).select(
             '-password -createdAt -updatedAt -externalId -token -isValidated'
         )
         if (allUsers.length < 1) {

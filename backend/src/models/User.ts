@@ -1,5 +1,5 @@
 import { Schema, model } from 'mongoose'
-import { EStatus } from '../utils/enums'
+import { ERoles, EStatus } from '../utils/enums'
 import { IUser } from '../interfaces'
 
 const userSchema = new Schema<IUser>(
@@ -25,13 +25,19 @@ const userSchema = new Schema<IUser>(
             required: true,
             trim: true,
         },
-        isAdmin: {
-            type: Boolean,
-            default: false,
+        img: {
+            type: String,
+            default:
+                'https://www.softzone.es/app/uploads-softzone.es/2018/04/guest.png',
+        },
+        role: {
+            type: String,
+            enum: ERoles,
+            default: 'user',
         },
         isValidated: {
             type: Boolean,
-            default: false,
+            default: true,
         },
         externalId: {
             type: String,

@@ -1,12 +1,13 @@
 import { Types } from 'mongoose'
-import { EStatus } from '../utils/enums'
+import { ERoles, EStatus } from '../utils/enums'
 
 export interface IUser {
     name: string
     lastname: string
     email: string
     password: string
-    isAdmin: boolean
+    img: string
+    role?: ERoles
     googleId: string
     isValidated: boolean
     externalId?: string

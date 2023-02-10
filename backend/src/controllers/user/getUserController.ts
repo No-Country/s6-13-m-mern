@@ -18,6 +18,11 @@ export const getUserController = async (req: Request, res: Response) => {
             return res.status(status).json({ ok, msg: 'User not found' })
         }
 
+        //* Comprobar que sea un usuario activo
+        if (!ok && status === 401) {
+            return res.status(status).json({ ok, msg: 'User id disabled' })
+        }
+
         return res.status(status).json({ ok, user })
     } catch (error) {
         console.log(error)
