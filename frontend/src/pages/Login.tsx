@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Container from '../components/Container';
 import { Link } from 'react-router-dom';
 import BackgroundImage from '../components/BackgroundImage';
-import useForm from '../hooks/useForm';
+import { useForm, SubmitHandler } from 'react-hook-form'
 
 interface FormData {
   email: string;
@@ -11,90 +11,44 @@ interface FormData {
 
 const Login = () => {
 
-  const [valid, setValid] = useState({
-    emailTouched:false,
-    emailValid:false,
-    passwordTouched:false,
-    passwordValid:false,  
-    errorMsg:""  
-  })
+  const { register, handleSubmit, formState: { errors, isDirty, isValid }, watch } = useForm({mode:'onTouched'}) 
 
-  const {emailTouched,emailValid,passwordTouched,passwordValid, errorMsg} = valid
-
-  const { form, handleChange } = useForm<FormData>({
-    email: '',
-    password: '',
-  });
-
-  const { email, password } = form
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log(email, password);
-  };
-
-
-  useEffect(() => {
-    if (emailTouched){
-      if (email === "") {
-        setValid({...valid,emailValid:false, errorMsg:"Complete all required fields"})
-      }
-      else if (email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) {
-        setValid({...valid,emailValid:true, errorMsg:""})
-      }
-      else setValid({...valid,emailValid:false, errorMsg:"It's not an Email"})   
-    }
-  }, [email,emailTouched])
-  
-  useEffect(() => {
-    if (passwordTouched){
-      if (password === "") {
-        setValid({...valid,passwordValid:false})
-        if (errorMsg === ""){
-          setValid({...valid, errorMsg:"Complete all required fields"})
-        }
-      }
-      else  {
-        setValid({...valid,passwordValid:true})
-        if (emailValid){
-          setValid({...valid, errorMsg:""})
-        }
-    }}
-  }, [password,passwordTouched])
-  
+  //todo Ver any, no sirve formData..
+  const customSubmit:SubmitHandler<any> = (data) => {
+    console.log(data)
+}
+   
 
   return (
     <BackgroundImage imageUrl="/assets/oneBuild.svg">
-          {errorMsg!=="" && <p className='absolute w-full h-8 px-8 bg-red rounded-b-sm border border-black text-lg font-sans text-white'>{errorMsg}</p>}
+          {(errors.email?.type === 'required' || errors.password?.type === 'required') && <p className='absolute w-full h-8 px-8 bg-red rounded-b-sm border border-black text-lg font-sans text-white'>Complete all required fields</p>}
+          {errors.email?.type === 'pattern' && <p className='absolute w-full h-8 px-8 bg-red rounded-b-sm border border-black text-lg font-sans text-white'>It's not a valid e-mail</p>}
       <Container>
         <div className=" font-sans text-[24px] py-14 h-max">
           <h1 className="text-[30px]">Welcome!</h1>
           <h2 className="ml-6 mb-8">Please fill your info to start</h2>
           <div className="w-[454px]">
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit(customSubmit)}>
               <input
-                className="border-2 border-blueDark rounded-lg h-12 px-4 mb-8 w-full placeholder:italic placeholder:text-grey bg-transparent focus:outline-none text-lg"
-                type="email"
-                placeholder="Enter your email"
-                autoComplete="off"
-                name="email"
-                value={email}
-                onChange={handleChange}
-                onBlur={()=>setValid({...valid,emailTouched:true})}
+              className={`border-2 ${ !errors.email ? 'border-blueDark' : 'border-red' } rounded-lg h-12 px-4 mb-8 w-full placeholder:italic placeholder:text-grey bg-transparent focus:outline-none text-lg`}
+              type="email"
+              placeholder="Enter your email"
+              autoComplete="off"
+              {...register('email',{ 
+                required:true,
+                pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i})}
               />
               <input
-                className="border-2 border-blueDark rounded-lg h-12 px-4 mb-5 w-full placeholder:italic placeholder:text-grey bg-transparent focus:outline-none text-lg"
+                className={`border-2 ${ !errors.password ? 'border-blueDark' : 'border-red' } rounded-lg h-12 px-4 mb-8 w-full placeholder:italic placeholder:text-grey bg-transparent focus:outline-none text-lg`}
                 type="password"
                 placeholder="Enter your password"
-                name="password"
-                value={password}
-                onChange={handleChange}
-                onBlur={()=>setValid({...valid,passwordTouched:true})}
+                {...register('password',{ 
+                  required:true})} 
               />
               <button
                 type="submit"
-                className="bg-blueDark disabled:opacity-50 text-white text-2xl w-60 h-16 rounded-2xl block ml-auto mb-5"
-                disabled={!emailValid || !passwordValid}
+                className="bg-blueDark disabled:opacity-60 text-white text-xl w-60 h-12 rounded-2xl block ml-auto mb-5"
+                disabled={!isDirty || !isValid}
               >
                 LOG IN
               </button>

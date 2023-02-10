@@ -9,15 +9,10 @@ const useForm = <T extends Object>(initState: T) => {
     setForm({ ...form, [name]: value });
   };
 
-  const onResetForm = () => {
-    setForm(initState);
-  };
-
   return {
     form,
     handleChange,
-    ...form,
-    onResetForm
+    ...form
   };
 };
 
