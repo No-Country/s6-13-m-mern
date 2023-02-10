@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import Container from '../components/Container'
 import { useForm, type SubmitHandler } from 'react-hook-form'
 
-const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/
+// const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/
 // min 5 characters, 1 upper case letter, 1 lower case letter, 1 numeric digit.
 
 interface FormData {
@@ -12,6 +12,7 @@ interface FormData {
   name: string
   lastName: string
   phone?: string
+  check: boolean
 }
 
 const Signin = () => {
@@ -20,10 +21,9 @@ const Signin = () => {
     handleSubmit,
     formState: { errors, isDirty, isValid },
     watch,
-  } = useForm({ mode: 'onTouched' })
+  } = useForm<FormData>({ mode: 'onTouched' })
 
-  // todo Ver any, no sirve formData..
-  const customSubmit: SubmitHandler<any> = (data: any) => {
+  const customSubmit: SubmitHandler<FormData> = (data: FormData) => {
     console.log(data)
   }
 
