@@ -21,7 +21,7 @@ export const editUserController = async (req: Request, res: Response) => {
             return res.status(status).json({ ok, msg: 'User not found' })
         }
 
-        return res.status(status).json({ ok, user })
+        return res.status(status).json({ ok, user, msg: 'User Edited' })
     } catch (error) {
         console.log(error)
         return res.status(500).json({
