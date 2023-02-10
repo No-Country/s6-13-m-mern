@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import BackgroundImage from '../components/BackgroundImage'
 import { useForm, type SubmitHandler } from 'react-hook-form'
 
-interface FormData {
+interface FieldValues {
   email: string
   password: string
 }
@@ -13,11 +13,9 @@ const Login = () => {
     register,
     handleSubmit,
     formState: { errors, isDirty, isValid },
-    watch,
-  } = useForm({ mode: 'onTouched' })
+  } = useForm<FieldValues>({ mode: 'onTouched' })
 
-  // todo Ver any, no sirve formData..
-  const customSubmit: SubmitHandler<any> = (data: any) => {
+  const customSubmit: SubmitHandler<FieldValues> = (data: FieldValues) => {
     console.log(data)
   }
 
