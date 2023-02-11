@@ -27,7 +27,7 @@ const UserDashboard = () => {
   return (
     <HeroUser imageUrl={imageUrl}>
       <Container>
-        <div className="flex h-[560px] pt-12">
+        <div className="flex h-[560px] pt-12 justify-center">
           <div className="bg-blueUser bg-opacity-70 min-w-[268px] border-2 border-black rounded-lg pl-7 pr-2">
             <div className="flex mt-10 mb-6 ">
               <div className="rounded-full h-[90px] w-[90px] overflow-hidden border-2 border-black relative">
