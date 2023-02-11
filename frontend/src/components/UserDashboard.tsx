@@ -22,7 +22,6 @@ const UserDashboard = () => {
         setImageUrl('')
         break
     }
-    console.log(imageUrl)
   }, [pathname])
 
   return (
@@ -47,37 +46,37 @@ const UserDashboard = () => {
               to="/userInformation"
               className={({ isActive }: { isActive: boolean }) => `${isActive ? 'font-bold' : ''}`}
             >
-              <p className="py-[18px]">Information</p>
+              <p className="py-[15px]">Information</p>
             </NavLink>
             <NavLink
               to="/userDocuments"
               className={({ isActive }: { isActive: boolean }) => `${isActive ? 'font-bold' : ''}`}
             >
-              <p className="py-[18px]">Documents</p>
+              <p className="py-[15px]">Documents</p>
             </NavLink>
             <NavLink
               to="/userAmenities"
               className={({ isActive }: { isActive: boolean }) => `${isActive ? 'font-bold' : ''}`}
             >
-              <p className="py-[18px]">Amenities</p>
+              <p className="py-[15px]">Amenities</p>
             </NavLink>
             <NavLink
               to="/userPayments"
               className={({ isActive }: { isActive: boolean }) => `${isActive ? 'font-bold' : ''}`}
             >
-              <p className="py-[18px]">Payments</p>
+              <p className="py-[15px]">Payments</p>
             </NavLink>
             <NavLink
               to="/userOrders"
               className={({ isActive }: { isActive: boolean }) => `${isActive ? 'font-bold' : ''}`}
             >
-              <p className="py-[18px]">Orders</p>
+              <p className="py-[15px]">Orders</p>
             </NavLink>
             <NavLink
               to="/userVoting"
               className={({ isActive }: { isActive: boolean }) => `${isActive ? 'font-bold' : ''}`}
             >
-              <p className="py-[18px]">Voting</p>
+              <p className="py-[15px]">Voting</p>
             </NavLink>
           </div>
           <div className="bg-blue bg-opacity-20 w-[880px] border border-black rounded-lg">

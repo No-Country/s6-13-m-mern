@@ -23,6 +23,10 @@ module.exports = {
         '4.5xl': ['2.5rem', '3.2rem'],
       },
       keyframes: {
+        fadeInLeft: {
+          '0%': { transform: 'translateX(-50px)', opacity: '0' },
+          '100%': { transform: 'translateX(0deg)', opacity: '1' },
+        },
         fadeInRight: {
           '0%': { transform: 'translateX(50px)', opacity: '0' },
           '100%': { transform: 'translateX(0deg)', opacity: '1' },
@@ -34,6 +38,7 @@ module.exports = {
         }
       },
       animation: {
+        'fadeInLeft': 'fadeInLeft 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940)',
         'fadeInRight': 'fadeInRight 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940)',
         'fadeInBottom': 'fadeInBottom 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000)'
       }

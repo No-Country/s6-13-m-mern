@@ -4,7 +4,7 @@ export const editUser = {
         summary: 'Edit user',
         security: [
             {
-                apiKeyAuth: [],
+                tokenAuth: [],
             },
         ],
         parameters: [
@@ -35,10 +35,6 @@ export const editUser = {
                                 type: 'string',
                                 example: 'pedro_perez@gmail.com',
                             },
-                            password: {
-                                type: 'string',
-                                example: 'contraseña',
-                            },
                         },
                     },
                     required: ['name', 'lastname', 'email', 'password'],
@@ -48,18 +44,6 @@ export const editUser = {
         responses: {
             '200': {
                 description: 'User Edited',
-                content: {
-                    'application/json': {
-                        schema: {
-                            type: 'object',
-                        },
-                        example: {
-                            ok: true,
-                            msg: 'User Edited',
-                            user: 'User New Data',
-                        },
-                    },
-                },
             },
             '404': {
                 description: 'User not found',
