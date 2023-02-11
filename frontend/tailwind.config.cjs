@@ -7,15 +7,16 @@ module.exports = {
         inter: ['Inter', 'sans-serif'],
       },
       colors: {
-        blue: '#004AAD;',
+        blue: '#004AAD',
         blueDark: '#002A61;',
         black: '#00060D',
         white: '#F8F8F8',
         grey: '#4B4B4B',
         greyLight: '##A6A6A6',
         redLight: '#D9C0C0',
-        red: '#FF0000',
-        palePink: "#E8DBDB"
+        red: '#ff0000',
+        palePink: "#F6EAEA",
+        blueUser: '#0064EB'
       },
       fontSize: {
         '2.5xl': ['1.8rem', '2.3rem'],
