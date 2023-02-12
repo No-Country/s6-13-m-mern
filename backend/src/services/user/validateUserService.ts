@@ -1,29 +1,31 @@
 import User from '../../models/User'
 
-export const getUserService = async (id: string) => {
-    const user = await User.findById(id).select(
-        '-password -createdAt -updatedAt -externalId -token -isValidated'
-    )
+export const validateUserService = async (id: string) => {
+    const user = await User.findById(id)
+
     if (!user) {
         const response = {
             ok: false,
             status: 404,
         }
+
         return response
     }
 
-    if (user.status !== 'active') {
+    if (user.isValidated) {
         const response = {
             ok: false,
-            status: 401,
+            status: 409,
         }
+
         return response
     }
 
+    user.isValidated = true
+    await user.save()
     const response = {
         ok: true,
         status: 200,
-        user,
     }
 
     return response

@@ -1,7 +1,7 @@
-export const getUserById = {
+export const validateUser = {
     get: {
         tags: ['user'],
-        summary: 'Get one user by ID',
+        summary: 'Validate one user by ID',
         // description: 'Get an user by ID',
         security: [
             {
@@ -20,20 +20,13 @@ export const getUserById = {
         ],
         responses: {
             '200': {
-                description: 'successful operation',
-                content: {
-                    'application/json': {
-                        schema: {
-                            $ref: '#/components/schemas/User',
-                        },
-                    },
-                },
-            },
-            '401': {
-                description: 'User is disabled',
+                description: 'User validates',
             },
             '404': {
-                description: 'User not found',
+                description: 'User not exists',
+            },
+            '409': {
+                description: 'User is already validated',
             },
             '500': {
                 description: 'Server Error',

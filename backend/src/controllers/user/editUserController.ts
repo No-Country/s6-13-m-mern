@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
 import { IResponse } from '../../interfaces'
-import { edituserService } from '../../services/user/editUserService'
+import { edituserService } from '../../services'
 
 export const editUserController = async (req: Request, res: Response) => {
     const { id } = req.params

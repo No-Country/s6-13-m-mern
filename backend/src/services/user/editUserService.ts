@@ -2,6 +2,7 @@ import { IUser } from '../../interfaces'
 import User from '../../models/User'
 
 export const edituserService = async (id: string, data: IUser) => {
+    console.log(typeof id)
     try {
         const updatedUser = await User.findByIdAndUpdate(id, data, {
             new: true,
