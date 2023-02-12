@@ -26,6 +26,7 @@ export const router = createBrowserRouter([
       { path: '/login', element: <Login /> },
       { path: '/signin', element: <Signin /> },
       { path: '/admin', element: <AdminDashboard /> },
+      //  Rutas Privadas
       { path: '/dashboard', element: <LayoutPrivate />, children: [{ index: true, element: <Dashboard /> }] },
     ],
   },
