@@ -1,28 +1,16 @@
-import { NavLink, Outlet, useLocation } from 'react-router-dom'
 import Container from './Container'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import HeroUser from './HeroUser'
+import UserInformation from '../pages/private/user/UserInformation'
+import UserDocuments from '../pages/private/user/UserDocuments'
+import UserAmenities from '../pages/private/user/UserAmenities'
+import UserPayments from '../pages/private/user/UserPayments'
+import UserOrders from '../pages/private/user/UserOrders'
+import UserVoting from '../pages/private/user/UserVoting'
 
 const UserDashboard = () => {
-  const [imageUrl, setImageUrl] = useState('')
-  const { pathname } = useLocation()
-
-  useEffect(() => {
-    switch (pathname) {
-      case '/userInformation':
-        setImageUrl('/assets/background/Information.jpg')
-        break
-      case '/userDocuments':
-        setImageUrl('/assets/background/Documents.jpg')
-        break
-      case '/userPayments':
-        setImageUrl('/assets/background/Payments.jpg')
-        break
-      default:
-        setImageUrl('')
-        break
-    }
-  }, [pathname])
+  const [menu, setMenu] = useState('information')
+  const [imageUrl, setImageUrl] = useState('/assets/background/Information.jpg')
 
   return (
     <HeroUser imageUrl={imageUrl}>
@@ -42,45 +30,68 @@ const UserDashboard = () => {
                 <p>Ownew</p>
               </div>
             </div>
-            <NavLink
-              to="/userInformation"
-              className={({ isActive }: { isActive: boolean }) => `${isActive ? 'font-bold' : ''}`}
+            <p
+              className={`py-[15px] cursor-pointer ${menu === 'information' ? 'font-bold' : ''}`}
+              onClick={() => {
+                setMenu('information')
+                setImageUrl('/assets/background/Information.jpg')
+              }}
             >
-              <p className="py-[15px]">Information</p>
-            </NavLink>
-            <NavLink
-              to="/userDocuments"
-              className={({ isActive }: { isActive: boolean }) => `${isActive ? 'font-bold' : ''}`}
+              Information
+            </p>
+            <p
+              className={`py-[15px] cursor-pointer ${menu === 'documents' ? 'font-bold' : ''}`}
+              onClick={() => {
+                setMenu('documents')
+                setImageUrl('/assets/background/Documents.jpg')
+              }}
             >
-              <p className="py-[15px]">Documents</p>
-            </NavLink>
-            <NavLink
-              to="/userAmenities"
-              className={({ isActive }: { isActive: boolean }) => `${isActive ? 'font-bold' : ''}`}
+              Documents
+            </p>
+            <p
+              className={`py-[15px] cursor-pointer ${menu === 'amenities' ? 'font-bold' : ''}`}
+              onClick={() => {
+                setMenu('amenities')
+                setImageUrl('')
+              }}
             >
-              <p className="py-[15px]">Amenities</p>
-            </NavLink>
-            <NavLink
-              to="/userPayments"
-              className={({ isActive }: { isActive: boolean }) => `${isActive ? 'font-bold' : ''}`}
+              Amenities
+            </p>
+            <p
+              className={`py-[15px] cursor-pointer ${menu === 'payments' ? 'font-bold' : ''}`}
+              onClick={() => {
+                setMenu('payments')
+                setImageUrl('/assets/background/Payments.jpg')
+              }}
             >
-              <p className="py-[15px]">Payments</p>
-            </NavLink>
-            <NavLink
-              to="/userOrders"
-              className={({ isActive }: { isActive: boolean }) => `${isActive ? 'font-bold' : ''}`}
+              Payments
+            </p>
+            <p
+              className={`py-[15px] cursor-pointer ${menu === 'orders' ? 'font-bold' : ''}`}
+              onClick={() => {
+                setMenu('orders')
+                setImageUrl('')
+              }}
             >
-              <p className="py-[15px]">Orders</p>
-            </NavLink>
-            <NavLink
-              to="/userVoting"
-              className={({ isActive }: { isActive: boolean }) => `${isActive ? 'font-bold' : ''}`}
+              Orders
+            </p>
+            <p
+              className={`py-[15px] cursor-pointer ${menu === 'voting' ? 'font-bold' : ''}`}
+              onClick={() => {
+                setMenu('voting')
+                setImageUrl('')
+              }}
             >
-              <p className="py-[15px]">Voting</p>
-            </NavLink>
+              Voting
+            </p>
           </div>
           <div className="bg-blue bg-opacity-20 w-[880px] border border-black rounded-lg">
-            <Outlet />
+            {menu === 'information' && <UserInformation />}
+            {menu === 'documents' && <UserDocuments />}
+            {menu === 'amenities' && <UserAmenities />}
+            {menu === 'payments' && <UserPayments />}
+            {menu === 'orders' && <UserOrders />}
+            {menu === 'voting' && <UserVoting />}
           </div>
         </div>
       </Container>
