@@ -53,7 +53,7 @@ const Contact = () => {
             <div className="w-[564px] h-[564px] bg-[#D9D9D9] rounded-lg overflow-hidden border-2 border-black animate-fadeInRight">
               <img
                 src={'./assets/person-typing.svg'}
-                className="w-full"
+                className="w-full hover:animate-kenburnsRight"
               />
             </div>
           </div>
@@ -65,13 +65,13 @@ const Contact = () => {
             <div className="absolute top-8 right-2 w-[330px] h-[304px] rounded-lg border-2 border-black overflow-hidden">
               <img
                 src={'./assets/building-facade1.svg'}
-                className="w-full"
+                className="w-full hover:animate-kenburnsRight"
               />
             </div>
             <div className="absolute bottom-2 -right-6 w-[280px] h-[342px] rounded-lg border-2 border-black overflow-hidden">
               <img
                 src={'./assets/building-facade2.svg'}
-                className="w-full"
+                className="w-full hover:animate-kenburnsRight"
               />
             </div>
             <div className="box-border w-full h-[541px] border-[2.5px] border-grey rounded-lg overflow-hidden">
