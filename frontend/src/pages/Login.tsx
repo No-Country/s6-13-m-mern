@@ -1,51 +1,66 @@
-import { useEffect, useState } from 'react';
-import Container from '../components/Container';
-import { Link } from 'react-router-dom';
-import BackgroundImage from '../components/BackgroundImage';
+import Container from '../components/Container'
+import { Link } from 'react-router-dom'
+import BackgroundImage from '../components/BackgroundImage'
+import { useForm, type SubmitHandler } from 'react-hook-form'
+
+interface FieldValues {
+  email: string
+  password: string
+}
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isDirty, isValid },
+  } = useForm<FieldValues>({ mode: 'onTouched' })
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log(email, password);
-  };
-
-  useEffect(() => {
-    console.log(email);
-  }, [email]);
+  const customSubmit: SubmitHandler<FieldValues> = (data: FieldValues) => {
+    console.log(data)
+  }
 
   return (
-    <BackgroundImage imageUrl="src/assets/oneBuild.svg">
+    <BackgroundImage imageUrl="/assets/oneBuild.svg">
+      {(errors.email?.type === 'required' || errors.password?.type === 'required') && (
+        <p className="absolute w-full h-8 px-8 bg-red rounded-b-sm border border-black text-lg font-sans text-white">
+          Complete all required fields
+        </p>
+      )}
+      {errors.email?.type === 'pattern' && (
+        <p className="absolute w-full h-8 px-8 bg-red rounded-b-sm border border-black text-lg font-sans text-white">
+          It&apos;s not a valid e-mail
+        </p>
+      )}
       <Container>
-        <div className="font-inter text-[28px] py-24 h-max">
-          <h1 className="text-[40px]">Welcome!</h1>
-          <h2 className="ml-6 mb-12">Please fill your info to start</h2>
+        <div className=" font-sans text-[24px] py-14 h-max">
+          <h1 className="text-[30px]">Welcome!</h1>
+          <h2 className="ml-6 mb-8">Please fill your info to start</h2>
           <div className="w-[454px]">
-            <form onSubmit={handleSubmit}>
-              <h2 className="mb-3">E-mail</h2>
+            <form onSubmit={() => handleSubmit(customSubmit)}>
               <input
-                className="border-b-2 border-blueDark mb-8 w-full placeholder:italic placeholder:text-grey bg-transparent focus:outline-none"
+                className={`border-2 ${
+                  !errors.email ? 'border-blueDark' : 'border-red'
+                } rounded-lg h-12 px-4 mb-8 w-full placeholder:italic placeholder:text-grey bg-transparent focus:outline-none text-lg`}
                 type="email"
                 placeholder="Enter your email"
                 autoComplete="off"
-                name="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                {...register('email', {
+                  required: true,
+                  pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i,
+                })}
               />
-              <h2 className="mb-3">Password</h2>
               <input
-                className="border-b-2 border-blueDark mb-5 w-full placeholder:italic placeholder:text-grey bg-transparent focus:outline-none"
+                className={`border-2 ${
+                  !errors.password ? 'border-blueDark' : 'border-red'
+                } rounded-lg h-12 px-4 mb-8 w-full placeholder:italic placeholder:text-grey bg-transparent focus:outline-none text-lg`}
                 type="password"
                 placeholder="Enter your password"
-                name="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                {...register('password', { required: true })}
               />
               <button
                 type="submit"
-                className="bg-blueDark text-white text-2xl w-60 h-16 rounded-2xl block ml-auto mb-5"
+                className="bg-blueDark disabled:opacity-60 text-white text-xl w-60 h-12 rounded-2xl block ml-auto mb-5"
+                disabled={!isDirty || !isValid}
               >
                 LOG IN
               </button>
@@ -61,15 +76,30 @@ const Login = () => {
             </div>
             <h3 className="mb-5">Or continue with</h3>
             <div className="flex justify-center">
-              <button>Google</button>
-              <button>Facebook</button>
-              <button>Twitter</button>
+              <button className="mx-3">
+                <img
+                  src="/assets/social/Google.png"
+                  alt=""
+                />
+              </button>
+              <button className="mx-3">
+                <img
+                  src="/assets/social/Facebook.png"
+                  alt=""
+                />
+              </button>
+              <button className="mx-3">
+                <img
+                  src="/assets/social/Twitter.png"
+                  alt=""
+                />
+              </button>
             </div>
           </div>
         </div>
       </Container>
     </BackgroundImage>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login

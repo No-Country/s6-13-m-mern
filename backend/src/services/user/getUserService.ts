@@ -5,6 +5,7 @@ export const getUserService = async (id: string) => {
         const user = await User.findById(id).select(
             '-password -createdAt -updatedAt -externalId -token -isValidated'
         )
+
         if (!user) {
             const response = {
                 ok: false,
@@ -12,6 +13,15 @@ export const getUserService = async (id: string) => {
             }
             return response
         }
+
+        if (user.status !== 'active') {
+            const response = {
+                ok: false,
+                status: 401,
+            }
+            return response
+        }
+
         const response = {
             ok: true,
             status: 200,

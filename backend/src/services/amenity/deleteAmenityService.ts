@@ -8,7 +8,7 @@ export const deleteAmenityService = async(id: string) => {
       const { id } = amenityDeleted
       const response = {
         status: 200,
-        msg : 'Amenity eliminada con exito',
+        msg: 'Amenity eliminada con exito',
         ok: true,
         id
       }

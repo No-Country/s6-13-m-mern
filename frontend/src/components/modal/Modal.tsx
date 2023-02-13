@@ -1,12 +1,12 @@
-import  { ReactNode } from 'react';
+import { type ReactNode } from 'react'
 
 interface ModalType {
-  title?: ReactNode;
-  subtitle?: ReactNode;
-  children?: ReactNode;
-  isOpen: boolean;
-  footer?: ReactNode;
-  toggle: () => void;
+  title?: ReactNode
+  subtitle?: ReactNode
+  children?: ReactNode
+  isOpen: boolean
+  footer?: ReactNode
+  toggle: () => void
 }
 
 const Modal = (props: ModalType) => {
@@ -18,7 +18,7 @@ const Modal = (props: ModalType) => {
           onClick={props.toggle}
         >
           <div
-            onClick={(e) => e.stopPropagation()}
+            onClick={(e) => { e.stopPropagation() }}
             className="relative w-fit h-fit pointer-events-none"
           >
             <div className=" modal-box border-none shadow-lg relative block flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
@@ -53,7 +53,7 @@ const Modal = (props: ModalType) => {
                   )}
                 </div>
               )}
-              {/*------ Final Header  --------*/}
+              {/* ------ Final Header  -------- */}
 
               {/* -----------  Modal Body  ----------- */}
               <div className="modal-body relative p-4">{props.children}</div>
@@ -69,7 +69,7 @@ const Modal = (props: ModalType) => {
         </div>
       )}
     </>
-  );
-};
+  )
+}
 
-export default Modal;
+export default Modal

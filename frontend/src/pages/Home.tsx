@@ -1,6 +1,5 @@
-import BackgroundImage from '../components/BackgroundImage';
-import Container from '../components/Container';
-import Hero from '../components/Hero';
+import Container from '../components/Container'
+import Hero from '../components/Hero'
 
 const Home = () => {
   return (
@@ -10,20 +9,23 @@ const Home = () => {
           <Container>
             <div className="relative w-full h-full flex items-center justify-center">
               <div className="relative w-full h-[600px] flex flex-row justify-between">
-                <div>
-                  <h1 className="text-4.5xl text-blueDark font-bold py-2">
+                <div className="relative animate-fadeInBottom text-blueDark">
+                  <h1 className="text-4.5xl font-bold py-2">
                     Your Ideal Software For
                     <br /> Consortia Management
                   </h1>
-                  <h2 className="text-2.5xl ml-11 py-3 mt-1">
-                    Keep good comunication
-                    <br /> with your community.
-                  </h2>
-                  <div className="absolute bottom-7">
-                    <button className="flex items-center  bg-[#00BB2D] rounded-full text-white text-2xl font-bold gap-x-6 pl-9 pr-11 py-3 drop-shadow-[0px_5px_1px_rgba(0,0,0,0.5)] hover:-translate-y-1 hover:translate-x-1 hover:bg-[#34b7f1] hover:drop-shadow-[-3px_8px_1px_rgba(0,0,0,0.4)] transition duration:100 hover:scale-105">
+                  <div className="w-full flex justify-end">
+                    <h2 className="text-2.5xl py-3">
+                      Keep good comunication
+                      <br />
+                      with your community.
+                    </h2>
+                  </div>
+                  <div className="absolute bottom-12">
+                    <button className="flex items-center bg-[#00BB2D] rounded-full text-white text-xl font-bold gap-x-4 pl-8 pr-9 py-3 drop-shadow-[0px_5px_1px_rgba(0,0,0,0.5)] hover:-translate-y-1 hover:translate-x-1 hover:bg-[#34b7f1] hover:drop-shadow-[-3px_8px_1px_rgba(0,0,0,0.4)] transition duration:100 hover:scale-105 fa">
                       <svg
-                        width="54"
-                        height="53"
+                        width="33.25"
+                        height="33.25"
                         viewBox="0 0 54 53"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
@@ -39,14 +41,14 @@ const Home = () => {
                     </button>
                   </div>
                 </div>
-                <div className="relative w-[630px] h-[600px]">
-                  <div className="absolute bg-white top-0 left-0 rounded origin-top-left rotate-[-1.75deg] border-2 border-black drop-shadow-[0px_4px_1px_rgba(0,0,0,0.5)] transition ease-in-out delay-100 hover:-translate-y-10 hover:-translate-x-10  duration-200">
+                <div className="relative w-[580px] h-[535px] animate-fadeInRight mt-1">
+                  <div className="absolute w-[379px] h-[281px] bg-white top-0 left-0 rounded-lg origin-top-left rotate-[-1.78deg] border-2 border-black drop-shadow-[0px_4px_1px_rgba(0,0,0,0.5)] transition ease-in-out delay-100 hover:-translate-y-10 hover:-translate-x-10 duration-200 overflow-hidden">
                     <img
                       src={'./assets/people2.svg'}
                       className="w-full"
                     />
                   </div>
-                  <div className="absolute bg-white bottom-0 right-0 rounded origin-bottom-right rotate-[6.12deg] border-2 border-black drop-shadow-[0px_4px_1px_rgba(0,0,0,0.5)] transition ease-in-out delay-100 hover:-translate-y-10 hover:translate-x-10  duration-300">
+                  <div className="absolute w-[402px] h-[299px] bg-white bottom-0 right-8 rounded-lg origin-bottom-right rotate-[6.12deg] border-2 border-black drop-shadow-[0px_4px_1px_rgba(0,0,0,0.5)] transition ease-in-out delay-100 hover:-translate-y-10 hover:translate-x-10 duration-300">
                     <img
                       src={'./assets/people1.svg'}
                       className="w-full"
@@ -82,29 +84,38 @@ const Home = () => {
         </Hero>
       </div>
 
-      <div className="w-full h-screen drop-shadow-[0px_10px_7px_rgba(0,0,0,0.5)]">
-        <BackgroundImage imageUrl="src/assets/night-city.svg">
+      <div className="w-full h-[725px]">
+        <div
+          className="h-full w-full bg-slate-800"
+          style={{
+            background:
+              "linear-gradient(rgba(247, 225, 225,.35), rgba(247, 225, 225,.35)), url('./assets/night-city.svg')",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        >
           <Container>
-            <div className="w-full h-full pt-52">
+            <div className="w-full h-[725px] pt-36">
               <div className="w-full">
-                <h2 className="font-bold text-3xl text-blueDark">What's S.O.S Consortia?</h2>
+                <h2 className="font-bold text-3xl text-blueDark">What&apos;s S.O.S Consortia?</h2>
                 <p className="text-2xl font-inter">
-                  It's a software that provides the <b>easiest</b> way to manage the key information of you consortium
+                  It&apos;s a software that provides the <b>easiest</b> way to manage the key information of you
+                  consortium
                 </p>
                 <ul className="relative list-disc text-2xl mt-12 font-inter w-full">
-                  <li className="relative left-[16vw] p-3 max-w-max">Create a dashboard</li>
-                  <li className="relative left-[48vw] p-3 max-w-max">Establishes rules of coexistence</li>
-                  <li className="relative left-[27vw] p-3 max-w-max">Know the relevant data</li>
-                  <li className="relative left-[8vw] p-3 max-w-max">Add your users</li>
-                  <li className="relative -left-[2vw] p-3 max-w-max">Show everyone's debts</li>
+                  <li className="relative left-[13vw] max-w-max">Create a dashboard</li>
+                  <li className="relative left-[44vw] max-w-max">Establishes rules of coexistence</li>
+                  <li className="relative left-[25vw] max-w-max">Know the relevant data</li>
+                  <li className="relative left-[6vw] max-w-max">Add your users</li>
+                  <li className="relative left-[59vw] -translate-y-12 max-w-max">Show everyone&apos;s debts</li>
                 </ul>
               </div>
             </div>
           </Container>
-        </BackgroundImage>
+        </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

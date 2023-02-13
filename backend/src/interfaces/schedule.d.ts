@@ -1,5 +1,4 @@
 export interface ISchedule {
-  id: Types.ObjectId;
-  name: String;
-  reserved: Types.ObjectId;
+    name: string
+    reserve: Types.ObjectId
 }

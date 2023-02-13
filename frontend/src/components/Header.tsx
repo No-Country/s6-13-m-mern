@@ -1,23 +1,25 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
-  const [isNavOpen, setisNavOpen] = useState(false);
+  const [isNavOpen, setisNavOpen] = useState(false)
 
   const handleOpenNav = () => {
-    setisNavOpen(!isNavOpen);
-  };
+    setisNavOpen(!isNavOpen)
+  }
 
-  console.log(isNavOpen);
+  console.log(isNavOpen)
 
   return (
     <header>
       <nav className=" min-h-[96px] flex flex-wrap items-center justify-between md:justify-around w-full py-4 md:py-0 px-4 text-[15px] bg-blueDark fixed z-50">
+        <Link to="">
         <img
           src="/Logo-navBar.png"
           alt=""
           className="h-[80px] cursor-pointer"
-        />
+          />
+          </Link>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           id="menu-button"
@@ -95,7 +97,7 @@ const Header = () => {
         </div>
       </nav>
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

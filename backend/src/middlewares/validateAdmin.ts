@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express'
 import jwt from 'jsonwebtoken'
 import { IPayload } from '../interfaces'
 
-export const checkAuth = async (
+export const validateAdmin = async (
     req: Request,
     res: Response,
     next: NextFunction
@@ -20,13 +20,13 @@ export const checkAuth = async (
             })
         }
 
-        const { admin } = jwt.verify(
+        const { role } = jwt.verify(
             token,
-            `${process.env.JWT_SECRET}`
+            `${process.env.JWT_SECRET || ''}`
         ) as IPayload
 
         //* Compruebo que sea un admin
-        if (!admin) {
+        if (role !== 'admin') {
             return res.status(404).json({
                 ok: false,
                 msg: 'Not Authorized',
@@ -34,7 +34,8 @@ export const checkAuth = async (
             })
         }
 
-        return next()
+        next()
+        return
     } catch (error) {
         console.log(error)
         return res.status(404).json({

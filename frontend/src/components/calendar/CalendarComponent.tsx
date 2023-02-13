@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import 'react-modern-calendar-datepicker/lib/DatePicker.css'
-import { Calendar, DayValue, DayRange, Day, Locale } from 'react-modern-calendar-datepicker'
+import { Calendar, type DayRange, type Day, type Locale } from 'react-modern-calendar-datepicker'
 
 // ---------- Datos de prueba ----------
 const date = new Date()
@@ -27,10 +27,9 @@ const disabledDays: Day[] = [
     day: 7,
   },
 ]
-//--------------------------------------
+// --------------------------------------
 
-//----------------- Custom Locale -----------------
-
+// ----------------- Custom Locale -----------------
 
 const myCustomLocale: Locale = {
   // months list by order
@@ -51,7 +50,6 @@ const myCustomLocale: Locale = {
 
   // week days by order
   weekDays: [
-    
     {
       name: 'Lunes',
       short: 'L',
@@ -87,22 +85,22 @@ const myCustomLocale: Locale = {
   weekStartingIndex: 0,
 
   // return a { year: number, month: number, day: number } object
-  getToday(gregorainTodayObject: { year: number; month: number; day: number }) {
+  getToday (gregorainTodayObject: { year: number, month: number, day: number }) {
     return gregorainTodayObject
   },
 
   // return a native JavaScript date here
-  toNativeDate(date: { year: number; month: number; day: number }) {
+  toNativeDate (date: { year: number, month: number, day: number }) {
     return new Date(date.year, date.month - 1, date.day)
   },
 
   // return a number for date's month length
-  getMonthLength(date: { year: number; month: number }) {
+  getMonthLength (date: { year: number, month: number }) {
     return new Date(date.year, date.month, 0).getDate()
   },
 
   // return a transformed digit to your locale
-  transformDigit(digit) {
+  transformDigit (digit) {
     return digit
   },
 
@@ -128,30 +126,30 @@ const myCustomLocale: Locale = {
   // is your language rtl or ltr?
   isRtl: false,
 }
-//-------------------------------------------------
+// -------------------------------------------------
 
-const handleDisabledSelect = (disabledDay:Day) => {
+const handleDisabledSelect = (disabledDay: Day) => {
   window.localStorage.setItem('disabledDay', JSON.stringify(disabledDay))
-   const { year: yy, month: mm, day: dd } = disabledDay;
-   alert('El día '+dd+'/'+mm+'/'+yy+' está reservado');
+  const { year: yy, month: mm, day: dd } = disabledDay
+  // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
+  alert('El día ' + dd + '/' + mm + '/' + yy + ' está reservado')
 }
 
 const CalendarComponent = () => {
-  
   const [selectedDayRange, setSelectedDayRange] = useState<DayRange>({
     from: actualDate,
     to: actualDate,
   })
 
-  //save in localstorage the selected days
-  const handleSelect = (day:DayRange) => {
+  // save in localstorage the selected days
+  const handleSelect = (day: DayRange) => {
     setSelectedDayRange(day)
     window.localStorage.setItem('selectedDay', JSON.stringify(day))
   }
 
   return (
     <>
-    <Calendar
+      <Calendar
         value={selectedDayRange}
         onChange={handleSelect}
         colorPrimary="rgb(88 80 236)"
@@ -160,10 +158,9 @@ const CalendarComponent = () => {
         onDisabledDayError={handleDisabledSelect}
         shouldHighlightWeekends
         locale={myCustomLocale}
-      /> 
+      />
     </>
   )
 }
 
 export default CalendarComponent
-

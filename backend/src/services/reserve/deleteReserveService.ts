@@ -8,7 +8,7 @@ export const deleteReserveService = async(id: string) => {
       const { id } = reserveDeleted
       const response = {
         status: 200,
-        msg : 'Reserve eliminada con exito',
+        msg: 'Reserve eliminada con exito',
         ok: true,
         id
       }

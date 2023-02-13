@@ -1,8 +1,9 @@
 export interface IAmenity {
-  id: Types.ObjectId;
-  name: String;
-  description: String
-  reservable: Boolean;
-  size: Number;
-  schedule: Types.ObjectId;
+    id: Types.ObjectId
+    name: string
+    description: string
+    reservable: boolean
+    img: string
+    size: number
+    schedule: Types.ObjectId
 }

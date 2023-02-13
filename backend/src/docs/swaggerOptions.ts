@@ -1,4 +1,7 @@
 import swaggerJSDoc, { OAS3Definition, OAS3Options } from 'swagger-jsdoc'
+
+import { userRegister, getUserById, getAllUsers, editUser } from './userRoutes'
+import { login } from './authRoutes'
 // OAS3 = Open Api Standard 3
 
 const swaggerDefinition: OAS3Definition = {
@@ -7,181 +10,22 @@ const swaggerDefinition: OAS3Definition = {
         title: 'S.O.S Consortium API',
         version: '1.0.0',
     },
+
     // urls a donde hacer las consultas (dev, testing, deploy, etc)
     servers: [
         {
             url: 'http://localhost:3002',
         },
     ],
-    tags: [
-        { name: 'auth', description: 'Everything about auth' },
-        { name: 'user', description: 'Everything about users' },
-    ],
-    paths: {
-        '/api/auth/login': {
-            post: {
-                tags: ['auth'],
-                summary: 'Login user',
-                requestBody: {
-                    required: true,
-                    content: {
-                        'application/json': {
-                            schema: {
-                                type: 'object',
-                                properties: {
-                                    email: {
-                                        type: 'string',
-                                        example: 'pedro_perez@gmail.com',
-                                    },
-                                    password: {
-                                        type: 'string',
-                                        example: 'contraseña',
-                                    },
-                                },
-                            },
-                            required: ['email', 'password'],
-                        },
-                    },
-                },
-                responses: {
-                    '200': {
-                        description: 'successful operation',
-                        content: {
-                            'application/json': {
-                                schema: {
-                                    $ref: '#/components/schemas/User',
-                                },
-                            },
-                        },
-                    },
-                    '401': {
-                        description: 'Unverified email',
-                    },
-                    '404': {
-                        description: 'Email or password is invalid',
-                    },
-                    '500': {
-                        description: 'Server Error',
-                    },
-                },
-            },
-        },
-        '/api/user/register': {
-            get: {
-                tags: ['user'],
-                summary: 'Register a new user',
-                requestBody: {
-                    content: {
-                        'application/json': {
-                            schema: {
-                                type: 'object',
-                                properties: {
-                                    name: {
-                                        type: 'string',
-                                        example: 'Pedro',
-                                    },
-                                    lastname: {
-                                        type: 'string',
-                                        example: 'Perez',
-                                    },
-                                    email: {
-                                        type: 'string',
-                                        example: 'pedro_perez@gmail.com',
-                                    },
-                                    password: {
-                                        type: 'string',
-                                        example: 'contraseña',
-                                    },
-                                },
-                            },
-                            required: ['name', 'lastname', 'email', 'password'],
-                        },
-                    },
-                },
-                responses: {
-                    '200': {
-                        description: 'User created',
-                    },
-                    '400': {
-                        description: 'Email in use',
-                    },
-                    '500': {
-                        description: 'Server Error',
-                    },
-                },
-            },
-        },
-        '/api/user/getUser/{id}': {
-            get: {
-                tags: ['user'],
-                summary: 'Get one user by ID',
-                // description: 'Get an user by ID',
-                parameters: [
-                    {
-                        name: 'id',
-                        in: 'path',
-                        required: true,
-                        shema: {
-                            type: 'string',
-                        },
-                    },
-                ],
-                responses: {
-                    '200': {
-                        description: 'successful operation',
-                        content: {
-                            'application/json': {
-                                schema: {
-                                    $ref: '#/components/schemas/User',
-                                },
-                            },
-                        },
-                    },
-                    '404': {
-                        description: 'User not found',
-                    },
-                    '500': {
-                        description: 'Server Error',
-                    },
-                },
-            },
-        },
-        '/api/user/getAllUsers': {
-            get: {
-                tags: ['user'],
-                summary: 'Get all user',
-                // description: 'Get all users',
-                responses: {
-                    '200': {
-                        description: 'successful operation',
-                        content: {
-                            'application/json': {
-                                schema: {
-                                    type: 'array',
-                                    items: {
-                                        $ref: '#/components/schemas/User',
-                                    },
-                                },
-                            },
-                        },
-                    },
-                    '404': {
-                        description: 'There is not any user',
-                    },
-                    '500': {
-                        description: 'Server Error',
-                    },
-                },
-            },
-        },
-    },
     components: {
         securitySchemes: {
-            bearerAuth: {
-                type: 'http',
-                scheme: 'bearer',
+            tokenAuth: {
+                type: 'apiKey',
+                in: 'header',
+                name: 'token',
             },
         },
+
         schemas: {
             User: {
                 type: 'object',
@@ -208,9 +52,15 @@ const swaggerDefinition: OAS3Definition = {
                         example:
                             '$2b$10$tb8Mc6H2D4uvTssHxfQoVuBvHwx7TAwCX1HsnW2PZR4wlwChHGOFq',
                     },
-                    isAdmin: {
-                        type: 'boolean',
-                        example: false,
+                    role: {
+                        type: 'string',
+                        description: 'user role',
+                        example: 'user',
+                        enum: {
+                            user: 'user',
+                            tenant: 'tenant',
+                            admin: 'admin',
+                        },
                     },
                     isValidated: {
                         type: 'boolean',
@@ -222,12 +72,12 @@ const swaggerDefinition: OAS3Definition = {
                     },
                     status: {
                         type: 'string',
-                        description: ' Order Status',
-                        example: 'approved',
+                        description: 'account status',
+                        example: 'active',
                         enum: {
-                            placed: 'placed',
-                            approved: 'approved',
-                            delivered: 'delivered',
+                            active: 'active',
+                            disabled: 'disabled',
+                            banned: 'banned',
                         },
                     },
                     token: {
@@ -355,6 +205,34 @@ const swaggerDefinition: OAS3Definition = {
                 },
             },
         },
+    },
+    tags: [
+        { name: 'auth', description: ' All Authentication Endpoints ' },
+        { name: 'user', description: 'All User Endpoints' },
+    ],
+    paths: {
+        // *-----------------------------Api auth Routes-----------------------------------------------------------
+        '/api/auth/login': login,
+
+        // *-----------------------------Api user Routes-----------------------------------------------------------
+
+        //* Register user
+        '/api/user/register': userRegister,
+
+        //* Get user by Id
+        '/api/user/getUser/{id}': getUserById,
+
+        //* Get all users
+        '/api/user/getAllUsers': getAllUsers,
+
+        //* Edit user
+        '/api/user/update/{id}': editUser,
+
+        // TODO Api Amenity Routes
+
+        // TODO Api Reserve Routes
+
+        // TODO Api Schedule Routes
     },
 }
 
