@@ -5,8 +5,6 @@ import { IResponse } from '../../interfaces'
 export const getAmenityController = async(req: Request, res: Response) => {
   const {id} = req.params
 
-        console.log(id)
-
   try {
     const amenityRetrieved = (await getAmenityService(id)) as IResponse
 

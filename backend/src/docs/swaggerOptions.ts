@@ -9,6 +9,9 @@ import {
     validateUser,
 } from './userRoutes'
 import { changePassword, forgetPassword, login } from './authRoutes'
+import { getAmenity, putAmenity, postAmenity, deleteAmenity } from './amenityRoutes'
+import { getReserve, putReserve, postReserve, deleteReserve } from './reserveRoutes'
+import { getSchedule, putSchedule, postSchedule, deleteSchedule } from './scheduleRoutes'
 // OAS3 = Open Api Standard 3
 
 const swaggerDefinition: OAS3Definition = {
@@ -237,6 +240,9 @@ const swaggerDefinition: OAS3Definition = {
     tags: [
         { name: 'auth', description: ' All Authentication Endpoints ' },
         { name: 'user', description: 'All User Endpoints' },
+        { name: 'amenity', description: 'All Amenity Endpoints' },
+        { name: 'reserve', description: 'All Reserve Endpoints' },
+        { name: 'schedule', description: 'All Schedule Endpoints' },
     ],
     paths: {
         // *-----------------------------Api auth Routes-----------------------------------------------------------
@@ -269,11 +275,47 @@ const swaggerDefinition: OAS3Definition = {
         //* Delete user
         '/api/user/delete/{id}': userDelete,
 
-        // TODO Api Amenity Routes
+// *-----------------------------Api amenity Routes-----------------------------------------------------------
 
-        // TODO Api Reserve Routes
+        //* Get Amenity
+        '/api/amenity/id/{id}': getAmenity,
 
-        // TODO Api Schedule Routes
+        //* Put Amenity
+        '/api/amenity/put/{id}': putAmenity,
+
+        //* Post Amenity
+        '/api/amenity/post': postAmenity,
+
+        //* Get Amenity
+        '/api/amenity/delete/{id}': deleteAmenity,
+
+        // *-----------------------------Api reserve Routes-----------------------------------------------------------
+
+        //* Get Reserve
+        '/api/reserve/id/{id}': getReserve,
+
+        //* Put Reserve
+        '/api/reserve/put/{id}': putReserve,
+
+        //* Post Reserve
+        '/api/reserve/post': postReserve,
+
+        //* Get Reserve
+        '/api/reserve/delete/{id}': deleteReserve,
+
+        // *-----------------------------Api schedule Routes-----------------------------------------------------------
+
+        //* Get Schedule
+        '/api/schedule/id/{id}': getSchedule,
+
+        //* Put Schedule
+        '/api/schedule/put/{id}': putSchedule,
+
+        //* Post Schedule
+        '/api/schedule/post': postSchedule,
+
+        //* Get Schedule
+        '/api/schedule/delete/{id}': deleteSchedule,
     },
 }
 
