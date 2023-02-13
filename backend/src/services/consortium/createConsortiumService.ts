@@ -1,24 +1,26 @@
 import Consortium from './../../models/Consortium';
 import User from './../../models/User';
 
-interface Resp {
-  ok: boolean,
-  status: number,
-  consortium?: Promise<any>,
-  error?: string 
-}
 
-export const createConsortiumService = async (body: any): Promise<Resp> => {
+export const createConsortiumService = async (body: any) => {
   try {
-    const { userName, name, address, floor, apt } = body;
-    const creator = await User.findOne({ userName });
-
+    const { email, name, address, floor, apt } = body;
+    const creator = await User.findOne({ email });
+    
     if (!creator) return {
       ok: false,
-      status: 404
+      status: 404,
+      error: 'Email/Usuario no encontrado'
     }
 
-    const newConsortium = Consortium.create({
+    const existConsort = await Consortium.findOne({ name });
+    if (existConsort) return {
+      ok: false,
+      status: 400,
+      error: 'Ya existe consorcio con misma direccion'
+    }
+
+    const consortium = await Consortium.create({
       name,
       address,
       users: [],
@@ -27,14 +29,32 @@ export const createConsortiumService = async (body: any): Promise<Resp> => {
       apt,
       amenities: []
     });
-    (await newConsortium).save();
-    
+    consortium.save();
+
+    const { modifiedCount } = await User.updateOne(
+      {
+        email
+      }, {
+        $addToSet: {
+          consortium: consortium._id
+        }
+      }
+    );
+
+    if (!modifiedCount) {
+      return {
+        ok: false,
+        status: 400,
+        error: 'Error al asignarle un consorcio al administrador'
+      }
+    }
+
     return {
       ok: true,
       status: 200,
-      consortium: newConsortium
+      consortium
     }
   } catch (error: any) {
-    return error.message;
+    return error;
   }
 };
