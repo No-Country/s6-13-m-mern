@@ -28,7 +28,6 @@ export const postAmenityService = async(amenity:IAmenity) => {
     }
     return response
   } catch (error) {
-    console.log(error)
     return error
   }
 }
