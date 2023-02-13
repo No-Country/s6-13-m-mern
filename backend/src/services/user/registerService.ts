@@ -4,8 +4,10 @@ export const registerService = async (
     name: string,
     lastname: string,
     email: string,
-    password: string
+    password: string,
+    phone: string
 ) => {
+    console.log('22 ' + phone)
     try {
         const user = await User.findOne({ email })
         if (user) {
@@ -16,7 +18,7 @@ export const registerService = async (
             return response
         }
 
-        const newUser = new User({ name, lastname, email, password })
+        const newUser = new User({ name, lastname, email, password, phone })
         await newUser.save()
 
         const response = {

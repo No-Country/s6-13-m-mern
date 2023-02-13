@@ -1,7 +1,14 @@
 import swaggerJSDoc, { OAS3Definition, OAS3Options } from 'swagger-jsdoc'
 
-import { userRegister, getUserById, getAllUsers, editUser } from './userRoutes'
-import { login } from './authRoutes'
+import {
+    userRegister,
+    getUserById,
+    getAllUsers,
+    editUser,
+    userDelete,
+    validateUser,
+} from './userRoutes'
+import { changePassword, forgetPassword, login } from './authRoutes'
 // OAS3 = Open Api Standard 3
 
 const swaggerDefinition: OAS3Definition = {
@@ -51,6 +58,15 @@ const swaggerDefinition: OAS3Definition = {
                         type: 'string',
                         example:
                             '$2b$10$tb8Mc6H2D4uvTssHxfQoVuBvHwx7TAwCX1HsnW2PZR4wlwChHGOFq',
+                    },
+                    img: {
+                        type: 'string',
+                        example:
+                            'https://www.softzone.es/app/uploads-softzone.es/2018/04/guest.png',
+                    },
+                    phone: {
+                        type: 'string',
+                        default: '1122334455',
                     },
                     role: {
                         type: 'string',
@@ -131,6 +147,10 @@ const swaggerDefinition: OAS3Definition = {
                         type: 'integer',
                         example: 10,
                     },
+                    schedule: {
+                        type: 'objectId',
+                        $ref: '#/components/schemas/Schedule',
+                    },
                     amenities: {
                         type: 'array',
                         items: {
@@ -159,6 +179,11 @@ const swaggerDefinition: OAS3Definition = {
                         type: 'boolean',
                         $ref: false,
                     },
+                    img: {
+                        type: 'string',
+                        example:
+                            'https://thumbs.dreamstime.com/b/no-image-available-icon-photo-camera-flat-vector-illustration-132483141.jpg',
+                    },
                     size: {
                         type: 'integer',
                         example: 10,
@@ -181,7 +206,10 @@ const swaggerDefinition: OAS3Definition = {
                         type: 'objectId',
                         $ref: '#/components/schemas/User',
                     },
-                    date: {
+                    startDate: {
+                        type: 'date-time',
+                    },
+                    endDate: {
                         type: 'date-time',
                     },
                 },
@@ -212,12 +240,22 @@ const swaggerDefinition: OAS3Definition = {
     ],
     paths: {
         // *-----------------------------Api auth Routes-----------------------------------------------------------
+        //* Login user
         '/api/auth/login': login,
+
+        //* ForgetPassword user
+        '/api/auth/forgetPassword': forgetPassword,
+
+        //* ChangePassword user
+        '/api/auth/changePassword/{id}': changePassword,
 
         // *-----------------------------Api user Routes-----------------------------------------------------------
 
         //* Register user
         '/api/user/register': userRegister,
+
+        //* Validate user
+        '/api/user/validate/{id}': validateUser,
 
         //* Get user by Id
         '/api/user/getUser/{id}': getUserById,
@@ -227,6 +265,9 @@ const swaggerDefinition: OAS3Definition = {
 
         //* Edit user
         '/api/user/update/{id}': editUser,
+
+        //* Delete user
+        '/api/user/delete/{id}': userDelete,
 
         // TODO Api Amenity Routes
 

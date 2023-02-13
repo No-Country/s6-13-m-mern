@@ -1,34 +1,42 @@
 import User from '../../models/User'
 
-export const getUserService = async (id: string) => {
-    try {
-        const user = await User.findById(id).select(
+interface IData {
+    id?: string
+    mail?: string
+}
+
+export const getUserService = async (data: IData) => {
+    let user = null
+    if (data.id) {
+        user = await User.findById(data.id).select(
             '-password -createdAt -updatedAt -externalId -token -isValidated'
         )
-
-        if (!user) {
-            const response = {
-                ok: false,
-                status: 404,
-            }
-            return response
-        }
-
-        if (user.status !== 'active') {
-            const response = {
-                ok: false,
-                status: 401,
-            }
-            return response
-        }
-
+    } else {
+        user = await User.findOne({ email: data.mail }).select(
+            '-password -createdAt -updatedAt -externalId -token -isValidated'
+        )
+    }
+    if (!user) {
         const response = {
-            ok: true,
-            status: 200,
-            user,
+            ok: false,
+            status: 404,
         }
         return response
-    } catch (error) {
-        return error
     }
+
+    if (user.status !== 'active') {
+        const response = {
+            ok: false,
+            status: 401,
+        }
+        return response
+    }
+
+    const response = {
+        ok: true,
+        status: 200,
+        user,
+    }
+
+    return response
 }

@@ -1,7 +1,7 @@
 import { Response, Request, NextFunction } from 'express'
 import { body, validationResult } from 'express-validator'
 
-export const registerValidate = [
+export const updateValidate = [
     body('name')
         .notEmpty()
         .withMessage('Name is required')
@@ -19,11 +19,10 @@ export const registerValidate = [
         .withMessage('Email must be a string')
         .isEmail()
         .withMessage('Invalid email format'),
-    body('password')
-        .notEmpty()
-        .withMessage('Password is required')
-        .isString()
-        .withMessage('Password must be a string'),
+    // body('password')
+    //     .not()
+    //     .exists()
+    //     .withMessage('This route dont recibe a password'),
 
     (req: Request, res: Response, next: NextFunction) => {
         const errors = validationResult(req)
