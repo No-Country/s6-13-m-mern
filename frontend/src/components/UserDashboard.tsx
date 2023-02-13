@@ -10,7 +10,7 @@ import UserVoting from '../pages/private/user/UserVoting'
 
 const UserDashboard = () => {
   const [menu, setMenu] = useState('information')
-  const [imageUrl, setImageUrl] = useState('/assets/background/Information.jpg')
+  const [imageUrl, setImageUrl] = useState('info')
 
   return (
     <HeroUser imageUrl={imageUrl}>
@@ -34,7 +34,7 @@ const UserDashboard = () => {
               className={`py-[15px] cursor-pointer ${menu === 'information' ? 'font-bold' : ''}`}
               onClick={() => {
                 setMenu('information')
-                setImageUrl('/assets/background/Information.jpg')
+                setImageUrl('info')
               }}
             >
               Information
@@ -42,8 +42,8 @@ const UserDashboard = () => {
             <p
               className={`py-[15px] cursor-pointer ${menu === 'documents' ? 'font-bold' : ''}`}
               onClick={() => {
+                setImageUrl('doc')
                 setMenu('documents')
-                setImageUrl('/assets/background/Documents.jpg')
               }}
             >
               Documents
@@ -52,7 +52,7 @@ const UserDashboard = () => {
               className={`py-[15px] cursor-pointer ${menu === 'amenities' ? 'font-bold' : ''}`}
               onClick={() => {
                 setMenu('amenities')
-                setImageUrl('')
+                setImageUrl('amen')
               }}
             >
               Amenities
@@ -61,7 +61,7 @@ const UserDashboard = () => {
               className={`py-[15px] cursor-pointer ${menu === 'payments' ? 'font-bold' : ''}`}
               onClick={() => {
                 setMenu('payments')
-                setImageUrl('/assets/background/Payments.jpg')
+                setImageUrl('pay')
               }}
             >
               Payments
@@ -70,7 +70,7 @@ const UserDashboard = () => {
               className={`py-[15px] cursor-pointer ${menu === 'orders' ? 'font-bold' : ''}`}
               onClick={() => {
                 setMenu('orders')
-                setImageUrl('')
+                setImageUrl('order')
               }}
             >
               Orders
@@ -79,7 +79,7 @@ const UserDashboard = () => {
               className={`py-[15px] cursor-pointer ${menu === 'voting' ? 'font-bold' : ''}`}
               onClick={() => {
                 setMenu('voting')
-                setImageUrl('')
+                setImageUrl('vot')
               }}
             >
               Voting
