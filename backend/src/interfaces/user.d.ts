@@ -7,8 +7,9 @@ export interface IUser {
     email: string
     password: string
     img: string
+    phone?: string
     role?: ERoles
-    googleId: string
+    externalId?: string
     isValidated: boolean
     externalId?: string
     status?: EStatus

@@ -2,9 +2,10 @@ import { Request, Response } from 'express'
 import { IResponse } from '../../interfaces'
 import { registerService } from '../../services'
 import { hashPassword } from '../../utils'
+import { sendMail } from '../../utils/sendMail'
 
 export const registerController = async (req: Request, res: Response) => {
-    const { name, lastname, email, password } = req.body
+    const { name, lastname, email, password, phone } = req.body
 
     try {
         const hPassword = await hashPassword(password)
@@ -12,7 +13,8 @@ export const registerController = async (req: Request, res: Response) => {
             name,
             lastname,
             email,
-            hPassword
+            hPassword,
+            phone || ''
         )) as IResponse
 
         //* Comprobar que el mail este registrado
@@ -20,9 +22,14 @@ export const registerController = async (req: Request, res: Response) => {
             return res.status(status).json({ ok, msg: 'Email used' })
         }
 
+        const url: string = 'http://localhost:3002/doc'
+        const subject: string = 'Active account'
+        const message: string = `<p>Click the link below to active your account <a href="${url}">LINK</a></p>`
+        await sendMail(email, subject, message)
+
         return res.status(status).json({ ok, msg: 'User created' })
     } catch (error) {
-        console.log(error)
+        // console.log(error)
         return res.status(500).json({
             ok: false,
             msg: 'Server Error',
