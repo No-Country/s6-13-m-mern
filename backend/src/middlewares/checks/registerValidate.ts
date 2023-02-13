@@ -2,14 +2,28 @@ import { Response, Request, NextFunction } from 'express'
 import { body, validationResult } from 'express-validator'
 
 export const registerValidate = [
-    body('name').notEmpty().withMessage('Name is required'),
-    body('lastname').notEmpty().withMessage('Lastname is required'),
+    body('name')
+        .notEmpty()
+        .withMessage('Name is required')
+        .isString()
+        .withMessage('Name must be a string'),
+    body('lastname')
+        .notEmpty()
+        .withMessage('Lastname is required')
+        .isString()
+        .withMessage('Lastname must be a string'),
     body('email')
         .notEmpty()
         .withMessage('Email is required')
+        .isString()
+        .withMessage('Email must be a string')
         .isEmail()
         .withMessage('Invalid email format'),
-    body('password').notEmpty().withMessage('Password is required'),
+    body('password')
+        .notEmpty()
+        .withMessage('Password is required')
+        .isString()
+        .withMessage('Password must be a string'),
 
     (req: Request, res: Response, next: NextFunction) => {
         const errors = validationResult(req)

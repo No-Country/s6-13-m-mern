@@ -1,7 +1,17 @@
 import swaggerJSDoc, { OAS3Definition, OAS3Options } from 'swagger-jsdoc'
 
-import { userRegister, getUserById, getAllUsers, editUser } from './userRoutes'
-import { login } from './authRoutes'
+import {
+    userRegister,
+    getUserById,
+    getAllUsers,
+    editUser,
+    userDelete,
+    validateUser,
+} from './userRoutes'
+import { changePassword, forgetPassword, login } from './authRoutes'
+import { getAmenity, putAmenity, postAmenity, deleteAmenity } from './amenityRoutes'
+import { getReserve, putReserve, postReserve, deleteReserve } from './reserveRoutes'
+import { getSchedule, putSchedule, postSchedule, deleteSchedule } from './scheduleRoutes'
 // OAS3 = Open Api Standard 3
 
 const swaggerDefinition: OAS3Definition = {
@@ -51,6 +61,15 @@ const swaggerDefinition: OAS3Definition = {
                         type: 'string',
                         example:
                             '$2b$10$tb8Mc6H2D4uvTssHxfQoVuBvHwx7TAwCX1HsnW2PZR4wlwChHGOFq',
+                    },
+                    img: {
+                        type: 'string',
+                        example:
+                            'https://www.softzone.es/app/uploads-softzone.es/2018/04/guest.png',
+                    },
+                    phone: {
+                        type: 'string',
+                        default: '1122334455',
                     },
                     role: {
                         type: 'string',
@@ -131,6 +150,10 @@ const swaggerDefinition: OAS3Definition = {
                         type: 'integer',
                         example: 10,
                     },
+                    schedule: {
+                        type: 'objectId',
+                        $ref: '#/components/schemas/Schedule',
+                    },
                     amenities: {
                         type: 'array',
                         items: {
@@ -159,6 +182,11 @@ const swaggerDefinition: OAS3Definition = {
                         type: 'boolean',
                         $ref: false,
                     },
+                    img: {
+                        type: 'string',
+                        example:
+                            'https://thumbs.dreamstime.com/b/no-image-available-icon-photo-camera-flat-vector-illustration-132483141.jpg',
+                    },
                     size: {
                         type: 'integer',
                         example: 10,
@@ -181,7 +209,10 @@ const swaggerDefinition: OAS3Definition = {
                         type: 'objectId',
                         $ref: '#/components/schemas/User',
                     },
-                    date: {
+                    startDate: {
+                        type: 'date-time',
+                    },
+                    endDate: {
                         type: 'date-time',
                     },
                 },
@@ -209,15 +240,28 @@ const swaggerDefinition: OAS3Definition = {
     tags: [
         { name: 'auth', description: ' All Authentication Endpoints ' },
         { name: 'user', description: 'All User Endpoints' },
+        { name: 'amenity', description: 'All Amenity Endpoints' },
+        { name: 'reserve', description: 'All Reserve Endpoints' },
+        { name: 'schedule', description: 'All Schedule Endpoints' },
     ],
     paths: {
         // *-----------------------------Api auth Routes-----------------------------------------------------------
+        //* Login user
         '/api/auth/login': login,
+
+        //* ForgetPassword user
+        '/api/auth/forgetPassword': forgetPassword,
+
+        //* ChangePassword user
+        '/api/auth/changePassword/{id}': changePassword,
 
         // *-----------------------------Api user Routes-----------------------------------------------------------
 
         //* Register user
         '/api/user/register': userRegister,
+
+        //* Validate user
+        '/api/user/validate/{id}': validateUser,
 
         //* Get user by Id
         '/api/user/getUser/{id}': getUserById,
@@ -228,11 +272,50 @@ const swaggerDefinition: OAS3Definition = {
         //* Edit user
         '/api/user/update/{id}': editUser,
 
-        // TODO Api Amenity Routes
+        //* Delete user
+        '/api/user/delete/{id}': userDelete,
 
-        // TODO Api Reserve Routes
+// *-----------------------------Api amenity Routes-----------------------------------------------------------
 
-        // TODO Api Schedule Routes
+        //* Get Amenity
+        '/api/amenity/id/{id}': getAmenity,
+
+        //* Put Amenity
+        '/api/amenity/put/{id}': putAmenity,
+
+        //* Post Amenity
+        '/api/amenity/post': postAmenity,
+
+        //* Get Amenity
+        '/api/amenity/delete/{id}': deleteAmenity,
+
+        // *-----------------------------Api reserve Routes-----------------------------------------------------------
+
+        //* Get Reserve
+        '/api/reserve/id/{id}': getReserve,
+
+        //* Put Reserve
+        '/api/reserve/put/{id}': putReserve,
+
+        //* Post Reserve
+        '/api/reserve/post': postReserve,
+
+        //* Get Reserve
+        '/api/reserve/delete/{id}': deleteReserve,
+
+        // *-----------------------------Api schedule Routes-----------------------------------------------------------
+
+        //* Get Schedule
+        '/api/schedule/id/{id}': getSchedule,
+
+        //* Put Schedule
+        '/api/schedule/put/{id}': putSchedule,
+
+        //* Post Schedule
+        '/api/schedule/post': postSchedule,
+
+        //* Get Schedule
+        '/api/schedule/delete/{id}': deleteSchedule,
     },
 }
 

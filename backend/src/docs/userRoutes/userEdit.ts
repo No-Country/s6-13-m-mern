@@ -35,9 +35,14 @@ export const editUser = {
                                 type: 'string',
                                 example: 'pedro_perez@gmail.com',
                             },
+                            img: {
+                                type: 'string',
+                                example:
+                                    'https://www.softzone.es/app/uploads-softzone.es/2018/04/guest.png',
+                            },
                         },
                     },
-                    required: ['name', 'lastname', 'email', 'password'],
+                    required: ['name', 'lastname', 'email', 'img'],
                 },
             },
         },

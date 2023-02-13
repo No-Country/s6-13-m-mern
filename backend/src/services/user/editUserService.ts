@@ -1,8 +1,19 @@
-import { IUser } from '../../interfaces'
 import User from '../../models/User'
 
-export const edituserService = async (id: string, data: IUser) => {
+export const edituserService = async (
+    id: string,
+    name: string,
+    lastname: string,
+    img: string,
+    phone: string
+) => {
     try {
+        const data = {
+            name,
+            lastname,
+            img,
+            phone,
+        }
         const updatedUser = await User.findByIdAndUpdate(id, data, {
             new: true,
         }).select(
