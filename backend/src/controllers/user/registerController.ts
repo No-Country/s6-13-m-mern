@@ -5,7 +5,7 @@ import { hashPassword } from '../../utils'
 import { sendMail } from '../../utils/sendMail'
 
 export const registerController = async (req: Request, res: Response) => {
-    const { name, lastname, email, password } = req.body
+    const { name, lastname, email, password, phone } = req.body
 
     try {
         const hPassword = await hashPassword(password)
@@ -13,7 +13,8 @@ export const registerController = async (req: Request, res: Response) => {
             name,
             lastname,
             email,
-            hPassword
+            hPassword,
+            phone || ''
         )) as IResponse
 
         //* Comprobar que el mail este registrado

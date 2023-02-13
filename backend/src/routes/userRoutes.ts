@@ -8,16 +8,31 @@ import {
     validateUserController,
 } from '../controllers'
 
-import { registerValidate, validateToken } from '../middlewares'
-import { updateValidate } from '../middlewares/checks/updateValidate'
+import {
+    registerValidate,
+    validateToken,
+    updateValidate,
+    paramIdValidate,
+} from '../middlewares'
 
 const router = Router()
 
 router.post('/register', registerValidate, registerController)
-router.get('/validate/:id', validateUserController)
-router.get('/getuser/:id', validateToken, getUserController)
+router.get('/validate/:id', paramIdValidate, validateUserController)
+router.get('/getuser/:id', validateToken, paramIdValidate, getUserController)
 router.get('/getAllUsers', getAllUsersController)
-router.put('/update/:id', validateToken, updateValidate, editUserController)
-router.delete('/delete/:id', validateToken, deleteUserController)
+router.put(
+    '/update/:id',
+    validateToken,
+    paramIdValidate,
+    updateValidate,
+    editUserController
+)
+router.delete(
+    '/delete/:id',
+    validateToken,
+    paramIdValidate,
+    deleteUserController
+)
 
 export default router

@@ -5,9 +5,15 @@ export const loginValidate = [
     body('email')
         .notEmpty()
         .withMessage('Email is required')
+        .isString()
+        .withMessage('Email must be a string')
         .isEmail()
         .withMessage('Invalid email format'),
-    body('password').notEmpty().withMessage('Password is required'),
+    body('password')
+        .notEmpty()
+        .withMessage('Password is required')
+        .isString()
+        .withMessage('Password must be a string'),
 
     (req: Request, res: Response, next: NextFunction) => {
         const errors = validationResult(req)

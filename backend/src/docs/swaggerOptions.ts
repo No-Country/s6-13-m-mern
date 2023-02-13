@@ -64,6 +64,10 @@ const swaggerDefinition: OAS3Definition = {
                         example:
                             'https://www.softzone.es/app/uploads-softzone.es/2018/04/guest.png',
                     },
+                    phone: {
+                        type: 'string',
+                        default: '1122334455',
+                    },
                     role: {
                         type: 'string',
                         description: 'user role',

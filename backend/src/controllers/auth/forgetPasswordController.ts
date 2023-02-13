@@ -1,14 +1,15 @@
 import { Request, Response } from 'express'
 import { IResponse } from '../../interfaces'
-import { forgetPasswordService } from '../../services/auth/forgetPasswordService'
+import { getUserService } from '../../services'
 import { sendMail } from '../../utils/sendMail'
 
 export const forgetPasswordController = async (req: Request, res: Response) => {
-    const { email } = req.body
+    const { mail } = req.body
     try {
-        const { user, status, ok } = (await forgetPasswordService(
-            email
-        )) as IResponse
+        const { user, status, ok } = (await getUserService({
+            mail,
+        })) as IResponse
+
         //* Comprobar que el mail este registrado
         if (!ok && status === 404) {
             return res

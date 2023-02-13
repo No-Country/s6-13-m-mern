@@ -5,12 +5,6 @@ import { deleteUSerService } from '../../services/user/deleteUserService'
 export const deleteUserController = async (req: Request, res: Response) => {
     const { id } = req.params
 
-    // TODO: Mover a un middleware
-    if (!id) {
-        const error = new Error('Empty id')
-        return res.status(400).json({ msg: error.message })
-    }
-
     try {
         const { ok, status } = (await deleteUSerService(id)) as IResponse
         if (!ok && status === 404) {

@@ -25,6 +25,5 @@ export const sendMail = async (
         html: message,
     }
     const transport = nodeMailer.createTransport(config)
-    const info = await transport.sendMail(mail)
-    console.log(info)
+    await transport.sendMail(mail)
 }

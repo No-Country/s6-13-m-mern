@@ -30,6 +30,10 @@ const userSchema = new Schema<IUser>(
             default:
                 'https://www.softzone.es/app/uploads-softzone.es/2018/04/guest.png',
         },
+        phone: {
+            type: String,
+            default: '',
+        },
         role: {
             type: String,
             enum: ERoles,
