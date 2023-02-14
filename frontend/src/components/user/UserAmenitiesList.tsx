@@ -79,13 +79,13 @@ export const UserAmenitiesList = () => {
   return (
     <>
       <TitleComponents title="My reservations" />
-      <div className="w-[90%] h-[320px] pt-5 m-auto border border-black rounded-lg flex flex-col justify-start items-center">
+      <div className="w-[90%] h-[330px] pt-5 m-auto border border-black rounded-lg flex flex-col justify-start items-center bg-blue bg-opacity-20">
         <SearchBar
           userType="user"
           searchIn="amenities"
         />
         <div className="w-[90%] px-5 grid grid-cols-4 my-2 border-b-2 border-black">{renderListOptions()}</div>
-        <div className="w-[90%] px-5 pt-1 h-[210px] overflow-y-scroll no-scrollbar">{renderAmenitiesList()}</div>
+        <div className="w-[90%] px-5 pt-1 h-[220px] overflow-y-scroll no-scrollbar">{renderAmenitiesList()}</div>
       </div>
     </>
   )
