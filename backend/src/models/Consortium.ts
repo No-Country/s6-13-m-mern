@@ -3,17 +3,18 @@ import { IConsortium } from '../interfaces/consortium'
 
 const consortiumSchema = new Schema<IConsortium>({
     name: {
-        type: String,
+        type: Schema.Types.String,
         required: true,
     },
     address: {
-        type: String,
+        type: Schema.Types.String,
         required: true,
     },
     users: [
         {
             type: Schema.Types.ObjectId,
             ref: 'User',
+            default: []
         },
     ],
     admin: {
@@ -22,11 +23,9 @@ const consortiumSchema = new Schema<IConsortium>({
     },
     floor: {
         type: Number,
-        required: true,
     },
     apt: {
-        type: Number,
-        required: true,
+        type: Schema.Types.String,
     },
     schedule: {
         type: Schema.Types.ObjectId,
@@ -36,6 +35,7 @@ const consortiumSchema = new Schema<IConsortium>({
         {
             type: Schema.Types.ObjectId,
             ref: 'Amenity',
+            default: []
         },
     ],
 })
