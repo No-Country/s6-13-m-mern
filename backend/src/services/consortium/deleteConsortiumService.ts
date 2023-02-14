@@ -1,10 +1,10 @@
 import Consortium from "../../models/Consortium";
 import User from "../../models/User";
 
-//TODO: CONFIRMAR ELIMINACION Y ACTUALIZACION DE USUARIOS
-export const deleteConsortiumService = async (address: string) => {
+//  TODO: CONFIRMAR ELIMINACION Y ACTUALIZACION DE USUARIOS
+export const deleteConsortiumService = async (id: string) => {
   try {
-    const consortium = await Consortium.findOne({ address });
+    const consortium = await Consortium.findOne({ id });
     if (!consortium) {
       return {
         ok: false,
@@ -14,8 +14,7 @@ export const deleteConsortiumService = async (address: string) => {
     }
     const users = consortium.users;
 
-    // const deletedConsortium = await Consortium.remove();
-    await Consortium.deleteOne({ address });
+    await Consortium.deleteOne({ id });
     for (let i = 0; i < users.length; i++) {
       await User.updateOne(
         {

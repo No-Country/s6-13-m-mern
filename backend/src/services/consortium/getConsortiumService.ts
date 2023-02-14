@@ -6,7 +6,7 @@ interface resp {
   consortium?: object,
   error?: string
 }
-//TODO: CAMPO USERS INCLUIDO EN RESPUESTA A SOLICITUD DE INQUILINO? SOLO PARA ADMINISTRADOR? CONFIRMAR
+//  TODO: CAMPO USERS INCLUIDO EN RESPUESTA A SOLICITUD DE INQUILINO? SOLO PARA ADMINISTRADOR? CONFIRMAR
 export const getConsortiumService = async (email: string): Promise<resp> => {
   try {
     const user = await User.findOne({ email }).populate('consortium');

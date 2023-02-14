@@ -4,7 +4,7 @@ import User from './../../models/User';
 
 export const createConsortiumService = async (body: any) => {
   try {
-    const { email, name, address, floor, apt } = body;
+    const { email, name, address } = body;
     const creator = await User.findOne({ email });
     
     if (!creator) return {
@@ -23,13 +23,9 @@ export const createConsortiumService = async (body: any) => {
     const consortium = await Consortium.create({
       name,
       address,
-      users: [],
-      admin: creator._id,
-      floor,
-      apt,
-      amenities: []
+      admin: creator._id
     });
-    consortium.save();
+    await consortium.save();
 
     const { modifiedCount } = await User.updateOne(
       {

@@ -9,8 +9,8 @@ interface resp {
   data?: object
 }
 
-//TODO: LIMPIAR CODIGO, HACER FN IF PARA MODIFIEDCOUNT/MATCHEDCOUNT
-export const addUserService = async (address: string, email: string): Promise<resp> => {
+//  TODO: LIMPIAR CODIGO, HACER FN IF PARA MODIFIEDCOUNT/MATCHEDCOUNT
+export const addUserService = async (address: string, email: string, apt: string, floor: number): Promise<resp> => {
   try {
     const user = await User.findOne({ email });
     if (!user) {return {
@@ -35,7 +35,11 @@ export const addUserService = async (address: string, email: string): Promise<re
         email
       }, {
         $addToSet: {
-          consortium: consortium!._id
+          consortium: consortium?._id
+        },
+        $set: {
+          apt,
+          floor
         }
       }
       );
