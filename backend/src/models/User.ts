@@ -62,12 +62,10 @@ const userSchema = new Schema<IUser>(
             trim: true,
             default: '',
         },
-        consortium: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: 'Consortium',
-            },
-        ],
+        consortium: {
+            type: Schema.Types.ObjectId,
+            ref: 'Consortium',
+        },
     },
     {
         timestamps: true,
