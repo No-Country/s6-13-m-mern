@@ -1,4 +1,5 @@
 export * from './createConsortiumService';
 export * from './getConsortiumService';
 export * from './addUserService';
-import * from './deleteConsortiumService';
+export * from './deleteConsortiumService';
+export * from './deleteConsortiumUserService';
