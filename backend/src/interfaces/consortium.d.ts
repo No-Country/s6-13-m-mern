@@ -5,7 +5,7 @@ export interface IConsortium {
     users: ObjectId[]
     admin: ObjectId
     floor: number
-    apt: number
+    apt: string
     amenities: ObjectId[]
     schedule: ObjectId
 }
