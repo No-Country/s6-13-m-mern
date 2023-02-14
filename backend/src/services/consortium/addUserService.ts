@@ -10,19 +10,19 @@ interface resp {
 }
 
 //  TODO: LIMPIAR CODIGO, HACER FN IF PARA MODIFIEDCOUNT/MATCHEDCOUNT
-export const addUserService = async (address: string, email: string, apt: string, floor: number): Promise<resp> => {
+export const addUserService = async (consrotiumId: string, userId: string, apt: string, floor: number): Promise<resp> => {
   try {
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ _id: userId });
     if (!user) {return {
       ok: false,
       status: 404,
       error: 'User no registrado'
     }}
-    const consortium = await Consortium.findOne({ address });
+    const consortium = await Consortium.findOne({ _id: consrotiumId });
 
     const modifiedConsortium = await Consortium.updateOne(
     {
-      address
+      _id: consrotiumId
     }, {
       $addToSet: {
         users: user._id
@@ -32,7 +32,7 @@ export const addUserService = async (address: string, email: string, apt: string
 
     const modifiedUser = await User.updateOne(
       {
-        email
+        _id: userId
       }, {
         $addToSet: {
           consortium: consortium?._id

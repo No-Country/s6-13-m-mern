@@ -3,9 +3,9 @@ import { getConsortiumService } from '../../services/consortium';
 
 
 export const getConsortium = async (req: Request, res: Response) => {
-  const { email } = req.body;
+  const { userId } = req.params;
   try {
-    const { ok, status, consortium, error } = await getConsortiumService(email);
+    const { ok, status, consortium, error } = await getConsortiumService(userId);
     if (!ok) {
       return res.status(status).json({ error });
     }
