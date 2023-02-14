@@ -5,8 +5,6 @@ import { IResponse } from '../../interfaces'
 export const getScheduleController = async(req: Request, res: Response) => {
   const {id} = req.params
 
-        console.log(id)
-
   try {
     const scheduleRetrieved = (await getScheduleService(id)) as IResponse
 

@@ -4,7 +4,6 @@ import { postAmenityService } from '../../services/amenity/postAmenityService'
 
 export const postAmenityController = async(req: Request, res: Response)=> {
   const amenity = req.body
-  console.log(amenity)
 
   try{
     const amenityRetrieved = (await postAmenityService(amenity)) as IResponse

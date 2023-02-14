@@ -1,10 +1,9 @@
 import { createBrowserRouter } from 'react-router-dom'
-import { AdminDashboard } from '../components/AdminView/AdminDashboard'
+import { ConsortiumDashboard } from '../components/ConsortiumDashboard'
 import Layout from '../components/Layout'
 import LayoutPrivate from '../components/LayoutPrivate'
 import About from '../pages/About'
 import Contact from '../pages/Contact'
-import Dashboard from '../pages/Dashboard'
 import Features from '../pages/Features'
 import Home from '../pages/Home'
 import Login from '../pages/Login'
@@ -12,6 +11,7 @@ import NotFound from '../pages/NotFound'
 import Prices from '../pages/Prices'
 import Signin from '../pages/Signin'
 import UserDashboard from '../components/UserDashboard'
+import AdminDashboard from '../components/AdminDashboard'
 
 export const router = createBrowserRouter([
   {
@@ -26,9 +26,9 @@ export const router = createBrowserRouter([
       { path: '/prices', element: <Prices /> },
       { path: '/login', element: <Login /> },
       { path: '/signin', element: <Signin /> },
-      { path: '/admin', element: <AdminDashboard /> },
-      { path: '/user', element: <UserDashboard /> },
-      { path: '/dashboard', element: <LayoutPrivate />, children: [{ index: true, element: <Dashboard /> }] },
+      { path: '/consortium', element: <ConsortiumDashboard /> },
+      { path: '/user', element: <LayoutPrivate />, children: [{ index: true, element: <UserDashboard /> }] },
+      { path: '/admin', element: <LayoutPrivate />, children: [{ index: true, element: <AdminDashboard /> }] },
     ],
   },
 ])

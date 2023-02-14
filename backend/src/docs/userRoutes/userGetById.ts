@@ -3,6 +3,11 @@ export const getUserById = {
         tags: ['user'],
         summary: 'Get one user by ID',
         // description: 'Get an user by ID',
+        security: [
+            {
+                tokenAuth: [],
+            },
+        ],
         parameters: [
             {
                 name: 'id',

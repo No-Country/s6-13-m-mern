@@ -1,7 +1,7 @@
 import { type FC } from 'react'
 import { Link } from 'react-router-dom'
 
-interface AdminDashboardProps {
+interface ConsortiumDashboardProps {
   name?: string
 }
 
@@ -39,7 +39,7 @@ const actions = [
 ]
 // src={'./assets/adm/}
 
-export const AdminDashboard: FC<AdminDashboardProps> = ({ name = 'Alberto' }: AdminDashboardProps) => {
+export const ConsortiumDashboard: FC<ConsortiumDashboardProps> = ({ name = 'Alberto' }: ConsortiumDashboardProps) => {
   return (
     <div className=" w-full m-auto flex flex-col justify-start items-center gap-4 py-10 relative ">
       <div className="absolute top-0 w-full h-[45%] -z-10 border-b-2 bg-blue border-black" />

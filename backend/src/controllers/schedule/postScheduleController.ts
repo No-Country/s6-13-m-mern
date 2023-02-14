@@ -4,7 +4,6 @@ import { postScheduleService } from '../../services/schedule/postScheduleService
 
 export const postScheduleController = async(req: Request, res: Response)=> {
   const schedule = req.body
-  console.log(schedule)
 
   try{
     const scheduleRetrieved = (await postScheduleService(schedule)) as IResponse

@@ -1,4 +1,3 @@
-import Container from './Container'
 import { useState } from 'react'
 import HeroUser from './HeroUser'
 import UserInformation from '../pages/private/user/UserInformation'
@@ -14,8 +13,8 @@ const UserDashboard = () => {
 
   return (
     <HeroUser imageUrl={imageUrl}>
-      <Container>
-        <div className="flex h-[560px] pt-12 justify-center">
+      <div className=" w-full h-full px-10">
+        <div className="flex min-h-[560px] pt-12 justify-center">
           <div className="bg-blueUser bg-opacity-70 min-w-[268px] border-2 border-black rounded-lg pl-7 pr-2">
             <div className="flex mt-10 mb-6 ">
               <div className="rounded-full h-[90px] w-[90px] overflow-hidden border-2 border-black relative">
@@ -85,7 +84,7 @@ const UserDashboard = () => {
               Voting
             </p>
           </div>
-          <div className="bg-blue bg-opacity-20 w-[880px] border border-black rounded-lg">
+          <div className="bg-blue bg-opacity-20 w-[880px] border border-black rounded-lg  pb-6">
             {menu === 'information' && <UserInformation />}
             {menu === 'documents' && <UserDocuments />}
             {menu === 'amenities' && <UserAmenities />}
@@ -94,7 +93,7 @@ const UserDashboard = () => {
             {menu === 'voting' && <UserVoting />}
           </div>
         </div>
-      </Container>
+      </div>
     </HeroUser>
   )
 }
