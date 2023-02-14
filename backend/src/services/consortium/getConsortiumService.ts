@@ -7,9 +7,9 @@ interface resp {
   error?: string
 }
 //  TODO: CAMPO USERS INCLUIDO EN RESPUESTA A SOLICITUD DE INQUILINO? SOLO PARA ADMINISTRADOR? CONFIRMAR
-export const getConsortiumService = async (email: string): Promise<resp> => {
+export const getConsortiumService = async (userId: string): Promise<resp> => {
   try {
-    const user = await User.findOne({ email }).populate('consortium');
+    const user = await User.findOne({ _id: userId }).populate('consortium');
 
     if (!user) return {
       ok: false,

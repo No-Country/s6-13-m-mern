@@ -3,9 +3,11 @@ import { addUserService } from './../../services/consortium';
 
 // TODO: REALIZAR MIDDLEWARE VALIDACIONES DE CAMPOS
 export const addUserConsortium = async (req: Request, res: Response) => {
-  const { consortiumaddress, email, apt, floor } = req.body;
+  const { consortiumId, userId } = req.params;
+  const apt: string | undefined = req.query.apt?.toString();
+  const floor: number = Number(req.query.floor);
   try {
-    const { ok, status, error } = await addUserService(consortiumaddress, email, apt, floor);
+    const { ok, status, error } = await addUserService(consortiumId, userId, apt as string, floor);
     if (!ok) {
       return res.status(status).json({ error });
     }
