@@ -9,10 +9,10 @@ import {
 
 const router = Router()
 
-router.get('/get', getConsortium)
+router.get('/get/:userId', getConsortium)
 router.post('/create', createConsortium)
-router.post('/add', addUserConsortium)
-router.delete('/delete/consortium', deleteConsortium)
-router.delete('/delete/user', deleteConsortiumUser)
+router.put('/add/:consortiumId/:userId', addUserConsortium)
+router.delete('/delete/:consortiumId', deleteConsortium)
+router.delete('/delete/:consortiumId/:userId', deleteConsortiumUser)
 
 export default router
