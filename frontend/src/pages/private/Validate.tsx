@@ -1,12 +1,21 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Container from '../../components/Container'
 import GridLoader from 'react-spinners/GridLoader'
 import { useParams } from 'react-router'
+import { validateUserAccount } from '../../services/validateUserAccount'
 
 const Validate = () => {
   const [response, setResponse] = useState('loading')
-  const { token } = useParams()
-  console.log(token)
+  const { token, id } = useParams()
+  // console.log(token)
+  // console.log(id)
+
+  useEffect(() => {
+    if (id && token) {
+      const resp = validateUserAccount(id, token)
+      console.log(resp)
+    }
+  }, [])
 
   return (
     <Container>
