@@ -1,0 +1,41 @@
+[
+  {
+    "_id":"01GS6CKTCW5HRR486XPG9XF7A1",
+    "name":"Consorcio Primero",
+    "address":"La Rioja 865",
+    "users":[
+          {"id": "01GRHTEM3JW777ZBHGJRRV52H7"},
+          {"id": "01GRHTEM3P2MX6P0J26G673XN0"},
+          {"id": "01GRHTEM41N6BAPQXVMMHVV8MA"},        
+          {"id": "01GRHTEM448A5KKG5KW0NSW9FT"},
+          {"id": "01GRHTEM47WVSF6ZMCX070ENHT"}
+    ],
+    "admin":"01GRHTEM3JW777ZBHGJRRV52H7",
+    "floor":5,
+    "apt":10,
+    "amenities":[
+      {"am1": "01GS6CKTCSP02M0G6D9FQC0BMV"},
+      {"am2": "01GS6CKTCT2Y5NDXB0D783AD7X"}
+    ]
+  },
+  {
+    "_id":"01GS6CKTCXN03NGPV2SDFBWFN7",
+    "name":"Consorcio Segundo",
+    "address":"Madrid 912",
+    "users":[
+          {"id": "01GRHTEM4B477JT86VZWRSX6A3"},
+          {"id": "01GRHTEM4EG2RHNZ91A7T4MT76"},
+          {"id": "01GRHTEM4JJKP1ARQ9Y3D6ZK8F"},        
+          {"id": "01GRHTEM4PB0PGERDY4KMJS863"},
+          {"id": "01GRHTEM4S44Q28MHAQ5GVAJXZ"}
+    ],
+    "admin":"01GRHTEM4B477JT86VZWRSX6A3",
+    "floor":8,
+    "apt":14,
+    "amenities":[
+      {"am1": "01GS6CKTCT4RX2XZSHZ8Z7ZCRM"},
+      {"am2": "01GS6CKTCVN8RA5Z0B5PTBAP1N"},
+      {"am3": "01GS6CKTCVDM57KP3214TK48ZH"}
+    ]
+  }
+]
