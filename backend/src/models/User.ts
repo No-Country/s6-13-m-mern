@@ -41,7 +41,7 @@ const userSchema = new Schema<IUser>(
         },
         isValidated: {
             type: Boolean,
-            default: true,
+            default: false,
         },
         externalId: {
             type: String,

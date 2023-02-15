@@ -1,7 +1,7 @@
 export const validateUser = {
     get: {
         tags: ['user'],
-        summary: 'Validate one user by ID',
+        summary: 'Validate one user token',
         // description: 'Get an user by ID',
         security: [
             {
@@ -21,6 +21,9 @@ export const validateUser = {
         responses: {
             '200': {
                 description: 'User validates',
+            },
+            '401': {
+                description: 'Invalid user token',
             },
             '404': {
                 description: 'User not exists',
