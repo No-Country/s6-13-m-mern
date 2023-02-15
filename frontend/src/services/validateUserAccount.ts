@@ -1,4 +1,4 @@
-import axios from '../axios/axiosInstance'
+import axios from 'axios'
 
 export const validateUserAccount = async (id: string, token: string) => {
   const config = { headers: { token } }
