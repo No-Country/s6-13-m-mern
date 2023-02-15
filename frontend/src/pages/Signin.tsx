@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import Container from '../components/Container'
 import { useForm, type SubmitHandler } from 'react-hook-form'
 import { FormRegisterData } from '../interfaces/authInterfaces'
-import registerService from '../services/registerService'
+//! import registerService from '../services/registerService'
 
 // const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/
 // min 5 characters, 1 upper case letter, 1 lower case letter, 1 numeric digit.
@@ -18,8 +18,8 @@ const Signin = () => {
   const customSubmit: SubmitHandler<FormRegisterData> = async (data: FormRegisterData) => {
     console.log(data)
     const { name, lastname, password, email } = data
-    const resp = await registerService({ name, lastname, password, email })
-    console.log(resp)
+    //! const resp = await registerService({ name, lastname, password, email })
+    //! console.log(resp)
   }
 
   return (
