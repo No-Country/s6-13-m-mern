@@ -1,19 +1,11 @@
 import { Link } from 'react-router-dom'
 import Container from '../components/Container'
 import { useForm, type SubmitHandler } from 'react-hook-form'
+import { RegisterData, FormRegisterData } from '../interfaces/authInterfaces'
+import registerService from '../services/registerService'
 
 // const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/
 // min 5 characters, 1 upper case letter, 1 lower case letter, 1 numeric digit.
-
-interface FormData {
-  email: string
-  password: string
-  password2: string
-  name: string
-  lastName: string
-  phone?: string
-  check: boolean
-}
 
 const Signin = () => {
   const {
@@ -21,10 +13,13 @@ const Signin = () => {
     handleSubmit,
     formState: { errors, isDirty, isValid },
     watch,
-  } = useForm<FormData>({ mode: 'onTouched' })
+  } = useForm<FormRegisterData>({ mode: 'onTouched' })
 
-  const customSubmit: SubmitHandler<FormData> = (data: FormData) => {
+  const customSubmit: SubmitHandler<FormRegisterData> = async (data: FormRegisterData) => {
     console.log(data)
+    const { name, lastname, password, email } = data
+    const resp = await registerService({ name, lastname, password, email })
+    console.log(resp)
   }
 
   return (
@@ -40,7 +35,7 @@ const Signin = () => {
         </p>
       )}
       {(errors.name?.type === 'required' ||
-        errors.lastName?.type === 'required' ||
+        errors.lastname?.type === 'required' ||
         errors.email?.type === 'required' ||
         errors.password?.type === 'required' ||
         errors.password2?.type === 'required') && (
@@ -63,7 +58,7 @@ const Signin = () => {
           <h1 className="text-[30px]">Welcome!</h1>
           <h2 className="ml-6 mb-8">Please fill your info to start</h2>
           <div className="w-full">
-            <form onSubmit={() => handleSubmit(customSubmit)}>
+            <form onSubmit={handleSubmit(customSubmit)}>
               <div className="flex justify-between">
                 <div className="mx-auto w-[400px]">
                   <input
@@ -77,12 +72,12 @@ const Signin = () => {
                   />
                   <input
                     className={`border-2 ${
-                      !errors.lastName ? 'border-blueDark' : 'border-red'
+                      !errors.lastname ? 'border-blueDark' : 'border-red'
                     } rounded-lg h-12 px-4 mb-8 w-full placeholder:italic placeholder:text-grey bg-transparent focus:outline-none text-lg`}
                     type="text"
                     placeholder="Enter your lastName"
                     autoComplete="off"
-                    {...register('lastName', { required: true })}
+                    {...register('lastname', { required: true })}
                   />
                   <input
                     className={`border-2 ${
