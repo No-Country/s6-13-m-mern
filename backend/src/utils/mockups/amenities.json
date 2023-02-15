@@ -1,0 +1,47 @@
+[
+  {
+    "_id": "01GS6CKTCSP02M0G6D9FQC0BMV",
+    "name": "Piscina",
+    "description": "descripcion piscina1",
+    "reservable": true,
+    "img": "https://img.lovepik.com/free-png/20220127/lovepik-swimming-pool-png-image_401893480_wh1200.png",
+    "size":10,
+    "schedule":"1sch"
+  },
+  {
+    "_id": "01GS6CKTCT2Y5NDXB0D783AD7X",
+    "name": "Quincho",
+    "description": "",
+    "reservable": true,
+    "img": "https://www.quinchosizacar.com/images/quincho-goliat/quincho-goliat-enchape-ladrillo.png",
+    "size":10,
+    "schedule":"2sch"
+  },
+  {
+    "_id": "01GS6CKTCT4RX2XZSHZ8Z7ZCRM",
+    "name": "Piscina",
+    "description": "descripcion piscina2",
+    "reservable": true,
+    "img": "https://png.pngtree.com/png-vector/20210115/ourmid/pngtree-swimming-people-in-the-pool-clipart-png-image_2748405.jpg",
+    "size":10,
+    "schedule":"3sch"
+  },
+  {
+    "_id": "01GS6CKTCVN8RA5Z0B5PTBAP1N",
+    "name": "Quincho",
+    "description": "",
+    "reservable": true,
+    "img": "https://as1.ftcdn.net/v2/jpg/03/23/56/60/1000_F_323566079_Ufub65Xc3VQ6b1CBfkthfhNiDucXY2Zt.jpg",
+    "size":10,
+    "schedule":"4sch"
+  },
+  {
+    "_id": "01GS6CKTCVDM57KP3214TK48ZH",
+    "name": "Patio",
+    "description": "",
+    "reservable": true,
+    "img": "https://png.pngtree.com/png-clipart/20220602/original/pngtree-house-backyard-patio-2d-vector-web-banner-png-image_7868685.png",
+    "size":10,
+    "schedule":"5sch"
+  }
+]
