@@ -1,21 +1,19 @@
 import { Request, Response } from 'express'
 import { IResponse } from '../../interfaces'
 import { registerService } from '../../services'
-import { hashPassword } from '../../utils'
 import { sendMail } from '../../utils/sendMail'
 
 export const registerController = async (req: Request, res: Response) => {
     const { name, lastname, email, password, phone } = req.body
 
     try {
-        const hPassword = await hashPassword(password)
-        const { ok, status } = (await registerService(
+        const { ok, status } = (await registerService({
             name,
             lastname,
             email,
-            hPassword,
-            phone || ''
-        )) as IResponse
+            password,
+            phone,
+        })) as IResponse
 
         //* Comprobar que el mail este registrado
         if (!ok && status === 400) {
