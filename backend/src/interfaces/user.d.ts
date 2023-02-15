@@ -2,7 +2,7 @@ import { Types } from 'mongoose'
 import { ERoles, EStatus } from '../utils/enums'
 
 export interface IUser {
-    _id?: string
+    _id?: Types.ObjectId | string
     name: string
     lastname: string
     email: string
@@ -16,5 +16,5 @@ export interface IUser {
     status?: EStatus
     token?: string
     apt?: string
-    consortium?: Types.ObjectId
+    consortium?: Types.ObjectId[] | string[]
 }
