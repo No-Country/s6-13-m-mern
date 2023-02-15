@@ -9,7 +9,7 @@ module.exports = {
       },
       colors: {
         blue: '#004AAD',
-        blueDark: '#002A61;',
+        blueDark: '#002A61',
         black: '#00060D',
         white: '#F8F8F8',
         grey: '#4B4B4B',
@@ -18,6 +18,7 @@ module.exports = {
         red: '#ff0000',
         palePink: '#F6EAEA',
         blueUser: '#0064EB',
+        greenLight: '#4FCD3A'
       },
       fontSize: {
         '2.5xl': ['1.8rem', '2.3rem'],

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import Container from '../components/Container'
 import { useForm, type SubmitHandler } from 'react-hook-form'
-import { RegisterData, FormRegisterData } from '../interfaces/authInterfaces'
+import { FormRegisterData } from '../interfaces/authInterfaces'
 import registerService from '../services/registerService'
 
 // const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/
