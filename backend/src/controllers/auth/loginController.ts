@@ -41,7 +41,7 @@ export const loginController = async (req: Request, res: Response) => {
             ok: true,
             token,
             id: user._id,
-            admin: user.role,
+            role: user.role,
         })
     } catch (error) {
         return res.status(500).json({
