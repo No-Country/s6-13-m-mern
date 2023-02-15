@@ -3,15 +3,15 @@ import { registerService } from '../user'
 import users from '../../utils/mockups/user.json'
 
 export const userMockService = async () => {
-    const isUser = await User.findOne()
+    try {
+        const isUser = await User.findOne()
 
-    if (!isUser) {
-        users.forEach(async (user: any) => {
-            try {
+        if (!isUser) {
+            users.forEach(async (user) => {
                 await registerService(user)
-            } catch (error) {
-                return error
-            }
-        })
+            })
+        }
+    } catch (error) {
+        return error
     }
 }

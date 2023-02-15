@@ -12,7 +12,6 @@ const port = process.env.PORT || 3001
 connectDB()
 
 export const server = app.listen(port, async () => {
-    // eslint-disable-next-line no-console
     await userMockService()
     console.log(`Server listening on port ${port}`)
 })
