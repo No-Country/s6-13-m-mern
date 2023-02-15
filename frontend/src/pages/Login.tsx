@@ -2,7 +2,7 @@ import Container from '../components/Container'
 import { Link } from 'react-router-dom'
 import BackgroundImage from '../components/BackgroundImage'
 import { useForm, type SubmitHandler } from 'react-hook-form'
-//! import loginService from '../services/loginService'
+import loginService from '../services/loginService'
 import { useAuthStore } from '../store/auth'
 import { LoginValues } from '../interfaces/authInterfaces'
 import { useState } from 'react'
@@ -19,14 +19,14 @@ const Login = () => {
   const setToken = useAuthStore((state) => state.setToken)
 
   const customSubmit: SubmitHandler<LoginValues> = async (data: LoginValues) => {
-    //! const resp = await loginService(data)
-    //! if (resp.ok) {
-    //!   setToken(resp.token)
-    //!   setLogError(false)
-    //!   console.log('resp:', resp)
-    //! } else {
-    //!   setLogError(true)
-    //! }
+    const resp = await loginService(data)
+    if (resp.ok) {
+      setToken(resp.token)
+      setLogError(false)
+      console.log('resp:', resp)
+    } else {
+      setLogError(true)
+    }
   }
 
   return (
