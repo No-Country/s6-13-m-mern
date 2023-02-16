@@ -13,6 +13,7 @@ import PulseLoader from 'react-spinners/PulseLoader'
 const Signin = () => {
   const [modalOpen, setModalOpen] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [mailError, setMailError] = useState(false)
 
   const {
     register,
@@ -25,9 +26,15 @@ const Signin = () => {
     setLoading(true)
     const { name, lastname, password, email } = data
     const resp = await registerService({ name, lastname, password, email })
-    console.log(resp)
-    setLoading(false)
-    setModalOpen(true)
+    if (!resp.ok) {
+      if (resp.msg === 'Email used') setMailError(true)
+      setLoading(false)
+    } else {
+      setMailError(false)
+      console.log(resp)
+      setLoading(false)
+      setModalOpen(true)
+    }
   }
 
   return (
@@ -38,6 +45,11 @@ const Signin = () => {
           <Link to="/">OK</Link>
         </button>
       </BlueModal>
+      {mailError && (
+        <p className="absolute w-full h-8 px-8 bg-red rounded-b-sm border border-black text-lg font-sans text-white">
+          Email already used
+        </p>
+      )}
       {errors.check?.type === 'required' && (
         <p className="absolute w-full h-8 px-8 bg-red rounded-b-sm border border-black text-lg font-sans text-white">
           Must accept terms and conditions

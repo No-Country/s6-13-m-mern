@@ -15,7 +15,7 @@ const Login = () => {
     formState: { errors, isDirty, isValid },
   } = useForm<LoginValues>({ mode: 'onTouched' })
 
-  const [logError, setLogError] = useState(false)
+  const [logError, setLogError] = useState('')
   const [loading, setLoading] = useState(false)
 
   const setToken = useAuthStore((state) => state.setToken)
@@ -24,20 +24,26 @@ const Login = () => {
     setLoading(true)
     const resp = await loginService(data)
     setLoading(false)
-    if (resp.ok) {
-      setToken(resp.token)
-      setLogError(false)
-      console.log('resp:', resp)
+    if (!resp.ok) {
+      if (resp.msg === 'Email or password is invalid') setLogError('invalid')
+      if (resp.msg === 'Unverified email') setLogError('unverified')
     } else {
-      setLogError(true)
+      setToken(resp.token)
+      setLogError('')
+      console.log('resp:', resp)
     }
   }
 
   return (
     <BackgroundImage imageUrl="/assets/oneBuild.svg">
-      {logError && (
+      {logError === 'invalid' && (
         <p className="absolute w-full h-8 px-8 bg-red rounded-b-sm border border-black text-lg font-sans text-white">
           The email address or password is incorrect. Please retry..
+        </p>
+      )}
+      {logError === 'unverified' && (
+        <p className="absolute w-full h-8 px-8 bg-red rounded-b-sm border border-black text-lg font-sans text-white">
+          The email is not verified, please check your email
         </p>
       )}
       {(errors.email?.type === 'required' || errors.password?.type === 'required') && (
