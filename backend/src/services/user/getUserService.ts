@@ -9,7 +9,7 @@ export const getUserService = async (data: IData) => {
     let user = null
     if (data.id) {
         user = await User.findById(data.id).select(
-            '-password -createdAt -updatedAt -externalId -token -isValidated'
+            '-password -createdAt -updatedAt -externalId -token '
         )
     } else {
         user = await User.findOne({ email: data.mail }).select(
