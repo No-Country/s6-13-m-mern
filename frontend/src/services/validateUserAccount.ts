@@ -1,4 +1,5 @@
-import axios from 'axios'
+import axios from '../axios/axiosInstance'
+import { AxiosError } from 'axios'
 
 export const validateUserAccount = async (id: string, token: string) => {
   const config = { headers: { token } }
@@ -6,6 +7,7 @@ export const validateUserAccount = async (id: string, token: string) => {
     const resp = await axios.get(`/api/user/validate/${id}`, config)
     return resp.data
   } catch (error) {
-    console.log(error)
+    const err = error as AxiosError
+    return err.response?.data
   }
 }

@@ -1,4 +1,5 @@
-import axios, { AxiosError } from 'axios'
+import { AxiosError } from 'axios'
+import axios from '../axios/axiosInstance'
 import { RegisterData } from '../interfaces/authInterfaces'
 
 const registerService = async (data: RegisterData) => {
