@@ -4,10 +4,14 @@ import { sendMail } from '../../utils/sendMail'
 export const snedMail = async (req: Request, res: Response) => {
     const { name, email, subject, message } = req.body
 
+    const nombre: string = name
+    const correo: string = email
+    const mensaje: string = message
+
     const messageBody: string = `<div>
-    <p>Name: ${name}</p>
-    <p>Mail: ${email}</p>
-    <p>${message}</p>
+    <p>Name: ${nombre}</p>
+    <p>Mail: ${correo}</p>
+    <p>${mensaje}</p>
     </div>`
 
     try {
