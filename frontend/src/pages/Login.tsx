@@ -6,6 +6,7 @@ import loginService from '../services/loginService'
 import { useAuthStore } from '../store/auth'
 import { LoginValues } from '../interfaces/authInterfaces'
 import { useState } from 'react'
+import PulseLoader from 'react-spinners/PulseLoader'
 
 const Login = () => {
   const {
@@ -14,30 +15,37 @@ const Login = () => {
     formState: { errors, isDirty, isValid },
   } = useForm<LoginValues>({ mode: 'onTouched' })
 
-  const [logError, setLogError] = useState(false)
+  const [logError, setLogError] = useState('')
+  const [loading, setLoading] = useState(false)
 
   const setToken = useAuthStore((state) => state.setToken)
   const setId = useAuthStore((state) => state.setId)
   const navigate = useNavigate()
 
   const customSubmit: SubmitHandler<LoginValues> = async (data: LoginValues) => {
+    setLoading(true)
     const resp = await loginService(data)
-    if (resp.ok) {
+    if (!resp.ok) {
+      if (resp.msg === 'Email or password is invalid') setLogError('invalid')
+      if (resp.msg === 'Unverified email') setLogError('unverified')
+    } else {
       setToken(resp.token)
-      setLogError(false)
+      setLogError('')
       setId(resp.id)
       resp.role === 'admin' ? navigate('/admin') : navigate('/user')
-      console.log('resp.role', resp)
-    } else {
-      setLogError(true)
     }
   }
 
   return (
     <BackgroundImage imageUrl="/assets/oneBuild.svg">
-      {logError && (
+      {logError === 'invalid' && (
         <p className="absolute w-full h-8 px-8 bg-red rounded-b-sm border border-black text-lg font-sans text-white">
           The email address or password is incorrect. Please retry..
+        </p>
+      )}
+      {logError === 'unverified' && (
+        <p className="absolute w-full h-8 px-8 bg-red rounded-b-sm border border-black text-lg font-sans text-white">
+          The email is not verified, please check your email
         </p>
       )}
       {(errors.email?.type === 'required' || errors.password?.type === 'required') && (
@@ -81,7 +89,7 @@ const Login = () => {
                 className="bg-blueDark disabled:opacity-60 text-white text-xl w-60 h-12 rounded-2xl block ml-auto mb-5"
                 disabled={!isDirty || !isValid}
               >
-                LOG IN
+                {loading ? <PulseLoader color="white" /> : 'LOG IN'}
               </button>
             </form>
             <div className="flex justify-end ">
