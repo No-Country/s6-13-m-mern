@@ -22,6 +22,8 @@
     "react-hook-form": "^7.43.1",
     "react-modern-calendar-datepicker": "^3.1.6",
     "react-router-dom": "^6.8.0",
+    "react-spinners": "^0.13.8",
+    "vite-plugin-rewrite-all": "^1.0.1",
     "zustand": "^4.3.2"
   },
   "devDependencies": {

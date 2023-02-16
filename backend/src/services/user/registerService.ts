@@ -22,10 +22,11 @@ export const registerService = async (user: IUser) => {
             password,
             phone,
         })
-        await newUser.save()
+
         const response = {
             status: 201,
             ok: true,
+            user: newUser,
         }
         return response
     } catch (error) {

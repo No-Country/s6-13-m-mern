@@ -4,7 +4,7 @@ import axios from 'axios'
 // tomará como base la misma. Para utilizarlo, en vez de importar axios from 'axios', se importará desde esta ruta.
 
 const instance = axios.create({
-  baseURL: import.meta.env.VITE_DEPLOY_URL,
+  baseURL: import.meta.env.VITE_LOCAL_BASE_URL,
   // withCredentials: true,
 })
 
