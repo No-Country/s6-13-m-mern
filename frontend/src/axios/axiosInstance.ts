@@ -5,7 +5,7 @@ import { useAuthStore } from '../store/auth'
 // tomará como base la misma. Para utilizarlo, en vez de importar axios from 'axios', se importará desde esta ruta.
 
 const instance = axios.create({
-  baseURL: import.meta.env.VITE_LOCAL_BASE_URL,
+  baseURL: process.env.VITE_LOCAL_BASE_URL,
 })
 
 const token = useAuthStore.getState().token
