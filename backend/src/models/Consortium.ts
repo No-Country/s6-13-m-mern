@@ -20,12 +20,15 @@ const consortiumSchema = new Schema<IConsortium>({
     admin: {
         type: Schema.Types.ObjectId,
         ref: 'User',
+        required: true
     },
     floor: {
         type: Number,
+        required: true
     },
     apt: {
-        type: String,
+        type: Number,
+        required: true
     },
     schedule: {
         type: Schema.Types.ObjectId,
