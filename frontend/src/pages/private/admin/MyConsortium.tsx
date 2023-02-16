@@ -25,9 +25,9 @@ const MyConsortium = () => {
 
   return (
     <section>
-      <TitleComponents title="My consortiums" />
+      <TitleComponents title="My consortiums"/>
       <Container>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-4 mb-4">
           {consortiums.map((consortium) => (
             <Link
               to={consortium.path}

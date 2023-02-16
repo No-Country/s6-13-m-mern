@@ -62,7 +62,7 @@ const Dashboard = ({ name = 'Alberto Gómez' }: AdminName) => {
               </button>
             </div>
           </div>
-          <div className="bg-blue bg-opacity-20 w-[880px] border-[2.5px] border-black rounded-lg mt-[50px] h-[560px]">
+          <div className="bg-blue bg-opacity-20 w-[880px] border-[2.5px] border-black rounded-lg mt-[50px] h-[560px] overflow-y-scroll no-scrollbar">
             {menu === 'Profile' && <Profile />}
             {menu === 'My consortiums' && <MyConsortium />}
             {menu === 'Create consortium' && <CreateConsortium />}
