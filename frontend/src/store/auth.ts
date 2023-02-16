@@ -7,6 +7,7 @@ interface State {
 
 interface Actions {
   setToken: (token: string) => void
+  setLogout: () => void
 }
 
 export const useAuthStore = create(
@@ -16,6 +17,11 @@ export const useAuthStore = create(
       setToken: (token: string) => {
         set((state) => ({
           token,
+        }))
+      },
+      setLogout: () => {
+        set(() => ({
+          token: '',
         }))
       },
     }),
