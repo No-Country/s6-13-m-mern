@@ -9,9 +9,32 @@ import {
     validateUser,
 } from './userRoutes'
 import { changePassword, forgetPassword, login } from './authRoutes'
-import { getAmenity, putAmenity, postAmenity, deleteAmenity } from './amenityRoutes'
-import { getReserve, putReserve, postReserve, deleteReserve } from './reserveRoutes'
-import { getSchedule, putSchedule, postSchedule, deleteSchedule } from './scheduleRoutes'
+import {
+    getAmenity,
+    putAmenity,
+    postAmenity,
+    deleteAmenity,
+} from './amenityRoutes'
+import {
+    getReserve,
+    putReserve,
+    postReserve,
+    deleteReserve,
+} from './reserveRoutes'
+import {
+    getSchedule,
+    putSchedule,
+    postSchedule,
+    deleteSchedule,
+} from './scheduleRoutes'
+import {
+    createConsortium,
+    getConsortium,
+    addUserConsortium,
+    addAmenityConsortium,
+    deleteConsortium,
+    deleteUserConsortium,
+} from './consortiumRoutes'
 // OAS3 = Open Api Standard 3
 
 const swaggerDefinition: OAS3Definition = {
@@ -143,11 +166,11 @@ const swaggerDefinition: OAS3Definition = {
                         $ref: '#/components/schemas/User',
                     },
                     floor: {
-                        type: 'integer',
+                        type: 'number',
                         example: 3,
                     },
                     apt: {
-                        type: 'integer',
+                        type: 'number',
                         example: 10,
                     },
                     schedule: {
@@ -243,6 +266,7 @@ const swaggerDefinition: OAS3Definition = {
         { name: 'amenity', description: 'All Amenity Endpoints' },
         { name: 'reserve', description: 'All Reserve Endpoints' },
         { name: 'schedule', description: 'All Schedule Endpoints' },
+        { name: 'conssortium', description: 'All Consortium Endpoints' },
     ],
     paths: {
         // *-----------------------------Api auth Routes-----------------------------------------------------------
@@ -275,7 +299,7 @@ const swaggerDefinition: OAS3Definition = {
         //* Delete user
         '/api/user/delete/{id}': userDelete,
 
-// *-----------------------------Api amenity Routes-----------------------------------------------------------
+        // *-----------------------------Api amenity Routes-----------------------------------------------------------
 
         //* Get Amenity
         '/api/amenity/id/{id}': getAmenity,
@@ -316,6 +340,26 @@ const swaggerDefinition: OAS3Definition = {
 
         //* Get Schedule
         '/api/schedule/delete/{id}': deleteSchedule,
+
+        // *-----------------------------Api consortium Routes-----------------------------------------------------------
+
+        //* Create Consortium
+        '/api/consortium/create': createConsortium,
+
+        //* Get Consortium by Id
+        '/api/consortium/get/{id}': getConsortium,
+
+        //* Add user to consortium
+        '/api/consortium/add/{consortiumId}/{userId}': addUserConsortium,
+
+        //* Add amenity to consortium
+        '/api/consortium/add/{consortiumId}/{amenityId]': addAmenityConsortium,
+
+        //* Delete consortium
+        '/api/consortium/delete/{consortiumId}': deleteConsortium,
+
+        //* Remove user from consortium
+        '/api/consortium/delete/{consortiumId}/{userID}': deleteUserConsortium,
     },
 }
 
