@@ -3,11 +3,18 @@ import Container from '../components/Container'
 import { useForm, type SubmitHandler } from 'react-hook-form'
 import { FormRegisterData } from '../interfaces/authInterfaces'
 import registerService from '../services/registerService'
+import BlueModal from '../components/modal/BlueModal'
+import { useState } from 'react'
+import PulseLoader from 'react-spinners/PulseLoader'
 
 // const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/
 // min 5 characters, 1 upper case letter, 1 lower case letter, 1 numeric digit.
 
 const Signin = () => {
+  const [modalOpen, setModalOpen] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [mailError, setMailError] = useState(false)
+
   const {
     register,
     handleSubmit,
@@ -16,14 +23,33 @@ const Signin = () => {
   } = useForm<FormRegisterData>({ mode: 'onTouched' })
 
   const customSubmit: SubmitHandler<FormRegisterData> = async (data: FormRegisterData) => {
-    console.log(data)
+    setLoading(true)
     const { name, lastname, password, email } = data
     const resp = await registerService({ name, lastname, password, email })
-    console.log(resp)
+    if (!resp.ok) {
+      if (resp.msg === 'Email used') setMailError(true)
+      setLoading(false)
+    } else {
+      setMailError(false)
+      console.log(resp)
+      setLoading(false)
+      setModalOpen(true)
+    }
   }
 
   return (
     <>
+      <BlueModal isOpen={modalOpen}>
+        <p>Your account has been created, wait for an email to validate your account.</p>
+        <button className="bg-blue text-white text-lg w-14 h-10 rounded-2xl mt-6">
+          <Link to="/">OK</Link>
+        </button>
+      </BlueModal>
+      {mailError && (
+        <p className="absolute w-full h-8 px-8 bg-red rounded-b-sm border border-black text-lg font-sans text-white">
+          Email already used
+        </p>
+      )}
       {errors.check?.type === 'required' && (
         <p className="absolute w-full h-8 px-8 bg-red rounded-b-sm border border-black text-lg font-sans text-white">
           Must accept terms and conditions
@@ -146,7 +172,7 @@ const Signin = () => {
                   className="bg-blueDark disabled:opacity-60 text-white text-xl w-60 h-12 rounded-2xl block ml-auto mb-2"
                   disabled={!isDirty || !isValid}
                 >
-                  SIGN IN
+                  {loading ? <PulseLoader color="white" /> : 'SIGN IN'}
                 </button>
                 <div className="flex justify-end text-lg">
                   <h3>Already a member? </h3>
