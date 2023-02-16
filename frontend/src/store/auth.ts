@@ -3,20 +3,28 @@ import { persist } from 'zustand/middleware'
 
 interface State {
   token: string
+  id: string
 }
 
 interface Actions {
   setToken: (token: string) => void
   setLogout: () => void
+  setId: (id: string) => void
 }
 
 export const useAuthStore = create(
   persist<State & Actions>(
     (set) => ({
       token: '',
+      id: '',
       setToken: (token: string) => {
         set((state) => ({
           token,
+        }))
+      },
+      setId: (id: string) => {
+        set((state) => ({
+          id,
         }))
       },
       setLogout: () => {
@@ -32,7 +40,7 @@ export const useAuthStore = create(
 )
 
 /*
-    Para guardar el token en el store de zustand se deben seguir los siguientes pasos:
+    Para guardar el token/id/desloguearse en el store de zustand se deben seguir los siguientes pasos:
 
     1) import { useAuthStore } desde esta ruta.
 
