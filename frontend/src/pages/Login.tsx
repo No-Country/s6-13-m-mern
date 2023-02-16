@@ -6,6 +6,7 @@ import loginService from '../services/loginService'
 import { useAuthStore } from '../store/auth'
 import { LoginValues } from '../interfaces/authInterfaces'
 import { useState } from 'react'
+import PulseLoader from 'react-spinners/PulseLoader'
 
 const Login = () => {
   const {
@@ -15,11 +16,14 @@ const Login = () => {
   } = useForm<LoginValues>({ mode: 'onTouched' })
 
   const [logError, setLogError] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   const setToken = useAuthStore((state) => state.setToken)
 
   const customSubmit: SubmitHandler<LoginValues> = async (data: LoginValues) => {
+    setLoading(true)
     const resp = await loginService(data)
+    setLoading(false)
     if (resp.ok) {
       setToken(resp.token)
       setLogError(false)
@@ -77,7 +81,7 @@ const Login = () => {
                 className="bg-blueDark disabled:opacity-60 text-white text-xl w-60 h-12 rounded-2xl block ml-auto mb-5"
                 disabled={!isDirty || !isValid}
               >
-                LOG IN
+                {loading ? <PulseLoader color="white" /> : 'LOG IN'}
               </button>
             </form>
             <div className="flex justify-end ">

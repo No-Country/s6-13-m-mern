@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import Container from '../../components/Container'
 import GridLoader from 'react-spinners/GridLoader'
+import PulseLoader from 'react-spinners/PulseLoader'
 import { useParams } from 'react-router'
 import { validateUserAccount } from '../../services/validateUserAccount'
 import { renewValidateTokenAccount } from '../../services/renewValidateTokenAccount'
@@ -9,6 +10,7 @@ import { Link } from 'react-router-dom'
 
 const Validate = () => {
   const [response, setResponse] = useState('loading')
+  const [loading, setLoading] = useState(false)
   const [modalOpen, setModalOpen] = useState(false)
   const { token, id } = useParams()
 
@@ -28,7 +30,9 @@ const Validate = () => {
 
   const handleOnClick = async () => {
     if (id) {
+      setLoading(true)
       const resp = await renewValidateTokenAccount(id)
+      setLoading(false)
       if (resp.ok === true) setModalOpen(true)
     }
   }
@@ -66,7 +70,7 @@ const Validate = () => {
                 className="bg-blueDark text-white text-xl w-60 h-12 rounded-2xl mb-5"
                 onClick={handleOnClick}
               >
-                RETRY
+                {loading ? <PulseLoader color="white" /> : 'RETRY'}
               </button>
             </div>
           )}
