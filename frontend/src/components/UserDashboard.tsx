@@ -6,10 +6,12 @@ import UserAmenities from '../pages/private/user/UserAmenities'
 import UserPayments from '../pages/private/user/UserPayments'
 import UserOrders from '../pages/private/user/UserOrders'
 import UserVoting from '../pages/private/user/UserVoting'
+import { useAuthStore } from '../store/auth'
 
 const UserDashboard = () => {
   const [menu, setMenu] = useState('information')
   const [imageUrl, setImageUrl] = useState('info')
+  const [hidden, setHidden] = useState(true)
 
   return (
     <HeroUser imageUrl={imageUrl}>
@@ -44,6 +46,7 @@ const UserDashboard = () => {
                 setImageUrl('doc')
                 setMenu('documents')
               }}
+              hidden={hidden}
             >
               Documents
             </p>
@@ -53,6 +56,7 @@ const UserDashboard = () => {
                 setMenu('amenities')
                 setImageUrl('amen')
               }}
+              hidden={hidden}
             >
               Amenities
             </p>
@@ -62,6 +66,7 @@ const UserDashboard = () => {
                 setMenu('payments')
                 setImageUrl('pay')
               }}
+              hidden={hidden}
             >
               Payments
             </p>
@@ -71,6 +76,7 @@ const UserDashboard = () => {
                 setMenu('orders')
                 setImageUrl('order')
               }}
+              hidden={hidden}
             >
               Orders
             </p>
@@ -80,6 +86,7 @@ const UserDashboard = () => {
                 setMenu('voting')
                 setImageUrl('vot')
               }}
+              hidden={hidden}
             >
               Voting
             </p>

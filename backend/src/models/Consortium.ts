@@ -14,7 +14,7 @@ const consortiumSchema = new Schema<IConsortium>({
         {
             type: Schema.Types.ObjectId,
             ref: 'User',
-            default: []
+            default: [],
         },
     ],
     admin: {
@@ -38,7 +38,7 @@ const consortiumSchema = new Schema<IConsortium>({
         {
             type: Schema.Types.ObjectId,
             ref: 'Amenity',
-            default: []
+            default: [],
         },
     ],
 })

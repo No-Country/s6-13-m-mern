@@ -19,10 +19,14 @@ export const validateToken = (
             })
         }
 
-        jwt.verify(token, `${process.env.JWT_SECRET || ''}`) as IPayload
+        const payload = jwt.verify(
+            token,
+            `${process.env.JWT_SECRET || ''}`
+        ) as IPayload
 
-        // req.id = id
-        // req.role = role
+        req.id = payload.id
+        req.role = payload.role
+        req.token = token
 
         next()
         return

@@ -4,9 +4,12 @@ import { validateUserService } from '../../services'
 
 export const validateUserController = async (req: Request, res: Response) => {
     const { id } = req.params
+    const { token } = req
 
     try {
-        const { ok, status } = (await validateUserService(id)) as IResponse
+        const { ok, status, user } = (await validateUserService(
+            id
+        )) as IResponse
 
         //* Comprobar que el mail este registrado
         if (!ok && status === 404) {
@@ -21,6 +24,17 @@ export const validateUserController = async (req: Request, res: Response) => {
                 .status(status)
                 .json({ ok: false, msg: 'User is already validated' })
         }
+
+        //* Comprobar si el token es del usuario
+        if (token !== user.token) {
+            return res
+                .status(401)
+                .json({ ok: false, msg: 'Invalid user token' })
+        }
+
+        user.token = ''
+        user.isValidated = true
+        await user.save()
 
         return res.status(status).json({
             ok: true,

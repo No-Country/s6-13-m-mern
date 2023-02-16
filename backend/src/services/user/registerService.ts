@@ -1,33 +1,37 @@
+import { IUser } from '../../interfaces'
 import User from '../../models/User'
+import { hashPassword } from '../../utils'
 
-export const registerService = async (
-    name: string,
-    lastname: string,
-    email: string,
-    password: string,
-    phone: string
-) => {
-    console.log('22 ' + phone)
+export const registerService = async (user: IUser) => {
+    let { name, lastname, email, password, phone } = user
     try {
-        const user = await User.findOne({ email })
-        if (user) {
+        const existsUser = await User.findOne({ email })
+        if (existsUser) {
             const response = {
                 ok: false,
                 status: 400,
             }
             return response
         }
-
-        const newUser = new User({ name, lastname, email, password, phone })
-        await newUser.save()
+        password = await hashPassword(password)
+        phone = phone || ''
+        const newUser = new User({
+            name,
+            lastname,
+            email,
+            password,
+            phone,
+        })
 
         const response = {
             status: 201,
             ok: true,
+            user: newUser,
         }
-
         return response
     } catch (error) {
+        console.log(error)
+        // throw new Error(error.message)
         return error
     }
 }
