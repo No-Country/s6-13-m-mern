@@ -54,7 +54,7 @@ export const addUserService = async (consrotiumId: string, userId: string, apt: 
       if (!modifiedConsortium.modifiedCount) {
         return {
           ok: false,
-          status: 400,
+          status: 500,
           error: 'Error ingresando el usuario'
         }
       }
