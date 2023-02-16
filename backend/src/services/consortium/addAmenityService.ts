@@ -15,7 +15,7 @@ export const addAmenityService = async (consortiumId: string, amenityId: string)
     if (!amenity) {return {
       ok: false,
       status: 404,
-      error: 'Comodidad no encontrado'
+      error: 'Comodidad no encontrada'
     }}
 
     const modifiedConsortium = await Consortium.updateOne(
@@ -32,7 +32,7 @@ export const addAmenityService = async (consortiumId: string, amenityId: string)
     if (!modifiedConsortium.modifiedCount) {
       return {
         ok: false,
-        status: 400,
+        status: 500,
         error: 'Error ingresando la comodidad'
       }
     }
