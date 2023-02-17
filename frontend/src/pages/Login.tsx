@@ -1,5 +1,5 @@
 import Container from '../components/Container'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import BackgroundImage from '../components/BackgroundImage'
 import { useForm, type SubmitHandler } from 'react-hook-form'
 import loginService from '../services/loginService'
@@ -19,18 +19,20 @@ const Login = () => {
   const [loading, setLoading] = useState(false)
 
   const setToken = useAuthStore((state) => state.setToken)
+  const setId = useAuthStore((state) => state.setId)
+  const navigate = useNavigate()
 
   const customSubmit: SubmitHandler<LoginValues> = async (data: LoginValues) => {
     setLoading(true)
     const resp = await loginService(data)
-    setLoading(false)
     if (!resp.ok) {
       if (resp.msg === 'Email or password is invalid') setLogError('invalid')
       if (resp.msg === 'Unverified email') setLogError('unverified')
     } else {
       setToken(resp.token)
       setLogError('')
-      console.log('resp:', resp)
+      setId(resp.id)
+      resp.role === 'admin' ? navigate('/admin') : navigate('/user')
     }
   }
 

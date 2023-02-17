@@ -52,7 +52,7 @@ const Contact = () => {
             </div>
             <div className="w-[564px] h-[564px] bg-[#D9D9D9] rounded-lg overflow-hidden border-2 border-black animate-fadeInRight">
               <img
-                src={'./assets/person-typing.svg'}
+                src={'https://res.cloudinary.com/dozwd1ssj/image/upload/v1676392678/person-typing_rcvxpc.png'}
                 className="w-full hover:animate-kenburnsRight"
               />
             </div>
@@ -64,13 +64,13 @@ const Contact = () => {
           <div className="relative w-full h-[700px] px-10 pt-16">
             <div className="absolute top-8 right-2 w-[330px] h-[304px] rounded-lg border-2 border-black overflow-hidden">
               <img
-                src={'./assets/building-facade1.svg'}
+                src={'https://res.cloudinary.com/dozwd1ssj/image/upload/v1676392872/faccade1_n7sxvd.png'}
                 className="w-full hover:animate-kenburnsRight"
               />
             </div>
             <div className="absolute bottom-2 -right-6 w-[280px] h-[342px] rounded-lg border-2 border-black overflow-hidden">
               <img
-                src={'./assets/building-facade2.svg'}
+                src={'https://res.cloudinary.com/dozwd1ssj/image/upload/v1676392957/faccade2_yziiel.png'}
                 className="w-full hover:animate-kenburnsRight"
               />
             </div>
