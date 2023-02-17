@@ -4,7 +4,6 @@ import { postReserveService } from '../../services/reserve/postReserveService'
 
 export const postReserveController = async(req: Request, res: Response)=> {
   const reserve = req.body
-  console.log(reserve)
 
   try{
     const reserveRetrieved = (await postReserveService(reserve)) as IResponse

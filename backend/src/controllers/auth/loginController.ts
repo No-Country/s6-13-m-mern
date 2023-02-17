@@ -35,16 +35,15 @@ export const loginController = async (req: Request, res: Response) => {
         }
 
         //* Creacion de jwt
-        const token = jwtGenerate(user._id, user.role)
+        const token = jwtGenerate(user._id, user.role, '1d')
 
         return res.status(200).json({
             ok: true,
             token,
             id: user._id,
-            admin: user.role,
+            role: user.role,
         })
     } catch (error) {
-        console.log(error)
         return res.status(500).json({
             ok: false,
             msg: 'Server Error',

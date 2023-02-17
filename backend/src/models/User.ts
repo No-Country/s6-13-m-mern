@@ -30,6 +30,10 @@ const userSchema = new Schema<IUser>(
             default:
                 'https://www.softzone.es/app/uploads-softzone.es/2018/04/guest.png',
         },
+        phone: {
+            type: String,
+            default: '',
+        },
         role: {
             type: String,
             enum: ERoles,
@@ -37,7 +41,7 @@ const userSchema = new Schema<IUser>(
         },
         isValidated: {
             type: Boolean,
-            default: true,
+            default: false,
         },
         externalId: {
             type: String,
@@ -62,6 +66,7 @@ const userSchema = new Schema<IUser>(
             {
                 type: Schema.Types.ObjectId,
                 ref: 'Consortium',
+                default: [],
             },
         ],
     },

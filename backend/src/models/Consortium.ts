@@ -14,19 +14,21 @@ const consortiumSchema = new Schema<IConsortium>({
         {
             type: Schema.Types.ObjectId,
             ref: 'User',
+            default: [],
         },
     ],
     admin: {
         type: Schema.Types.ObjectId,
         ref: 'User',
+        required: true
     },
     floor: {
         type: Number,
-        required: true,
+        required: true
     },
     apt: {
         type: Number,
-        required: true,
+        required: true
     },
     schedule: {
         type: Schema.Types.ObjectId,
@@ -36,6 +38,7 @@ const consortiumSchema = new Schema<IConsortium>({
         {
             type: Schema.Types.ObjectId,
             ref: 'Amenity',
+            default: [],
         },
     ],
 })

@@ -5,7 +5,7 @@ import Hero from '../components/Hero'
 const About = () => {
   return (
     <section className="bg-redLight w-full">
-      <Hero imageUrl="./assets/boy-and-city.svg">
+      <Hero imageUrl="https://res.cloudinary.com/dozwd1ssj/image/upload/v1676392033/boy_and_city_psrw7i.png">
         <Container>
           <div className="w-full h-full flex items-center justify-center">
             <div className="w-full flex flex-row justify-between">
@@ -24,16 +24,16 @@ const About = () => {
                 </ul>
               </div>
               <div className="relative w-[640px] h-[720px]">
-                <div className="absolute w-[467px] h-[346px] bg-white top-0 left-0 rounded border-2 border-black drop-shadow-[0px_4px_1px_rgba(0,0,0,0.5)] transition ease-in-out delay-100 duration-300 hover:scale-105 animate-fadeInRight">
+                <div className="absolute w-[467px] h-[346px] bg-white top-0 left-0 rounded-lg border-2 border-black drop-shadow-[0px_4px_1px_rgba(0,0,0,0.5)] transition ease-in-out delay-100 duration-300 hover:scale-105 animate-fadeInRight overflow-hidden">
                   <img
-                    src={'./assets/people3.svg'}
+                    src={'https://res.cloudinary.com/dozwd1ssj/image/upload/v1676392263/people4_kjmexi.png'}
                     className="w-full"
                   />
                   <div className="absolute bottom-0 w-full h-full bg-[rgba(252,207,189,0.2)] transition ease-in-out delay-100 hover:opacity-[0] duration-300"></div>
                 </div>
-                <div className="absolute w-[446px] h-[346px] bg-white bottom-0 right-0 rounded border-2 border-black drop-shadow-[0px_4px_1px_rgba(0,0,0,0.5)] transition ease-in-out delay-100 duration-300 hover:scale-105 animate-fadeInLeft">
+                <div className="absolute w-[446px] h-[346px] bg-white bottom-0 right-0 rounded-lg border-2 border-black drop-shadow-[0px_4px_1px_rgba(0,0,0,0.5)] transition ease-in-out delay-100 duration-300 hover:scale-105 animate-fadeInLeft overflow-hidden">
                   <img
-                    src={'./assets/people4.svg'}
+                    src={'https://res.cloudinary.com/dozwd1ssj/image/upload/v1676392261/people3_nrhxeo.png'}
                     className="w-full"
                   />
                   <div className="absolute bottom-0 w-full h-full bg-[rgba(11,103,123,0.2)] transition ease-in-out delay-100 hover:opacity-[0] duration-300"></div>
@@ -67,7 +67,7 @@ const About = () => {
               </li>
             </ul>
             <div className="w-full h-full">
-              <BackgroundImage imageUrl="./assets/people5.svg" />
+              <BackgroundImage imageUrl="https://res.cloudinary.com/dozwd1ssj/image/upload/v1676344074/About_us_ig6jdr.jpg" />
             </div>
           </div>
         </Container>
