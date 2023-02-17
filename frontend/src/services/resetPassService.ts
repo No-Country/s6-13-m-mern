@@ -1,8 +1,8 @@
 import instance from '../axios/axiosInstance'
 
-export const resetPassService = async (email: string) => {
+export const resetPassService = async (data: { mail: string }) => {
   try {
-    const response = await instance.post('/api/auth/forgetPassword', email)
+    const response = await instance.post('/api/auth/forgetPassword', data)
     console.log(response)
     return response
   } catch (error) {

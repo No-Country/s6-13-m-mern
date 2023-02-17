@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useForm, type SubmitHandler } from 'react-hook-form'
 import PulseLoader from 'react-spinners/PulseLoader'
 import BlueModal from '../components/modal/BlueModal'
-// import { resetPassService } from '../services/resetPassService'
+import { resetPassService } from '../services/resetPassService'
 import { useNavigate } from 'react-router'
 
 interface emailValue {
@@ -21,8 +21,7 @@ const ResetPass = () => {
   const submitValues: SubmitHandler<emailValue> = async (data: emailValue) => {
     setLoad(true)
     setOpen(true)
-    // const response = await resetPassService(data.email)
-    // console.log(response)
+    await resetPassService({ mail: data.email })
   }
   const handleModalClose = () => {
     navigate('/')
@@ -40,7 +39,7 @@ const ResetPass = () => {
         </p>
       )}
       <BlueModal isOpen={open}>
-        <p>You will be receiving an email shortly with a link to renew your password</p>
+        <p>If you have created an account you will be receiving an email shortly with a link to renew your password</p>
         <button className='bg-white text-blueDark rounded-md py-2 px-4 mt-6' onClick={() => { handleModalClose() }}>OK!</button>
       </BlueModal>
       <div className='grid place-items-center md:m-28 mb-32 mt-10'>
