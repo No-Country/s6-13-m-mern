@@ -19,3 +19,15 @@ export interface RegisterData {
   name: string
   lastname: string
 }
+
+export interface UserInformation {
+  consortium?: string[]
+  email: string
+  img?: string
+  lastname: string
+  name: string
+  phone?: string
+  role: string
+  status: string
+  _id: string
+}
