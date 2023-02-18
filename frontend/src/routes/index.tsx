@@ -13,6 +13,8 @@ import Signin from '../pages/Signin'
 import UserDashboard from '../components/UserDashboard'
 import AdminDashboard from '../components/AdminDashboard'
 import Validate from '../pages/private/Validate'
+import ResetPass from '../pages/ResetPass'
+import ChangePass from '../pages/ChangePass'
 
 export const router = createBrowserRouter([
   {
@@ -31,6 +33,9 @@ export const router = createBrowserRouter([
       { path: '/validateAccount/:id/:token', element: <Validate /> },
       { path: '/user', element: <LayoutPrivate />, children: [{ index: true, element: <UserDashboard /> }] },
       { path: '/admin', element: <LayoutPrivate />, children: [{ index: true, element: <AdminDashboard /> }] },
+      { path: '/resetpassword', element: <ResetPass /> },
+      { path: '/changepassword/:id/:token', element: <ChangePass /> },
+
     ],
   },
 ])
