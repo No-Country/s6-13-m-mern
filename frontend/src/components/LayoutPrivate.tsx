@@ -1,11 +1,10 @@
 import { Navigate, Outlet } from 'react-router-dom'
+import { useAuthStore } from '../store/auth'
 
 const LayoutPrivate = () => {
-  // TODO: Traer del estado el user logueado o el token!
+  const token = useAuthStore((state) => state.token)
 
-  const userLogged = false
-
-  return <div>{userLogged ? <Outlet /> : <Navigate to="/login" />}</div>
+  return <div>{token ? <Outlet /> : <Navigate to="/login" />}</div>
 }
 
 export default LayoutPrivate

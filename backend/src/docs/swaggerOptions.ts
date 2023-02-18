@@ -1,4 +1,40 @@
 import swaggerJSDoc, { OAS3Definition, OAS3Options } from 'swagger-jsdoc'
+
+import {
+    userRegister,
+    getUserById,
+    getAllUsers,
+    editUser,
+    userDelete,
+    validateUser,
+} from './userRoutes'
+import { changePassword, forgetPassword, login } from './authRoutes'
+import {
+    getAmenity,
+    putAmenity,
+    postAmenity,
+    deleteAmenity,
+} from './amenityRoutes'
+import {
+    getReserve,
+    putReserve,
+    postReserve,
+    deleteReserve,
+} from './reserveRoutes'
+import {
+    getSchedule,
+    putSchedule,
+    postSchedule,
+    deleteSchedule,
+} from './scheduleRoutes'
+import {
+    createConsortium,
+    getConsortium,
+    addUserConsortium,
+    addAmenityConsortium,
+    deleteConsortium,
+    deleteUserConsortium,
+} from './consortiumRoutes'
 // OAS3 = Open Api Standard 3
 
 const swaggerDefinition: OAS3Definition = {
@@ -7,184 +43,22 @@ const swaggerDefinition: OAS3Definition = {
         title: 'S.O.S Consortium API',
         version: '1.0.0',
     },
+
     // urls a donde hacer las consultas (dev, testing, deploy, etc)
     servers: [
         {
             url: 'http://localhost:3002',
         },
     ],
-    tags: [
-        { name: 'auth', description: 'Everything about auth' },
-        { name: 'user', description: 'Everything about users' },
-    ],
-    paths: {
-        '/api/auth/login': {
-            post: {
-                tags: ['auth'],
-                summary: 'Login user',
-                requestBody: {
-                    required: true,
-                    content: {
-                        'application/json': {
-                            schema: {
-                                type: 'object',
-                                properties: {
-                                    email: {
-                                        type: 'string',
-                                        example: 'pedro_perez@gmail.com',
-                                    },
-                                    password: {
-                                        type: 'string',
-                                        example: 'contraseña',
-                                    },
-                                },
-                            },
-                            required: ['email', 'password'],
-                        },
-                    },
-                },
-                responses: {
-                    '200': {
-                        description: 'successful operation',
-                        content: {
-                            'application/json': {
-                                schema: {
-                                    $ref: '#/components/schemas/User',
-                                },
-                            },
-                        },
-                    },
-                    '401': {
-                        description: 'Unverified email',
-                    },
-                    '404': {
-                        description: 'Email or password is invalid',
-                    },
-                    '500': {
-                        description: 'Server Error',
-                    },
-                },
-            },
-        },
-        '/api/user/register': {
-            post: {
-                tags: ['user'],
-                summary: 'Register a new user',
-                requestBody: {
-                    content: {
-                        'application/json': {
-                            schema: {
-                                type: 'object',
-                                properties: {
-                                    name: {
-                                        type: 'string',
-                                        example: 'Pedro',
-                                    },
-                                    lastname: {
-                                        type: 'string',
-                                        example: 'Perez',
-                                    },
-                                    email: {
-                                        type: 'string',
-                                        example: 'pedro_perez@gmail.com',
-                                    },
-                                    password: {
-                                        type: 'string',
-                                        example: 'contraseña',
-                                    },
-                                },
-                            },
-                            required: ['name', 'lastname', 'email', 'password'],
-                        },
-                    },
-                },
-                responses: {
-                    '200': {
-                        description: 'User created',
-                    },
-                    '400': {
-                        description: 'Email in use',
-                    },
-                    '500': {
-                        description: 'Server Error',
-                    },
-                },
-            },
-        },
-        '/api/user/getUser/{id}': {
-            get: {
-                tags: ['user'],
-                summary: 'Get one user by ID',
-                // description: 'Get an user by ID',
-                parameters: [
-                    {
-                        name: 'id',
-                        in: 'path',
-                        required: true,
-                        shema: {
-                            type: 'string',
-                        },
-                    },
-                ],
-                responses: {
-                    '200': {
-                        description: 'successful operation',
-                        content: {
-                            'application/json': {
-                                schema: {
-                                    $ref: '#/components/schemas/User',
-                                },
-                            },
-                        },
-                    },
-                    '401': {
-                        description: 'User is disabled',
-                    },
-                    '404': {
-                        description: 'User not found',
-                    },
-                    '500': {
-                        description: 'Server Error',
-                    },
-                },
-            },
-        },
-        '/api/user/getAllUsers': {
-            get: {
-                tags: ['user'],
-                summary: 'Get all user',
-                // description: 'Get all users',
-                responses: {
-                    '200': {
-                        description: 'successful operation',
-                        content: {
-                            'application/json': {
-                                schema: {
-                                    type: 'array',
-                                    items: {
-                                        $ref: '#/components/schemas/User',
-                                    },
-                                },
-                            },
-                        },
-                    },
-                    '404': {
-                        description: 'There is not any user',
-                    },
-                    '500': {
-                        description: 'Server Error',
-                    },
-                },
-            },
-        },
-    },
     components: {
         securitySchemes: {
-            bearerAuth: {
-                type: 'http',
-                scheme: 'bearer',
+            tokenAuth: {
+                type: 'apiKey',
+                in: 'header',
+                name: 'token',
             },
         },
+
         schemas: {
             User: {
                 type: 'object',
@@ -210,6 +84,15 @@ const swaggerDefinition: OAS3Definition = {
                         type: 'string',
                         example:
                             '$2b$10$tb8Mc6H2D4uvTssHxfQoVuBvHwx7TAwCX1HsnW2PZR4wlwChHGOFq',
+                    },
+                    img: {
+                        type: 'string',
+                        example:
+                            'https://www.softzone.es/app/uploads-softzone.es/2018/04/guest.png',
+                    },
+                    phone: {
+                        type: 'string',
+                        default: '1122334455',
                     },
                     role: {
                         type: 'string',
@@ -283,12 +166,16 @@ const swaggerDefinition: OAS3Definition = {
                         $ref: '#/components/schemas/User',
                     },
                     floor: {
-                        type: 'integer',
+                        type: 'number',
                         example: 3,
                     },
                     apt: {
-                        type: 'integer',
+                        type: 'number',
                         example: 10,
+                    },
+                    schedule: {
+                        type: 'objectId',
+                        $ref: '#/components/schemas/Schedule',
                     },
                     amenities: {
                         type: 'array',
@@ -318,6 +205,11 @@ const swaggerDefinition: OAS3Definition = {
                         type: 'boolean',
                         $ref: false,
                     },
+                    img: {
+                        type: 'string',
+                        example:
+                            'https://thumbs.dreamstime.com/b/no-image-available-icon-photo-camera-flat-vector-illustration-132483141.jpg',
+                    },
                     size: {
                         type: 'integer',
                         example: 10,
@@ -340,7 +232,10 @@ const swaggerDefinition: OAS3Definition = {
                         type: 'objectId',
                         $ref: '#/components/schemas/User',
                     },
-                    date: {
+                    startDate: {
+                        type: 'date-time',
+                    },
+                    endDate: {
                         type: 'date-time',
                     },
                 },
@@ -364,6 +259,107 @@ const swaggerDefinition: OAS3Definition = {
                 },
             },
         },
+    },
+    tags: [
+        { name: 'auth', description: ' All Authentication Endpoints ' },
+        { name: 'user', description: 'All User Endpoints' },
+        { name: 'amenity', description: 'All Amenity Endpoints' },
+        { name: 'reserve', description: 'All Reserve Endpoints' },
+        { name: 'schedule', description: 'All Schedule Endpoints' },
+        { name: 'conssortium', description: 'All Consortium Endpoints' },
+    ],
+    paths: {
+        // *-----------------------------Api auth Routes-----------------------------------------------------------
+        //* Login user
+        '/api/auth/login': login,
+
+        //* ForgetPassword user
+        '/api/auth/forgetPassword': forgetPassword,
+
+        //* ChangePassword user
+        '/api/auth/changePassword/{id}': changePassword,
+
+        // *-----------------------------Api user Routes-----------------------------------------------------------
+
+        //* Register user
+        '/api/user/register': userRegister,
+
+        //* Validate user
+        '/api/user/validate/{id}': validateUser,
+
+        //* Get user by Id
+        '/api/user/getUser/{id}': getUserById,
+
+        //* Get all users
+        '/api/user/getAllUsers': getAllUsers,
+
+        //* Edit user
+        '/api/user/update/{id}': editUser,
+
+        //* Delete user
+        '/api/user/delete/{id}': userDelete,
+
+        // *-----------------------------Api amenity Routes-----------------------------------------------------------
+
+        //* Get Amenity
+        '/api/amenity/id/{id}': getAmenity,
+
+        //* Put Amenity
+        '/api/amenity/put/{id}': putAmenity,
+
+        //* Post Amenity
+        '/api/amenity/post': postAmenity,
+
+        //* Get Amenity
+        '/api/amenity/delete/{id}': deleteAmenity,
+
+        // *-----------------------------Api reserve Routes-----------------------------------------------------------
+
+        //* Get Reserve
+        '/api/reserve/id/{id}': getReserve,
+
+        //* Put Reserve
+        '/api/reserve/put/{id}': putReserve,
+
+        //* Post Reserve
+        '/api/reserve/post': postReserve,
+
+        //* Get Reserve
+        '/api/reserve/delete/{id}': deleteReserve,
+
+        // *-----------------------------Api schedule Routes-----------------------------------------------------------
+
+        //* Get Schedule
+        '/api/schedule/id/{id}': getSchedule,
+
+        //* Put Schedule
+        '/api/schedule/put/{id}': putSchedule,
+
+        //* Post Schedule
+        '/api/schedule/post': postSchedule,
+
+        //* Get Schedule
+        '/api/schedule/delete/{id}': deleteSchedule,
+
+        // *-----------------------------Api consortium Routes-----------------------------------------------------------
+
+        //* Create Consortium
+        '/api/consortium/create': createConsortium,
+
+        //* Get Consortium by Id
+        '/api/consortium/get/{id}': getConsortium,
+
+        //* Add user to consortium
+        '/api/consortium/add/{consortiumId}/{userId}': addUserConsortium,
+
+        //* Add amenity to consortium
+        '/api/consortium/add/{consortiumId}/{amenityId]': addAmenityConsortium,
+
+        //* Delete consortium
+        '/api/consortium/delete/{consortiumId}': deleteConsortium,
+
+        //* Remove user from consortium
+        '/api/consortium/delete/{consortiumId}/{userID}': deleteUserConsortium,
     },
 }
 

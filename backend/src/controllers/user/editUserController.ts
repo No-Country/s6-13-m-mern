@@ -1,19 +1,18 @@
 import { Request, Response } from 'express'
 import { IResponse } from '../../interfaces'
-import { edituserService } from '../../services/user/editUserService'
+import { edituserService } from '../../services'
 
 export const editUserController = async (req: Request, res: Response) => {
     const { id } = req.params
-    // TODO: Mover a un middleware
-    if (!id) {
-        const error = new Error('Empty id')
-        return res.status(400).json({ msg: error.message })
-    }
+    const { name, lastname, img, phone } = req.body
 
     try {
         const { ok, status, user } = (await edituserService(
             id,
-            req.body
+            name,
+            lastname,
+            img,
+            phone
         )) as IResponse
 
         //* Comprobar que existe el usuario con el id
@@ -21,7 +20,7 @@ export const editUserController = async (req: Request, res: Response) => {
             return res.status(status).json({ ok, msg: 'User not found' })
         }
 
-        return res.status(status).json({ ok, user })
+        return res.status(status).json({ ok, user, msg: 'User Edited' })
     } catch (error) {
         console.log(error)
         return res.status(500).json({

@@ -1,0 +1,28 @@
+[
+  {
+  "_id": "63e2546cfc13ae373c000898",
+  "user":"01GRHTEM3P2MX6P0J26G673XN0",
+  "startDate": "2023/01/02",
+  "endDate": "2023/01/03"
+}, {
+  "_id": "63e2546cfc13ae373c000899",
+  "user":"01GRHTEM448A5KKG5KW0NSW9FT",
+  "startDate": "2022/05/22",
+  "endDate": "2022/05/25"
+}, {
+  "_id": "63e2546cfc13ae373c00089a",
+  "user":"01GRHTEM4EG2RHNZ91A7T4MT76",
+  "startDate": "2022/12/10",
+  "endDate": "2022/12/11"
+}, {
+  "_id": "63e2546cfc13ae373c00089b",
+  "user":"01GRHTEM4PB0PGERDY4KMJS863",
+  "startDate": "2023/02/02",
+  "endDate": "2023/02/10"
+}, {
+  "_id": "63e2546cfc13ae373c00089c",
+  "user":"01GRHTEM4S44Q28MHAQ5GVAJXZ",
+  "startDate": "2023/01/12",
+  "endDate": "2023/01/20"
+}
+]

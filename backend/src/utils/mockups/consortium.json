@@ -1,0 +1,24 @@
+[
+    {
+        "_id": "63ebcd8cfc13ae6120000024",
+        "name": "Consorcio Primero",
+        "address": "La Rioja 865",
+        "users": [     
+        ],
+        "admin": "",
+        "floor": 5,
+        "apt": 10,
+        "amenities": []
+    },
+    {
+        "_id": "63ebcd8cfc13ae6120000025",
+        "name": "Consorcio Segundo",
+        "address": "Madrid 912",
+        "users": [
+        ],
+        "admin": "",
+        "floor": 8,
+        "apt": 14,
+        "amenities": []
+    }
+]

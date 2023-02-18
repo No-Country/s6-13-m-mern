@@ -27,7 +27,6 @@ export const postScheduleService = async (schedule: ISchedule) => {
         }
         return response
     } catch (error) {
-        console.log(error)
         return error
     }
 }

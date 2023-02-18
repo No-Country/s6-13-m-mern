@@ -14,6 +14,8 @@ import userRoutes from './routes/userRoutes'
 import amenityRoutes from './routes/amenityRoutes'
 import reserveRoutes from './routes/reserveRoutes'
 import scheduleRoutes from './routes/scheduleRoutes'
+import consortiumRoutes from './routes/consortiumRoutes'
+import otherRoutes from './routes/otherRoutes'
 
 dotenv.config()
 const app = express()
@@ -45,6 +47,8 @@ app.use('/api/user', userRoutes)
 app.use('/api/amenity', amenityRoutes)
 app.use('/api/reserve', reserveRoutes)
 app.use('/api/schedule', scheduleRoutes)
+app.use('/api/consortium', consortiumRoutes)
+app.use('/api', otherRoutes)
 
 //* documentation
 app.use('/doc', swaggerUI.serve, swaggerUI.setup(swaggerSetup))
