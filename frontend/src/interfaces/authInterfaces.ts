@@ -21,7 +21,7 @@ export interface RegisterData {
 }
 
 export interface UserInformation {
-  consortium?: string[]
+  consortium: string[]
   email: string
   img?: string
   lastname: string

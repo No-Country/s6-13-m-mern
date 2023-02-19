@@ -3,7 +3,7 @@ import { UserInformation } from '../interfaces/authInterfaces'
 
 interface AutocompleteProps {
   options: UserInformation[]
-  setSelectedOption: (value: any) => void
+  setSelectedOption: (value: UserInformation) => void
   loading: boolean
   endSearch: (value: boolean) => void
   onInputChange: (e: any) => void

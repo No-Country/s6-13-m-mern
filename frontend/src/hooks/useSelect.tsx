@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { UserInformation } from '../interfaces/authInterfaces'
 
 export default function useSelect (
-  setSelectedOption: (value: string) => void,
+  setSelectedOption: (value: UserInformation) => void,
   endSearch: (value: boolean) => void,
   options: UserInformation[],
 ) {
@@ -10,14 +10,14 @@ export default function useSelect (
   const [cursor, setCursor] = useState(-1)
   const ref = useRef() as React.MutableRefObject<HTMLInputElement>
 
-  const select = (option: any) => {
+  const select = (option: UserInformation) => {
     setSelectedOption(option)
     endSearch(true)
     setShowOptions(false)
   }
 
   const handleChange = (text: string) => {
-    setSelectedOption(text)
+    // setSelectedOption(text)
     setCursor(-1)
     if (!showOptions && text.length > 2) {
       setShowOptions(true)

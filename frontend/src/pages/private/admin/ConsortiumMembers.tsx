@@ -2,13 +2,16 @@ import { useEffect, useState } from 'react'
 import Autocomplete from '../../../components/Autocomplete'
 import getAllUsersService from '../../../services/getAllUsersService'
 import { UserInformation } from '../../../interfaces/authInterfaces'
-import getUserByIdService from '../../../services/getUserByIdService'
+// import getUserByIdService from '../../../services/getUserByIdService'
 import Container from '../../../components/Container'
 import WhiteModal from '../../../components/modal/WhiteModal'
 import BlueModal from '../../../components/modal/BlueModal'
 
+const consortiumId = '63ebcd8cfc13ae6120000025'
+
 const ConsortiumMembers = () => {
   const [users, setUsers] = useState<UserInformation[]>([])
+  const [consortiaUsers, setConsortiaUsers] = useState<UserInformation[]>([])
   const [filteredUsers, setFilteredUsers] = useState<UserInformation[]>([])
   const [selectedUser, setSelectedUser] = useState<UserInformation>()
   const [input, setInput] = useState('')
@@ -33,7 +36,8 @@ const ConsortiumMembers = () => {
   const getUsers = async () => {
     const users: UserInformation[] = await getAllUsersService()
     setUsers(users)
-    console.log(users)
+    const consUsers = users.filter((el) => el.consortium.includes(consortiumId))
+    setConsortiaUsers(consUsers)
   }
 
   useEffect(() => {
@@ -53,7 +57,7 @@ const ConsortiumMembers = () => {
           setModalOpen(false)
         }}
       >
-        {selectedUser?.role === 'user' && (
+        {selectedUser?.consortium.length === 0 ? (
           <>
             <h2 className=" text-xl font-bold text-blueDark mb-7">A member has been found!</h2>
             <div className=" px-8 text-start text-base">
@@ -76,8 +80,7 @@ const ConsortiumMembers = () => {
               </button>
             </div>
           </>
-        )}
-        {selectedUser?.role === 'tenant' && (
+        ) : (
           <>
             <h2 className=" text-xl font-bold text-blueDark mb-7">
               This person belongs to another consortium, cannot be added
@@ -109,7 +112,9 @@ const ConsortiumMembers = () => {
           setConfirmModal(false)
         }}
       >
-        <p>{selectedUser?.name} {selectedUser?.lastname} has been added to consortium “Av. Belgrano 499”</p>
+        <p>
+          {selectedUser?.name} {selectedUser?.lastname} has been added to consortium “Av. Belgrano 499”
+        </p>
         <button
           onClick={() => {
             setConfirmModal(false)
@@ -137,19 +142,30 @@ const ConsortiumMembers = () => {
           value={input}
           name="user"
         />
-        <table className='w-full text-left my-12'>
-          <tr className=' border-b border-b-greyLight'>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Contact</th>
-            <th></th>
-          </tr>
-          <tr className=' border-b border-b-greyLight'>
-            <td className='py-4'>Juan Perez</td>
-            <td className='py-4'>jperez@mail.com</td>
-            <td className='py-4'>3574-123456</td>
-            <td className='py-4 text-end'><button className=' bg-red text-white text-sm w-32 h-8 rounded-2xl mx-3'>Remove member</button></td>
-          </tr>
+        <table className="w-full text-left my-12">
+          <thead>
+            <tr className=" border-b border-b-greyLight">
+              <th>Name</th>
+              <th>Email</th>
+              <th>Contact</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {consortiaUsers.map((user) => (
+              <tr
+                className=" border-b border-b-greyLight"
+                key={user._id}
+              >
+                <td className="py-4">{user.name} {user.lastname}</td>
+                <td className="py-4">{user.email}</td>
+                <td className="py-4">{user.phone}</td>
+                <td className="py-4 text-end">
+                  <button className=" bg-red text-white text-sm w-32 h-8 rounded-2xl mx-3">Remove member</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
         </table>
       </div>
     </Container>
