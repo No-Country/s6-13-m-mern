@@ -20,8 +20,8 @@ const ResetPass = () => {
   } = useForm<emailValue>({ mode: 'onTouched' })
   const submitValues: SubmitHandler<emailValue> = async (data: emailValue) => {
     setLoad(true)
-    setOpen(true)
     await resetPassService({ mail: data.email })
+    setOpen(true)
   }
   const handleModalClose = () => {
     navigate('/')
