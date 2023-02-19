@@ -12,9 +12,10 @@ const router = Router()
 router.post('/login', loginValidate, loginController)
 router.post(
     '/forgetPassword',
-    validateAccountsValidated,
-    validateToken,
     forgetPasswordController
 )
-router.post('/changePassword/:id', changePasswordController)
+router.post('/changePassword/:id',
+    validateAccountsValidated,
+    validateToken,
+    changePasswordController)
 export default router
