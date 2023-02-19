@@ -1,26 +1,53 @@
 import Container from '../components/Container'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import BackgroundImage from '../components/BackgroundImage'
 import { useForm, type SubmitHandler } from 'react-hook-form'
-
-interface FieldValues {
-  email: string
-  password: string
-}
+import loginService from '../services/loginService'
+import { useAuthStore } from '../store/auth'
+import { LoginValues } from '../interfaces/authInterfaces'
+import { useState } from 'react'
+import PulseLoader from 'react-spinners/PulseLoader'
 
 const Login = () => {
   const {
     register,
     handleSubmit,
     formState: { errors, isDirty, isValid },
-  } = useForm<FieldValues>({ mode: 'onTouched' })
+  } = useForm<LoginValues>({ mode: 'onTouched' })
 
-  const customSubmit: SubmitHandler<FieldValues> = (data: FieldValues) => {
-    console.log(data)
+  const [logError, setLogError] = useState('')
+  const [loading, setLoading] = useState(false)
+
+  const setToken = useAuthStore((state) => state.setToken)
+  const setId = useAuthStore((state) => state.setId)
+  const navigate = useNavigate()
+
+  const customSubmit: SubmitHandler<LoginValues> = async (data: LoginValues) => {
+    setLoading(true)
+    const resp = await loginService(data)
+    if (!resp.ok) {
+      if (resp.msg === 'Email or password is invalid') setLogError('invalid')
+      if (resp.msg === 'Unverified email') setLogError('unverified')
+    } else {
+      setToken(resp.token)
+      setLogError('')
+      setId(resp.id)
+      resp.role === 'admin' ? navigate('/admin') : navigate('/user')
+    }
   }
 
   return (
     <BackgroundImage imageUrl="/assets/oneBuild.svg">
+      {logError === 'invalid' && (
+        <p className="absolute w-full h-8 px-8 bg-red rounded-b-sm border border-black text-lg font-sans text-white">
+          The email address or password is incorrect. Please retry..
+        </p>
+      )}
+      {logError === 'unverified' && (
+        <p className="absolute w-full h-8 px-8 bg-red rounded-b-sm border border-black text-lg font-sans text-white">
+          The email is not verified, please check your email
+        </p>
+      )}
       {(errors.email?.type === 'required' || errors.password?.type === 'required') && (
         <p className="absolute w-full h-8 px-8 bg-red rounded-b-sm border border-black text-lg font-sans text-white">
           Complete all required fields
@@ -36,7 +63,7 @@ const Login = () => {
           <h1 className="text-[30px]">Welcome!</h1>
           <h2 className="ml-6 mb-8">Please fill your info to start</h2>
           <div className="w-[454px]">
-            <form onSubmit={() => handleSubmit(customSubmit)}>
+            <form onSubmit={handleSubmit(customSubmit)}>
               <input
                 className={`border-2 ${
                   !errors.email ? 'border-blueDark' : 'border-red'
@@ -62,7 +89,7 @@ const Login = () => {
                 className="bg-blueDark disabled:opacity-60 text-white text-xl w-60 h-12 rounded-2xl block ml-auto mb-5"
                 disabled={!isDirty || !isValid}
               >
-                LOG IN
+                {loading ? <PulseLoader color="white" /> : 'LOG IN'}
               </button>
             </form>
             <div className="flex justify-end ">

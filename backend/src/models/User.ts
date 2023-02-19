@@ -41,7 +41,7 @@ const userSchema = new Schema<IUser>(
         },
         isValidated: {
             type: Boolean,
-            default: true,
+            default: false,
         },
         externalId: {
             type: String,
@@ -66,6 +66,7 @@ const userSchema = new Schema<IUser>(
             {
                 type: Schema.Types.ObjectId,
                 ref: 'Consortium',
+                default: [],
             },
         ],
     },

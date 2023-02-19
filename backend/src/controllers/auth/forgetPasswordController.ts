@@ -1,10 +1,12 @@
 import { Request, Response } from 'express'
 import { IResponse } from '../../interfaces'
 import { getUserService } from '../../services'
+import { jwtGenerate } from '../../utils'
 import { sendMail } from '../../utils/sendMail'
 
 export const forgetPasswordController = async (req: Request, res: Response) => {
     const { mail } = req.body
+
     try {
         const { user, status, ok } = (await getUserService({
             mail,
@@ -17,10 +19,18 @@ export const forgetPasswordController = async (req: Request, res: Response) => {
                 .json({ ok: false, msg: 'User not exists' })
         }
 
-        const url: string = 'http://localhost:3002/doc'
-        const subject: string = 'Change Password'
-        const message: string = `<p>Click the link below to change your password <a href="${url}">LINK</a></p>`
-        await sendMail(user.mail, subject, message)
+        user.token = jwtGenerate(user._id, user.role, '10m')
+        const url: string = `${
+            process.env.URL_FRONT || 'http://localhost:5173'
+            // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+        }/changePassword/${user._id}/${user.token}`
+        const subject: string = 'Active account'
+        const message: string = `<p>Click here to change your password <a href="${url}">LINK</a></p>`
+        await sendMail(user.email, subject, message)
+
+        // user.token = userToken
+        await user.save()
+
         return res.json({
             ok,
             msg: 'Mail sended',

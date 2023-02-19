@@ -17,15 +17,13 @@ export const validateUserService = async (id: string) => {
             ok: false,
             status: 409,
         }
-
         return response
     }
 
-    user.isValidated = true
-    await user.save()
     const response = {
         ok: true,
         status: 200,
+        user,
     }
 
     return response

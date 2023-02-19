@@ -7,6 +7,7 @@ import {
     registerController,
     validateUserController,
 } from '../controllers'
+import { renewUserToken } from '../controllers/user/renewUserToken'
 
 import {
     registerValidate,
@@ -14,11 +15,18 @@ import {
     updateValidate,
     paramIdValidate,
 } from '../middlewares'
+import { validateAccountsValidated } from '../middlewares/validateAccountsValidated'
 
 const router = Router()
 
 router.post('/register', registerValidate, registerController)
-router.get('/validate/:id', paramIdValidate, validateUserController)
+router.get(
+    '/validate/:id',
+    validateAccountsValidated,
+    validateToken,
+    validateUserController
+)
+router.get('/renewToken/:id', renewUserToken)
 router.get('/getuser/:id', validateToken, paramIdValidate, getUserController)
 router.get('/getAllUsers', getAllUsersController)
 router.put(

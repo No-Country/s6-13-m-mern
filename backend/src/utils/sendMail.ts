@@ -1,7 +1,7 @@
 import nodeMailer from 'nodemailer'
 
 export const sendMail = async (
-    email: string,
+    email: string | undefined,
     subject: string,
     message: string
 ) => {
@@ -24,6 +24,7 @@ export const sendMail = async (
         subject,
         html: message,
     }
+
     const transport = nodeMailer.createTransport(config)
     await transport.sendMail(mail)
 }
