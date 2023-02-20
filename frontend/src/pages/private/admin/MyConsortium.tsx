@@ -6,7 +6,7 @@ import { TitleComponents } from '../../../components/TitleComponents'
 const initialState = [
   { id: 1, address: 'Av. Belgrano 499', path: '/consortium' },
   { id: 2, address: 'Av. Córdoba 145', path: '/consortium' },
-  { id: 3, address: 'Lima 1664', path: '/consortium' }
+  { id: 3, address: 'Lima 1664', path: '/consortium' },
   //  TODO:en el path iria la ruta dinámica!
   //  Este initialState se cambiara x el estado de los consorcios con zustand
 ]
@@ -25,7 +25,7 @@ const MyConsortium = () => {
 
   return (
     <section>
-      <TitleComponents title="My consortiums"/>
+      <TitleComponents title="My consortiums" />
       <Container>
         <div className="grid grid-cols-2 gap-4 mb-4">
           {consortiums.map((consortium) => (
@@ -43,14 +43,14 @@ const MyConsortium = () => {
               </span>
             </Link>
           ))}
-          <div className="flex flex-col items-center bg-blue mt-8 w-64 rounded-lg border-2 border-black">
+          <button className="flex flex-col items-center bg-blue mt-8 w-64 rounded-lg border-2 border-black">
             <img
               src="../assets/Vector.png"
               alt="icon"
               className="mt-10 mb-6 rounded-full border-4 border-white p-2"
             />
             <p className="text-white text-center">Add consortium</p>
-          </div>
+          </button>
         </div>
       </Container>
     </section>
