@@ -1,10 +1,10 @@
-import { Schema, model } from 'mongoose'
+import { Schema, model, Types } from 'mongoose'
 import { IReserve } from '../interfaces/reserve'
 
 const reserveSchema = new Schema<IReserve>(
     {
         user: {
-            type: String,
+            type: Types.ObjectId,
             required: true,
             ref: 'User',
         },
