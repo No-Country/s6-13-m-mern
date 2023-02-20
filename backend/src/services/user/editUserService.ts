@@ -16,9 +16,7 @@ export const edituserService = async (
         }
         const updatedUser = await User.findByIdAndUpdate(id, data, {
             new: true,
-        }).select(
-            '-password -createdAt -updatedAt -externalId -token -isValidated'
-        )
+        }).select('-password -createdAt -updatedAt -externalId')
 
         if (!updatedUser) {
             const response = {

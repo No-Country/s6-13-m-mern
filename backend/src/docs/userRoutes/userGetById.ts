@@ -30,7 +30,7 @@ export const getUserById = {
                 },
             },
             '401': {
-                description: 'User is disabled',
+                description: 'User is not active',
             },
             '404': {
                 description: 'User not found',

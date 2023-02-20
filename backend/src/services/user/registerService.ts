@@ -3,7 +3,7 @@ import User from '../../models/User'
 import { hashPassword } from '../../utils'
 
 export const registerService = async (user: IUser) => {
-    let { name, lastname, email, password, phone } = user
+    let { name, lastname, email, password, phone, isValidated } = user
     try {
         const existsUser = await User.findOne({ email })
         if (existsUser) {
@@ -21,6 +21,7 @@ export const registerService = async (user: IUser) => {
             email,
             password,
             phone,
+            isValidated: isValidated || false,
         })
 
         const response = {

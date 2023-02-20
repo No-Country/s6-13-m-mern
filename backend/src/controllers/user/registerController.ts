@@ -5,7 +5,7 @@ import { jwtGenerate } from '../../utils'
 import { sendMail } from '../../utils/sendMail'
 
 export const registerController = async (req: Request, res: Response) => {
-    const { name, lastname, email, password, phone } = req.body
+    const { name, lastname, email, password, phone, isValidated } = req.body
 
     try {
         const { ok, status, user } = (await registerService({
@@ -14,6 +14,7 @@ export const registerController = async (req: Request, res: Response) => {
             email,
             password,
             phone,
+            isValidated,
         })) as IResponse
 
         //* Comprobar que el mail este registrado
