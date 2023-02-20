@@ -30,6 +30,7 @@ export const useAuthStore = create(
       setLogout: () => {
         set(() => ({
           token: '',
+          id: ''
         }))
       },
     }),
