@@ -2,9 +2,15 @@ import User from '../../models/User'
 
 export const getAllUsersService = async () => {
     try {
-        const allUsers = await User.find({ status: 'active' }).select(
-            '-password -createdAt -updatedAt -externalId -token -isValidated'
-        )
+        const allUsers = await User.find({ status: 'active' })
+            .select(
+                '-password -createdAt -updatedAt -externalId -token -isValidated'
+            )
+            .populate({
+                path: 'consortium',
+                select: 'address img',
+            })
+
         if (allUsers.length < 1) {
             const response = {
                 ok: false,

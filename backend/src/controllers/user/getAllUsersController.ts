@@ -13,7 +13,6 @@ export const getAllUsersController = async (_req: Request, res: Response) => {
 
         return res.status(status).json({ ok, users: user })
     } catch (error) {
-        console.log(error)
         return res.status(500).json({
             ok: false,
             msg: 'Server Error',

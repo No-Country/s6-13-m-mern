@@ -4,18 +4,22 @@ import {
     forgetPasswordController,
     loginController,
 } from '../controllers'
-import { loginValidate, validateToken } from '../middlewares'
-import { validateAccountsValidated } from '../middlewares/validateAccountsValidated'
+import {
+    loginValidate,
+    validateToken,
+    changePasswordValidate,
+    compareIds,
+} from '../middlewares'
 
 const router = Router()
 
 router.post('/login', loginValidate, loginController)
+router.post('/forgetPassword', forgetPasswordController)
 router.post(
-    '/forgetPassword',
-    forgetPasswordController
-)
-router.post('/changePassword/:id',
-    validateAccountsValidated,
+    '/changePassword/:id',
     validateToken,
-    changePasswordController)
+    compareIds,
+    changePasswordValidate,
+    changePasswordController
+)
 export default router

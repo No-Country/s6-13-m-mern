@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
 import { IResponse } from '../../interfaces'
-import { validateUserService } from '../../services'
+import { getUserService } from '../../services'
 import { jwtGenerate } from '../../utils'
 import { sendMail } from '../../utils/sendMail'
 
@@ -8,9 +8,7 @@ export const renewUserToken = async (req: Request, res: Response) => {
     const { id } = req.params
 
     try {
-        const { ok, status, user } = (await validateUserService(
-            id
-        )) as IResponse
+        const { ok, status, user } = (await getUserService({ id })) as IResponse
 
         //* Comprobar que el mail este registrado
         if (!ok && status === 404) {

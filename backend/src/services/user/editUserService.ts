@@ -5,7 +5,8 @@ export const edituserService = async (
     name: string,
     lastname: string,
     img: string,
-    phone: string
+    phone: string,
+    apt: string
 ) => {
     try {
         const data = {
@@ -13,12 +14,11 @@ export const edituserService = async (
             lastname,
             img,
             phone,
+            apt,
         }
         const updatedUser = await User.findByIdAndUpdate(id, data, {
             new: true,
-        }).select(
-            '-password -createdAt -updatedAt -externalId -token -isValidated'
-        )
+        }).select('-password -createdAt -updatedAt -externalId')
 
         if (!updatedUser) {
             const response = {

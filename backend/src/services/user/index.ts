@@ -1,7 +1,5 @@
-export * from './deleteUserService'
 export * from './editUserService'
 export * from './getAllUsersService'
 export * from './getUserService'
 export * from './index'
 export * from './registerService'
-export * from './validateUserService'

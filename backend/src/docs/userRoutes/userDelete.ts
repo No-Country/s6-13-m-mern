@@ -24,6 +24,9 @@ export const userDelete = {
             '404': {
                 description: 'User not exists',
             },
+            '409': {
+                description: 'User is already deleted',
+            },
             '500': {
                 description: 'Server Error',
             },

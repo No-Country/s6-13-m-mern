@@ -1,14 +1,7 @@
 import { Response, Request, NextFunction } from 'express'
 import { body, validationResult } from 'express-validator'
 
-export const loginValidate = [
-    body('email')
-        .notEmpty()
-        .withMessage('Email is required')
-        .isString()
-        .withMessage('Email must be a string')
-        .isEmail()
-        .withMessage('Invalid email format'),
+export const changePasswordValidate = [
     body('password')
         .notEmpty()
         .withMessage('Password is required')

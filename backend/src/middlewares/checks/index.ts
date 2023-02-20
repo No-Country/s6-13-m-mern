@@ -1,3 +1,4 @@
+export * from './changePasswordValidate'
 export * from './index'
 export * from './loginValidate'
 export * from './paramIdValidate'
