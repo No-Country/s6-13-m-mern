@@ -1,23 +1,52 @@
 [
   {
-    "_id":"01GS6CKTCYTXVCGK0VQHQQRJTZ",
+    "_id":"63f2b427fc13ae631e00000a",
     "name":"Piscina",
-  "reserved": "63e2546cfc13ae373c000898"
-}, {
-  "_id":"01GS6CKTCYHVZEC6XMBWFTGHAW",
-  "name":"Quincho",
-  "reserved": "63e2546cfc13ae373c000899"
-}, {
-  "_id":"01GS6CKTCZBZ662ZS94S7RKN74",
-  "name":"Piscina",
-  "reserved": "63e2546cfc13ae373c00089a"
-}, {
-  "_id":"01GS6CKTCZDQM1RY3WNTG2R45C",
-  "name":"Patio",
-  "reserved": "63e2546cfc13ae373c00089b"
-}, {
-  "_id":"01GS6CKTCZSMFST3ZZ12W0QQ8M",
-  "name":"Quincho",
-  "reserved": "63e2546cfc13ae373c00089c"
-}
+    "reserve": [{"_id":"63e2546cfc13ae373c000898"}]
+  },
+  {
+    "_id":"63f2b427fc13ae631e00000b",
+    "name":"Salon",
+    "reserve": [{"_id":"63e2546cfc13ae373c00089a"}]
+  }, 
+  {
+    "_id":"63f2b427fc13ae631e00000c",
+    "name":"Patio",
+    "reserve": [{"_id":"63e2546cfc13ae373c00089b"}]
+  }, 
+  {
+    "_id":"63f2b427fc13ae631e00000d",
+    "name":"Quincho",
+    "reserve": [{"_id":"63e2546cfc13ae373c00089c"}]
+  },
+  {
+    "_id":"63f2b427fc13ae631e00000e",
+    "name":"SUM",
+    "reserve": [{"_id":"63f2b31cfc13ae631e000004"}]
+  },
+  {
+    "_id":"63f2b427fc13ae631e00000f",
+    "name":"Lavanderia",
+    "reserve": [{"_id":"63f2b31cfc13ae631e000003"}]
+  }, 
+  {
+    "_id":"63f2b427fc13ae631e000010",
+    "name":"Terraza",
+    "reserve": [{"_id":"63f2b31cfc13ae631e000002"}]
+  },
+  {
+    "_id":"63f2b427fc13ae631e000011",
+    "name":"Piscina1",
+    "reserve": [{"_id":"63f2b31cfc13ae631e000001"}]
+  } ,
+  {
+    "_id":"63f2b427fc13ae631e000012",
+    "name":"Quincho2",
+    "reserve": [{"_id":"63f2b31cfc13ae631e000000"}]
+  },
+  {
+    "_id":"63f2b427fc13ae631e000013",
+    "name":"Quincho1",
+    "reserve": [{"_id":"63e2546cfc13ae373c000899"}]
+  }  
 ]
