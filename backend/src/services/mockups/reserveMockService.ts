@@ -3,15 +3,16 @@ import { postReserveService } from '../reserve'
 import reserves from '../../utils/mockups/reserves.json'
 
 export const reserveMockService = async () => {
+    try {
     const reserve = await Reserve.findOne()
 
-    if (!reserve) {
+    if (reserve === null) {
       reserves.forEach(async (reserve:any) => {
-            try {
                 await postReserveService(reserve)
-            } catch (error) {
-                return error
-            }
+
         })
+    }
+    } catch (error) {
+        return error
     }
 }
