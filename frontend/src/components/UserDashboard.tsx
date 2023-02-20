@@ -6,12 +6,11 @@ import UserAmenities from '../pages/private/user/UserAmenities'
 import UserPayments from '../pages/private/user/UserPayments'
 import UserOrders from '../pages/private/user/UserOrders'
 import UserVoting from '../pages/private/user/UserVoting'
-import { useAuthStore } from '../store/auth'
 
 const UserDashboard = () => {
   const [menu, setMenu] = useState('information')
   const [imageUrl, setImageUrl] = useState('info')
-  const [hidden, setHidden] = useState(true)
+  const [hidden] = useState(true)
 
   return (
     <HeroUser imageUrl={imageUrl}>

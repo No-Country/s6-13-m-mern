@@ -1,7 +1,7 @@
 import { type FC } from 'react'
 import { Link } from 'react-router-dom'
 
-interface ConsortiumDashboardProps {
+interface AdminDashboardProps {
   name?: string
 }
 
@@ -33,13 +33,13 @@ const actions = [
   },
   {
     id: 6,
-    name: 'members',
-    path: 'members',
+    name: 'Authorizations',
+    path: 'authorizations',
   },
 ]
 // src={'./assets/adm/}
 
-export const ConsortiumDashboard: FC<ConsortiumDashboardProps> = ({ name = 'Alberto' }: ConsortiumDashboardProps) => {
+export const AdminDashboard: FC<AdminDashboardProps> = ({ name = 'Alberto' }: AdminDashboardProps) => {
   return (
     <div className=" w-full m-auto flex flex-col justify-start items-center gap-4 py-10 relative ">
       <div className="absolute top-0 w-full h-[45%] -z-10 border-b-2 bg-blue border-black" />
