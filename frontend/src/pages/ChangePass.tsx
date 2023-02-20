@@ -4,16 +4,12 @@ import BlueModal from '../components/modal/BlueModal'
 import { useNavigate, useParams } from 'react-router'
 import { changeUserPasswordService } from '../services/changeUserPasswordService'
 import { PulseLoader } from 'react-spinners'
-
-interface PassValues {
-  password: string
-  password1: string
-}
+import { PassValues, DataValues, ParamValues } from '../interfaces/PasswordInterfaces'
 
 const modalValues = ['Your password has been changed! You can now login.', 'There has been a problem, please try again later.']
 
 const ChangePass = () => {
-  const { id, token } = useParams()
+  const { id, token }: ParamValues = useParams()
   const navigate = useNavigate()
 
   const [state, setState] = useState(
@@ -61,8 +57,8 @@ const ChangePass = () => {
   const dataSubmit: SubmitHandler<PassValues> = async (data: PassValues) => {
     setState({ ...state, loading: true })
     const { password } = data
-    const newData = { id, token, password }
-    const response = await changeUserPasswordService(newData)
+    const newData: DataValues = { id, token, password }
+    const response: any = await changeUserPasswordService(newData)
     if (response.data?.ok) {
       setState({ ...state, modalMsg: modalValues[0], openModal: true, loading: false })
     } else {
