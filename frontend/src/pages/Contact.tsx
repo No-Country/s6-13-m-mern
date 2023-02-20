@@ -1,8 +1,60 @@
 import Container from '../components/Container'
+import { useForm, type SubmitHandler } from 'react-hook-form'
+import { useState } from 'react'
+import { PulseLoader } from 'react-spinners'
+import { EmailValues } from '../interfaces/emailIntefaces'
+import emailService from '../services/emailService'
 
 const Contact = () => {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isDirty, isValid },
+  } = useForm<EmailValues>({ mode: 'onTouched' })
+
+  const [loading, setLoading] = useState(false)
+  const [isEmailSended, setIsEmailSended] = useState(false)
+  const [error, setError] = useState(false)
+
+  const sendEmail: SubmitHandler<EmailValues> = async (data: EmailValues) => {
+    setLoading(true)
+
+    const resp = await emailService(data)
+    if (!resp?.ok) {
+      setLoading(false)
+      setError(true)
+      setTimeout(() => {
+        setError(false)
+      }, 8000)
+    } else {
+      setLoading(false)
+      setIsEmailSended(true)
+      reset()
+      setTimeout(() => {
+        setIsEmailSended(false)
+      }, 8000)
+    }
+  }
+
   return (
     <section className="bg-content bg-white w-full h-full">
+      {isEmailSended && (
+        <p
+          id={'toast'}
+          className="absolute w-full h-8 px-8 bg-greenLight rounded-b-sm border border-greenDark text-lg font-sans text-greenDark animate-slideInTop"
+        >
+          📩✔ The email has been sent successfully! We will get back to you as soon as possible!
+        </p>
+      )}
+      {error && (
+        <p
+          id={'toast'}
+          className="absolute w-full h-8 px-8 bg-red rounded-b-sm border border-black text-lg font-sans text-white animate-slideInTop"
+        >
+          📩❌ Failed to send email. Please try again later or contact customer support for further assistance.
+        </p>
+      )}
       <Container>
         <div className="w-full h-[750px] flex items-center">
           <div className="flex flex-row w-full justify-between">
@@ -11,43 +63,81 @@ const Contact = () => {
                 <h1 className="text-4.5xl font-bold text-blueDark">Contact</h1>
                 <h2 className="text-2xl ml-9 py-2">Have a question? Send us a message</h2>
               </div>
-              <form className="w-[508px] text-lg flex flex-col justify-between h-[410px]">
+              <form
+                onSubmit={handleSubmit(sendEmail)}
+                className="w-[508px] text-lg flex flex-col justify-between h-[410px]"
+              >
                 <div className="w-full flex flex-row justify-between gap-x-6">
-                  <div className="relative w-full">
+                  <div className="relative w-full flex flex-col">
                     <input
+                      {...register('name', { required: true })}
                       type={'text'}
                       className="p-3 w-full h-[54px] border-2 border-blueDark rounded-lg bg-white placeholder:italic"
                       placeholder={'Name'}
                       name={'name'}
+                      maxLength={100}
                     />
+                    {errors.name?.type === 'required' && (
+                      <div className="absolute left-2 -bottom-6 text-sm text-red">Name is required</div>
+                    )}
                   </div>
 
-                  <input
-                    type={'email'}
-                    className="p-3 w-full h-[54px] border-2 border-blueDark rounded-lg bg-white placeholder:italic"
-                    placeholder={'Email'}
-                    name={'email'}
-                  />
+                  <div className="relative w-full flex flex-col">
+                    <input
+                      autoComplete="off"
+                      {...register('email', {
+                        required: true,
+                        pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i,
+                      })}
+                      type={'email'}
+                      className="p-3 w-full h-[54px] border-2 border-blueDark rounded-lg bg-white placeholder:italic"
+                      placeholder={'Email'}
+                      name={'email'}
+                      maxLength={255}
+                    />
+                    {errors.email?.type === 'required' && (
+                      <div className="absolute left-2 -bottom-6 text-sm text-red">Email is required</div>
+                    )}
+                    {errors.email?.type === 'pattern' && (
+                      <div className="absolute left-2 -bottom-6 text-sm text-red">It&apos;s not a valid e-mail</div>
+                    )}
+                  </div>
                 </div>
 
-                <input
-                  type={'text'}
-                  className="p-3 w-full h-[54px] border-2 border-blueDark rounded-lg bg-white placeholder:italic"
-                  placeholder={'Subject'}
-                  name={'subject'}
-                />
+                <div className="relative w-full flex flex-col">
+                  <input
+                    {...register('subject', { required: true })}
+                    type={'text'}
+                    className="p-3 w-full h-[54px] border-2 border-blueDark rounded-lg bg-white placeholder:italic"
+                    placeholder={'Subject'}
+                    name={'subject'}
+                    maxLength={255}
+                  />
+                  {errors.subject?.type === 'required' && (
+                    <div className="absolute left-2 -bottom-6 text-sm text-red">Subject is required</div>
+                  )}
+                </div>
 
-                <textarea
-                  className="p-3 w-full h-[141px] border-2 border-blueDark rounded-lg bg-white placeholder:italic"
-                  placeholder={'Message'}
-                  name={'message'}
-                />
+                <div className="relative w-full flex flex-col">
+                  <textarea
+                    {...register('message', { required: true })}
+                    className="p-3 w-full h-[141px] border-2 border-blueDark rounded-lg bg-white placeholder:italic"
+                    placeholder={'Message'}
+                    name={'message'}
+                    maxLength={500}
+                  />
+                  {errors.message?.type === 'required' && (
+                    <div className="absolute left-2 -bottom-6 text-sm text-red">Message is required</div>
+                  )}
+                </div>
 
-                <input
+                <button
                   type={'submit'}
-                  className="p-3 w-full h-[54px] rounded-lg bg-blueDark text-white"
-                  value={'Send'}
-                />
+                  className="p-3 w-full h-[54px] rounded-lg bg-blueDark text-white disabled:opacity-60"
+                  disabled={!isDirty || !isValid}
+                >
+                  {loading ? <PulseLoader color="white" /> : 'Send'}
+                </button>
               </form>
             </div>
             <div className="w-[564px] h-[564px] bg-[#D9D9D9] rounded-lg overflow-hidden border-2 border-black animate-fadeInRight">
