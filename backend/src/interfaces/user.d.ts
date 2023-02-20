@@ -9,7 +9,7 @@ export interface IUser {
     password: string
     img?: string
     phone?: string
-    role?: ERoles
+    role?: ERoles | string
     externalId?: string
     isValidated?: boolean
     externalId?: string

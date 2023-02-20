@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
 import { IResponse } from '../../interfaces'
-import { validateUserService } from '../../services'
+import { getUserService } from '../../services'
 import { hashPassword } from '../../utils'
 
 export const changePasswordController = async (req: Request, res: Response) => {
@@ -9,9 +9,7 @@ export const changePasswordController = async (req: Request, res: Response) => {
     const { token } = req
 
     try {
-        const { ok, status, user } = (await validateUserService(
-            id
-        )) as IResponse
+        const { ok, status, user } = (await getUserService({ id })) as IResponse
 
         //* Comprobar que el mail este registrado
         if (!ok && status === 404) {
@@ -29,6 +27,7 @@ export const changePasswordController = async (req: Request, res: Response) => {
 
         const hpassword = await hashPassword(password)
         user.password = hpassword
+        user.token = ""
         await user.save()
 
         return res.status(status).json({

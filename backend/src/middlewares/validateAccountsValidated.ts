@@ -11,7 +11,6 @@ export const validateAccountsValidated = async (
 
     try {
         const resp = (await getUserService({ id })) as IResponse
-        console.log(resp)
 
         if (resp.ok && resp.user?.isValidated)
             return res

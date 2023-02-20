@@ -33,8 +33,8 @@ const actions = [
   },
   {
     id: 6,
-    name: 'Authorizations',
-    path: 'authorizations',
+    name: 'members',
+    path: 'members',
   },
 ]
 // src={'./assets/adm/}

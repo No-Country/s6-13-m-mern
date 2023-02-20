@@ -31,18 +31,22 @@ export const editUser = {
                                 type: 'string',
                                 example: 'Perez',
                             },
-                            email: {
+                            phone: {
                                 type: 'string',
-                                example: 'pedro_perez@gmail.com',
+                                example: '1130417805',
                             },
                             img: {
                                 type: 'string',
                                 example:
                                     'https://www.softzone.es/app/uploads-softzone.es/2018/04/guest.png',
                             },
+                            apt: {
+                                type: 'string',
+                                example: '1°A',
+                            },
                         },
                     },
-                    required: ['name', 'lastname', 'email', 'img'],
+                    required: ['name', 'lastname', 'phone', 'img', 'apt'],
                 },
             },
         },

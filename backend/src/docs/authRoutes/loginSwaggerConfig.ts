@@ -35,10 +35,16 @@ export const login = {
                 },
             },
             '401': {
-                description: 'Unverified email',
+                description: 'User is not active',
             },
             '404': {
                 description: 'Email or password is invalid',
+            },
+            '409': {
+                description: 'Unverified mail',
+            },
+            '403': {
+                description: 'Passwords are different',
             },
             '500': {
                 description: 'Server Error',

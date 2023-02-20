@@ -12,17 +12,21 @@ export const updateValidate = [
         .withMessage('Lastname is required')
         .isString()
         .withMessage('Lastname must be a string'),
-    body('email')
+    body('img')
         .notEmpty()
-        .withMessage('Email is required')
+        .withMessage('Image is required')
         .isString()
-        .withMessage('Email must be a string')
-        .isEmail()
-        .withMessage('Invalid email format'),
-    // body('password')
-    //     .not()
-    //     .exists()
-    //     .withMessage('This route dont recibe a password'),
+        .withMessage('Image url must be a string'),
+    body('phone')
+        .notEmpty()
+        .withMessage('Phone is required')
+        .isString()
+        .withMessage('Phone must be a string'),
+    body('apt')
+        .notEmpty()
+        .withMessage('Apt is required')
+        .isString()
+        .withMessage('Apt must be a string'),
 
     (req: Request, res: Response, next: NextFunction) => {
         const errors = validationResult(req)
