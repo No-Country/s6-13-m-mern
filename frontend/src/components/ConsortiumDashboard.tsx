@@ -1,5 +1,6 @@
 import { type FC } from 'react'
 import { Link } from 'react-router-dom'
+import { useConsortiumStore } from '../store/consortium'
 
 interface ConsortiumDashboardProps {
   name?: string
@@ -33,8 +34,8 @@ const actions = [
   },
   {
     id: 6,
-    name: 'Authorizations',
-    path: 'authorizations',
+    name: 'members',
+    path: 'members',
   },
 ]
 // src={'./assets/adm/}

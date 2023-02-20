@@ -6,8 +6,10 @@ import { UserInformation } from '../../../interfaces/authInterfaces'
 import Container from '../../../components/Container'
 import WhiteModal from '../../../components/modal/WhiteModal'
 import BlueModal from '../../../components/modal/BlueModal'
-
-const consortiumId = '63ebcd8cfc13ae6120000025'
+import addMembersService from '../../../services/addMembersService'
+import PulseLoader from 'react-spinners/PulseLoader'
+import removeMembersService from '../../../services/removeMemberService'
+import { useConsortiumStore } from '../../../store/consortium'
 
 const ConsortiumMembers = () => {
   const [users, setUsers] = useState<UserInformation[]>([])
@@ -17,6 +19,10 @@ const ConsortiumMembers = () => {
   const [input, setInput] = useState('')
   const [modalOpen, setModalOpen] = useState(false)
   const [confirmModal, setConfirmModal] = useState(false)
+  const [deleteMode, setDeleteMode] = useState(false)
+  const [loading, setLoading] = useState(false)
+
+  const consortiumId = useConsortiumStore.getState().consortiumData?._id
 
   const filter = (value: string) => {
     // eslint-disable-next-line array-callback-return
@@ -36,8 +42,10 @@ const ConsortiumMembers = () => {
   const getUsers = async () => {
     const users: UserInformation[] = await getAllUsersService()
     setUsers(users)
-    const consUsers = users.filter((el) => el.consortium.includes(consortiumId))
-    setConsortiaUsers(consUsers)
+    if (consortiumId) {
+      const consUsers = users.filter((el) => el.consortium.includes(consortiumId))
+      setConsortiaUsers(consUsers)
+    }
   }
 
   useEffect(() => {
@@ -45,9 +53,29 @@ const ConsortiumMembers = () => {
     getUsers()
   }, [])
 
-  // const getUser = async (id)=>{
-  //   getUserByIdService(id)
-  // }
+  const handleAdd = async (userId: string) => {
+    setLoading(true)
+    if (consortiumId) {
+      await addMembersService(consortiumId, userId)
+      setModalOpen(false)
+      setLoading(false)
+      setConfirmModal(true)
+      // eslint-disable-next-line @typescript-eslint/no-floating-promises
+      getUsers()
+    }
+  }
+
+  const handleDelete = async (userId: string) => {
+    setLoading(true)
+    if (consortiumId) {
+      await removeMembersService(consortiumId, userId)
+      setModalOpen(false)
+      setLoading(false)
+      setConfirmModal(true)
+      // eslint-disable-next-line @typescript-eslint/no-floating-promises
+      getUsers()
+    }
+  }
 
   return (
     <Container>
@@ -57,7 +85,33 @@ const ConsortiumMembers = () => {
           setModalOpen(false)
         }}
       >
-        {selectedUser?.consortium.length === 0 ? (
+        {selectedUser && deleteMode ? (
+          <>
+            <h2 className=" text-xl font-bold text-blueDark mb-7">
+              Do you want to remove the user {selectedUser?.name} {selectedUser?.lastname}?
+            </h2>
+            <div className="flex justify-center mt-6">
+              <button
+                className="bg-blueDark text-white text-base w-36 h-8 rounded-lg mx-3"
+                onClick={() => {
+                  // eslint-disable-next-line @typescript-eslint/no-floating-promises
+                  handleDelete(selectedUser._id)
+                }}
+              >
+                {loading ? <PulseLoader color="white" /> : 'Delete Member'}
+              </button>
+              <button
+                className="bg-white text-blueDark border-blueDark border text-base w-36 h-8 rounded-lg mx-3"
+                onClick={() => {
+                  setModalOpen(false)
+                  setDeleteMode(false)
+                }}
+              >
+                Cancel
+              </button>
+            </div>
+          </>
+        ) : selectedUser?.consortium.length === 0 ? (
           <>
             <h2 className=" text-xl font-bold text-blueDark mb-7">A member has been found!</h2>
             <div className=" px-8 text-start text-base">
@@ -69,7 +123,15 @@ const ConsortiumMembers = () => {
               </p>
             </div>
             <div className="flex justify-center mt-6">
-              <button className="bg-blueDark text-white text-base w-28 h-8 rounded-lg mx-3">Add member</button>
+              <button
+                className="bg-blueDark text-white text-base w-28 h-8 rounded-lg mx-3"
+                onClick={() => {
+                  // eslint-disable-next-line @typescript-eslint/no-floating-promises
+                  handleAdd(selectedUser._id)
+                }}
+              >
+                {loading ? <PulseLoader color="white" /> : 'Add Member'}
+              </button>
               <button
                 className="bg-white text-blueDark border-blueDark border text-base w-28 h-8 rounded-lg mx-3"
                 onClick={() => {
@@ -113,11 +175,13 @@ const ConsortiumMembers = () => {
         }}
       >
         <p>
-          {selectedUser?.name} {selectedUser?.lastname} has been added to consortium “Av. Belgrano 499”
+          {selectedUser?.name} {selectedUser?.lastname} has been {deleteMode ? 'delete from' : 'added to'} consortium
+          “Av. Belgrano 499”
         </p>
         <button
           onClick={() => {
             setConfirmModal(false)
+            setDeleteMode(false)
           }}
           className="bg-blue text-white text-lg w-14 h-10 rounded-2xl mt-6"
         >
@@ -157,11 +221,22 @@ const ConsortiumMembers = () => {
                 className=" border-b border-b-greyLight"
                 key={user._id}
               >
-                <td className="py-4">{user.name} {user.lastname}</td>
+                <td className="py-4">
+                  {user.name} {user.lastname}
+                </td>
                 <td className="py-4">{user.email}</td>
                 <td className="py-4">{user.phone}</td>
                 <td className="py-4 text-end">
-                  <button className=" bg-red text-white text-sm w-32 h-8 rounded-2xl mx-3">Remove member</button>
+                  <button
+                    className=" bg-red text-white text-sm w-32 h-8 rounded-2xl mx-3"
+                    onClick={() => {
+                      setSelectedUser(user)
+                      setDeleteMode(true)
+                      setModalOpen(true)
+                    }}
+                  >
+                    Remove member
+                  </button>
                 </td>
               </tr>
             ))}

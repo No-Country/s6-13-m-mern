@@ -2,6 +2,10 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Container from '../../../components/Container'
 import { TitleComponents } from '../../../components/TitleComponents'
+import { userStore } from '../../../store/user'
+import getUserConsortia from '../../../services/getUserConsortia'
+import { ConsortiaData } from '../../../interfaces/consortiaInterfaces'
+import { useConsortiumStore } from '../../../store/consortium'
 
 const initialState = [
   { id: 1, address: 'Av. Belgrano 499', path: '/consortium' },
@@ -17,11 +21,30 @@ interface Consortium {
   path: string
 }
 const MyConsortium = () => {
-  const [consortiums, setConsortiums] = useState<Consortium[]>([])
+  const [consortiums, setConsortiums] = useState<ConsortiaData[]>([])
+  const adminId = userStore.getState().userData?._id
+  const setConsortium = useConsortiumStore((state) => state.setData)
+
+  const getConsortia = async () => {
+    if (adminId) {
+      const consortia: ConsortiaData[] = await getUserConsortia(adminId)
+      setConsortiums(consortia)
+    }
+  }
+
+  const handleSetConsortium = (consortium: ConsortiaData) => {
+    setConsortium(consortium)
+  }
 
   useEffect(() => {
-    setConsortiums(initialState)
+    // eslint-disable-next-line @typescript-eslint/no-floating-promises
+    getConsortia()
   }, [])
+
+  useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-floating-promises
+    getConsortia()
+  }, [adminId])
 
   return (
     <section>
@@ -30,9 +53,12 @@ const MyConsortium = () => {
         <div className="grid grid-cols-2 gap-4 mb-4">
           {consortiums.map((consortium) => (
             <Link
-              to={consortium.path}
-              key={consortium.id}
+              to="/consortium"
+              key={consortium._id}
               className="pt-8 w-64 relative"
+              onClick={() => {
+                handleSetConsortium(consortium)
+              }}
             >
               <img
                 src="https://res.cloudinary.com/dozwd1ssj/image/upload/v1676344376/Card_Home_Admin_omrprw.png"
