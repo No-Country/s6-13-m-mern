@@ -5,7 +5,7 @@ import { useNavigate, useParams } from 'react-router'
 import { changeUserPasswordService } from '../services/changeUserPasswordService'
 import { PulseLoader } from 'react-spinners'
 
-interface passValues {
+interface PassValues {
   password: string
   password1: string
 }
@@ -32,7 +32,7 @@ const ChangePass = () => {
     reset,
     handleSubmit,
     formState: { errors, isDirty, isValid },
-  } = useForm<passValues>({ mode: 'onTouched' })
+  } = useForm<PassValues>({ mode: 'onTouched' })
 
   const handleCancel = () => {
     reset()
@@ -58,7 +58,7 @@ const ChangePass = () => {
     navigate('/login')
   }
 
-  const dataSubmit: SubmitHandler<passValues> = async (data: passValues) => {
+  const dataSubmit: SubmitHandler<PassValues> = async (data: PassValues) => {
     setState({ ...state, loading: true })
     const { password } = data
     const newData = { id, token, password }

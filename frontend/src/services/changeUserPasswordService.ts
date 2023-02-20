@@ -1,12 +1,12 @@
 import instance from '../axios/axiosInstance'
 
-interface passwordValues {
+interface PasswordValues {
   id: string
   password: string
   token: string
 }
 
-export const changeUserPasswordService = async (data: passwordValues) => {
+export const changeUserPasswordService = async (data: PasswordValues) => {
   const config = {
     headers: {
       token: data.token
