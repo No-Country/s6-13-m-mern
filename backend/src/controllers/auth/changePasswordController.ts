@@ -27,6 +27,7 @@ export const changePasswordController = async (req: Request, res: Response) => {
 
         const hpassword = await hashPassword(password)
         user.password = hpassword
+        user.token = ""
         await user.save()
 
         return res.status(status).json({

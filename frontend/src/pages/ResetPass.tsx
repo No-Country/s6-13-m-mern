@@ -5,10 +5,6 @@ import BlueModal from '../components/modal/BlueModal'
 import { resetPassService } from '../services/resetPassService'
 import { useNavigate } from 'react-router'
 
-interface emailValue {
-  email: string
-}
-
 const ResetPass = () => {
   const [load, setLoad] = useState(false)
   const [open, setOpen] = useState(false)
@@ -17,11 +13,11 @@ const ResetPass = () => {
     register,
     handleSubmit,
     formState: { errors, isDirty, isValid },
-  } = useForm<emailValue>({ mode: 'onTouched' })
-  const submitValues: SubmitHandler<emailValue> = async (data: emailValue) => {
+  } = useForm<{ email: string }>({ mode: 'onTouched' })
+  const submitValues: SubmitHandler<{ email: string }> = async (data: { email: string }) => {
     setLoad(true)
-    setOpen(true)
     await resetPassService({ mail: data.email })
+    setOpen(true)
   }
   const handleModalClose = () => {
     navigate('/')

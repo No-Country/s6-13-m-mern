@@ -10,6 +10,11 @@ import { loginValidate, validateToken } from '../middlewares'
 const router = Router()
 
 router.post('/login', loginValidate, loginController)
-router.post('/forgetPassword', validateToken, forgetPasswordController)
-router.post('/changePassword/:id', changePasswordController)
+router.post('/forgetPassword', forgetPasswordController)
+router.post(
+    '/changePassword/:id',
+    validateAccountsValidated,
+    validateToken,
+    changePasswordController
+)
 export default router
