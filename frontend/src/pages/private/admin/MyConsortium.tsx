@@ -7,7 +7,7 @@ import getUserConsortia from '../../../services/getUserConsortia'
 import { ConsortiaData } from '../../../interfaces/consortiaInterfaces'
 import { useConsortiumStore } from '../../../store/consortium'
 
-const initialState = [
+/* const initialState = [
   { id: 1, address: 'Av. Belgrano 499', path: '/consortium' },
   { id: 2, address: 'Av. Córdoba 145', path: '/consortium' },
   { id: 3, address: 'Lima 1664', path: '/consortium' },
@@ -19,7 +19,8 @@ interface Consortium {
   id: number
   address: string
   path: string
-}
+} */
+
 const MyConsortium = () => {
   const [consortiums, setConsortiums] = useState<ConsortiaData[]>([])
   const adminId = userStore.getState().userData?._id
