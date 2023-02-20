@@ -3,15 +3,15 @@ import { postAmenityService } from '../amenity'
 import amenities from '../../utils/mockups/amenities.json'
 
 export const amenityMockService = async () => {
+    try {   
     const amenity = await Amenity.findOne()
-
-    if (!amenity) {
-      amenities.forEach(async (amenity:any) => {
-            try {
+    
+    if (amenity === null) {
+        amenities.forEach(async (amenity:any) => {
                 await postAmenityService(amenity)
-            } catch (error) {
-                return error
-            }
         })
+        }
+    } catch (error) {
+        return error
     }
 }
