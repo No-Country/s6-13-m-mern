@@ -153,10 +153,11 @@
     },
     {
         "_id": "63ebc2c2fc13ae6120000019",
-        "name": "Myrwyn",
-        "lastname": "Markl",
-        "email": "mmarklj@biblegateway.com",
+        "name": "emanuel",
+        "lastname": "capo",
+        "email": "3m4c4p0@gmail.com",
         "isValidated": true,
-        "password": "Mipassword123!"
+        "password": "MiPassword123!",
+        "role": "admin"
     }
 ]

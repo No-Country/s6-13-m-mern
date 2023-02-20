@@ -14,7 +14,7 @@ export const deleteUserController = async (req: Request, res: Response) => {
         }
 
         //* Comprobar si ya esta desactivado
-        if (user.status === 'disabled') {
+        if (!ok && status === 409) {
             return res
                 .status(409)
                 .json({ ok: false, msg: 'User is already deleted' })
