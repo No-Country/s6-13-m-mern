@@ -6,7 +6,6 @@ import { sendMail } from '../../utils/sendMail'
 
 export const registerController = async (req: Request, res: Response) => {
     const { name, lastname, email, password, phone } = req.body
-
     try {
         const { ok, status, user } = (await registerService({
             name,
@@ -33,6 +32,7 @@ export const registerController = async (req: Request, res: Response) => {
 
         user.token = userToken
         await user.save()
+
         return res.status(status).json({ ok, msg: 'User created' })
     } catch (error) {
         // console.log(error)

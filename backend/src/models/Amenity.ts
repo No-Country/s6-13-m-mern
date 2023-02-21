@@ -27,6 +27,14 @@ const amenitySchema = new Schema<IAmenity>(
             type: Number,
             required: true,
         },
+        reserve: [{
+            type: Types.ObjectId,
+            ref: 'Reserve',
+        }],
+        consortium: {
+            type: Types.ObjectId,
+            ref: 'Consortium',
+        },
         schedule: {
             type: Types.ObjectId,
             ref: 'Schedule',

@@ -7,15 +7,19 @@ interface IData {
 
 export const getUserService = async (data: IData) => {
     let user = null
+
     if (data.id) {
-        user = await User.findById(data.id).select(
-            '-password -createdAt -updatedAt -externalId -token '
-        )
+        user = await User.findById(data.id).populate({
+            path: 'consortium',
+            select: 'address img',
+        })
     } else {
-        user = await User.findOne({ email: data.mail }).select(
-            '-password -createdAt -updatedAt -externalId -token -isValidated'
-        )
+        user = await User.findOne({ email: data.mail }).populate({
+            path: 'consortium',
+            select: 'address img',
+        })
     }
+
     if (!user) {
         const response = {
             ok: false,

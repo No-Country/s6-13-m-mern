@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import UserNavbar from './user_navbar/UserNavbar'
+import UserNavbar from './UserNavbar'
 
 const Header = () => {
   const [isNavOpen, setisNavOpen] = useState(false)

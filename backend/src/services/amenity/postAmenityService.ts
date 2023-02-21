@@ -9,15 +9,17 @@ export const postAmenityService = async(amenity:IAmenity) => {
       const amenityToCreate = await Amenity.create(amenity)
       await amenityToCreate.save()
 
-      const { id, name, description } = amenityToCreate
+      const { name, description, reservable, img, size } = amenityToCreate
 
       const response = {
         msg: 'Amenity created',
         status: 200,
         ok: true,
-        id,
         name,
-        description
+        description,
+        reservable,
+        img, 
+        size
       }
       return response
     }
@@ -28,6 +30,7 @@ export const postAmenityService = async(amenity:IAmenity) => {
     }
     return response
   } catch (error) {
+    console.log(error)
     return error
   }
 }

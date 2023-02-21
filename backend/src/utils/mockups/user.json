@@ -4,139 +4,175 @@
         "name": "Merle",
         "lastname": "Coarser",
         "email": "mcoarser0@mapquest.com",
-        "password": "gAperbp0"
+        "isValidated": true,
+        "password": "Mipassword123!"
     },
     {
         "_id": "63ebc2c2fc13ae6120000007",
         "name": "Carla",
         "lastname": "Hawgood",
         "email": "chawgood1@mediafire.com",
-        "password": "ve46M2XQdEUy"
+        "isValidated": true,
+        "password": "Mipassword123!"
     },
     {
         "_id": "63ebc2c2fc13ae6120000008",
         "name": "Care",
         "lastname": "Ellul",
         "email": "cellul2@whitehouse.gov",
-        "password": "qbiuf4DYs"
+        "isValidated": true,
+        "password": "Mipassword123!"
     },
     {
         "_id": "63ebc2c2fc13ae6120000009",
         "name": "Josepha",
         "lastname": "Kettley",
         "email": "jkettley3@java.com",
-        "password": "66UL3oQrx"
+        "isValidated": true,
+        "password": "Mipassword123!"
     },
     {
         "_id": "63ebc2c2fc13ae612000000a",
         "name": "Cecelia",
         "lastname": "Rasor",
         "email": "crasor4@sakura.ne.jp",
-        "password": "C5yajDuu"
+        "isValidated": true,
+        "password": "Mipassword123!"
     },
+
     {
         "_id": "63ebc2c2fc13ae612000000b",
         "name": "Fin",
         "lastname": "Elington",
         "email": "felington5@bing.com",
-        "password": "fbHYP8"
+        "isValidated": true,
+        "password": "Mipassword123!"
     },
     {
         "_id": "63ebc2c2fc13ae612000000c",
         "name": "Jeno",
         "lastname": "Doblin",
         "email": "jdoblin6@paginegialle.it",
-        "password": "LjixzSHeTV8q"
+        "isValidated": true,
+        "password": "Mipassword123!"
     },
     {
         "_id": "63ebc2c2fc13ae612000000d",
         "name": "Alejandro",
         "lastname": "Arkcoll",
         "email": "aarkcoll7@myspace.com",
-        "password": "IN7ZyQhs0S"
+        "isValidated": true,
+        "password": "Mipassword123!"
     },
     {
         "_id": "63ebc2c2fc13ae612000000e",
         "name": "Dewain",
         "lastname": "Shallo",
         "email": "dshallo8@360.cn",
-        "password": "gnfIU9SVGyj"
+        "isValidated": true,
+        "password": "Mipassword123!"
     },
     {
         "_id": "63ebc2c2fc13ae612000000f",
         "name": "Ambrosius",
         "lastname": "Wyrall",
         "email": "awyrall9@msu.edu",
-        "password": "8OsJ4M8s5"
+        "isValidated": true,
+        "password": "Mipassword123!"
     },
+
     {
         "_id": "63ebc2c2fc13ae6120000010",
         "name": "Pattin",
         "lastname": "Pelos",
         "email": "ppelosa@plala.or.jp",
-        "password": "W99xJjMHF"
+        "isValidated": true,
+        "password": "Mipassword123!"
     },
     {
         "_id": "63ebc2c2fc13ae6120000011",
         "name": "Cecilio",
         "lastname": "Dovinson",
         "email": "cdovinsonb@cam.ac.uk",
-        "password": "CiXtjvg"
+        "isValidated": true,
+        "password": "Mipassword123!"
     },
     {
         "_id": "63ebc2c2fc13ae6120000012",
         "name": "Lyle",
         "lastname": "McRorie",
         "email": "lmcroriec@vimeo.com",
-        "password": "bvPEPSUOY3W"
+        "isValidated": true,
+        "password": "Mipassword123!"
     },
     {
         "_id": "63ebc2c2fc13ae6120000013",
         "name": "Jamil",
         "lastname": "Janoch",
         "email": "jjanochd@buzzfeed.com",
-        "password": "yBz4mXKEOJRR"
+        "isValidated": true,
+        "password": "Mipassword123!"
     },
     {
         "_id": "63ebc2c2fc13ae6120000014",
         "name": "Dudley",
         "lastname": "Dreini",
         "email": "ddreinie@chicagotribune.com",
-        "password": "CgXa9Qimyh"
+        "isValidated": true,
+        "password": "Mipassword123!"
     },
     {
         "_id": "63ebc2c2fc13ae6120000015",
         "name": "Oralee",
         "lastname": "Curee",
         "email": "ocureef@telegraph.co.uk",
-        "password": "71u5sw"
+        "isValidated": true,
+        "password": "Mipassword123!"
     },
+
     {
         "_id": "63ebc2c2fc13ae6120000016",
         "name": "Alden",
         "lastname": "Walas",
         "email": "awalasg@disqus.com",
-        "password": "aqAaZXiq7V4"
+        "isValidated": true,
+        "password": "Mipassword123!",
+        "role": "admin"
     },
     {
         "_id": "63ebc2c2fc13ae6120000017",
         "name": "Brandon",
         "lastname": "Kimpton",
         "email": "bkimptonh@timesonline.co.uk",
-        "password": "QIT8ayNB62T"
+        "isValidated": true,
+        "password": "Mipassword123!",
+        "role": "admin"
     },
     {
         "_id": "63ebc2c2fc13ae6120000018",
         "name": "Padraig",
         "lastname": "Hensmans",
         "email": "phensmansi@i2i.jp",
-        "password": "URY4Lu9Zdp"
+        "isValidated": true,
+        "password": "Mipassword123!",
+        "role": "admin"
     },
     {
         "_id": "63ebc2c2fc13ae6120000019",
-        "name": "Myrwyn",
-        "lastname": "Markl",
-        "email": "mmarklj@biblegateway.com",
-        "password": "gC5oEg5Q6A"
+        "name": "emanuel",
+        "lastname": "capo",
+        "email": "3m4c4p0@gmail.com",
+        "isValidated": true,
+        "password": "MiPassword123!",
+        "role": "admin"
+    },
+    {
+        "_id": "63f5253bfc13ae4b1f000c2a",
+        "name": "Santi",
+        "lastname": "Riva",
+        "email": "santi96_olimpia@hotmail.com",
+        "isValidated": true,
+        "password": "MiPassword123!",
+        "role": "admin"
     }
 ]

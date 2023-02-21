@@ -1,36 +1,41 @@
 import { Request, Response } from 'express'
 import { IResponse } from '../../interfaces/response'
-import { loginService } from '../../services'
+import { getUserService } from '../../services'
 import { comparePasswords, jwtGenerate } from '../../utils'
 
 export const loginController = async (req: Request, res: Response) => {
     const { email, password } = req.body
 
     try {
-        const { ok, status, user, id } = (await loginService(
-            email
-        )) as IResponse
+        const { ok, status, user } = (await getUserService({
+            mail: email,
+        })) as IResponse
 
         //* Comprobar que el mail este registrado
         if (!ok && status === 404) {
             return res
                 .status(status)
-                .json({ ok: false, msg: 'Email or password is invalid' })
+                .json({ ok, msg: 'Email or password is invalid' })
+        }
+
+        //* Comprobar que sea un usuario activo
+        if (!ok && status === 401) {
+            return res.status(status).json({ ok, msg: 'User is not active' })
         }
 
         //* Comprobar si el mail esta validado
-        if (!ok && status === 401) {
+        if (!user.isValidated) {
             return res
-                .status(status)
-                .json({ ok: false, msg: 'Unverified email', id, email })
+                .status(409)
+                .json({ ok: false, msg: 'Unverified mail', email })
         }
 
         //* Comprobar que las contraseñas coincidan
         const validPassword = await comparePasswords(password, user.password)
         if (!validPassword) {
-            return res.status(404).json({
+            return res.status(403).json({
                 ok: false,
-                msg: 'Email or password is invalid',
+                msg: 'Passwords are different',
             })
         }
 

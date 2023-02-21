@@ -24,13 +24,13 @@ export const getScheduleService = async(id: string) => {
       return error
     }
   }
-  const amenityRetrieved = await Schedule.find().select(
+  const scheduleRetrieved = await Schedule.find().select(
     '-createdAt -updatedAt'
   )
   const response = {
     ok: true,
     status: 200,
-    amenityRetrieved
+    scheduleRetrieved
   }
   return response
 }

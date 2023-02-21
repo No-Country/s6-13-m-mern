@@ -13,7 +13,11 @@ export const loginValidate = [
         .notEmpty()
         .withMessage('Password is required')
         .isString()
-        .withMessage('Password must be a string'),
+        .withMessage('Password must be a string')
+        .isStrongPassword()
+        .withMessage(
+            'Password must have at least 8 characters, at least one uppercase, one number and one special character'
+        ),
 
     (req: Request, res: Response, next: NextFunction) => {
         const errors = validationResult(req)

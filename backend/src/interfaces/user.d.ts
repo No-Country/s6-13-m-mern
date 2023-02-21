@@ -9,12 +9,12 @@ export interface IUser {
     password: string
     img?: string
     phone?: string
-    role?: ERoles
+    role?: ERoles | string
     externalId?: string
     isValidated?: boolean
     externalId?: string
     status?: EStatus
     token?: string
     apt?: string
-    consortium?: Types.ObjectId[] | string[]
+    consortium?: Types.ObjectId[] | string[] | array
 }

@@ -1,10 +1,11 @@
-import { Schema, model } from 'mongoose'
+import { Schema, model, Types } from 'mongoose'
 import { IReserve } from '../interfaces/reserve'
+import { EStatus } from '../utils'
 
 const reserveSchema = new Schema<IReserve>(
     {
         user: {
-            type: String,
+            type: Types.ObjectId,
             required: true,
             ref: 'User',
         },
@@ -15,6 +16,11 @@ const reserveSchema = new Schema<IReserve>(
         endDate: {
             type: Date,
             required: true,
+        },
+        status: {
+            type: String,
+            enum: EStatus,
+            default: 'active',
         },
     },
     {
