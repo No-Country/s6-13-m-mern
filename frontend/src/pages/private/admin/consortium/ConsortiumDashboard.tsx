@@ -1,40 +1,45 @@
 import { type FC } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 interface ConsortiumDashboardProps {
   name?: string
 }
-
-const actions = [
-  {
-    id: 1,
-    name: 'Edit information',
-    path: 'edit-information',
-  },
-  {
-    id: 2,
-    name: 'Payments',
-    path: 'payments',
-  },
-  {
-    id: 3,
-    name: 'Entrances and exits',
-    path: 'entrances-exits',
-  },
-  {
-    id: 4,
-    name: 'Events',
-    path: 'events',
-  },
-  {
-    id: 5,
-    name: 'Members',
-    path: 'members',
-  },
-]
-// src={'./assets/adm/}
-
 export const ConsortiumDashboard: FC<ConsortiumDashboardProps> = ({ name = 'Admin' }: ConsortiumDashboardProps) => {
+  const { id } = useParams<{ id: string }>()
+
+  const actions = [
+    {
+      id: 1,
+      name: 'Edit information',
+      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+      path: `editinfo/${id}`,
+    },
+    {
+      id: 2,
+      name: 'Payments',
+      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+      path: `payments/${id}`,
+    },
+    {
+      id: 3,
+      name: 'Entrances and exits',
+      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+      path: `entrance/${id}`,
+    },
+    {
+      id: 4,
+      name: 'Events',
+      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+      path: `events/${id}`,
+    },
+    {
+      id: 5,
+      name: 'Members',
+      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+      path: `members/${id}`,
+    },
+  ]
+
   return (
     <div className="m-auto max-w-screen-xl flex flex-col justify-start items-center gap-4 py-10 relative ">
       <Link
