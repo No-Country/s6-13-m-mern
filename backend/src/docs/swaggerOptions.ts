@@ -8,7 +8,12 @@ import {
     userDelete,
     validateUser,
 } from './userRoutes'
-import { changePassword, forgetPassword, login } from './authRoutes'
+import {
+    changePassword,
+    forgetPassword,
+    googleLogin,
+    login,
+} from './authRoutes'
 import {
     getAmenity,
     putAmenity,
@@ -272,6 +277,9 @@ const swaggerDefinition: OAS3Definition = {
         // *-----------------------------Api auth Routes-----------------------------------------------------------
         //* Login user
         '/api/auth/login': login,
+
+        //* Login user
+        '/api/auth/googleLogin': googleLogin,
 
         //* ForgetPassword user
         '/api/auth/forgetPassword': forgetPassword,

@@ -7,5 +7,6 @@ export interface IResponse {
     user?: User
     status: number
     token?: string
+    code?: number
     id?: ObjectId
 }
