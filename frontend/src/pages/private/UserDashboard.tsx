@@ -6,7 +6,7 @@ import UserAmenities from './user/UserAmenities'
 import { userStore } from '../../store/user'
 import { useAuthStore } from '../../store/auth'
 import getUserByIdService from '../../services/getUserByIdService'
-import { UserProfile } from '../../interfaces/userInterfaces'
+import { IResponseUser } from '../../interfaces/userInterfaces'
 import UserComplaints from './user/UserComplaints'
 import UserCreatePayments from './user/UserCreatePayments'
 import UserProfileData from './user/UserProfileData'
@@ -19,20 +19,22 @@ const UserDashboard = () => {
   const [menu, setMenu] = useState('profile')
   const [imageUrl, setImageUrl] = useState('info')
   const [userRole, setUserRole] = useState(role)
-  const [userData, setUserData] = useState<UserProfile>()
 
   const userId = useAuthStore((state) => state.id)
+  const setUser = userStore((state) => state.setData)
 
   const getUser = async () => {
-    const user = await getUserByIdService(userId)
-    setUserRole(user.role)
-    setUserData(user)
+    const res = (await getUserByIdService(userId)) as IResponseUser
+    setUserRole(res.user.role)
+    setUser(res.user)
   }
 
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-floating-promises
     getUser()
   }, [])
+
+  const user = userStore((state) => state.userData)
 
   const handleLogout = useAuthStore((state) => state.setLogout)
 
@@ -45,13 +47,13 @@ const UserDashboard = () => {
               <div className="rounded-full h-[90px] w-[90px] overflow-hidden border-2 border-black relative">
                 <img
                   className="object-cover h-[90px] min-w-full"
-                  src={userData?.img || defaultImg}
+                  src={user?.img || defaultImg}
                   alt=""
                 />
               </div>
               <div className="text-base text-center mx-auto">
                 <p className=" font-bold">
-                  {userData?.name} {userData?.lastname}
+                  {user?.name} {user?.lastname}
                 </p>
                 <p>Owner</p>
               </div>
