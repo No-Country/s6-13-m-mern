@@ -6,7 +6,7 @@ const getUserByIdService = async (id: string) => {
   const config = { headers: { token } } */
   try {
     const resLogin = await axios.get(`/api/user/getUser/${id}`)
-    return resLogin.data
+    return resLogin.data.user
   } catch (error) {
     const err = error as AxiosError
     console.log(err)

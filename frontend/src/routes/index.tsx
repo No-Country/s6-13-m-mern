@@ -10,7 +10,7 @@ import Login from '../pages/Login'
 import NotFound from '../pages/NotFound'
 import Prices from '../pages/Prices'
 import Signin from '../pages/Signin'
-import UserDashboard from '../components/UserDashboard'
+import UserDashboard from '../pages/private/UserDashboard'
 import AdminDashboard from '../components/AdminDashboard'
 import Validate from '../pages/private/Validate'
 import ConsortiumMembers from '../pages/private/admin/ConsortiumMembers'
@@ -37,7 +37,6 @@ export const router = createBrowserRouter([
       { path: '/admin', element: <LayoutPrivate />, children: [{ index: true, element: <AdminDashboard /> }] },
       { path: '/resetpassword', element: <ResetPass /> },
       { path: '/changepassword/:id/:token', element: <ChangePass /> },
-
     ],
   },
 ])
