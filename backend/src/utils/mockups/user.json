@@ -39,6 +39,7 @@
         "isValidated": true,
         "password": "Mipassword123!"
     },
+
     {
         "_id": "63ebc2c2fc13ae612000000b",
         "name": "Fin",
@@ -79,6 +80,7 @@
         "isValidated": true,
         "password": "Mipassword123!"
     },
+
     {
         "_id": "63ebc2c2fc13ae6120000010",
         "name": "Pattin",
@@ -127,13 +129,15 @@
         "isValidated": true,
         "password": "Mipassword123!"
     },
+
     {
         "_id": "63ebc2c2fc13ae6120000016",
         "name": "Alden",
         "lastname": "Walas",
         "email": "awalasg@disqus.com",
         "isValidated": true,
-        "password": "Mipassword123!"
+        "password": "Mipassword123!",
+        "role": "admin"
     },
     {
         "_id": "63ebc2c2fc13ae6120000017",
@@ -141,7 +145,8 @@
         "lastname": "Kimpton",
         "email": "bkimptonh@timesonline.co.uk",
         "isValidated": true,
-        "password": "Mipassword123!"
+        "password": "Mipassword123!",
+        "role": "admin"
     },
     {
         "_id": "63ebc2c2fc13ae6120000018",
@@ -149,13 +154,23 @@
         "lastname": "Hensmans",
         "email": "phensmansi@i2i.jp",
         "isValidated": true,
-        "password": "Mipassword123!"
+        "password": "Mipassword123!",
+        "role": "admin"
     },
     {
         "_id": "63ebc2c2fc13ae6120000019",
         "name": "emanuel",
         "lastname": "capo",
         "email": "3m4c4p0@gmail.com",
+        "isValidated": true,
+        "password": "MiPassword123!",
+        "role": "admin"
+    },
+    {
+        "_id": "63f5253bfc13ae4b1f000c2a",
+        "name": "Santi",
+        "lastname": "Riva",
+        "email": "santi96_olimpia@hotmail.com",
         "isValidated": true,
         "password": "MiPassword123!",
         "role": "admin"

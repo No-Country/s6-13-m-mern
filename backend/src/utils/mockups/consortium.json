@@ -3,121 +3,62 @@
         "_id": "63ebcd8cfc13ae6120000024",
         "name": "Consorcio Primero",
         "address": "La Rioja 865",
-        "users": [     
+        "users": [
+            {"id":"63ebc2c2fc13ae6120000006"},
+            {"id":"63ebc2c2fc13ae6120000007"},
+            {"id":"63ebc2c2fc13ae6120000008"},
+            {"id":"63ebc2c2fc13ae6120000009"},
+            {"id":"63ebc2c2fc13ae612000000a"}     
         ],
-        "userId": "63f16fe5fddabfc1dc07b5b4",
+        "userId": "63ebc2c2fc13ae6120000016",
         "floor": 5,
         "apt": 10,
-        "amenities": []
+        "amenities": [
+            {"id":"508f1f77btf86cd799439012"},
+            {"id":"507f1g77btf86cd799439011"},
+            {"id":"507f1g77btf86cd799439014"},
+            {"id":"507f1g77btf86cd799439015"},
+            {"id":"507f1g77btf86cd799439017"} 
+        ]
     },
     {
         "_id": "63ebcd8cfc13ae6120000025",
         "name": "Consorcio Segundo",
         "address": "Madrid 912",
         "users": [
+            {"id":"63ebc2c2fc13ae612000000b"},
+            {"id":"63ebc2c2fc13ae612000000c"},
+            {"id":"63ebc2c2fc13ae612000000d"},
+            {"id":"63ebc2c2fc13ae612000000e"},
+            {"id":"63ebc2c2fc13ae612000000f"}
         ],
-        "userId": "63f16fe6fddabfc1dc07b5b9",
+        "userId": "63ebc2c2fc13ae6120000017",
         "floor": 8,
         "apt": 14,
-        "amenities": []
+        "amenities": [
+            {"id":"63f5253bfc13ae4b1f000c28"},
+            {"id":"63f5253bfc13ae4b1f000c29"}
+        ]
     },
     {
         "_id": "63ebcd8cfc13ae6120000026",
         "name": "Consorcio Tercero",
         "address": "Lindbergh Hill 670",
         "users": [
+            {"id": "63ebc2c2fc13ae6120000010"},
+            {"id": "63ebc2c2fc13ae6120000011"},
+            {"id": "63ebc2c2fc13ae6120000012"},
+            {"id": "63ebc2c2fc13ae6120000013"},
+            {"id": "63ebc2c2fc13ae6120000014"},
+            {"id": "63ebc2c2fc13ae6120000015"}
         ],
-        "userId": "63f16fe6fddabfc1dc07b5b9",
+        "userId": "63ebc2c2fc13ae6120000018",
         "floor": 8,
         "apt": 14,
-        "amenities": []
-    },
-    {
-        "_id": "63ebcd8cfc13ae6120000027",
-        "name": "Consorcio Cuarto",
-        "address": "Brown Lane 8922",
-        "users": [
-        ],
-        "userId": "63f16fe6fddabfc1dc07b5b9",
-        "floor": 8,
-        "apt": 24,
-        "amenities": []
-    },
-    {
-        "_id": "63ebcd8cfc13ae6120000028",
-        "name": "Consorcio Quinto",
-        "address": "Gina Avenue 21",
-        "users": [
-        ],
-        "userId": "63f16fe6fddabfc1dc07b5b9",
-        "floor": 8,
-        "apt": 14,
-        "amenities": []
-    },
-    {
-        "_id": "63ebcd8cfc13ae6120000029",
-        "name": "Consorcio Sexto",
-        "address": "Leroy Court 33",
-        "users": [
-        ],
-        "userId": "63f16fe6fddabfc1dc07b5b9",
-        "floor": 8,
-        "apt": 18,
-        "amenities": []
-    },
-    {
-        "_id": "63ebcd8cfc13ae6120000030",
-        "name": "Consorcio Septimo",
-        "address": "Anderson Way 4869",
-        "users": [
-        ],
-        "userId": "63f16fe6fddabfc1dc07b5b9",
-        "floor": 4,
-        "apt": 12,
-        "amenities": []
-    },
-    {
-        "_id": "63ebcd8cfc13ae6120000031",
-        "name": "Consorcio Octavo",
-        "address": "Tennyson Drive 33",
-        "users": [
-        ],
-        "userId": "63f16fe6fddabfc1dc07b5b9",
-        "floor": 6,
-        "apt": 15,
-        "amenities": []
-    },
-    {
-        "_id": "63ebcd8cfc13ae6120000032",
-        "name": "Consorcio Noveno",
-        "address": "Mayfield Way 22",
-        "users": [
-        ],
-        "userId": "63f16fe6fddabfc1dc07b5b9",
-        "floor": 10,
-        "apt": 19,
-        "amenities": []
-    },
-    {
-        "_id": "63ebcd8cfc13ae6120000033",
-        "name": "Consorcio Decimo",
-        "address": "Fairfield Plaza 5677",
-        "users": [
-        ],
-        "userId": "63f16fe6fddabfc1dc07b5b9",
-        "floor": 12,
-        "apt": 20,
-        "amenities": []
-    },
-    {
-        "_id": "63ebcd8cfc13ae6120000034",
-        "name": "Consorcio Undecimo",
-        "address": "Cochabamba 2785",
-        "users": [
-        ],
-        "userId": "63f16fe6fddabfc1dc07b5b9",
-        "floor": 15,
-        "apt": 30,
-        "amenities": []
+        "amenities": [
+            {"id": "63f5253bfc13ae4b1f000c2b"},
+            {"id": "63f5253bfc13ae4b1f000c2c"},
+            {"id": "63f5253bfc13ae4b1f000c2d"}
+        ]
     }
 ]

@@ -1,58 +1,140 @@
 [
   {
-    "id": "508f1f77btf86cd799439012",
+    "_id": "508f1f77btf86cd799439012",
+    "consortium": "63ebcd8cfc13ae6120000024",
     "name": "Piscina",
     "description": "descripcion piscina",
     "reservable": true,
     "img": "https://img.lovepik.com/free-png/20220127/lovepik-swimming-pool-png-image_401893480_wh1200.png",
-    "size":10
+    "size":10,
+    "reserve": [
+      {"_id":"63e2546cfc13ae373c000898"}
+    ],
+    "schedule":
+      {"_id":"63f2b427fc13ae631e00000a"}
   },
   {
-    "id": "507f1g77btf86cd799439011",
+    "_id": "507f1g77btf86cd799439011",
+    "consortium": "63ebcd8cfc13ae6120000024",
     "name": "Quincho",
     "description": "Desc quincho",
     "reservable": true,
     "img": "https://www.quinchosizacar.com/images/quincho-goliat/quincho-goliat-enchape-ladrillo.png",
-    "size":15
+    "size":15,
+    "reserve": [
+      {"_id":"63e2546cfc13ae373c000899"}
+    ],
+    "schedule":
+      {"_id":"63f2b427fc13ae631e00000d"}
   },
   {
-    "id": "507f1g77btf86cd799439013",
-    "name": "Salon",
-    "description": "Desc Salon",
-    "reservable": true,
-    "img": "https://www.quinchosizacar.com/images/quincho-goliat/quincho-goliat-enchape-ladrillo.png",
-    "size":20
-  },
-  {
-    "id": "507f1g77btf86cd799439014",
+    "_id": "507f1g77btf86cd799439014",
+    "consortium": "63ebcd8cfc13ae6120000024",
     "name": "Patio",
     "description": "Desc Patio",
     "reservable": true,
     "img": "https://www.quinchosizacar.com/images/quincho-goliat/quincho-goliat-enchape-ladrillo.png",
-    "size":10
+    "size":10,
+    "reserve": [
+      {"_id":"63e2546cfc13ae373c00089a"}
+    ],
+    "schedule":
+      {"_id":"63f2b427fc13ae631e00000c"}
   },
   {
-    "id": "507f1g77btf86cd799439015",
+    "_id": "507f1g77btf86cd799439015",
+    "consortium": "63ebcd8cfc13ae6120000024",
     "name": "SUM",
     "description": "Desc SUM",
     "reservable": true,
     "img": "https://www.quinchosizacar.com/images/quincho-goliat/quincho-goliat-enchape-ladrillo.png",
-    "size":30
+    "size":30,
+    "reserve": [],
+    "schedule":""
   },
   {
-    "id": "507f1g77btf86cd799439016",
-    "name": "Lavanderia",
-    "description": "Desc Lavanderia",
-    "reservable": true,
-    "img": "https://www.quinchosizacar.com/images/quincho-goliat/quincho-goliat-enchape-ladrillo.png",
-    "size":5
-  },
-  {
-    "id": "507f1g77btf86cd799439017",
+    "_id": "507f1g77btf86cd799439017",
+    "consortium": "63ebcd8cfc13ae6120000024",
     "name": "Terraza",
     "description": "Desc Terraza",
     "reservable": true,
     "img": "https://www.quinchosizacar.com/images/quincho-goliat/quincho-goliat-enchape-ladrillo.png",
-    "size":10
+    "size":10,
+    "reserve": [],
+    "schedule":""
+  },
+
+  {
+    "_id": "63f5253bfc13ae4b1f000c28",
+    "consortium": "63ebcd8cfc13ae6120000025",
+    "name": "SUM",
+    "description": "Desc SUM",
+    "reservable": true,
+    "img": "https://www.quinchosizacar.com/images/quincho-goliat/quincho-goliat-enchape-ladrillo.png",
+    "size":30,
+    "reserve": [
+      {"_id":"63f2b31cfc13ae631e000004"}
+    ],
+    "schedule":
+      {"_id":"63f2b427fc13ae631e00000e"}
+  },
+  {
+    "_id": "63f5253bfc13ae4b1f000c29",
+    "consortium": "63ebcd8cfc13ae6120000025",
+    "name": "Terraza",
+    "description": "Desc Terraza",
+    "reservable": true,
+    "img": "https://www.quinchosizacar.com/images/quincho-goliat/quincho-goliat-enchape-ladrillo.png",
+    "size":10,
+    "reserve": [
+      {"_id": "63e2546cfc13ae373c00089b"},
+      {"_id": "63e2546cfc13ae373c00089c"}
+    ],
+    "schedule":
+      {"_id":"63f2b427fc13ae631e000010"}
+  },
+
+  {
+    "_id": "63f5253bfc13ae4b1f000c2b",
+    "consortium": "63ebcd8cfc13ae6120000026",
+    "name": "Piscina",
+    "description": "descripcion piscina",
+    "reservable": true,
+    "img": "https://img.lovepik.com/free-png/20220127/lovepik-swimming-pool-png-image_401893480_wh1200.png",
+    "size":10,
+    "reserve": [
+      {"_id":"63f2b31cfc13ae631e000003"},
+      {"_id":"63f2b31cfc13ae631e000002"}
+    ],
+    "schedule":
+      {"_id":"63f2b427fc13ae631e000011"}
+  },
+  {
+    "_id": "63f5253bfc13ae4b1f000c2c",
+    "consortium": "63ebcd8cfc13ae6120000026",
+    "name": "Quincho",
+    "description": "Desc quincho",
+    "reservable": true,
+    "img": "https://www.quinchosizacar.com/images/quincho-goliat/quincho-goliat-enchape-ladrillo.png",
+    "size":15,
+    "reserve": [
+      {"_id":"63f2b31cfc13ae631e000001"}
+    ],
+    "schedule":
+      {"_id":"63f2b427fc13ae631e000012"}
+  },
+  {
+    "_id": "63f5253bfc13ae4b1f000c2d",
+    "consortium": "63ebcd8cfc13ae6120000026",
+    "name": "Lavanderia",
+    "description": "Desc Lavanderia",
+    "reservable": true,
+    "img": "https://www.quinchosizacar.com/images/quincho-goliat/quincho-goliat-enchape-ladrillo.png",
+    "size":5,
+    "reserve": [
+      {"_id":"63f2b31cfc13ae631e000000"}
+    ],
+    "schedule":
+      {"_id":"63f2b427fc13ae631e00000f"}
   }
 ]
