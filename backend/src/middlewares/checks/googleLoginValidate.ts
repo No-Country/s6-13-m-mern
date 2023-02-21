@@ -7,7 +7,7 @@ export const googleLoginValidate = [
         .withMessage('Email is required')
         .isEmail()
         .withMessage('Invalid email format'),
-    body('picture')
+    body('img')
         .notEmpty()
         .withMessage('Picture is required')
         .isURL()
@@ -22,7 +22,7 @@ export const googleLoginValidate = [
         .withMessage('Lastname is required')
         .isString()
         .withMessage('Lastname must be a string'),
-    body('sub')
+    body('externalId')
         .notEmpty()
         .withMessage('Sub is required')
         .isString()
