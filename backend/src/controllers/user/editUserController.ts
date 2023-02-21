@@ -4,7 +4,7 @@ import { edituserService } from '../../services'
 
 export const editUserController = async (req: Request, res: Response) => {
     const { id } = req.params
-    const { name, lastname, img, phone } = req.body
+    const { name, lastname, img, phone, apt } = req.body
 
     try {
         const { ok, status, user } = (await edituserService(
@@ -12,7 +12,8 @@ export const editUserController = async (req: Request, res: Response) => {
             name,
             lastname,
             img,
-            phone
+            phone,
+            apt
         )) as IResponse
 
         //* Comprobar que existe el usuario con el id
@@ -22,7 +23,6 @@ export const editUserController = async (req: Request, res: Response) => {
 
         return res.status(status).json({ ok, user, msg: 'User Edited' })
     } catch (error) {
-        console.log(error)
         return res.status(500).json({
             ok: false,
             msg: 'Server Error',

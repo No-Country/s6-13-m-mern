@@ -14,25 +14,27 @@ import {
     validateToken,
     updateValidate,
     paramIdValidate,
+    compareIds,
 } from '../middlewares'
-import { validateAccountsValidated } from '../middlewares/validateAccountsValidated'
 
 const router = Router()
 
 router.post('/register', registerValidate, registerController)
 router.get(
     '/validate/:id',
-    validateAccountsValidated,
     validateToken,
+    paramIdValidate,
+    compareIds,
     validateUserController
 )
-router.get('/renewToken/:id', renewUserToken)
+router.get('/renewToken/:id', paramIdValidate, compareIds, renewUserToken)
 router.get('/getuser/:id', validateToken, paramIdValidate, getUserController)
 router.get('/getAllUsers', getAllUsersController)
 router.put(
     '/update/:id',
     validateToken,
     paramIdValidate,
+    compareIds,
     updateValidate,
     editUserController
 )
@@ -40,6 +42,7 @@ router.delete(
     '/delete/:id',
     validateToken,
     paramIdValidate,
+    compareIds,
     deleteUserController
 )
 

@@ -1,4 +1,6 @@
 export * from './checks'
+export * from './compareIds'
 export * from './index'
+export * from './validateAccountsValidated'
 export * from './validateAdmin'
 export * from './validateToken'

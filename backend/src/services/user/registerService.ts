@@ -3,7 +3,8 @@ import User from '../../models/User'
 import { hashPassword } from '../../utils'
 
 export const registerService = async (user: IUser) => {
-    let { name, lastname, email, password, phone } = user
+    let { _id, name, lastname, email, password, phone, isValidated, role } =
+        user
     try {
         const existsUser = await User.findOne({ email })
         if (existsUser) {
@@ -15,19 +16,33 @@ export const registerService = async (user: IUser) => {
         }
         password = await hashPassword(password)
         phone = phone || ''
-        const newUser = new User({
-            name,
-            lastname,
-            email,
-            password,
-            phone,
-        })
-
+        let newUser
+        if (_id) {
+            newUser = new User({
+                _id,
+                name,
+                lastname,
+                email,
+                password,
+                phone,
+                isValidated,
+                role,
+            })
+        } else {
+            newUser = new User({
+                name,
+                lastname,
+                email,
+                password,
+                phone,
+            })
+        }
         const response = {
             status: 201,
             ok: true,
             user: newUser,
         }
+
         return response
     } catch (error) {
         console.log(error)
