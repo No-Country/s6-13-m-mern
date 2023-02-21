@@ -19,7 +19,7 @@ const UserNavbar = () => {
                             aria-expanded="false"
                             onClick={handleOpenUser}>
                             <img
-                                className='rounded-full'
+                                className='rounded-full border-4 border-white'
                                 src='https://randomuser.me/api/portraits/thumb/men/75.jpg' alt='Photo of user' />
                             <svg
                                 aria-hidden="true"
@@ -29,13 +29,16 @@ const UserNavbar = () => {
                                 className="w-2 ml-2"
                                 role="img"
                                 xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 320 512">
+                                viewBox="0 0 320 512"
+
+                                >
                                 <path
                                     fill="currentColor"
                                     d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z">
                                 </path>
                             </svg>
                         </button>
+
                         <ul
                             className={
                                 (isUserOpen ? '' : 'hidden ') +
@@ -43,9 +46,13 @@ const UserNavbar = () => {
 
                             }
                             aria-labelledby="dropdownMenuButton1d">
+                                <div className='absolute top-[-35px] right-[-350px]'>
+                                 {/* <svg height="400" width="400"><polygon points="250,60 120,350 350,350" fill="brown" /></svg> */}
+                                 <svg height="400" width="400"><polygon points="25,6 12,35 35,35" fill="#002A61" /></svg>
+                                </div>
                             <li className=''>
                                 <div className=' px-5 flex items-center gap-3 h-[95.52px] bg-blueDark'>
-                                    <img className='rounded-full' src='https://randomuser.me/api/portraits/thumb/men/75.jpg' alt='Photo of user' />
+                                    <img className='rounded-full border-4 border-white' src='https://randomuser.me/api/portraits/thumb/men/75.jpg' alt='Photo of user' />
                                     <p className='text-white' >Alberto Gómez</p>
                                 </div>
                             </li>
