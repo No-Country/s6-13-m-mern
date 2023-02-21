@@ -2,7 +2,7 @@ import { ObjectId } from 'mongoose'
 export interface IConsortium {
     name: string
     address: string
-    users: ObjectId[]
+    users: ObjectId[] | string[] | array
     admin: ObjectId
     floor: number
     apt: number

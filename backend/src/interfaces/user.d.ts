@@ -16,5 +16,5 @@ export interface IUser {
     status?: EStatus
     token?: string
     apt?: string
-    consortium?: Types.ObjectId[] | string[]
+    consortium?: Types.ObjectId[] | string[] | array
 }
