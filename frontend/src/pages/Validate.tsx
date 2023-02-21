@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
-import Container from '../../components/Container'
+import Container from '../components/Container'
 import GridLoader from 'react-spinners/GridLoader'
 import PulseLoader from 'react-spinners/PulseLoader'
-import { useParams } from 'react-router'
-import { validateUserAccount } from '../../services/validateUserAccount'
-import { renewValidateTokenAccount } from '../../services/renewValidateTokenAccount'
-import BlueModal from '../../components/modal/BlueModal'
+import { redirect, useParams } from 'react-router'
+import { validateUserAccount } from '../services/validateUserAccount'
+import { renewValidateTokenAccount } from '../services/renewValidateTokenAccount'
+import BlueModal from '../components/modal/BlueModal'
 import { Link } from 'react-router-dom'
 
 const Validate = () => {
@@ -19,7 +19,10 @@ const Validate = () => {
       setResponse('loading')
       const resp = await validateUserAccount(id, token)
       console.log(resp, 'respuesta')
-      if (resp.ok === true) setResponse('ok')
+      if (resp.ok === true) {
+        setResponse('ok')
+        setTimeout(() => redirect('/login'), 5000)
+      }
       if (resp.ok === false) setResponse('wrong')
       if (resp.ok === false && resp.msg === 'User is already validated') setResponse('ok')
     } catch (error) {
