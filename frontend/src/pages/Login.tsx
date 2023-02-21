@@ -5,8 +5,10 @@ import { useForm, type SubmitHandler } from 'react-hook-form'
 import loginService from '../services/loginService'
 import { useAuthStore } from '../store/auth'
 import { LoginValues } from '../interfaces/authInterfaces'
+import { useGoogleLogin } from '@react-oauth/google'
 import { useState } from 'react'
 import PulseLoader from 'react-spinners/PulseLoader'
+import axios from 'axios'
 import { userStore } from '../store/user'
 import getUserByIdService from '../services/getUserByIdService'
 
@@ -45,6 +47,23 @@ const Login = () => {
     }
     setLoading(false)
   }
+
+  const loginGoogle = useGoogleLogin({
+    // eslint-disable-next-line @typescript-eslint/no-misused-promises
+    onSuccess: async (response) => {
+      try {
+        const { data } = await axios.get('https://www.googleapis.com/oauth2/v3/userinfo', {
+          headers: {
+            Authorization: `Bearer ${response.access_token}`,
+          },
+        })
+        const { name, picture, sub, email } = data
+        console.log(data) //! queda definir ruta de back para hacer servicio
+      } catch (err) {
+        console.log(err)
+      }
+    },
+  })
 
   return (
     <BackgroundImage imageUrl="/assets/oneBuild.svg">
@@ -121,7 +140,12 @@ const Login = () => {
             </div>
             <h3 className="mb-5">Or continue with</h3>
             <div className="flex justify-center">
-              <button className="mx-3">
+              <button
+                className="mx-3"
+                onClick={() => {
+                  loginGoogle()
+                }}
+              >
                 <img
                   src="/assets/social/Google.png"
                   alt=""
