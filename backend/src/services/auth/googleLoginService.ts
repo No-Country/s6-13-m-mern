@@ -4,8 +4,8 @@ import { ERoles, hashPassword, jwtGenerate } from '../../utils'
 export const googleLoginService = async (
     name: string,
     lastname: string,
-    picture: string,
-    sub: string,
+    img: string,
+    externalId: string,
     email: string
 ) => {
     try {
@@ -20,8 +20,8 @@ export const googleLoginService = async (
                 lastname,
                 email,
                 password: 'Mipassword123!',
-                img: picture,
-                externalId: sub,
+                img,
+                externalId,
                 isValidated: true,
             })
 
