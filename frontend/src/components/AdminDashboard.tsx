@@ -43,7 +43,7 @@ const adminDashboard = () => {
                 className="rounded-full border-black border-2 w-24"
               />
               <div className="flex flex-col justify-center text-center">
-                <h4 className="font-bold text-lg">{user?.name}</h4>
+                <h4 className="font-bold text-lg">{user?.name} {user?.lastname}</h4>
                 <span>{user?.role}</span>
               </div>
             </div>
