@@ -26,7 +26,7 @@ const Login = () => {
   const navigate = useNavigate()
 
   const setUser = async (id: string) => {
-    const user: any = await getUserByIdService(id)
+    const user = await getUserByIdService(id)
     setUserZ(user)
   }
 

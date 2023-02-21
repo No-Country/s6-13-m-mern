@@ -24,7 +24,7 @@ const UserDashboard = () => {
   const userId = useAuthStore((state) => state.id)
 
   const getUser = async () => {
-    const user: any = await getUserByIdService(userId)
+    const user = await getUserByIdService(userId)
     setUserRole(user.role)
     setUserData(user)
   }
