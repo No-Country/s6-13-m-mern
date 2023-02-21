@@ -11,7 +11,7 @@ export const googleLoginService = async (
     try {
         const user = await User.findOne({
             email,
-            status: 'Active',
+            status: 'active',
         })
 
         if (!user) {
@@ -21,7 +21,7 @@ export const googleLoginService = async (
                 email,
                 password: 'Mipassword123!',
                 img: picture,
-                externId: sub,
+                externalId: sub,
                 isValidated: true,
             })
 

@@ -11,7 +11,7 @@ export const googleLoginValidate = [
         .notEmpty()
         .withMessage('Picture is required')
         .isURL()
-        .withMessage('Email must be an URL'),
+        .withMessage('Picture must be an URL'),
     body('name')
         .notEmpty()
         .withMessage('Name is required')
