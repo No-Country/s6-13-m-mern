@@ -9,6 +9,8 @@ import { useGoogleLogin } from '@react-oauth/google'
 import { useState } from 'react'
 import PulseLoader from 'react-spinners/PulseLoader'
 import axios from 'axios'
+import { userStore } from '../store/user'
+import getUserByIdService from '../services/getUserByIdService'
 
 const Login = () => {
   const {
@@ -22,7 +24,13 @@ const Login = () => {
 
   const setToken = useAuthStore((state) => state.setToken)
   const setId = useAuthStore((state) => state.setId)
+  const setUserZ = userStore((state) => state.setData)
   const navigate = useNavigate()
+
+  const setUser = async (id: string) => {
+    const user = await getUserByIdService(id)
+    setUserZ(user)
+  }
 
   const customSubmit: SubmitHandler<LoginValues> = async (data: LoginValues) => {
     setLoading(true)
@@ -34,8 +42,10 @@ const Login = () => {
       setToken(resp.token)
       setLogError('')
       setId(resp.id)
+      await setUser(resp.id)
       resp.role === 'admin' ? navigate('/admin') : navigate('/user')
     }
+    setLoading(false)
   }
 
   const loginGoogle = useGoogleLogin({
@@ -77,6 +87,11 @@ const Login = () => {
           It&apos;s not a valid e-mail
         </p>
       )}
+      {errors.password?.type === 'pattern' && (
+        <p className="absolute w-full h-8 px-8 bg-red rounded-b-sm border border-black text-lg font-sans text-white">
+          It&apos;s not a valid password
+        </p>
+      )}
       <Container>
         <div className=" font-sans text-[24px] py-14 h-max">
           <h1 className="text-[30px]">Welcome!</h1>
@@ -101,7 +116,10 @@ const Login = () => {
                 } rounded-lg h-12 px-4 mb-8 w-full placeholder:italic placeholder:text-grey bg-transparent focus:outline-none text-lg`}
                 type="password"
                 placeholder="Enter your password"
-                {...register('password', { required: true })}
+                {...register('password', {
+                  required: true,
+                  pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+                })}
               />
               <button
                 type="submit"

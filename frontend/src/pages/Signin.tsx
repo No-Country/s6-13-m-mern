@@ -7,9 +7,6 @@ import BlueModal from '../components/modal/BlueModal'
 import { useState } from 'react'
 import PulseLoader from 'react-spinners/PulseLoader'
 
-// const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/
-// min 5 characters, 1 upper case letter, 1 lower case letter, 1 numeric digit.
-
 const Signin = () => {
   const [modalOpen, setModalOpen] = useState(false)
   const [loading, setLoading] = useState(false)
@@ -79,6 +76,11 @@ const Signin = () => {
           Passwords do no match
         </p>
       )}
+      {errors.password?.type === 'pattern' && (
+        <p className="absolute w-full h-8 px-8 bg-red rounded-b-sm border border-black text-lg font-sans text-white">
+          Password must be minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character
+        </p>
+      )}
       <Container>
         <div className=" font-sans text-[24px] py-14 h-max">
           <h1 className="text-[30px]">Welcome!</h1>
@@ -101,7 +103,7 @@ const Signin = () => {
                       !errors.lastname ? 'border-blueDark' : 'border-red'
                     } rounded-lg h-12 px-4 mb-8 w-full placeholder:italic placeholder:text-grey bg-transparent focus:outline-none text-lg`}
                     type="text"
-                    placeholder="Enter your lastName"
+                    placeholder="Enter your lastname"
                     autoComplete="off"
                     {...register('lastname', { required: true })}
                   />
@@ -125,7 +127,10 @@ const Signin = () => {
                     } rounded-lg h-12 px-4 mb-8 w-full placeholder:italic placeholder:text-grey bg-transparent focus:outline-none text-lg`}
                     type="password"
                     placeholder="Enter your password"
-                    {...register('password', { required: true })}
+                    {...register('password', {
+                      required: true,
+                      pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+                    })}
                   />
                   <input
                     className={`border-2 ${
