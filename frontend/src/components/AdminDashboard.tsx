@@ -64,15 +64,7 @@ const adminDashboard = () => {
               >
                 My consortiums
               </button>
-              <button
-                className={`${menu === 'Edit consortium' ? 'font-bold' : ''}`}
-                onClick={() => {
-                  setMenu('Edit consortium')
-                }}
-              >
-                Edit consortium
-              </button>
-              <button onClick={handleLogout}>Logout</button>
+              <button className='pt-32' onClick={handleLogout}>Logout</button>
             </div>
           </div>
           <div className="bg-blue bg-opacity-20 w-[880px] border-[2.5px] border-black rounded-lg mt-[50px] h-[560px] overflow-y-scroll no-scrollbar">
