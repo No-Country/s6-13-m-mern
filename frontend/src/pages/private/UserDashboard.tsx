@@ -10,6 +10,7 @@ import { IResponseUser } from '../../interfaces/userInterfaces'
 import UserComplaints from './user/UserComplaints'
 import UserCreatePayments from './user/UserCreatePayments'
 import UserProfileData from './user/UserProfileData'
+import { useNavigate } from 'react-router-dom'
 
 const defaultImg = '/assets/defaultUser.svg'
 
@@ -35,6 +36,8 @@ const UserDashboard = () => {
   }, [])
 
   const user = userStore((state) => state.userData)
+
+  const navigate = useNavigate()
 
   const handleLogout = useAuthStore((state) => state.setLogout)
 
@@ -66,6 +69,14 @@ const UserDashboard = () => {
               }}
             >
               My profile
+            </button>
+            <button
+              className={'block py-3'}
+              onClick={() => {
+                navigate('/user/payments')
+              }}
+            >
+              My payments
             </button>
             {userRole === 'tenant' && (
               <>

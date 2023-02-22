@@ -20,6 +20,7 @@ import ConsortiumEditInfo from '../pages/private/admin/consortium/ConsortiumEdit
 import ConsortiumPayments from '../pages/private/admin/consortium/ConsortiumPayments'
 import ConsortiumEnterExit from '../pages/private/admin/consortium/ConsortiumEnterExit'
 import ConsortiumEvents from '../pages/private/admin/consortium/ConsortiumEvents'
+import UserPayments from '../pages/private/user/UserPayments'
 
 export const router = createBrowserRouter([
   {
@@ -35,7 +36,14 @@ export const router = createBrowserRouter([
       { path: '/login', element: <Login /> },
       { path: '/signin', element: <Signin /> },
       { path: '/validateAccount/:id/:token', element: <Validate /> },
-      { path: '/user', element: <LayoutPrivate />, children: [{ index: true, element: <UserDashboard /> }] },
+      {
+        path: '/user',
+        element: <LayoutPrivate />,
+        children: [
+          { index: true, element: <UserDashboard /> },
+          { path: '/user/payments', element: <UserPayments /> },
+        ],
+      },
       {
         path: '/admin',
         element: <LayoutPrivate />,
