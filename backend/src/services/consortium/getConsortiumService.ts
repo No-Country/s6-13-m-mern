@@ -1,29 +1,37 @@
-import User from "../../models/User";
+import Consortium from '../../models/Consortium'
 
-interface resp {
-  ok: boolean,
-  status: number,
-  consortium?: object,
-  error?: string
-}
-//  TODO: CAMPO USERS INCLUIDO EN RESPUESTA A SOLICITUD DE INQUILINO? SOLO PARA ADMINISTRADOR? CONFIRMAR
-export const getConsortiumService = async (userId: string): Promise<resp> => {
-  try {
-    const user = await User.findOne({ _id: userId }).populate('consortium');
-
-    if (!user) return {
-      ok: false,
-      status: 404,
-      error: 'No posee consorcios asociados'
+export const getConsortiumService = async(id: string) => {
+  console.log(id)
+  if(id !== 'all'){
+    try {
+      const consortiumRetrieved = await Consortium.findById(id).select(
+        '-createdAt -updatedAt'
+      )
+  
+    if(!consortiumRetrieved){
+      const response = {
+        ok: false,
+        status: 404,
+      }
+      return response
     }
-
-    return {
-      ok: true,
-      status: 200,
-      consortium: user.consortium
+      const response = {
+        ok: true,
+        status: 200,
+        consortiumRetrieved
+      }
+      return response
+    } catch(error) {
+      return error
     }
-
-  } catch (error: any) {
-    return error;
   }
-};
+  const consortiumRetrieved = await Consortium.find().select(
+    '-createdAt -updatedAt'
+  )
+  const response = {
+    ok: true,
+    status: 200,
+    consortiumRetrieved
+  }
+  return response
+}
