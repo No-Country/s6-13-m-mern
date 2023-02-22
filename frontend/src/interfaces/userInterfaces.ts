@@ -9,7 +9,12 @@ export interface UserProfile {
   isValidated: boolean
   status: boolean
   apt?: string
-  consortium?: [string] | []
+  consortium?: [UserConsortia] | []
+}
+
+interface UserConsortia {
+  _id: string
+  address: string
 }
 
 export interface IResponseUser {
