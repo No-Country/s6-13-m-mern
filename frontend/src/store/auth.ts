@@ -4,12 +4,14 @@ import { persist } from 'zustand/middleware'
 interface State {
   token: string
   id: string
+  role: string
 }
 
 interface Actions {
   setToken: (token: string) => void
   setLogout: () => void
   setId: (id: string) => void
+  setRole: (role: string) => void
 }
 
 export const useAuthStore = create(
@@ -17,6 +19,7 @@ export const useAuthStore = create(
     (set) => ({
       token: '',
       id: '',
+      role: '',
       setToken: (token: string) => {
         set((state) => ({
           token,
@@ -27,10 +30,15 @@ export const useAuthStore = create(
           id,
         }))
       },
+      setRole: (role: string) => {
+        set((state) => ({
+          role,
+        }))
+      },
       setLogout: () => {
         set(() => ({
           token: '',
-          id: ''
+          id: '',
         }))
       },
     }),

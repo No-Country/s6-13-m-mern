@@ -9,6 +9,7 @@ const instance = axios.create({
 })
 
 const token = useAuthStore.getState().token
+
 instance.defaults.headers.common.token = token
 
 export default instance

@@ -25,28 +25,36 @@ const Login = () => {
 
   const setToken = useAuthStore((state) => state.setToken)
   const setId = useAuthStore((state) => state.setId)
-  const setUserZ = userStore((state) => state.setData)
+  const setRole = useAuthStore((state) => state.setRole)
+  const setUser = userStore((state) => state.setData)
   const navigate = useNavigate()
 
-  const setUser = async (id: string) => {
+  const getUser = async (id: string) => {
     const user = await getUserByIdService(id)
-    setUserZ(user)
+    setUser(user)
+    user.role === 'admin' ? navigate('/admin') : navigate('/user')
   }
+
+  // const user = userStore((state) => state.userData)
 
   const customSubmit: SubmitHandler<LoginValues> = async (data: LoginValues) => {
     setLoading(true)
     const resp = await loginService(data)
+
     if (!resp.ok) {
       if (resp.msg === 'Email or password is invalid') setLogError('invalid')
       if (resp.msg === 'Unverified email') setLogError('unverified')
-    } else {
+      setLoading(false)
+    }
+    if (resp.ok) {
+      console.log('resp', resp)
       setToken(resp.token)
       setLogError('')
       setId(resp.id)
-      await setUser(resp.id)
+      setRole(resp.role)
       resp.role === 'admin' ? navigate('/admin') : navigate('/user')
+      setLoading(false)
     }
-    setLoading(false)
   }
 
   const loginGoogle = useGoogleLogin({
@@ -64,7 +72,7 @@ const Login = () => {
           setToken(resp.token)
           setLogError('')
           setId(resp.id)
-          await setUser(resp.id)
+          await getUser(resp.id)
           resp.role === 'admin' ? navigate('/admin') : navigate('/user')
         }
       } catch (err) {
