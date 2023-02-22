@@ -1,7 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom'
 import { ConsortiumDashboard } from '../pages/private/admin/consortium/ConsortiumDashboard'
 import Layout from '../components/Layout'
-import LayoutPrivate from '../components/LayoutPrivate'
 import About from '../pages/About'
 import Contact from '../pages/Contact'
 import Features from '../pages/Features'
@@ -21,6 +20,9 @@ import ConsortiumPayments from '../pages/private/admin/consortium/ConsortiumPaym
 import ConsortiumEnterExit from '../pages/private/admin/consortium/ConsortiumEnterExit'
 import ConsortiumEvents from '../pages/private/admin/consortium/ConsortiumEvents'
 import UserPayments from '../pages/private/user/UserPayments'
+import UserNotifications from '../pages/private/user/UserNotifications'
+import LayoutPrivateUser from '../components/layouPrivates/LayoutPrivateUser'
+import LayoutPrivateAdmin from '../components/layouPrivates/LayoutPrivateAdmin'
 
 export const router = createBrowserRouter([
   {
@@ -38,15 +40,16 @@ export const router = createBrowserRouter([
       { path: '/validateAccount/:id/:token', element: <Validate /> },
       {
         path: '/user',
-        element: <LayoutPrivate />,
+        element: <LayoutPrivateUser />,
         children: [
           { index: true, element: <UserDashboard /> },
           { path: '/user/payments', element: <UserPayments /> },
+          { path: '/user/notifications', element: <UserNotifications /> },
         ],
       },
       {
         path: '/admin',
-        element: <LayoutPrivate />,
+        element: <LayoutPrivateAdmin />,
         children: [
           { index: true, element: <AdminDashboard /> },
           { path: '/admin/consortium/:id', element: <ConsortiumDashboard /> },
