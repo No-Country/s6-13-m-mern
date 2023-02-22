@@ -20,7 +20,7 @@ module.exports = {
         palePink: '#F6EAEA',
         blueUser: '#0064EB',
         greenLight: '#4FCD3A',
-        greenJungle: '#25bd7d',
+        violet: '#8a2be2',
       },
       fontSize: {
         '2.5xl': ['1.8rem', '2.3rem'],
