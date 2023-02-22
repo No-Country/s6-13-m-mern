@@ -9,11 +9,12 @@ const MyConsortium = () => {
 
   return (
     <section>
-      <TitleComponents title="My consortiums" />
+      <TitleComponents title="My consortiums" path="" />
       <Container>
-        <div className="grid grid-cols-2 gap-4 mb-4">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 xl:-mr-32">
           {user?.consortium?.map((consortium) => (
             <Link
+              // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
               to={`/admin/consortium/${consortium._id}`}
               key={consortium._id}
               className="pt-8 w-64 relative"
@@ -33,7 +34,7 @@ const MyConsortium = () => {
               alt="icon"
               className="mt-10 mb-6 rounded-full border-4 border-white p-2"
             />
-            <p className="text-white text-center">Add consortium</p>
+            <p className="text-white text-center pb-4">Add consortium</p>
           </button>
         </div>
       </Container>

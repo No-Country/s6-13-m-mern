@@ -66,7 +66,7 @@ const adminDashboard = () => {
               >
                 My consortiums
               </button>
-              <button className='pt-32' onClick={handleLogout}>Logout</button>
+              <button className='pt-32 text-blueDark font-bold text-lg' onClick={handleLogout}>Log out</button>
             </div>
           </div>
           <div className="bg-blue bg-opacity-20 w-[880px] border-[2.5px] border-black rounded-lg mt-[50px] h-[560px] overflow-y-scroll no-scrollbar">
