@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import UserNavbar from './user_navbar/UserNavbar'
 
 const Header = () => {
   const [isNavOpen, setisNavOpen] = useState(false)
@@ -8,11 +9,9 @@ const Header = () => {
     setisNavOpen(!isNavOpen)
   }
 
-  console.log(isNavOpen)
-
   return (
     <header>
-      <nav className=" min-h-[96px] flex flex-wrap items-center justify-between md:justify-around w-full py-4 md:py-0 px-4 text-[15px] bg-blueDark fixed z-50">
+      <nav className=" min-h-[96px] flex flex-wrap items-center justify-around md:justify-around w-full py-4 md:py-0 px-4 text-[15px] bg-blueDark fixed z-50">
         <Link to="">
         <img
           src="/Logo-navBar.png"
@@ -82,7 +81,7 @@ const Header = () => {
               </Link>
             </li>
           </ul>
-          <section className="flex justify-center md:pl-28 md:pr-8 gap-5">
+          <section className="flex justify-center md:pl-5 md:pr-8 gap-5">
             <Link to="/login">
               <button className="uppercase px-8 py-1 bg-blue rounded-[16px] text-white min-w-fit hover:brightness-150 transition duration-300 ease-out hover:ease-in ">
                 Log In
@@ -93,6 +92,9 @@ const Header = () => {
                 Sign In
               </button>
             </Link>
+          </section>
+          <section>
+            <UserNavbar/>
           </section>
         </div>
       </nav>

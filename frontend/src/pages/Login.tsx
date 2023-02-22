@@ -11,6 +11,7 @@ import PulseLoader from 'react-spinners/PulseLoader'
 import axios from 'axios'
 import { userStore } from '../store/user'
 import getUserByIdService from '../services/getUserByIdService'
+import { loginGoogleService } from '../services/loginGoogleService'
 
 const Login = () => {
   const {
@@ -57,8 +58,15 @@ const Login = () => {
             Authorization: `Bearer ${response.access_token}`,
           },
         })
-        const { name, picture, sub, email } = data
-        console.log(data) //! queda definir ruta de back para hacer servicio
+        const resp = await loginGoogleService(data)
+        //! ver logica porque  solo copie la del login, poner pop ups por si falla
+        if (resp.ok) {
+          setToken(resp.token)
+          setLogError('')
+          setId(resp.id)
+          await setUser(resp.id)
+          resp.role === 'admin' ? navigate('/admin') : navigate('/user')
+        }
       } catch (err) {
         console.log(err)
       }

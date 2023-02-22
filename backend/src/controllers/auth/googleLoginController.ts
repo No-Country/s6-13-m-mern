@@ -4,14 +4,14 @@ import { googleLoginService } from '../../services'
 import { jwtGenerate } from '../../utils'
 
 export const googleLoginController = async (req: Request, res: Response) => {
-    const { name, lastname, picture, sub, email } = req.body
+    const { name, lastname, img, externalId, email } = req.body
 
     try {
         const response = (await googleLoginService(
             name,
             lastname,
-            picture,
-            sub,
+            img,
+            externalId,
             email
         )) as IResponse
 
