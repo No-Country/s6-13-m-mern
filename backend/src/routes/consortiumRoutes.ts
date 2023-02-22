@@ -10,7 +10,7 @@ import {
 
 const router = Router()
 
-router.get('/get/:userId', getConsortium)
+router.get('/get/:id', getConsortium)
 router.post('/create', createConsortium)
 router.put('/add/:consortiumId/:userId', addUserConsortium)
 router.put('/add/:consortiumId/:amenityId', addAmenityConsortium)
