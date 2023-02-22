@@ -1,4 +1,5 @@
 import { ObjectId } from 'mongoose'
+import { EStatus } from '../utils/enums'
 export interface IConsortium {
     name: string
     address: string
@@ -8,4 +9,6 @@ export interface IConsortium {
     apt: number
     amenities: ObjectId[]
     schedule: ObjectId
+    payments: ObjectId[] | string[]
+    status?: EStatus
 }

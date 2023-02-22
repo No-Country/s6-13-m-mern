@@ -19,6 +19,6 @@ export const snedMail = async (req: Request, res: Response) => {
         return res.status(200).json({ ok: true, msg: 'Email sended' })
     } catch (error) {
         console.log(error)
-        return error
+        return res.status(500).json({ ok: false, error })
     }
 }
