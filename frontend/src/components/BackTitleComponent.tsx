@@ -11,10 +11,12 @@ const BackTitleComponent = ({ title, navigateTo }: Props) => {
     <div className="flex gap-x-6 text-blueDark font-bold text-xl items-center">
       <button
         className=""
-        onClick={() => { navigate(navigateTo) }}
+        onClick={() => {
+          navigate(navigateTo)
+        }}
       >
         <div className="fex flex-col w-[11.25px] h-[22.5px]">
-          <img src={'../assets/icons/left-arrow.svg'} />
+          <img src={'../../assets/icons/left-arrow.svg'} />
         </div>
       </button>
       <h3>{title}</h3>
