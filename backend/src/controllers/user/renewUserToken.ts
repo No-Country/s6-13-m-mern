@@ -22,7 +22,7 @@ export const renewUserToken = async (req: Request, res: Response) => {
             process.env.URL_FRONT || 'http://localhost:5173'
             // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
         }/validateAccount/${user._id}/${user.token}`
-        const subject: string = 'Active account'
+        const subject: string = 'Renew Token'
         const message: string = `<p>Click the link below to active your account <a href="${url}">LINK</a></p>`
         await sendMail(user.email, subject, message)
 

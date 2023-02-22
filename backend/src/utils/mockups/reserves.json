@@ -1,62 +1,74 @@
 [
   {
     "_id": "63e2546cfc13ae373c000898",
-    "user":"63ebc2c2fc13ae6120000016",
+    "user":"63ebc2c2fc13ae6120000006",
     "startDate": "2023/01/02",
-    "endDate": "2023/01/03"
+    "endDate": "2023/01/03",
+    "status": "active"
   }, 
   {
     "_id": "63e2546cfc13ae373c000899",
-    "user":"63ebc2c2fc13ae6120000017",
+    "user":"63ebc2c2fc13ae6120000007",
     "startDate": "2022/05/22",
-    "endDate": "2022/05/25"
+    "endDate": "2022/05/25",
+    "status": "active"
   }, 
   {
     "_id": "63e2546cfc13ae373c00089a",
-    "user":"63ebc2c2fc13ae6120000018",
+    "user":"63ebc2c2fc13ae6120000008",
     "startDate": "2022/12/10",
-    "endDate": "2022/12/11"
-  }, 
+    "endDate": "2022/12/11",
+    "status": "active"
+  },
+
   {
     "_id": "63e2546cfc13ae373c00089b",
-    "user":"63ebc2c2fc13ae6120000019",
+    "user":"63ebc2c2fc13ae612000000b",
     "startDate": "2023/02/03",
-    "endDate": "2023/02/10"
+    "endDate": "2023/02/10",
+    "status": "active"
   }, 
   {
     "_id": "63e2546cfc13ae373c00089c",
-    "user":"63ebc2c2fc13ae6120000014",
+    "user":"63ebc2c2fc13ae612000000d",
     "startDate": "2023/01/14",
-    "endDate": "2023/01/21"
-  },
+    "endDate": "2023/01/21",
+    "status": "active"
+  },  
   {
     "_id": "63f2b31cfc13ae631e000004",
-    "user":"63ebc2c2fc13ae6120000013",
+    "user":"63ebc2c2fc13ae612000000e",
     "startDate": "2023/01/15",
-    "endDate": "2023/01/22"
+    "endDate": "2023/01/22",
+    "status": "active"
   },
+
   {
     "_id": "63f2b31cfc13ae631e000003",
-    "user":"63ebc2c2fc13ae6120000011",
+    "user":"63ebc2c2fc13ae6120000010",
     "startDate": "2023/01/16",
-    "endDate": "2023/01/23"
+    "endDate": "2023/01/27",
+    "status": "active"
   },
   {
     "_id": "63f2b31cfc13ae631e000002",
-    "user":"63ebc2c2fc13ae612000000f",
-    "startDate": "2023/01/17",
-    "endDate": "2023/01/24"
+    "user":"63ebc2c2fc13ae6120000011",
+    "startDate": "2023/01/123",
+    "endDate": "2023/01/24",
+    "status": "active"
   },
   {
     "_id": "63f2b31cfc13ae631e000001",
-    "user":"63ebc2c2fc13ae612000000d",
+    "user":"63ebc2c2fc13ae6120000012",
     "startDate": "2023/01/18",
-    "endDate": "2023/01/25"
+    "endDate": "2023/01/25",
+    "status": "active"
   },
   {
     "_id": "63f2b31cfc13ae631e000000",
-    "user":"63ebc2c2fc13ae612000000a",
+    "user":"63ebc2c2fc13ae6120000013",
     "startDate": "2023/01/19",
-    "endDate": "2023/01/26"
+    "endDate": "2023/01/26",
+    "status": "active"
   }
 ]

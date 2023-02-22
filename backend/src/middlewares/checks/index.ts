@@ -1,4 +1,5 @@
 export * from './changePasswordValidate'
+export * from './googleLoginValidate'
 export * from './index'
 export * from './loginValidate'
 export * from './paramIdValidate'

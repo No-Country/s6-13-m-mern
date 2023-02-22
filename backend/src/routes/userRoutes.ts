@@ -5,6 +5,7 @@ import {
     getAllUsersController,
     getUserController,
     registerController,
+    removeFromConsortium,
     validateUserController,
 } from '../controllers'
 import { renewUserToken } from '../controllers/user/renewUserToken'
@@ -44,6 +45,14 @@ router.delete(
     paramIdValidate,
     compareIds,
     deleteUserController
+)
+
+router.put(
+    '/removeFromConsortium/:id/:consortiumID',
+    validateToken,
+    paramIdValidate,
+    compareIds,
+    removeFromConsortium
 )
 
 export default router

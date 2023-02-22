@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react'
-import Container from './Container'
-import CreateConsortium from '../pages/private/admin/CreateConsortium'
-import MyConsortium from '../pages/private/admin/MyConsortium'
-import Profile from '../pages/private/admin/Profile'
-import EditConsortium from '../pages/private/admin/EditConsortium'
-import { userStore } from '../store/user'
-import { useAuthStore } from '../store/auth'
-import getUserByIdService from '../services/getUserByIdService'
-import { IResponseUser } from '../interfaces/userInterfaces'
+import Container from '../../components/Container'
+import CreateConsortium from './admin/CreateConsortium'
+import MyConsortium from './admin/MyConsortium'
+import Profile from './admin/Profile'
+import EditConsortium from './admin/EditConsortium'
+import { userStore } from '../../store/user'
+import { useAuthStore } from '../../store/auth'
+import getUserByIdService from '../../services/getUserByIdService'
+import { IResponseUser } from '../../interfaces/userInterfaces'
 
 const adminDashboard = () => {
   const userId = useAuthStore((state) => state.id)
@@ -43,7 +43,9 @@ const adminDashboard = () => {
                 className="rounded-full border-black border-2 w-24"
               />
               <div className="flex flex-col justify-center text-center">
-                <h4 className="font-bold text-lg">{user?.name}</h4>
+                <h4 className="font-bold text-lg">
+                  {user?.name} {user?.lastname}
+                </h4>
                 <span>{user?.role}</span>
               </div>
             </div>

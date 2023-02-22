@@ -1,5 +1,6 @@
 import { Schema, model, Types } from 'mongoose'
 import { ISchedule } from '../interfaces/schedule'
+import { EStatus } from '../utils/enums'
 
 const scheduleSchema = new Schema<ISchedule>(
     {
@@ -15,6 +16,11 @@ const scheduleSchema = new Schema<ISchedule>(
                 ref: 'Reserve',
             },
         ],
+        status: {
+            type: String,
+            enum: EStatus,
+            default: 'active',
+        },
     },
     {
         timestamps: true,
