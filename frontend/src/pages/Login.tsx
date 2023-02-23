@@ -58,7 +58,6 @@ const Login = () => {
           },
         })
         const resp = await loginGoogleService(data)
-        //! ver logica porque  solo copie la del login, poner pop ups por si falla
         if (resp.ok) {
           setToken(resp.token)
           setLogError('')

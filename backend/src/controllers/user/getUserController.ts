@@ -21,7 +21,7 @@ export const getUserController = async (req: Request, res: Response) => {
         const response = {
             name: user.name,
             lastname: user.lastname,
-            mail: user.email,
+            email: user.email,
             phone: user.phone,
             img: user.img,
             role: user.role,

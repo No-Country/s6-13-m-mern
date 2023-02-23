@@ -40,6 +40,12 @@ import {
     deleteConsortium,
     deleteUserConsortium,
 } from './consortiumRoutes'
+import {
+    changePaymentStatus,
+    createPayment,
+    getConsortiumPayments,
+    getUserPayments,
+} from './paymentRoutes'
 // OAS3 = Open Api Standard 3
 
 const swaggerDefinition: OAS3Definition = {
@@ -263,6 +269,47 @@ const swaggerDefinition: OAS3Definition = {
                     },
                 },
             },
+            Payment: {
+                type: 'object',
+                required: ['user', 'ammount', 'paymentMethod'],
+                properties: {
+                    _id: {
+                        type: 'objectId',
+                        example: '63e3c74ad9d3c1f613e0dfc7',
+                    },
+                    creationDate: {
+                        type: 'date-time',
+                    },
+                    pStatus: {
+                        type: 'string',
+                        example: 'validated | denied | pending',
+                    },
+                    note: {
+                        type: 'string',
+                        example: 'nota 1',
+                    },
+                    user: {
+                        type: 'objectId',
+                        $ref: '#/components/schemas/User',
+                    },
+                    ammount: {
+                        type: 'string',
+                        example: '12345',
+                    },
+                    paymentMethod: {
+                        type: 'string',
+                        example: 'cash | transfer',
+                    },
+                    image: {
+                        type: 'string',
+                        example: 'www.urlImagen.com',
+                    },
+                    status: {
+                        type: 'string',
+                        example: 'active | disabled | banned',
+                    },
+                },
+            },
         },
     },
     tags: [
@@ -272,6 +319,7 @@ const swaggerDefinition: OAS3Definition = {
         { name: 'reserve', description: 'All Reserve Endpoints' },
         { name: 'schedule', description: 'All Schedule Endpoints' },
         { name: 'conssortium', description: 'All Consortium Endpoints' },
+        { name: 'payment', description: 'All Payment Endpoints' },
     ],
     paths: {
         // *-----------------------------Api auth Routes-----------------------------------------------------------
@@ -368,6 +416,20 @@ const swaggerDefinition: OAS3Definition = {
 
         //* Remove user from consortium
         '/api/consortium/delete/{consortiumId}/{userID}': deleteUserConsortium,
+
+        // *-----------------------------Api payment Routes-----------------------------------------------------------
+
+        //* Create payment
+        '/api/payment/createPayment/{userid}': createPayment,
+
+        //* Get consortium payments
+        '/api/payment/consortiumPayments/{consortiumId}': getConsortiumPayments,
+
+        //* Get user payments
+        '/api/payment/getUserPayments/{userId}': getUserPayments,
+
+        //* Put payment pStatus
+        '/api/payment/changePaymentStatus/{paymentId}': changePaymentStatus,
     },
 }
 

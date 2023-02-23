@@ -9,3 +9,14 @@ export enum ERoles {
     tenant = 'tenant',
     user = 'user',
 }
+
+export enum EPaymentStatus {
+    validated = 'validated',
+    danied = 'denied',
+    pending = 'pending',
+}
+
+export enum EPaymentMethod {
+    cash = 'cash',
+    transfer = 'transfer',
+}

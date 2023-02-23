@@ -29,8 +29,10 @@ const Home = () => {
                   </div>
                   <div className="absolute bottom-12">
                     <button
-                      onClick={() => { setShow(true) }}
-                      className="flex items-center bg-[#00BB2D] rounded-full text-white text-xl font-bold gap-x-4 pl-8 pr-9 py-3 drop-shadow-[0px_5px_1px_rgba(0,0,0,0.5)] hover:-translate-y-1 hover:translate-x-1 hover:bg-[#34b7f1] hover:drop-shadow-[-3px_8px_1px_rgba(0,0,0,0.4)] transition duration:100 hover:scale-105 fa"
+                      onClick={() => {
+                        setShow(true)
+                      }}
+                      className="flex items-center bg-[#00BB2D] rounded-full text-white text-xl font-bold gap-x-4 pl-8 pr-9 py-3 drop-shadow-[0px_5px_1px_rgba(0,0,0,0.5)] hover:-translate-y-1 hover:translate-x-1 hover:bg-[#34b7f1] hover:drop-shadow-[-3px_8px_1px_rgba(0,0,0,0.4)] transition duration:100 hover:scale-105"
                     >
                       <img src={'../assets/wsapp_logo.svg'} />
                       <span>Contact us!</span>
