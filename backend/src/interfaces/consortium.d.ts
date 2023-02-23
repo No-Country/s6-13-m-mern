@@ -7,6 +7,7 @@ export interface IConsortium {
     admin: ObjectId
     floor: number
     apt: number
+    img: string
     amenities: ObjectId[]
     schedule: ObjectId
     payments: ObjectId[] | string[]

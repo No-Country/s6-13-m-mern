@@ -36,6 +36,11 @@ const consortiumSchema = new Schema<IConsortium>(
             type: Schema.Types.ObjectId,
             ref: 'Schedule',
         },
+        img: {
+            type: String,
+            default:
+                'https://res.cloudinary.com/dozwd1ssj/image/upload/v1676344376/Card_Home_Admin_omrprw.png',
+        },
         amenities: [
             {
                 type: Schema.Types.ObjectId,
