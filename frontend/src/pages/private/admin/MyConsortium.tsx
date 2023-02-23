@@ -1,23 +1,41 @@
-
 import { Link } from 'react-router-dom'
 import Container from '../../../components/Container'
 import { TitleComponents } from '../../../components/TitleComponents'
 import { userStore } from '../../../store/user'
 
-const MyConsortium = () => {
+interface Props {
+  setMenu: React.Dispatch<React.SetStateAction<string>>
+}
+
+const MyConsortium = ({ setMenu }: Props) => {
   const user = userStore((state) => state.userData)
+  const handleClick = () => {
+    setMenu('Create consortium')
+  }
 
   return (
     <section>
-      <TitleComponents title="My consortiums" />
+      <TitleComponents
+        title="My consortiums"/>
       <Container>
-        <div className="grid grid-cols-2 gap-4 mb-4">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 xl:-mr-32">
           {user?.consortium?.map((consortium) => (
             <Link
+              // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
               to={`/admin/consortium/${consortium._id}`}
               key={consortium._id}
-              className="pt-8 w-64 relative"
+              className="pt-8 w-64 relative drop-shadow-2xl"
             >
+              <Link
+                to={`/admin/editinfo/${consortium._id}`}
+
+                className="absolute top-10 right-2"
+              >
+                <img
+                  src="../assets/edit.png"
+                  alt=""
+                />
+              </Link>
               <img
                 src="https://res.cloudinary.com/dozwd1ssj/image/upload/v1676344376/Card_Home_Admin_omrprw.png"
                 alt="card"
@@ -27,13 +45,16 @@ const MyConsortium = () => {
               </span>
             </Link>
           ))}
-          <button className="flex flex-col items-center bg-blue mt-8 w-64 rounded-lg border-2 border-black">
+          <button
+            onClick={handleClick}
+            className="flex flex-col items-center bg-blue mt-8 w-64 rounded-lg border-2 border-black drop-shadow-2xl"
+          >
             <img
               src="../assets/Vector.png"
               alt="icon"
               className="mt-10 mb-6 rounded-full border-4 border-white p-2"
             />
-            <p className="text-white text-center">Add consortium</p>
+            <p className="text-white text-center pb-4">Add consortium</p>
           </button>
         </div>
       </Container>

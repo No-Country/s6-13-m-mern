@@ -1,16 +1,16 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { UserInformation } from '../interfaces/authInterfaces'
+import { UserProfile } from '../interfaces/userInterfaces'
 
 export default function useSelect (
-  setSelectedOption: (value: UserInformation) => void,
+  setSelectedOption: (value: UserProfile) => void,
   endSearch: (value: boolean) => void,
-  options: UserInformation[],
+  options: UserProfile[],
 ) {
   const [showOptions, setShowOptions] = useState(false)
   const [cursor, setCursor] = useState(-1)
   const ref = useRef() as React.MutableRefObject<HTMLInputElement>
 
-  const select = (option: UserInformation) => {
+  const select = (option: UserProfile) => {
     setSelectedOption(option)
     endSearch(true)
     setShowOptions(false)

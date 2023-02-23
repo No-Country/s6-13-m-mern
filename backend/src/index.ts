@@ -17,7 +17,7 @@ connectDB()
 
 export const server = app.listen(port, async () => {
     await userMockService()
-//    await consortiumMockService()
+    //    await consortiumMockService()
     await amenityMockService()
     await reserveMockService()
     await scheduleMockService()

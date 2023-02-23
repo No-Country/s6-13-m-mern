@@ -1,10 +1,10 @@
 import { AxiosError } from 'axios'
 import axios from '../axios/axiosInstance'
 
-const getUserConsortia = async (id: string) => {
+const getConsortiumService = async (id: string) => {
   try {
     const consortia = await axios.get(`/api/consortium/get/${id}`)
-    return consortia.data
+    return consortia.data.consortiumRetrieved
   } catch (error) {
     const err = error as AxiosError
     console.log(err)
@@ -13,4 +13,4 @@ const getUserConsortia = async (id: string) => {
   }
 }
 
-export default getUserConsortia
+export default getConsortiumService

@@ -1,13 +1,18 @@
-import { Request, Response } from 'express';
-import { createConsortiumService } from '../../services/consortium';
-
+import { Request, Response } from 'express'
+import { createConsortiumService } from '../../services/consortium'
 
 export const createConsortium = async (req: Request, res: Response) => {
-  try {
-    const { ok, status, consortium, error } = await createConsortiumService(req.body);
-    if (!ok) return res.status(400).json({ error }) 
-    return res.status(status).json(consortium);
-  } catch (error:any) {
-    return res.status(400).json({ error: error.message });
-  }
-};
+    try {
+        const { ok, status, consortium, error } = await createConsortiumService(
+            req.body
+        )
+        console.log(ok)
+        console.log(status)
+        console.log(consortium)
+        console.log(error)
+        if (!ok) return res.status(400).json({ error })
+        return res.status(status).json(consortium)
+    } catch (error: any) {
+        return res.status(400).json({ error: error.message })
+    }
+}

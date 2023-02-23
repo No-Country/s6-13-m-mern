@@ -9,8 +9,6 @@ import { useGoogleLogin } from '@react-oauth/google'
 import { useState } from 'react'
 import PulseLoader from 'react-spinners/PulseLoader'
 import axios from 'axios'
-import { userStore } from '../store/user'
-import getUserByIdService from '../services/getUserByIdService'
 import { loginGoogleService } from '../services/loginGoogleService'
 
 const Login = () => {
@@ -25,28 +23,29 @@ const Login = () => {
 
   const setToken = useAuthStore((state) => state.setToken)
   const setId = useAuthStore((state) => state.setId)
-  const setUserZ = userStore((state) => state.setData)
+  const setRole = useAuthStore((state) => state.setRole)
   const navigate = useNavigate()
 
-  const setUser = async (id: string) => {
-    const user = await getUserByIdService(id)
-    setUserZ(user)
-  }
+  // const user = userStore((state) => state.userData)
 
   const customSubmit: SubmitHandler<LoginValues> = async (data: LoginValues) => {
     setLoading(true)
     const resp = await loginService(data)
+
     if (!resp.ok) {
       if (resp.msg === 'Email or password is invalid') setLogError('invalid')
       if (resp.msg === 'Unverified email') setLogError('unverified')
-    } else {
+      setLoading(false)
+    }
+    if (resp.ok) {
+      console.log('resp', resp)
       setToken(resp.token)
       setLogError('')
       setId(resp.id)
-      await setUser(resp.id)
+      setRole(resp.role)
       resp.role === 'admin' ? navigate('/admin') : navigate('/user')
+      setLoading(false)
     }
-    setLoading(false)
   }
 
   const loginGoogle = useGoogleLogin({
@@ -59,12 +58,11 @@ const Login = () => {
           },
         })
         const resp = await loginGoogleService(data)
-        //! ver logica porque  solo copie la del login, poner pop ups por si falla
         if (resp.ok) {
           setToken(resp.token)
           setLogError('')
           setId(resp.id)
-          await setUser(resp.id)
+          setRole(resp.role)
           resp.role === 'admin' ? navigate('/admin') : navigate('/user')
         }
       } catch (err) {
