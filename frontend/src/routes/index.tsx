@@ -7,7 +7,6 @@ import Features from '../pages/Features'
 import Home from '../pages/Home'
 import Login from '../pages/Login'
 import NotFound from '../pages/NotFound'
-import Prices from '../pages/Prices'
 import Signin from '../pages/Signin'
 import UserDashboard from '../pages/private/UserDashboard'
 import AdminDashboard from '../pages/private/AdminDashboard'
@@ -35,7 +34,6 @@ export const router = createBrowserRouter([
       { path: '/about', element: <About /> },
       { path: '/contact', element: <Contact /> },
       { path: '/features', element: <Features /> },
-      { path: '/prices', element: <Prices /> },
       { path: '/login', element: <Login /> },
       { path: '/signin', element: <Signin /> },
       { path: '/underConstruction', element: <UnderConstruction /> },
