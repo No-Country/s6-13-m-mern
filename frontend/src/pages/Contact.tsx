@@ -42,7 +42,7 @@ const Contact = () => {
       {isEmailSended && (
         <p
           id={'toast'}
-          className="absolute w-full h-8 px-8 bg-greenLight rounded-b-sm border border-greenDark text-lg font-sans text-greenDark animate-slideInTop"
+          className="fixed w-full h-8 px-8 bg-greenLight rounded-b-sm border border-greenDark text-lg font-sans text-greenDark animate-slideInTop"
         >
           📩✔ The email has been sent successfully! We will get back to you as soon as possible!
         </p>
@@ -50,7 +50,7 @@ const Contact = () => {
       {error && (
         <p
           id={'toast'}
-          className="absolute w-full h-8 px-8 bg-red rounded-b-sm border border-black text-lg font-sans text-white animate-slideInTop"
+          className="fixed w-full h-8 px-8 bg-red rounded-b-sm border border-black text-lg font-sans text-white animate-slideInTop"
         >
           📩❌ Failed to send email. Please try again later or contact customer support for further assistance.
         </p>
