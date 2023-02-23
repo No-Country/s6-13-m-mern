@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Container from '../../components/Container'
 import CreateConsortium from './admin/CreateConsortium'
 import MyConsortium from './admin/MyConsortium'
@@ -6,25 +6,8 @@ import Profile from './admin/Profile'
 import EditConsortium from './admin/EditConsortium'
 import { userStore } from '../../store/user'
 import { useAuthStore } from '../../store/auth'
-import getUserByIdService from '../../services/getUserByIdService'
-import { IResponseUser } from '../../interfaces/userInterfaces'
 
 const adminDashboard = () => {
-  const userId = useAuthStore((state) => state.id)
-
-  const setUser = userStore((state) => state.setData)
-
-  const getUser = async () => {
-    const res = (await getUserByIdService(userId)) as IResponseUser
-    console.log(res)
-    setUser(res.user)
-  }
-
-  useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/no-floating-promises
-    getUser()
-  }, [])
-
   const user = userStore((state) => state.userData)
   console.log(user)
   const handleLogout = useAuthStore((state) => state.setLogout)
