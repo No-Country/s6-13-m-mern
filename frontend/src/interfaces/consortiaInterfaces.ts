@@ -7,4 +7,6 @@ export interface ConsortiaData {
   floor: number
   apt: number
   amenities?: []
+  payments?: []
+  status: string
 }

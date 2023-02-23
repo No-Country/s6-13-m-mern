@@ -1,28 +1,32 @@
 import { useEffect, useState } from 'react'
 import Autocomplete from '../../../../components/Autocomplete'
 import getAllUsersService from '../../../../services/getAllUsersService'
-import { UserInformation } from '../../../../interfaces/authInterfaces'
-// import getUserByIdService from '../../../services/getUserByIdService'
 import Container from '../../../../components/Container'
 import WhiteModal from '../../../../components/modal/WhiteModal'
 import BlueModal from '../../../../components/modal/BlueModal'
 import addMembersService from '../../../../services/addMembersService'
 import PulseLoader from 'react-spinners/PulseLoader'
 import removeMembersService from '../../../../services/removeMemberService'
-import { useConsortiumStore } from '../../../../store/consortium'
+import { useParams } from 'react-router-dom'
+import getConsortiumService from '../../../../services/getConsortiumService'
+import { ConsortiaData } from '../../../../interfaces/consortiaInterfaces'
+import { UserProfile } from '../../../../interfaces/userInterfaces'
+import { useAuthStore } from '../../../../store/auth'
 
 const ConsortiumMembers = () => {
-  const [users, setUsers] = useState<UserInformation[]>([])
-  const [consortiaUsers, setConsortiaUsers] = useState<UserInformation[]>([])
-  const [filteredUsers, setFilteredUsers] = useState<UserInformation[]>([])
-  const [selectedUser, setSelectedUser] = useState<UserInformation>()
+  const [users, setUsers] = useState<UserProfile[]>([])
+  const [consortiaUsers, setConsortiaUsers] = useState<UserProfile[]>([])
+  const [filteredUsers, setFilteredUsers] = useState<UserProfile[]>([])
+  const [selectedUser, setSelectedUser] = useState<UserProfile>()
   const [input, setInput] = useState('')
   const [modalOpen, setModalOpen] = useState(false)
   const [confirmModal, setConfirmModal] = useState(false)
   const [deleteMode, setDeleteMode] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [consortium, setConsortium] = useState<ConsortiaData>()
 
-  const consortiumId = useConsortiumStore.getState().consortiumData?._id
+  const { id } = useParams()
+  const adminId = useAuthStore((state) => state.id)
 
   const filter = (value: string) => {
     // eslint-disable-next-line array-callback-return
@@ -40,23 +44,35 @@ const ConsortiumMembers = () => {
   }
 
   const getUsers = async () => {
-    const users: UserInformation[] = await getAllUsersService()
+    const users: UserProfile[] = await getAllUsersService()
     setUsers(users)
-    if (consortiumId) {
-      const consUsers = users.filter((el) => el.consortium.includes(consortiumId))
-      setConsortiaUsers(consUsers)
+    if (id) {
+      const consUsers = users.filter((el) => el.consortium?.some((cons) => cons._id.includes(id)))
+      const consWOAdmin = consUsers.filter((el) => !el._id.includes(adminId))
+      setConsortiaUsers(consWOAdmin)
+    }
+  }
+
+  const getConsortium = async () => {
+    if (id) {
+      const consortium = await getConsortiumService(id)
+      console.log(consortium)
+
+      setConsortium(consortium)
     }
   }
 
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-floating-promises
     getUsers()
+    // eslint-disable-next-line @typescript-eslint/no-floating-promises
+    getConsortium()
   }, [])
 
   const handleAdd = async (userId: string) => {
     setLoading(true)
-    if (consortiumId) {
-      await addMembersService(consortiumId, userId)
+    if (id) {
+      await addMembersService(id, userId)
       setModalOpen(false)
       setLoading(false)
       setConfirmModal(true)
@@ -67,8 +83,8 @@ const ConsortiumMembers = () => {
 
   const handleDelete = async (userId: string) => {
     setLoading(true)
-    if (consortiumId) {
-      await removeMembersService(consortiumId, userId)
+    if (id) {
+      await removeMembersService(id, userId)
       setModalOpen(false)
       setLoading(false)
       setConfirmModal(true)
@@ -111,7 +127,7 @@ const ConsortiumMembers = () => {
               </button>
             </div>
           </>
-        ) : selectedUser?.consortium.length === 0 ? (
+        ) : selectedUser?.consortium?.length === 0 ? (
           <>
             <h2 className=" text-xl font-bold text-blueDark mb-7">A member has been found!</h2>
             <div className=" px-8 text-start text-base">
@@ -175,8 +191,8 @@ const ConsortiumMembers = () => {
         }}
       >
         <p>
-          {selectedUser?.name} {selectedUser?.lastname} has been {deleteMode ? 'delete from' : 'added to'} consortium
-          “Av. Belgrano 499”
+          {selectedUser?.name} {selectedUser?.lastname} has been {deleteMode ? 'deleted from' : 'added to'} consortium “
+          {consortium?.address}”
         </p>
         <button
           onClick={() => {
