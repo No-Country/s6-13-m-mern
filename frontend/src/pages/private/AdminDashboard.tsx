@@ -9,7 +9,7 @@ import { useAuthStore } from '../../store/auth'
 
 const adminDashboard = () => {
   const user = userStore((state) => state.userData)
-  console.log(user)
+
   const handleLogout = useAuthStore((state) => state.setLogout)
 
   const [menu, setMenu] = useState('My consortiums')
@@ -39,7 +39,7 @@ const adminDashboard = () => {
                   setMenu('Profile')
                 }}
               >
-                Profile
+                My profile
               </button>
               <button
                 className={`${menu === 'My consortiums' ? 'font-bold' : ''}`}
