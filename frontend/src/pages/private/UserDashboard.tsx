@@ -1,39 +1,19 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import HeroUser from '../../components/HeroUser'
 import UserInformation from './user/UserInformation'
-import UserDocuments from './user/UserDocuments'
 import UserAmenities from './user/UserAmenities'
 import { userStore } from '../../store/user'
 import { useAuthStore } from '../../store/auth'
-import getUserByIdService from '../../services/getUserByIdService'
-import { IResponseUser } from '../../interfaces/userInterfaces'
 import UserComplaints from './user/UserComplaints'
 import UserCreatePayments from './user/UserCreatePayments'
 import UserProfileData from './user/UserProfileData'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const defaultImg = '/assets/defaultUser.svg'
 
 const UserDashboard = () => {
-  const role = userStore((state) => state.userData?.role)
-
   const [menu, setMenu] = useState('profile')
   const [imageUrl, setImageUrl] = useState('info')
-  const [userRole, setUserRole] = useState(role)
-
-  const userId = useAuthStore((state) => state.id)
-  const setUser = userStore((state) => state.setData)
-
-  const getUser = async () => {
-    const res = (await getUserByIdService(userId)) as IResponseUser
-    setUserRole(res.user.role)
-    setUser(res.user)
-  }
-
-  useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/no-floating-promises
-    getUser()
-  }, [])
 
   const user = userStore((state) => state.userData)
 
@@ -70,15 +50,7 @@ const UserDashboard = () => {
             >
               My profile
             </button>
-            <button
-              className={'block py-3'}
-              onClick={() => {
-                navigate('/user/payments')
-              }}
-            >
-              My payments
-            </button>
-            {userRole === 'tenant' && (
+            {user?.role === 'tenant' && (
               <>
                 <button
                   className={`block py-3 ${menu === 'information' ? 'font-bold' : ''}`}
@@ -90,10 +62,9 @@ const UserDashboard = () => {
                   Information
                 </button>
                 <button
-                  className={`block py-3 ${menu === 'documents' ? 'font-bold' : ''}`}
+                  className={'block py-3'}
                   onClick={() => {
-                    setMenu('documents')
-                    setImageUrl('pay')
+                    navigate('/user/payments')
                   }}
                 >
                   My payments
@@ -125,6 +96,17 @@ const UserDashboard = () => {
                 >
                   Complaints
                 </button>
+                <Link to="/user/notifications">
+                  <button
+                    className={`block py-3 ${menu === 'notifications' ? 'font-bold' : ''}`}
+                    onClick={() => {
+                      setMenu('notifications')
+                      setImageUrl('info')
+                    }}
+                  >
+                    Notifications
+                  </button>
+                </Link>
               </>
             )}
             <button
@@ -137,7 +119,6 @@ const UserDashboard = () => {
           <div className="bg-blue bg-opacity-20 w-[880px] border border-black rounded-lg  pb-6">
             {menu === 'profile' && <UserProfileData />}
             {menu === 'information' && <UserInformation />}
-            {menu === 'documents' && <UserDocuments />}
             {menu === 'amenities' && <UserAmenities />}
             {menu === 'create' && <UserCreatePayments />}
             {menu === 'complaint' && <UserComplaints />}

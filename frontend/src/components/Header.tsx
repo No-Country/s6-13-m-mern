@@ -1,9 +1,36 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import UserNavbar from './UserNavbar'
+import { useAuthStore } from '../store/auth'
+import { userStore } from '../store/user'
+import getUserByIdService from '../services/getUserByIdService'
+import { IResponseUser } from '../interfaces/userInterfaces'
 
 const Header = () => {
   const [isNavOpen, setisNavOpen] = useState(false)
+  const [avatarOpen, setAvatarOpen] = useState(false)
+
+  const userId = useAuthStore((state) => state.id)
+  const setUser = userStore((state) => state.setData)
+
+  const getUser = async () => {
+    try {
+      const res = (await getUserByIdService(userId)) as IResponseUser
+      setUser(res.user)
+    } catch (error) {
+      console.log('error')
+    }
+  }
+
+  useEffect(() => {
+    if (userId !== '') {
+      // eslint-disable-next-line @typescript-eslint/no-floating-promises
+      getUser()
+      setAvatarOpen(true)
+    } else {
+      setAvatarOpen(false)
+    }
+  }, [userId])
 
   const handleOpenNav = () => {
     setisNavOpen(!isNavOpen)
@@ -13,12 +40,12 @@ const Header = () => {
     <header>
       <nav className=" min-h-[96px] flex flex-wrap items-center justify-around md:justify-around w-full py-4 md:py-0 px-4 text-[15px] bg-blueDark fixed z-50">
         <Link to="">
-        <img
-          src="/Logo-navBar.png"
-          alt=""
-          className="h-[80px] cursor-pointer"
+          <img
+            src="/Logo-navBar.png"
+            alt=""
+            className="h-[80px] cursor-pointer"
           />
-          </Link>
+        </Link>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           id="menu-button"
@@ -81,21 +108,24 @@ const Header = () => {
               </Link>
             </li>
           </ul>
-          <section className="flex justify-center md:pl-5 md:pr-8 gap-5">
-            <Link to="/login">
-              <button className="uppercase px-8 py-1 bg-blue rounded-[16px] text-white min-w-fit hover:brightness-150 transition duration-300 ease-out hover:ease-in ">
-                Log In
-              </button>
-            </Link>
-            <Link to="/signin">
-              <button className="uppercase px-8 py-1 bg-blueDark rounded-[16px] text-[#3189FF] border-[1px] border-[#3189FF] hover:border-[#ffff] hover:text-[#ffff] transition duration-300 ease-out hover:ease-in min-w-fit">
-                Sign In
-              </button>
-            </Link>
-          </section>
-          <section>
-            <UserNavbar/>
-          </section>
+          {!avatarOpen ? (
+            <section className="flex justify-center md:pl-5 md:pr-8 gap-5">
+              <Link to="/login">
+                <button className="uppercase px-8 py-1 bg-blue rounded-[16px] text-white min-w-fit hover:brightness-150 transition duration-300 ease-out hover:ease-in ">
+                  Log In
+                </button>
+              </Link>
+              <Link to="/signin">
+                <button className="uppercase px-8 py-1 bg-blueDark rounded-[16px] text-[#3189FF] border-[1px] border-[#3189FF] hover:border-[#ffff] hover:text-[#ffff] transition duration-300 ease-out hover:ease-in min-w-fit">
+                  Sign In
+                </button>
+              </Link>
+            </section>
+          ) : (
+            <section>
+              <UserNavbar />
+            </section>
+          )}
         </div>
       </nav>
     </header>

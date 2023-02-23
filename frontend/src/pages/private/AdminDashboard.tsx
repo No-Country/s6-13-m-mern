@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Container from '../../components/Container'
 import CreateConsortium from './admin/CreateConsortium'
 import MyConsortium from './admin/MyConsortium'
@@ -6,25 +6,8 @@ import Profile from './admin/Profile'
 import EditConsortium from './admin/EditConsortium'
 import { userStore } from '../../store/user'
 import { useAuthStore } from '../../store/auth'
-import getUserByIdService from '../../services/getUserByIdService'
-import { IResponseUser } from '../../interfaces/userInterfaces'
 
 const adminDashboard = () => {
-  const userId = useAuthStore((state) => state.id)
-
-  const setUser = userStore((state) => state.setData)
-
-  const getUser = async () => {
-    const res = (await getUserByIdService(userId)) as IResponseUser
-    console.log(res)
-    setUser(res.user)
-  }
-
-  useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/no-floating-promises
-    getUser()
-  }, [])
-
   const user = userStore((state) => state.userData)
   console.log(user)
   const handleLogout = useAuthStore((state) => state.setLogout)
@@ -36,11 +19,11 @@ const adminDashboard = () => {
       <Container>
         <div className="flex gap-7">
           <div className="relative w-[288px] h-[560px] left-[30px] top-[50px] bg-[#0064EBB8] rounded-[8px] border-[2.5px] border-[#00060D]">
-            <div className="flex justify-center gap-4 pt-12 px-2">
+            <div className="flex flex-col xl:flex-row justify-center gap-4 pt-12 px-2">
               <img
                 src={user?.img}
                 alt="photo"
-                className="rounded-full border-black border-2 w-24"
+                className="rounded-full border-black border-2 w-16 h-16 xl:w-20 xl:h-20 mx-10 xl:mx-0"
               />
               <div className="flex flex-col justify-center text-center">
                 <h4 className="font-bold text-lg">
@@ -67,19 +50,16 @@ const adminDashboard = () => {
                 My consortiums
               </button>
               <button
-                className={`${menu === 'Edit consortium' ? 'font-bold' : ''}`}
-                onClick={() => {
-                  setMenu('Edit consortium')
-                }}
+                className="pt-32 text-blueDark font-bold text-lg"
+                onClick={handleLogout}
               >
-                Edit consortium
+                Log out
               </button>
-              <button onClick={handleLogout}>Logout</button>
             </div>
           </div>
           <div className="bg-blue bg-opacity-20 w-[880px] border-[2.5px] border-black rounded-lg mt-[50px] h-[560px] overflow-y-scroll no-scrollbar">
             {menu === 'Profile' && <Profile />}
-            {menu === 'My consortiums' && <MyConsortium />}
+            {menu === 'My consortiums' && <MyConsortium setMenu={setMenu} />}
             {menu === 'Create consortium' && <CreateConsortium />}
             {menu === 'Edit consortium' && <EditConsortium />}
           </div>
