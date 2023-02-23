@@ -23,6 +23,7 @@ import UserPayments from '../pages/private/user/UserPayments'
 import UserNotifications from '../pages/private/user/UserNotifications'
 import LayoutPrivateUser from '../components/layouPrivates/LayoutPrivateUser'
 import LayoutPrivateAdmin from '../components/layouPrivates/LayoutPrivateAdmin'
+import UnderConstruction from '../pages/UnderConstruction'
 
 export const router = createBrowserRouter([
   {
@@ -37,6 +38,7 @@ export const router = createBrowserRouter([
       { path: '/prices', element: <Prices /> },
       { path: '/login', element: <Login /> },
       { path: '/signin', element: <Signin /> },
+      { path: '/underConstruction', element: <UnderConstruction /> },
       { path: '/validateAccount/:id/:token', element: <Validate /> },
       {
         path: '/user',
