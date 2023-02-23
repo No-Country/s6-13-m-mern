@@ -11,11 +11,9 @@ const Profile = () => {
     <section>
       <div className="flex gap-4">
         <TitleComponents
-          title="My Profile"
-          path=""
-        />
+          title="My Profile"/>
         <Link
-          to="/"
+          to=""
           // cambiar a ruta de editar users
           className="mt-10"
         >
