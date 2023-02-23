@@ -1,15 +1,24 @@
-
 import { Link } from 'react-router-dom'
 import Container from '../../../components/Container'
 import { TitleComponents } from '../../../components/TitleComponents'
 import { userStore } from '../../../store/user'
 
-const MyConsortium = () => {
+interface Props {
+  setMenu: React.Dispatch<React.SetStateAction<string>>
+}
+
+const MyConsortium = ({ setMenu }: Props) => {
   const user = userStore((state) => state.userData)
+  const handleClick = () => {
+    setMenu('Create consortium')
+  }
 
   return (
     <section>
-      <TitleComponents title="My consortiums" path="" />
+      <TitleComponents
+        title="My consortiums"
+        path=""
+      />
       <Container>
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 xl:-mr-32">
           {user?.consortium?.map((consortium) => (
@@ -19,6 +28,16 @@ const MyConsortium = () => {
               key={consortium._id}
               className="pt-8 w-64 relative"
             >
+              <Link
+                to=""
+                // cambiar a ruta de editar consorcios
+                className="absolute top-10 right-2"
+              >
+                <img
+                  src="../assets/edit.png"
+                  alt=""
+                />
+              </Link>
               <img
                 src="https://res.cloudinary.com/dozwd1ssj/image/upload/v1676344376/Card_Home_Admin_omrprw.png"
                 alt="card"
@@ -28,7 +47,10 @@ const MyConsortium = () => {
               </span>
             </Link>
           ))}
-          <button className="flex flex-col items-center bg-blue mt-8 w-64 rounded-lg border-2 border-black">
+          <button
+            onClick={handleClick}
+            className="flex flex-col items-center bg-blue mt-8 w-64 rounded-lg border-2 border-black"
+          >
             <img
               src="../assets/Vector.png"
               alt="icon"
