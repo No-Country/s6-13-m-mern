@@ -3,7 +3,7 @@ import { TitleComponents } from '../../../components/TitleComponents'
 const CreateConsortium = () => {
   return (
     <div>
-      <TitleComponents title="Create consortium" path='' />
+      <TitleComponents title="Create consortium"/>
     </div>
   )
 }

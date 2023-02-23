@@ -16,9 +16,7 @@ const MyConsortium = ({ setMenu }: Props) => {
   return (
     <section>
       <TitleComponents
-        title="My consortiums"
-        path=""
-      />
+        title="My consortiums"/>
       <Container>
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 xl:-mr-32">
           {user?.consortium?.map((consortium) => (
@@ -26,11 +24,11 @@ const MyConsortium = ({ setMenu }: Props) => {
               // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
               to={`/admin/consortium/${consortium._id}`}
               key={consortium._id}
-              className="pt-8 w-64 relative"
+              className="pt-8 w-64 relative drop-shadow-2xl"
             >
               <Link
-                to=""
-                // cambiar a ruta de editar consorcios
+                to={`/admin/editinfo/${consortium._id}`}
+
                 className="absolute top-10 right-2"
               >
                 <img
@@ -49,7 +47,7 @@ const MyConsortium = ({ setMenu }: Props) => {
           ))}
           <button
             onClick={handleClick}
-            className="flex flex-col items-center bg-blue mt-8 w-64 rounded-lg border-2 border-black"
+            className="flex flex-col items-center bg-blue mt-8 w-64 rounded-lg border-2 border-black drop-shadow-2xl"
           >
             <img
               src="../assets/Vector.png"

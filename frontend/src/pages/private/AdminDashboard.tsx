@@ -26,10 +26,10 @@ const adminDashboard = () => {
                 className="rounded-full border-black border-2 w-16 h-16 xl:w-20 xl:h-20 mx-10 xl:mx-0"
               />
               <div className="flex flex-col justify-center text-center">
-                <h4 className="font-bold text-lg">
+                <h4 className="font-bold text-xl">
                   {user?.name} {user?.lastname}
                 </h4>
-                <span>{user?.role}</span>
+                <span>{user?.role === 'admin' && 'Administrator'}</span>
               </div>
             </div>
             <div className="flex flex-col items-start pl-8 pt-12 gap-12">
@@ -57,7 +57,7 @@ const adminDashboard = () => {
               </button>
             </div>
           </div>
-          <div className="bg-blue bg-opacity-20 w-[880px] border-[2.5px] border-black rounded-lg mt-[50px] h-[560px] overflow-y-scroll no-scrollbar">
+          <div className="bg-blue bg-opacity-40 w-[880px] border-[2.5px] border-black rounded-lg mt-[50px] h-[560px] overflow-y-scroll no-scrollbar">
             {menu === 'Profile' && <Profile />}
             {menu === 'My consortiums' && <MyConsortium setMenu={setMenu} />}
             {menu === 'Create consortium' && <CreateConsortium />}
