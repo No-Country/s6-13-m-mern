@@ -8,7 +8,7 @@ interface TitleComponentsProps {
 
 export const TitleComponents: FC<TitleComponentsProps> = ({ title, path }: TitleComponentsProps) => {
   return (
-    <div className="flex gap-6 w-full pl-11 pt-11 pb-8 text-blueDark font-bold text-xl">
+    <div className="flex gap-6 pl-11 pt-11 pb-8 text-blueDark font-bold text-xl">
       <Link to={`/${path}`}>
         <img
           src="../assets/arrow.png"
