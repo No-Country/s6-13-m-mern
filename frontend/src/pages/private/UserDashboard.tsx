@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import HeroUser from '../../components/HeroUser'
 import UserInformation from './user/UserInformation'
-import UserDocuments from './user/UserDocuments'
 import UserAmenities from './user/UserAmenities'
 import { userStore } from '../../store/user'
 import { useAuthStore } from '../../store/auth'
@@ -97,7 +96,7 @@ const UserDashboard = () => {
                 >
                   Complaints
                 </button>
-                <Link to='/user/notifications'>
+                <Link to="/user/notifications">
                   <button
                     className={`block py-3 ${menu === 'notifications' ? 'font-bold' : ''}`}
                     onClick={() => {
@@ -120,7 +119,6 @@ const UserDashboard = () => {
           <div className="bg-blue bg-opacity-20 w-[880px] border border-black rounded-lg  pb-6">
             {menu === 'profile' && <UserProfileData />}
             {menu === 'information' && <UserInformation />}
-            {menu === 'documents' && <UserDocuments />}
             {menu === 'amenities' && <UserAmenities />}
             {menu === 'create' && <UserCreatePayments />}
             {menu === 'complaint' && <UserComplaints />}
