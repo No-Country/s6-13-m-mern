@@ -94,7 +94,10 @@ export const UserAmenitiesList = () => {
 
   return (
     <>
-      <TitleComponents title="My reservations" />
+      <TitleComponents
+        title="My reservations"
+        path="/home"
+      />
       <div className="w-[90%] h-[330px] pt-5 m-auto border border-black rounded-lg flex flex-col justify-start items-center bg-blue bg-opacity-20">
         <SearchBar
           userType="user"
