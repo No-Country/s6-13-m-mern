@@ -99,14 +99,6 @@ const Header = () => {
                 Features
               </Link>
             </li>
-            <li className="min-w-fit">
-              <Link
-                to="prices"
-                className="uppercase md:p-4 py-2 block hover:underline md:hover:scale-110 transition duration-300 ease-out hover:ease-in"
-              >
-                Prices
-              </Link>
-            </li>
           </ul>
           {!avatarOpen ? (
             <section className="flex justify-center md:pl-5 md:pr-8 gap-5">
