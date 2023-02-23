@@ -13,30 +13,35 @@ export const ConsortiumDashboard: FC<ConsortiumDashboardProps> = ({ name = 'Admi
       name: 'Edit information',
       // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
       path: `editinfo/${id}`,
+      img: 'https://res.cloudinary.com/dozwd1ssj/image/upload/v1677157941/edit_lgdzbk.png',
     },
     {
       id: 2,
       name: 'Payments',
       // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
       path: `payments/${id}`,
+      img: 'https://res.cloudinary.com/dozwd1ssj/image/upload/v1677157941/payment_sphp7h.png',
     },
     {
       id: 3,
       name: 'Entrances and exits',
       // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
       path: `entrance/${id}`,
+      img: 'https://res.cloudinary.com/dozwd1ssj/image/upload/v1677157941/enterExit_etm7gz.png',
     },
     {
       id: 4,
       name: 'Events',
       // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
       path: `events/${id}`,
+      img: 'https://res.cloudinary.com/dozwd1ssj/image/upload/v1677157941/events_jlmrae.png',
     },
     {
       id: 5,
       name: 'Members',
       // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
       path: `members/${id}`,
+      img: 'https://res.cloudinary.com/dozwd1ssj/image/upload/v1677157940/members_gahqhk.png',
     },
   ]
 
@@ -69,7 +74,7 @@ export const ConsortiumDashboard: FC<ConsortiumDashboardProps> = ({ name = 'Admi
           >
             <img
               className="w-full -z-10"
-              src={`./assets/adm/${action.path}.svg`}
+              src={action.img}
               alt={action.name}
             />
             <p className="absolute bottom-0 left-0 right-0 rounded z-10 text-center font-inter font-normal text-lg border-2 border-black bg-blueLight ">

@@ -1,9 +1,9 @@
 import useSelect from '../hooks/useSelect'
-import { UserInformation } from '../interfaces/authInterfaces'
+import { UserProfile } from '../interfaces/userInterfaces'
 
 interface AutocompleteProps {
-  options: UserInformation[]
-  setSelectedOption: (value: UserInformation) => void
+  options: UserProfile[]
+  setSelectedOption: (value: UserProfile) => void
   loading: boolean
   endSearch: (value: boolean) => void
   onInputChange: (e: any) => void

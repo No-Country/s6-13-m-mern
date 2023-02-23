@@ -9,8 +9,6 @@ import { useGoogleLogin } from '@react-oauth/google'
 import { useState } from 'react'
 import PulseLoader from 'react-spinners/PulseLoader'
 import axios from 'axios'
-import { userStore } from '../store/user'
-import getUserByIdService from '../services/getUserByIdService'
 import { loginGoogleService } from '../services/loginGoogleService'
 
 const Login = () => {
@@ -26,14 +24,7 @@ const Login = () => {
   const setToken = useAuthStore((state) => state.setToken)
   const setId = useAuthStore((state) => state.setId)
   const setRole = useAuthStore((state) => state.setRole)
-  const setUser = userStore((state) => state.setData)
   const navigate = useNavigate()
-
-  const getUser = async (id: string) => {
-    const user = await getUserByIdService(id)
-    setUser(user)
-    user.role === 'admin' ? navigate('/admin') : navigate('/user')
-  }
 
   // const user = userStore((state) => state.userData)
 
@@ -67,12 +58,11 @@ const Login = () => {
           },
         })
         const resp = await loginGoogleService(data)
-        //! ver logica porque  solo copie la del login, poner pop ups por si falla
         if (resp.ok) {
           setToken(resp.token)
           setLogError('')
           setId(resp.id)
-          await getUser(resp.id)
+          setRole(resp.role)
           resp.role === 'admin' ? navigate('/admin') : navigate('/user')
         }
       } catch (err) {

@@ -21,7 +21,6 @@ export const loginGoogleService = async (data: GoogleApiResponse) => {
   }
   try {
     const resp = await axios.post('/api/auth/googleLogin', body)
-    console.log(resp)
     return resp.data
   } catch (error) {
     const err = error as AxiosError

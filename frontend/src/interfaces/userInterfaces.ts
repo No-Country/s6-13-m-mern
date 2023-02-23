@@ -9,7 +9,7 @@ export interface UserProfile {
   isValidated: boolean
   status: boolean
   apt?: string
-  consortium?: [UserConsortia] | []
+  consortium?: UserConsortia[]
 }
 
 interface UserConsortia {

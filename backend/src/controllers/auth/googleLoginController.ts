@@ -21,6 +21,7 @@ export const googleLoginController = async (req: Request, res: Response) => {
                 ok: true,
                 msg: 'User created and logged',
                 id: user._id,
+                role: user.role,
                 token,
                 google: true,
             })
@@ -33,6 +34,7 @@ export const googleLoginController = async (req: Request, res: Response) => {
             ok: true,
             msg: 'User logged',
             id: user._id,
+            role: user.role,
             token,
             google: true,
         })
