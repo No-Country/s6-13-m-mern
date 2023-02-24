@@ -66,6 +66,18 @@ module.exports = {
             opacity: '1',
           },
         },
+        swingInTop: {
+          '0%': {
+            transform: 'rotateX(-100deg)',
+            transformOrigin: 'top',
+            opacity: '0',
+          },
+          '100%': {
+            transform: 'rotateX(0deg)',
+            transformOrigin: 'top',
+            opacity: '1',
+          },
+        },
         write: {
           from: { width: '0' },
           to: { width: '100%' },
@@ -78,6 +90,7 @@ module.exports = {
         kenburnsRight: 'kenburnsRight 5s ease-out both',
         write: 'write 0.8s steps(30) 0.2s',
         slideInBlurredBottom: 'slideInBlurredBottom 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000)',
+        swingInTop: 'swingInTop 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both',
         jelloHorizontal: 'jelloHorizontal 0.9s both 1s',
       },
     },
