@@ -2,15 +2,14 @@ import { useState } from 'react'
 import Container from '../../components/Container'
 import CreateConsortium from './admin/CreateConsortium'
 import MyConsortium from './admin/MyConsortium'
-import Profile from './admin/Profile'
 import EditConsortium from './admin/EditConsortium'
 import { userStore } from '../../store/user'
-import { useAuthStore } from '../../store/auth'
+import UserProfile from './user/UserProfileData'
+import Logout from '../../components/Logout'
 
 const adminDashboard = () => {
   const user = userStore((state) => state.userData)
-
-  const handleLogout = useAuthStore((state) => state.setLogout)
+  const [logout, setLogout] = useState(false)
 
   const [menu, setMenu] = useState('My consortiums')
 
@@ -51,19 +50,25 @@ const adminDashboard = () => {
               </button>
               <button
                 className="pt-32 text-blueDark font-bold text-lg"
-                onClick={handleLogout}
+                onClick={() => {
+                  setLogout(true)
+                }}
               >
                 Log out
               </button>
             </div>
           </div>
           <div className="bg-blue bg-opacity-40 w-[880px] border-[2.5px] border-black rounded-lg mt-[50px] h-[560px] overflow-y-scroll no-scrollbar">
-            {menu === 'Profile' && <Profile />}
+            {menu === 'Profile' && <UserProfile />}
             {menu === 'My consortiums' && <MyConsortium setMenu={setMenu} />}
             {menu === 'Create consortium' && <CreateConsortium />}
             {menu === 'Edit consortium' && <EditConsortium />}
           </div>
         </div>
+        <Logout
+          logout={logout}
+          setLogout={setLogout}
+        />
       </Container>
     </section>
   )

@@ -21,21 +21,21 @@ const Footer = () => {
             <ul>
               <li className="flex gap-4 mb-3">
                 <img
-                  src="./assets/mail_logo.svg"
+                  src="/assets/mail_logo.svg"
                   alt="mail logo"
                 />
                 <a href="">sosconsortia@gmail.com</a>
               </li>
               <li className="flex gap-4 mb-3">
                 <img
-                  src="./assets/web_logo.svg"
+                  src="/assets/web_logo.svg"
                   alt="web lofo"
                 />
                 <a href="">www.sosconsortia.com</a>
               </li>
               <li className="flex gap-4 mb-3">
                 <img
-                  src="./assets/phone_logo.svg"
+                  src="/assets/phone_logo.svg"
                   alt="phone logo"
                 />
                 <a href="">54 9 4987-6511</a>
@@ -47,19 +47,19 @@ const Footer = () => {
             <ul className="flex flex-row gap-5 items-center justify-center">
               <li className="cursor-pointer">
                 <img
-                  src="./assets/instagram_logo.svg"
+                  src="/assets/instagram_logo.svg"
                   alt=""
                 />
               </li>
               <li className="cursor-pointer">
                 <img
-                  src="./assets/facebook_logo.svg"
+                  src="/assets/facebook_logo.svg"
                   alt=""
                 />
               </li>
               <li className="cursor-pointer">
                 <img
-                  src="./assets/twitter_logo.svg"
+                  src="/assets/twitter_logo.svg"
                   alt=""
                 />
               </li>

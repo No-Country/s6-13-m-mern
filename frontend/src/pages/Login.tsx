@@ -119,7 +119,7 @@ const Login = () => {
               <input
                 className={`border-2 ${
                   !errors.password ? 'border-blueDark' : 'border-red'
-                } rounded-lg h-12 px-4 mb-8 w-full placeholder:italic placeholder:text-grey bg-transparent focus:outline-none text-lg`}
+                } rounded-lg h-12 px-4 mb-1 w-full placeholder:italic placeholder:text-grey bg-transparent focus:outline-none text-lg`}
                 type="password"
                 placeholder="Enter your password"
                 {...register('password', {
@@ -127,6 +127,9 @@ const Login = () => {
                   pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
                 })}
               />
+              <Link to="/resetpassword">
+                <p className="text-end text-base mb-8">Forgot your password?</p>
+              </Link>
               <button
                 type="submit"
                 className="bg-blueDark disabled:opacity-60 text-white text-xl w-60 h-12 rounded-2xl block ml-auto mb-5"
@@ -135,6 +138,7 @@ const Login = () => {
                 {loading ? <PulseLoader color="white" /> : 'LOG IN'}
               </button>
             </form>
+
             <div className="flex justify-end ">
               <h3>Not a member? </h3>
               <Link
@@ -144,7 +148,7 @@ const Login = () => {
                 Sign In
               </Link>
             </div>
-            <h3 className="mb-5">Or continue with</h3>
+            <h3 className="mb-5 text-center">Or continue with</h3>
             <div className="flex justify-center">
               <button
                 className="mx-3"

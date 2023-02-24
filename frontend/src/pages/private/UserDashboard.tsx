@@ -3,23 +3,22 @@ import HeroUser from '../../components/HeroUser'
 import UserInformation from './user/UserInformation'
 import UserAmenities from './user/UserAmenities'
 import { userStore } from '../../store/user'
-import { useAuthStore } from '../../store/auth'
 import UserComplaints from './user/UserComplaints'
 import UserProfileData from './user/UserProfileData'
 import UserDocuments from './user/UserDocuments'
+import Logout from '../../components/Logout'
 
 const defaultImg = '/assets/defaultUser.svg'
 
 const UserDashboard = () => {
   const [menu, setMenu] = useState('profile')
+  const [logout, setLogout] = useState(false)
 
   const user = userStore((state) => state.userData)
 
-  const handleLogout = useAuthStore((state) => state.setLogout)
-
   return (
     <HeroUser>
-      <div className=" w-full h-full px-10">
+      <div className=" w-full h-fit px-10">
         <div className="flex min-h-[560px] pt-12 justify-center">
           <div className="bg-blueUser bg-opacity-70 min-w-[268px] border-2 border-black rounded-lg pl-7 pr-2 relative">
             <div className="flex mt-10 mb-6 ">
@@ -83,12 +82,14 @@ const UserDashboard = () => {
             )}
             <button
               className="block py-3 absolute bottom-6 font-bold"
-              onClick={handleLogout}
+              onClick={() => {
+                setLogout(true)
+              }}
             >
               Logout
             </button>
           </div>
-          <div className="bg-blue bg-opacity-70 w-[880px] border border-black rounded-lg  pb-6">
+          <div className="bg-blue bg-opacity-50 w-[880px] border border-black rounded-lg  pb-6">
             {menu === 'profile' && <UserProfileData />}
             {menu === 'information' && <UserInformation />}
             {menu === 'amenities' && <UserAmenities />}
@@ -97,6 +98,10 @@ const UserDashboard = () => {
           </div>
         </div>
       </div>
+      <Logout
+        logout={logout}
+        setLogout={setLogout}
+      />
     </HeroUser>
   )
 }
