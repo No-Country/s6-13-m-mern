@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { SearchBar } from '../../../components/SearchBar'
 import { TitleComponents } from '../../../components/TitleComponents'
-import UserCreatePayments from './UserCreatePayments'
+import UserCreatePayments from '../user/createPayment/UserCreatePayments'
 
 const documents = [
   {
@@ -71,9 +71,7 @@ const UserDocuments = () => {
     <>
       {!create ? (
         <div>
-          <TitleComponents
-            title="Payments"
-          />
+          <TitleComponents title="Payments" />
           <div className="-translate-y-5 w-full flex justify-center">
             <div className="w-full ml-[10%]">
               <SearchBar
