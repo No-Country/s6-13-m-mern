@@ -72,7 +72,6 @@ const UserDocuments = () => {
       {!create ? (
         <div>
           <TitleComponents
-            path="user"
             title="Payments"
           />
           <div className="-translate-y-5 w-full flex justify-center">
