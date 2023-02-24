@@ -116,7 +116,7 @@ const UserDashboard = () => {
               Logout
             </button>
           </div>
-          <div className="bg-blue bg-opacity-20 w-[880px] border border-black rounded-lg  pb-6">
+          <div className="bg-blue bg-opacity-20 w-[880px] border border-black rounded-lg">
             {menu === 'profile' && <UserProfileData />}
             {menu === 'information' && <UserInformation />}
             {menu === 'amenities' && <UserAmenities />}
