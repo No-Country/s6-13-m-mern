@@ -5,27 +5,23 @@ import UserAmenities from './user/UserAmenities'
 import { userStore } from '../../store/user'
 import { useAuthStore } from '../../store/auth'
 import UserComplaints from './user/UserComplaints'
-import UserCreatePayments from './user/UserCreatePayments'
 import UserProfileData from './user/UserProfileData'
-import { Link, useNavigate } from 'react-router-dom'
+import UserDocuments from './user/UserDocuments'
 
 const defaultImg = '/assets/defaultUser.svg'
 
 const UserDashboard = () => {
   const [menu, setMenu] = useState('profile')
-  const [imageUrl, setImageUrl] = useState('info')
 
   const user = userStore((state) => state.userData)
-
-  const navigate = useNavigate()
 
   const handleLogout = useAuthStore((state) => state.setLogout)
 
   return (
-    <HeroUser imageUrl={imageUrl}>
+    <HeroUser>
       <div className=" w-full h-full px-10">
         <div className="flex min-h-[560px] pt-12 justify-center">
-          <div className="bg-blueUser bg-opacity-70 min-w-[268px] border-2 border-black rounded-lg pl-7 pr-2">
+          <div className="bg-blueUser bg-opacity-70 min-w-[268px] border-2 border-black rounded-lg pl-7 pr-2 relative">
             <div className="flex mt-10 mb-6 ">
               <div className="rounded-full h-[90px] w-[90px] overflow-hidden border-2 border-black relative">
                 <img
@@ -38,14 +34,13 @@ const UserDashboard = () => {
                 <p className=" font-bold">
                   {user?.name} {user?.lastname}
                 </p>
-                <p>Owner</p>
+                {user?.role === 'tenant' && <p>Owner</p>}
               </div>
             </div>
             <button
               className={`block py-3 ${menu === 'profile' ? 'font-bold' : ''}`}
               onClick={() => {
                 setMenu('profile')
-                setImageUrl('info')
               }}
             >
               My profile
@@ -56,15 +51,14 @@ const UserDashboard = () => {
                   className={`block py-3 ${menu === 'information' ? 'font-bold' : ''}`}
                   onClick={() => {
                     setMenu('information')
-                    setImageUrl('info')
                   }}
                 >
                   Information
                 </button>
                 <button
-                  className={'block py-3'}
+                  className={`block py-3 ${menu === 'payments' ? 'font-bold' : ''}`}
                   onClick={() => {
-                    navigate('/user/payments')
+                    setMenu('payments')
                   }}
                 >
                   My payments
@@ -73,55 +67,33 @@ const UserDashboard = () => {
                   className={`block py-3 ${menu === 'amenities' ? 'font-bold' : ''}`}
                   onClick={() => {
                     setMenu('amenities')
-                    setImageUrl('amen')
                   }}
                 >
                   Amenities
                 </button>
                 <button
-                  className={`block py-3 ${menu === 'create' ? 'font-bold' : ''}`}
-                  onClick={() => {
-                    setImageUrl('doc')
-                    setMenu('create')
-                  }}
-                >
-                  Create a payment
-                </button>
-                <button
                   className={`block py-3 ${menu === 'complaint' ? 'font-bold' : ''}`}
                   onClick={() => {
                     setMenu('complaint')
-                    setImageUrl('info')
                   }}
                 >
                   Complaints
                 </button>
-                <Link to="/user/notifications">
-                  <button
-                    className={`block py-3 ${menu === 'notifications' ? 'font-bold' : ''}`}
-                    onClick={() => {
-                      setMenu('notifications')
-                      setImageUrl('info')
-                    }}
-                  >
-                    Notifications
-                  </button>
-                </Link>
               </>
             )}
             <button
-              className="block py-3"
+              className="block py-3 absolute bottom-6 font-bold"
               onClick={handleLogout}
             >
               Logout
             </button>
           </div>
-          <div className="bg-blue bg-opacity-20 w-[880px] border border-black rounded-lg  pb-6">
+          <div className="bg-blue bg-opacity-70 w-[880px] border border-black rounded-lg  pb-6">
             {menu === 'profile' && <UserProfileData />}
             {menu === 'information' && <UserInformation />}
             {menu === 'amenities' && <UserAmenities />}
-            {menu === 'create' && <UserCreatePayments />}
             {menu === 'complaint' && <UserComplaints />}
+            {menu === 'payments' && <UserDocuments />}
           </div>
         </div>
       </div>

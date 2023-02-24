@@ -39,6 +39,7 @@ export const useAuthStore = create(
         set(() => ({
           token: '',
           id: '',
+          role: ''
         }))
       },
     }),
