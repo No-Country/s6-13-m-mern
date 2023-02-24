@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import Container from '../../../components/Container'
 import { TitleComponents } from '../../../components/TitleComponents'
 import { userStore } from '../../../store/user'
 
@@ -9,9 +8,8 @@ const Profile = () => {
   console.log(user)
   return (
     <section>
-      <div className="flex gap-4">
-        <TitleComponents
-          title="My Profile"/>
+      <div className="hidden sm:flex gap-4">
+        <TitleComponents title="My Profile" />
         <Link
           to=""
           // cambiar a ruta de editar users
@@ -23,22 +21,65 @@ const Profile = () => {
           />
         </Link>
       </div>
-      <Container>
-        <div className="flex flex-col items-center">
+      <div className="hidden sm:flex flex-col items-center sm:mt-8">
+        <img
+          className="sm:w-28 md:w-32 rounded-full sm:rounded-lg border-2 border-black"
+          src={user?.img}
+          alt="photo"
+        />
+        <div className="flex gap-2 ml-8 sm:ml-0">
+          <h2 className="sm:mt-12 sm:font-bold text-2xl sm:text-xl md:text-2xl sm:text-blueDark">
+            {user?.name} {user?.lastname}
+          </h2>
+          <Link
+            to=""
+            // cambiar a ruta de editar users
+            className="mt-2 flex sm:hidden"
+          >
+            <img
+              src="../assets/edit.png"
+              alt=""
+            />
+          </Link>
+        </div>
+        <span className="flex sm:hidden mb-16">{user?.role === 'admin' && 'Administrator'}</span>
+        <div className="flex flex-col gap-8 text-center text-lg">
+          <span className="flex sm:hidden">{user?.email}</span>
+          <span>{user?.phone}</span>
+          <span className="hidden sm:flex">Piso-Dto: {user?.apt}</span>
+        </div>
+      </div>
+      <div className="flex sm:hidden flex-col items-center sm:mt-8">
+        <div className="bg-blueDark w-full flex justify-center pt-16">
           <img
-            className="w-32 h-32 rounded-lg border-2 border-black"
+            className="sm:w-28 md:w-32 rounded-full sm:rounded-lg border-2 border-white -mb-8 sm:-mb-0"
             src={user?.img}
             alt="photo"
           />
-          <h2 className="mt-12 mb-8 font-bold text-xl text-blueDark">
+        </div>
+        <div className="flex gap-2 ml-8 mt-8 sm:mt-0 sm:ml-0">
+          <h2 className="sm:mt-12 sm:font-bold text-2xl sm:text-xl md:text-2xl sm:text-blueDark">
             {user?.name} {user?.lastname}
           </h2>
-          <div className="flex flex-col gap-2">
-            <span>{user?.phone}</span>
-            <span>Piso-Dto: {user?.apt}</span>
-          </div>
+          <Link
+            to=""
+            // cambiar a ruta de editar users
+            className="mt-2 flex sm:hidden"
+          >
+            <img
+              src="../assets/edit.png"
+              alt=""
+            />
+          </Link>
         </div>
-      </Container>
+        <span className="flex sm:hidden mb-16">{user?.role === 'admin' && 'Administrator'}</span>
+        <div className="flex flex-col gap-8 text-center text-lg">
+          <span className="flex sm:hidden">{user?.email}</span>
+          <span>{user?.phone}</span>
+          <span>Piso-Dto: {user?.apt}</span>
+          <span className="hidden sm:flex">Piso-Dto: {user?.apt}</span>
+        </div>
+      </div>
     </section>
   )
 }

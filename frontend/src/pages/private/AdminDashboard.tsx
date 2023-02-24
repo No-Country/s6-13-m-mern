@@ -17,22 +17,22 @@ const adminDashboard = () => {
   return (
     <section className="pb-32">
       <Container>
-        <div className="flex gap-7">
-          <div className="relative w-[288px] h-[560px] left-[30px] top-[50px] bg-[#0064EBB8] rounded-[8px] border-[2.5px] border-[#00060D]">
-            <div className="flex flex-col xl:flex-row justify-center gap-4 pt-12 px-2">
+        <div className="hidden sm:flex sm:gap-7">
+          <div className="relative hidden sm:block md:w-[380px] lg:w-[288px] h-[560px] left-[30px] top-[50px] bg-[#0064EBB8] rounded-[8px] border-[2.5px] border-[#00060D]">
+            <div className="flex flex-col xl:flex-row justify-center items-center gap-4 pt-12 px-2">
               <img
                 src={user?.img}
                 alt="photo"
-                className="rounded-full border-black border-2 w-16 h-16 xl:w-20 xl:h-20 mx-10 xl:mx-0"
+                className="rounded-full border-black border-2 w-16 h-16 xl:w-20 xl:h-20"
               />
               <div className="flex flex-col justify-center text-center">
-                <h4 className="font-bold text-xl">
+                <h4 className="font-bold sm:text-md lg:text-xl">
                   {user?.name} {user?.lastname}
                 </h4>
-                <span>{user?.role === 'admin' && 'Administrator'}</span>
+                <span className="sm:text-sm lg:text-base">{user?.role === 'admin' && 'Administrator'}</span>
               </div>
             </div>
-            <div className="flex flex-col items-start pl-8 pt-12 gap-12">
+            <div className="flex flex-col items-start sm:pl-1 md:pl-2 lg:pl-4 xl:pl-8 sm:pt-16 lg:pt-12 gap-12 sm:text-xs md:text-[13px] lg:text-base">
               <button
                 className={`${menu === 'Profile' ? 'font-bold' : ''}`}
                 onClick={() => {
@@ -50,14 +50,14 @@ const adminDashboard = () => {
                 My consortiums
               </button>
               <button
-                className="pt-32 text-blueDark font-bold text-lg"
+                className="sm:pt-32 xl:pt-40 text-blueDark font-bold sm:text-sm lg:text-lg"
                 onClick={handleLogout}
               >
                 Log out
               </button>
             </div>
           </div>
-          <div className="bg-blue bg-opacity-40 w-[880px] border-[2.5px] border-black rounded-lg mt-[50px] h-[560px] overflow-y-scroll no-scrollbar">
+          <div className="bg-blue bg-opacity-40 w-full sm:w-[880px] sm:border-[2.5px] border-black rounded-lg mt-[50px] h:full sm:h-[560px] overflow-y-scroll no-scrollbar">
             {menu === 'Profile' && <Profile />}
             {menu === 'My consortiums' && <MyConsortium setMenu={setMenu} />}
             {menu === 'Create consortium' && <CreateConsortium />}
@@ -65,6 +65,12 @@ const adminDashboard = () => {
           </div>
         </div>
       </Container>
+          <div className="sm:hidden w-full h-full overflow-y-scroll no-scrollbar">
+            {menu === 'Profile' && <Profile />}
+            {menu === 'My consortiums' && <MyConsortium setMenu={setMenu} />}
+            {menu === 'Create consortium' && <CreateConsortium />}
+            {menu === 'Edit consortium' && <EditConsortium />}
+          </div>
     </section>
   )
 }
