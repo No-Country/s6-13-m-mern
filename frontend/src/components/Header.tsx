@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import UserNavbar from './UserNavbar'
 import { useAuthStore } from '../store/auth'
 import { userStore } from '../store/user'
 import getUserByIdService from '../services/getUserByIdService'
 import { IResponseUser } from '../interfaces/userInterfaces'
+import Titles from './TitleLayout'
 
 const Header = () => {
   const [isNavOpen, setisNavOpen] = useState(false)
@@ -12,6 +13,9 @@ const Header = () => {
 
   const userId = useAuthStore((state) => state.id)
   const setUser = userStore((state) => state.setData)
+  const user = userStore((state) => state.userData)
+
+  const { headerTitle } = Titles()
 
   const getUser = async () => {
     try {
@@ -19,6 +23,19 @@ const Header = () => {
       setUser(res.user)
     } catch (error) {
       console.log('error')
+    }
+  }
+
+  const refOne = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    document.addEventListener('click', handleClickOutside, true)
+  }, [])
+
+  const handleClickOutside = (e: MouseEvent) => {
+    const target = e.target as HTMLDivElement
+    if (refOne.current && !refOne.current.contains(target)) {
+      setisNavOpen(false)
     }
   }
 
@@ -36,41 +53,49 @@ const Header = () => {
     setisNavOpen(!isNavOpen)
   }
 
+  const handleLogout = useAuthStore((state) => state.setLogout)
+
   return (
     <header>
-      <nav className=" min-h-[96px] flex flex-wrap items-center justify-around md:justify-around w-full py-4 md:py-0 px-4 text-[15px] bg-blueDark fixed z-50">
-        <Link to="">
+      <div className="bg-blueDark fixed z-50 w-full">
+        <nav className=" h-[60px] sm:h-20 flex flex-wrap items-center justify-between md:justify-around w-full px-6 text-[15px] xl:w-[1200px] xl:mx-auto ">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            id="menu-button"
+            className="h-8 w-8 cursor-pointer sm:hidden text-white"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            onClick={handleOpenNav}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+          <h1 className=" text-4xl text-white font-bold sm:hidden">{headerTitle}</h1>
           <img
-            src="/Logo-navBar.png"
+            className=" h-8 sm:hidden"
+            src="/assets/icons/Notif.svg"
             alt=""
-            className="h-[80px] cursor-pointer"
           />
-        </Link>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          id="menu-button"
-          className="h-6 w-6 cursor-pointer md:hidden block text-white"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          onClick={handleOpenNav}
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M4 6h16M4 12h16M4 18h16"
-          />
-        </svg>
-        <div
-          className={(isNavOpen ? '' : 'hidden ') + 'w-full md:flex md:items-center md:w-auto'}
-          id="menu"
-        >
-          <ul className="pt-4 text-[15px] text-white md:flex md:flex-row flex flex-col items-center md:justify-between md:pt-0">
+          <Link
+            to=""
+            className="hidden sm:inline"
+          >
+            <img
+              src="/assets/Logo.svg"
+              alt=""
+              className="h-[78px] cursor-pointer "
+            />
+          </Link>
+          <ul className="pt-4 text-[15px] text-white items-center justify-between hidden w-full sm:flex sm:items-center sm:w-auto">
             <li className="min-w-fit">
               <Link
                 to=""
-                className="uppercase md:p-4 py-2 block hover:underline md:hover:scale-110 transition duration-300 ease-out hover:ease-in"
+                className="uppercase p-4 py-2 block hover:underline hover:scale-110 transition duration-300 ease-out hover:ease-in"
               >
                 Home
               </Link>
@@ -78,7 +103,7 @@ const Header = () => {
             <li className="min-w-fit">
               <Link
                 to="/about"
-                className="uppercase md:p-4 py-2 block hover:underline md:hover:scale-110 transition duration-300 ease-out hover:ease-in"
+                className="uppercase p-4 py-2 block hover:underline hover:scale-110 transition duration-300 ease-out hover:ease-in"
               >
                 About Us
               </Link>
@@ -86,7 +111,7 @@ const Header = () => {
             <li className="min-w-fit">
               <Link
                 to="/contact"
-                className="uppercase md:p-4 py-2 block hover:underline md:hover:scale-110 transition duration-300 ease-out hover:ease-in"
+                className="uppercase p-4 py-2 block hover:underline hover:scale-110 transition duration-300 ease-out hover:ease-in"
               >
                 Contact
               </Link>
@@ -94,14 +119,14 @@ const Header = () => {
             <li className="min-w-fit">
               <Link
                 to="/features"
-                className="uppercase md:p-4 py-2 block hover:underline md:hover:scale-110 transition duration-300 ease-out hover:ease-in"
+                className="uppercase p-4 py-2 block hover:underline hover:scale-110 transition duration-300 ease-out hover:ease-in"
               >
                 Features
               </Link>
             </li>
           </ul>
           {!avatarOpen ? (
-            <section className="flex justify-center md:pl-5 md:pr-8 gap-5">
+            <section className=" hidden sm:flex justify-center sm:pl-5 sm:pr-8 gap-5">
               <Link to="/login">
                 <button className="uppercase px-8 py-1 bg-blue rounded-[16px] text-white min-w-fit hover:brightness-150 transition duration-300 ease-out hover:ease-in ">
                   Log In
@@ -114,12 +139,100 @@ const Header = () => {
               </Link>
             </section>
           ) : (
-            <section>
+            <section className=" hidden sm:inline">
               <UserNavbar />
             </section>
           )}
+        </nav>
+        <div ref={refOne}>
+          <ul
+            className={
+              (isNavOpen ? '' : 'hidden ') +
+              ' w-[170px] h-auto absolute bg-white text-base z-50 float-left list-none text-left rounded-lg shadow-lg m-0 bg-clip-padding border-none'
+            }
+            aria-labelledby="dropdownMenuButton1d"
+            onClick={() => {
+              setisNavOpen(false)
+            }}
+          >
+            <li className="">
+              <Link
+                className="dropdown-item text-sm rounded-lg py-4 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-black hover:bg-[#DEDEDE]"
+                to={`${user?.role === 'admin' ? '/admin' : '/user'}`}
+              >
+                Profile
+              </Link>
+            </li>
+            {user?.role === 'admin' && (
+              <li className="">
+                <Link
+                  className="dropdown-item text-sm rounded-lg py-4 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-black hover:bg-[#DEDEDE]"
+                  to="admin/"
+                >
+                  My Consortia
+                </Link>
+              </li>
+            )}
+            {user?.role === 'tenant' && (
+              <>
+                <li className="">
+                  <Link
+                    className="dropdown-item text-sm rounded-lg py-4 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-black hover:bg-[#DEDEDE]"
+                    to="user/notifications"
+                  >
+                    Information
+                  </Link>
+                </li>
+                <li className="">
+                  <Link
+                    className="dropdown-item text-sm rounded-lg py-4 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-black hover:bg-[#DEDEDE]"
+                    to="user/notifications"
+                  >
+                    My payments
+                  </Link>
+                </li>
+                <li className="">
+                  <Link
+                    className="dropdown-item text-sm rounded-lg py-4 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-black hover:bg-[#DEDEDE]"
+                    to="user/notifications"
+                  >
+                    Amenities
+                  </Link>
+                </li>
+                <li className="">
+                  <Link
+                    className="dropdown-item text-sm rounded-lg py-4 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-black hover:bg-[#DEDEDE]"
+                    to="user/notifications"
+                  >
+                    Create a Payment
+                  </Link>
+                </li>
+                <li className="">
+                  <Link
+                    className="dropdown-item text-sm rounded-lg py-4 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-black hover:bg-[#DEDEDE]"
+                    to="user/notifications"
+                  >
+                    Complaints
+                  </Link>
+                </li>
+              </>
+            )}
+            <li className="">
+              <button
+                className=" flex justify-between items-center dropdown-item text-sm text-start rounded-lg py-4 px-4 w-full whitespace-nowrap bg-transparent text-blueDark font-[700] hover:bg-[#DEDEDE]"
+                onClick={handleLogout}
+              >
+                Logout
+                <img
+                  src="/assets/icons/Logout.svg"
+                  alt=""
+                  className=" h-10"
+                />
+              </button>
+            </li>
+          </ul>
         </div>
-      </nav>
+      </div>
     </header>
   )
 }

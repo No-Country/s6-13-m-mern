@@ -157,7 +157,7 @@ const Login = () => {
                   alt=""
                 />
               </button>
-              <button className="mx-3">
+              {/* <button className="mx-3">
                 <img
                   src="/assets/social/Facebook.png"
                   alt=""
@@ -168,7 +168,7 @@ const Login = () => {
                   src="/assets/social/Twitter.png"
                   alt=""
                 />
-              </button>
+              </button> */}
             </div>
           </div>
         </div>

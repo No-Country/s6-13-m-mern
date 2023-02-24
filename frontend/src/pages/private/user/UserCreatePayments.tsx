@@ -1,13 +1,24 @@
-import BackTitleComponent from '../../../components/BackTitleComponent'
+interface Props {
+  setCreate: React.Dispatch<React.SetStateAction<boolean>>
+}
 
-const UserCreatePayments = () => {
+const UserCreatePayments = ({ setCreate }: Props) => {
   return (
     <div>
       <div className="w-full pl-11 pt-11 pb-5">
-        <BackTitleComponent
-          title={'Attach Payment'}
-          navigateTo={'/user'}
-        />
+        <div className="flex gap-x-6 text-blueDark font-bold text-xl items-center">
+          <button
+            className=""
+            onClick={() => {
+              setCreate(false)
+            }}
+          >
+            <div className="fex flex-col w-[11.25px] h-[22.5px]">
+              <img src={'../../assets/icons/left-arrow.svg'} />
+            </div>
+          </button>
+          <h3>Attach payment</h3>
+        </div>
       </div>
       <div className="w-full pl-7 pr-16">
         <div className="w-full h-[220px] flex flex-row justify-between">
