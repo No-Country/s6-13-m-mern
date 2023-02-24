@@ -1,12 +1,13 @@
 import { useState, useRef, useEffect } from 'react'
 import { userStore } from '../store/user'
 import { Link } from 'react-router-dom'
-import { useAuthStore } from '../store/auth'
+import Logout from './Logout'
 
 const defaultImg = '/assets/defaultUser.svg'
 
 const UserNavbar = () => {
   const [isUserOpen, setisUserOpen] = useState(false)
+  const [logout, setLogout] = useState(false)
 
   const refOne = useRef<HTMLDivElement>(null)
 
@@ -26,8 +27,6 @@ const UserNavbar = () => {
   }
 
   const user = userStore((state) => state.userData)
-
-  const handleLogout = useAuthStore((state) => state.setLogout)
 
   return (
     <div>
@@ -115,7 +114,9 @@ const UserNavbar = () => {
               <li className="">
                 <button
                   className=" dropdown-item my-1 text-sm text-start rounded-lg py-4 px-4 block w-full whitespace-nowrap bg-transparent text-blueDark font-[700] hover:bg-[#DEDEDE]"
-                  onClick={handleLogout}
+                  onClick={() => {
+                    setLogout(true)
+                  }}
                 >
                   Logout
                 </button>
@@ -124,6 +125,11 @@ const UserNavbar = () => {
           </div>
         </div>
       </div>
+
+      <Logout
+        logout={logout}
+        setLogout={setLogout}
+      />
     </div>
   )
 }

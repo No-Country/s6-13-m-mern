@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import BackTitleComponent from '../../../../components/BackTitleComponent'
 import './payments.css'
 
 enum MethodEnum {
@@ -36,7 +35,7 @@ const UserCreatePayments = ({ setCreate }: Props) => {
       <div
         className="cursor-pointer"
         onClick={() => {
-          ;(document.querySelector('.input-field') as HTMLInputElement).click()
+          (document.querySelector('.input-field') as HTMLInputElement).click()
         }}
       >
         {image && (
@@ -90,7 +89,7 @@ const UserCreatePayments = ({ setCreate }: Props) => {
 
       <form
         onSubmit={reportPayment}
-        className="w-full pl-7 pr-16 flex w-full justify-center"
+        className="w-full pl-7 pr-16 flex justify-center"
       >
         <div
           className={`payment-grid ${

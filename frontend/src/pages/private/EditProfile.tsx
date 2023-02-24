@@ -5,9 +5,10 @@ import { userStore } from '../../store/user'
 
 interface EditProfileProps {
   preloadValues: UserProfile
+  setEdit: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const EditProfile = ({ preloadValues }: EditProfileProps) => {
+const EditProfile = ({ preloadValues, setEdit }: EditProfileProps) => {
   const {
     register,
     handleSubmit,
@@ -23,14 +24,28 @@ const EditProfile = ({ preloadValues }: EditProfileProps) => {
   const image = userStore((state) => state.userData?.img)
   return (
     <div>
+      <div className="flex font-bold text-xl text-blueDark ml-11 mt-7">
+        <div className="flex gap-x-6 text-blueDark font-bold text-xl items-center">
+          <button
+            className=""
+            onClick={() => {
+              setEdit(false)
+            }}
+          >
+            <div className="fex flex-col w-[11.25px] h-[22.5px]">
+              <img src={'../../assets/icons/left-arrow.svg'} />
+            </div>
+          </button>
+          <h3>Edit Profile</h3>
+        </div>
+      </div>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="grid p-6 justify-center bg-[#004AAD66]"
+        className="grid px-6 justify-center"
       >
-        <div className="flex justify-center">
+        <div className=" h-[130px] w-[130px] overflow-hidden border-2 border-black rounded-lg relative mx-auto my-6">
           <img
-            className="h-[180px] rounded-full  border-2 border-black "
-            {...register('img')}
+            className="object-cover h-[130px] min-w-full"
             src={image}
           />
         </div>
@@ -58,7 +73,6 @@ const EditProfile = ({ preloadValues }: EditProfileProps) => {
           <div className="p-3 grid">
             <label className="text-lg text-blueDark font-bold">Phone</label>
             <input
-              type="number"
               className="w-[300px] rounded-lg border-2 border-blueDark p-2"
               {...register('phone', {
                 minLength: 10,
@@ -77,16 +91,18 @@ const EditProfile = ({ preloadValues }: EditProfileProps) => {
             />
             {errors.img && <small>The field cannot be empty</small>}
           </div>
-          <div className="p-3 grid">
-            <label className="text-lg text-blueDark font-bold">Apt</label>
-            <input
-              className="w-[300px] rounded-lg border-2 border-blueDark p-2"
-              {...register('apt', {
-                required: true,
-              })}
-            />
-            {errors.apt && <small>The field cannot be empty</small>}
-          </div>
+          {preloadValues.role !== 'admin' && (
+            <div className="p-3 grid">
+              <label className="text-lg text-blueDark font-bold">Apt</label>
+              <input
+                className="w-[300px] rounded-lg border-2 border-blueDark p-2"
+                {...register('apt', {
+                  required: true,
+                })}
+              />
+              {errors.apt && <small>The field cannot be empty</small>}
+            </div>
+          )}
           <div className="p-3 flex justify-center items-center pb-[7px] pt-[30px]">
             <button
               type="submit"

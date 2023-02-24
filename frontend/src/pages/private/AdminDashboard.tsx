@@ -2,15 +2,14 @@ import { useState } from 'react'
 import Container from '../../components/Container'
 import CreateConsortium from './admin/CreateConsortium'
 import MyConsortium from './admin/MyConsortium'
-import Profile from './admin/Profile'
 import EditConsortium from './admin/EditConsortium'
 import { userStore } from '../../store/user'
-import { useAuthStore } from '../../store/auth'
+import UserProfile from './user/UserProfileData'
+import Logout from '../../components/Logout'
 
 const adminDashboard = () => {
   const user = userStore((state) => state.userData)
-
-  const handleLogout = useAuthStore((state) => state.setLogout)
+  const [logout, setLogout] = useState(false)
 
   const [menu, setMenu] = useState('My consortiums')
 
@@ -50,23 +49,29 @@ const adminDashboard = () => {
                 My consortiums
               </button>
               <button
-                className="sm:pt-32 xl:pt-40 text-blueDark font-bold sm:text-sm lg:text-lg"
-                onClick={handleLogout}
+                className="pt-32 text-blueDark font-bold text-lg"
+                onClick={() => {
+                  setLogout(true)
+                }}
               >
                 Log out
               </button>
             </div>
           </div>
-          <div className="bg-blue bg-opacity-40 w-full sm:w-[880px] sm:border-[2.5px] border-black rounded-lg mt-[50px] h:full sm:h-[560px] overflow-y-scroll no-scrollbar">
-            {menu === 'Profile' && <Profile />}
+          <div className="bg-blue bg-opacity-40 w-[880px] border-[2.5px] border-black rounded-lg mt-[50px] h-[560px] overflow-y-scroll no-scrollbar">
+            {menu === 'Profile' && <UserProfile />}
             {menu === 'My consortiums' && <MyConsortium setMenu={setMenu} />}
             {menu === 'Create consortium' && <CreateConsortium />}
             {menu === 'Edit consortium' && <EditConsortium />}
           </div>
         </div>
+        <Logout
+          logout={logout}
+          setLogout={setLogout}
+        />
       </Container>
           <div className="sm:hidden w-full h-full overflow-y-scroll no-scrollbar">
-            {menu === 'Profile' && <Profile />}
+            {menu === 'Profile' && <UserProfile />}
             {menu === 'My consortiums' && <MyConsortium setMenu={setMenu} />}
             {menu === 'Create consortium' && <CreateConsortium />}
             {menu === 'Edit consortium' && <EditConsortium />}

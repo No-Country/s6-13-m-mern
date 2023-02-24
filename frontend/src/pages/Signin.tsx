@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Container from '../components/Container'
 import { useForm, type SubmitHandler } from 'react-hook-form'
 import { FormRegisterData } from '../interfaces/authInterfaces'
@@ -6,6 +6,10 @@ import registerService from '../services/registerService'
 import BlueModal from '../components/modal/BlueModal'
 import { useState } from 'react'
 import PulseLoader from 'react-spinners/PulseLoader'
+import { useGoogleLogin } from '@react-oauth/google'
+import axios from 'axios'
+import { loginGoogleService } from '../services/loginGoogleService'
+import { useAuthStore } from '../store/auth'
 
 const Signin = () => {
   const [modalOpen, setModalOpen] = useState(false)
@@ -33,6 +37,33 @@ const Signin = () => {
       setModalOpen(true)
     }
   }
+
+  const setToken = useAuthStore((state) => state.setToken)
+  const setId = useAuthStore((state) => state.setId)
+  const setRole = useAuthStore((state) => state.setRole)
+  const navigate = useNavigate()
+
+  const loginGoogle = useGoogleLogin({
+    // eslint-disable-next-line @typescript-eslint/no-misused-promises
+    onSuccess: async (response) => {
+      try {
+        const { data } = await axios.get('https://www.googleapis.com/oauth2/v3/userinfo', {
+          headers: {
+            Authorization: `Bearer ${response.access_token}`,
+          },
+        })
+        const resp = await loginGoogleService(data)
+        if (resp.ok) {
+          setToken(resp.token)
+          setId(resp.id)
+          setRole(resp.role)
+          resp.role === 'admin' ? navigate('/admin') : navigate('/user')
+        }
+      } catch (err) {
+        console.log(err)
+      }
+    },
+  })
 
   return (
     <>
@@ -78,7 +109,8 @@ const Signin = () => {
       )}
       {errors.password?.type === 'pattern' && (
         <p className="absolute w-full h-8 px-8 bg-red rounded-b-sm border border-black text-lg font-sans text-white">
-          Password must be minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character
+          Password must be minimum eight characters, at least one uppercase letter, one lowercase letter, one number and
+          one special character
         </p>
       )}
       <Container>
@@ -193,13 +225,18 @@ const Signin = () => {
 
             <h3 className="mb-5 text-center">Or continue with</h3>
             <div className="flex justify-center">
-              <button className="mx-10">
+              <button
+                className="mx-10"
+                onClick={() => {
+                  loginGoogle()
+                }}
+              >
                 <img
                   src="/assets/social/Google.png"
                   alt=""
                 />
               </button>
-              <button className="mx-10">
+              {/* <button className="mx-10">
                 <img
                   src="/assets/social/Facebook.png"
                   alt=""
@@ -210,7 +247,7 @@ const Signin = () => {
                   src="/assets/social/Twitter.png"
                   alt=""
                 />
-              </button>
+              </button> */}
             </div>
           </div>
         </div>

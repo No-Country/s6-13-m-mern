@@ -6,10 +6,12 @@ import { userStore } from '../store/user'
 import getUserByIdService from '../services/getUserByIdService'
 import { IResponseUser } from '../interfaces/userInterfaces'
 import Titles from './TitleLayout'
+import Logout from './Logout'
 
 const Header = () => {
   const [isNavOpen, setisNavOpen] = useState(false)
   const [avatarOpen, setAvatarOpen] = useState(false)
+  const [logout, setLogout] = useState(false)
 
   const userId = useAuthStore((state) => state.id)
   const setUser = userStore((state) => state.setData)
@@ -53,12 +55,10 @@ const Header = () => {
     setisNavOpen(!isNavOpen)
   }
 
-  const handleLogout = useAuthStore((state) => state.setLogout)
-
   return (
     <header>
       <div className="bg-blueDark fixed z-50 w-full">
-        <nav className=" h-[60px] sm:h-20 flex flex-wrap items-center justify-between md:justify-around w-full px-6 text-[15px] xl:w-[1200px] xl:mx-auto ">
+        <nav className=" h-[60px] sm:h-20 flex flex-wrap items-center justify-between md:justify-around w-full px-3 text-[15px] xl:w-[1200px] xl:mx-auto ">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             id="menu-button"
@@ -88,10 +88,10 @@ const Header = () => {
             <img
               src="/assets/Logo.svg"
               alt=""
-              className="h-[78px] cursor-pointer "
+              className=" sm:h-16 md:h-[78px] cursor-pointer "
             />
           </Link>
-          <ul className="pt-4 text-[15px] text-white items-center justify-between hidden w-full sm:flex sm:items-center sm:w-auto">
+          <ul className="text-xs md:text-[15px] text-white items-center justify-between hidden w-full sm:flex sm:items-center sm:w-auto">
             <li className="min-w-fit">
               <Link
                 to=""
@@ -126,14 +126,14 @@ const Header = () => {
             </li>
           </ul>
           {!avatarOpen ? (
-            <section className=" hidden sm:flex justify-center sm:pl-5 sm:pr-8 gap-5">
+            <section className=" text-xs md:text-[15px] hidden sm:flex justify-center sm:p-5 gap-2 md:gap-5">
               <Link to="/login">
-                <button className="uppercase px-8 py-1 bg-blue rounded-[16px] text-white min-w-fit hover:brightness-150 transition duration-300 ease-out hover:ease-in ">
+                <button className="uppercase sm:px-3 md:px-8 py-1 bg-blue rounded-[16px] text-white min-w-fit hover:brightness-150 transition duration-300 ease-out hover:ease-in ">
                   Log In
                 </button>
               </Link>
               <Link to="/signin">
-                <button className="uppercase px-8 py-1 bg-blueDark rounded-[16px] text-[#3189FF] border-[1px] border-[#3189FF] hover:border-[#ffff] hover:text-[#ffff] transition duration-300 ease-out hover:ease-in min-w-fit">
+                <button className="uppercase sm:px-3 md:px-8 py-1 bg-blueDark rounded-[16px] text-[#3189FF] border-[1px] border-[#3189FF] hover:border-[#ffff] hover:text-[#ffff] transition duration-300 ease-out hover:ease-in min-w-fit">
                   Sign In
                 </button>
               </Link>
@@ -220,7 +220,9 @@ const Header = () => {
             <li className="">
               <button
                 className=" flex justify-between items-center dropdown-item text-sm text-start rounded-lg py-4 px-4 w-full whitespace-nowrap bg-transparent text-blueDark font-[700] hover:bg-[#DEDEDE]"
-                onClick={handleLogout}
+                onClick={() => {
+                  setLogout(true)
+                }}
               >
                 Logout
                 <img
@@ -233,6 +235,10 @@ const Header = () => {
           </ul>
         </div>
       </div>
+      <Logout
+        logout={logout}
+        setLogout={setLogout}
+      />
     </header>
   )
 }
