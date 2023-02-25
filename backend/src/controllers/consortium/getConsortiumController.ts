@@ -11,6 +11,6 @@ export const getConsortium = async (req: Request, res: Response) => {
     const {status} = consortiumRetrieved;
       return res.status(status).json(consortiumRetrieved);
   } catch (error) {
-    return res.status(500).json({ ok:false, error});
+    return res.status(500).json({ ok: false, error});
   }
 };
