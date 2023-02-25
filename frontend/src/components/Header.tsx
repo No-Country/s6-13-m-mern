@@ -148,7 +148,7 @@ const Header = () => {
           <ul
             className={
               (isNavOpen ? '' : 'hidden ') +
-              ' w-[170px] h-auto absolute bg-white text-base z-50 float-left list-none text-left rounded-lg shadow-lg m-0 bg-clip-padding border-none'
+              ' sm:hidden w-[170px] h-auto absolute bg-white text-base z-50 float-left list-none text-left rounded-lg shadow-lg m-0 bg-clip-padding border-none'
             }
             aria-labelledby="dropdownMenuButton1d"
             onClick={() => {
@@ -157,8 +157,9 @@ const Header = () => {
           >
             <li className="">
               <Link
+              state={{ show: 'profile' }}
                 className="dropdown-item text-sm rounded-lg py-4 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-black hover:bg-[#DEDEDE]"
-                to={`${user?.role === 'admin' ? '/admin' : '/user'}`}
+                to={`${user?.role === 'admin' ? 'admin' : 'user'}`}
               >
                 Profile
               </Link>
@@ -167,7 +168,7 @@ const Header = () => {
               <li className="">
                 <Link
                   className="dropdown-item text-sm rounded-lg py-4 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-black hover:bg-[#DEDEDE]"
-                  to="admin/"
+                  to="admin"
                 >
                   My Consortia
                 </Link>
@@ -177,40 +178,36 @@ const Header = () => {
               <>
                 <li className="">
                   <Link
+                    state={{ show: 'information' }}
                     className="dropdown-item text-sm rounded-lg py-4 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-black hover:bg-[#DEDEDE]"
-                    to="user/notifications"
+                    to="user"
                   >
                     Information
                   </Link>
                 </li>
                 <li className="">
                   <Link
+                  state={{ show: 'payments' }}
                     className="dropdown-item text-sm rounded-lg py-4 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-black hover:bg-[#DEDEDE]"
-                    to="user/notifications"
+                    to="user"
                   >
                     My payments
                   </Link>
                 </li>
                 <li className="">
                   <Link
+                  state={{ show: 'amenities' }}
                     className="dropdown-item text-sm rounded-lg py-4 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-black hover:bg-[#DEDEDE]"
-                    to="user/notifications"
+                    to="user"
                   >
                     Amenities
                   </Link>
                 </li>
                 <li className="">
                   <Link
+                  state={{ show: 'complaint' }}
                     className="dropdown-item text-sm rounded-lg py-4 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-black hover:bg-[#DEDEDE]"
-                    to="user/notifications"
-                  >
-                    Create a Payment
-                  </Link>
-                </li>
-                <li className="">
-                  <Link
-                    className="dropdown-item text-sm rounded-lg py-4 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-black hover:bg-[#DEDEDE]"
-                    to="user/notifications"
+                    to="user"
                   >
                     Complaints
                   </Link>

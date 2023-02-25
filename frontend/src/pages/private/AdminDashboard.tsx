@@ -6,6 +6,7 @@ import EditConsortium from './admin/EditConsortium'
 import { userStore } from '../../store/user'
 import UserProfile from './user/UserProfileData'
 import Logout from '../../components/Logout'
+import Profile from './admin/Profile'
 
 const adminDashboard = () => {
   const user = userStore((state) => state.userData)
@@ -71,7 +72,7 @@ const adminDashboard = () => {
         />
       </Container>
           <div className="sm:hidden w-full h-full overflow-y-scroll no-scrollbar">
-            {menu === 'Profile' && <UserProfile />}
+            {menu === 'Profile' && <Profile />}
             {menu === 'My consortiums' && <MyConsortium setMenu={setMenu} />}
             {menu === 'Create consortium' && <CreateConsortium />}
             {menu === 'Edit consortium' && <EditConsortium />}
