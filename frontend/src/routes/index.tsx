@@ -23,6 +23,7 @@ import UserNotifications from '../pages/private/user/UserNotifications'
 import LayoutPrivateUser from '../components/layouPrivates/LayoutPrivateUser'
 import LayoutPrivateAdmin from '../components/layouPrivates/LayoutPrivateAdmin'
 import UnderConstruction from '../pages/UnderConstruction'
+import LayoutPrivateTenant from '../components/layouPrivates/LayoutPrivateTenant'
 
 export const router = createBrowserRouter([
   {
@@ -44,7 +45,11 @@ export const router = createBrowserRouter([
         children: [
           { index: true, element: <UserDashboard /> },
           { path: '/user/payments', element: <UserPayments /> },
-          { path: '/user/notifications', element: <UserNotifications /> },
+          {
+            path: '/user/notifications',
+            element: <LayoutPrivateTenant />,
+            children: [{ index: true, element: <UserNotifications /> }],
+          },
         ],
       },
       {

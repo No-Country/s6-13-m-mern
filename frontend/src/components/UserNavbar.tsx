@@ -1,12 +1,13 @@
 import { useState, useRef, useEffect } from 'react'
 import { userStore } from '../store/user'
 import { Link } from 'react-router-dom'
-import { useAuthStore } from '../store/auth'
+import Logout from './Logout'
 
 const defaultImg = '/assets/defaultUser.svg'
 
 const UserNavbar = () => {
   const [isUserOpen, setisUserOpen] = useState(false)
+  const [logout, setLogout] = useState(false)
 
   const refOne = useRef<HTMLDivElement>(null)
 
@@ -27,8 +28,6 @@ const UserNavbar = () => {
 
   const user = userStore((state) => state.userData)
 
-  const handleLogout = useAuthStore((state) => state.setLogout)
-
   return (
     <div>
       <div
@@ -45,9 +44,9 @@ const UserNavbar = () => {
               aria-expanded="false"
               onClick={handleOpenUser}
             >
-              <div className="rounded-full h-[60px] w-[60px] overflow-hidden border-2 border-white relative">
+              <div className="rounded-full h-[50px] w-[50px] overflow-hidden border-2 border-white relative">
                 <img
-                  className="object-cover h-[60px] min-w-full"
+                  className="object-cover h-[50px] min-w-full"
                   src={user?.img || defaultImg}
                   alt=""
                 />
@@ -72,25 +71,13 @@ const UserNavbar = () => {
             <ul
               className={
                 (isUserOpen ? '' : 'hidden ') +
-                'dropdown-menu w-[256px] mt-9 h-auto absolute right-[2%] bg-white text-base z-50 float-left list-none text-left rounded-lg shadow-lg m-0 bg-clip-padding border-none'
+                'dropdown-menu w-[256px] h-auto absolute right-[-10%] bg-white text-base z-50 float-left list-none text-left rounded-lg shadow-xl m-0 bg-clip-padding border-none'
               }
               aria-labelledby="dropdownMenuButton1d"
               onClick={() => {
                 setisUserOpen(false)
               }}
             >
-              <div className="absolute top-[-35px] right-[0]">
-                {/* <svg height="400" width="400"><polygon points="250,60 120,350 350,350" fill="brown" /></svg> */}
-                <svg
-                  height="50"
-                  width="50"
-                >
-                  <polygon
-                    points="25,6 12,35 35,35"
-                    fill="#002A61"
-                  />
-                </svg>
-              </div>
               <li className="">
                 <div className=" px-5 flex items-center gap-3 h-[95.52px] bg-blueDark">
                   <div className="rounded-full h-[60px] w-[60px] overflow-hidden border-2 border-white relative">
@@ -100,7 +87,7 @@ const UserNavbar = () => {
                       alt=""
                     />
                   </div>
-                  <p className="text-white">
+                  <p className="text-white text-lg font-bold pb-6">
                     {user?.name} {user?.lastname}
                   </p>
                 </div>
@@ -108,7 +95,7 @@ const UserNavbar = () => {
               {user?.role === 'tenant' && (
                 <li className="">
                   <Link
-                    className="dropdown-item text-sm rounded-lg py-4 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-black hover:bg-[#DEDEDE]"
+                    className="dropdown-item my-1 text-sm rounded-lg py-4 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-black hover:bg-[#DEDEDE]"
                     to="user/notifications"
                   >
                     Notifications
@@ -117,7 +104,7 @@ const UserNavbar = () => {
               )}
               <li className="">
                 <Link
-                  className="dropdown-item text-sm rounded-lg py-4 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-black hover:bg-[#DEDEDE]"
+                  className="dropdown-item my-1 text-sm rounded-lg py-4 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-black hover:bg-[#DEDEDE]"
                   to={`${user?.role === 'admin' ? '/admin' : '/user'}`}
                 >
                   Change Profile
@@ -126,8 +113,10 @@ const UserNavbar = () => {
               <hr className="h-0 my-2 border border-solid border-t-0 border-gray-700 opacity-25" />
               <li className="">
                 <button
-                  className=" dropdown-item text-sm text-start rounded-lg py-4 px-4 block w-full whitespace-nowrap bg-transparent text-blueDark font-[700] hover:bg-[#DEDEDE]"
-                  onClick={handleLogout}
+                  className=" dropdown-item my-1 text-sm text-start rounded-lg py-4 px-4 block w-full whitespace-nowrap bg-transparent text-blueDark font-[700] hover:bg-[#DEDEDE]"
+                  onClick={() => {
+                    setLogout(true)
+                  }}
                 >
                   Logout
                 </button>
@@ -136,6 +125,11 @@ const UserNavbar = () => {
           </div>
         </div>
       </div>
+
+      <Logout
+        logout={logout}
+        setLogout={setLogout}
+      />
     </div>
   )
 }

@@ -72,7 +72,7 @@ const Login = () => {
   })
 
   return (
-    <BackgroundImage imageUrl="/assets/oneBuild.svg">
+    <BackgroundImage imageUrl="https://res.cloudinary.com/dozwd1ssj/image/upload/v1677333255/Body_Foto_kfit97.png">
       {logError === 'invalid' && (
         <p className="absolute w-full h-8 px-8 bg-red rounded-b-sm border border-black text-lg font-sans text-white">
           The email address or password is incorrect. Please retry..
@@ -119,7 +119,7 @@ const Login = () => {
               <input
                 className={`border-2 ${
                   !errors.password ? 'border-blueDark' : 'border-red'
-                } rounded-lg h-12 px-4 mb-8 w-full placeholder:italic placeholder:text-grey bg-transparent focus:outline-none text-lg`}
+                } rounded-lg h-12 px-4 mb-1 w-full placeholder:italic placeholder:text-grey bg-transparent focus:outline-none text-lg`}
                 type="password"
                 placeholder="Enter your password"
                 {...register('password', {
@@ -127,6 +127,9 @@ const Login = () => {
                   pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
                 })}
               />
+              <Link to="/resetpassword">
+                <p className="text-end text-base mb-8">Forgot your password?</p>
+              </Link>
               <button
                 type="submit"
                 className="bg-blueDark disabled:opacity-60 text-white text-xl w-60 h-12 rounded-2xl block ml-auto mb-5"
@@ -135,6 +138,7 @@ const Login = () => {
                 {loading ? <PulseLoader color="white" /> : 'LOG IN'}
               </button>
             </form>
+
             <div className="flex justify-end ">
               <h3>Not a member? </h3>
               <Link
@@ -144,7 +148,7 @@ const Login = () => {
                 Sign In
               </Link>
             </div>
-            <h3 className="mb-5">Or continue with</h3>
+            <h3 className="mb-5 text-center">Or continue with</h3>
             <div className="flex justify-center">
               <button
                 className="mx-3"
@@ -157,7 +161,7 @@ const Login = () => {
                   alt=""
                 />
               </button>
-              <button className="mx-3">
+              {/* <button className="mx-3">
                 <img
                   src="/assets/social/Facebook.png"
                   alt=""
@@ -168,7 +172,7 @@ const Login = () => {
                   src="/assets/social/Twitter.png"
                   alt=""
                 />
-              </button>
+              </button> */}
             </div>
           </div>
         </div>

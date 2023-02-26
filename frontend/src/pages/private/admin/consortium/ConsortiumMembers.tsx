@@ -101,6 +101,8 @@ const ConsortiumMembers = () => {
           setModalOpen(false)
         }}
       >
+        <div className=' mx-6'>
+
         {selectedUser && deleteMode ? (
           <>
             <h2 className=" text-xl font-bold text-blueDark mb-7">
@@ -145,7 +147,7 @@ const ConsortiumMembers = () => {
                   // eslint-disable-next-line @typescript-eslint/no-floating-promises
                   handleAdd(selectedUser._id)
                 }}
-              >
+                >
                 {loading ? <PulseLoader color="white" /> : 'Add Member'}
               </button>
               <button
@@ -153,7 +155,7 @@ const ConsortiumMembers = () => {
                 onClick={() => {
                   setModalOpen(false)
                 }}
-              >
+                >
                 Cancel
               </button>
             </div>
@@ -177,12 +179,13 @@ const ConsortiumMembers = () => {
                 onClick={() => {
                   setModalOpen(false)
                 }}
-              >
+                >
                 Ok
               </button>
             </div>
           </>
         )}
+      </div>
       </WhiteModal>
       <BlueModal
         isOpen={confirmModal}
@@ -204,7 +207,7 @@ const ConsortiumMembers = () => {
           OK
         </button>
       </BlueModal>
-      <div className=" h-screen">
+      <div className=" h-screen mb-24">
         <h2 className=" text-[28px] font-bold text-blueDark mt-16 mb-8">Members</h2>
         <Autocomplete
           options={filteredUsers}

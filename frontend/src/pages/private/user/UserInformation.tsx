@@ -9,27 +9,7 @@ const UserInformation = () => {
       <h3 className="font-bold text-xl ml-11 mt-7">Information</h3>
       <div className=" px-14">
         <Accordion
-          title="Owner information"
-          index="1"
-          activeIndex={activeIndex}
-          setActiveIndex={setActiveIndex}
-        >
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. In illum magni et facere accusantium autem dicta,
-          omnis repellat reprehenderit sed doloribus culpa maxime, nam, numquam inventore hic temporibus aliquam
-          tenetur?
-        </Accordion>
-        <Accordion
-          title="Tenant information"
-          index="2"
-          activeIndex={activeIndex}
-          setActiveIndex={setActiveIndex}
-        >
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. In illum magni et facere accusantium autem dicta,
-          omnis repellat reprehenderit sed doloribus culpa maxime, nam, numquam inventore hic temporibus aliquam
-          tenetur?
-        </Accordion>
-        <Accordion
-          title="Comunity information"
+          title="Consortium information"
           index="3"
           activeIndex={activeIndex}
           setActiveIndex={setActiveIndex}
