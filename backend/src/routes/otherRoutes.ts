@@ -5,5 +5,6 @@ import { contactValidate } from '../middlewares'
 const router = Router()
 
 router.post('/sendEmail', contactValidate, snedMail)
+// router.post('/sendEmail', contactValidate, snedMail)
 
 export default router

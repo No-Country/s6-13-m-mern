@@ -166,6 +166,10 @@ const swaggerDefinition: OAS3Definition = {
                         type: 'string',
                         example: 'Calle Falsa 123',
                     },
+                    img: {
+                        type: 'string',
+                        example: 'www.urlImagen.com',
+                    },
                     users: {
                         type: 'array',
                         items: {
@@ -192,6 +196,12 @@ const swaggerDefinition: OAS3Definition = {
                         type: 'array',
                         items: {
                             $ref: '#/components/schemas/Amenity',
+                        },
+                    },
+                    payments: {
+                        type: 'array',
+                        items: {
+                            $ref: '#/components/schemas/Payment',
                         },
                     },
                 },
@@ -406,7 +416,7 @@ const swaggerDefinition: OAS3Definition = {
         '/api/consortium/get/{id}': getConsortium,
 
         //* Add user to consortium
-        '/api/consortium/add/{consortiumId}/{userId}': addUserConsortium,
+        '/api/consortium/addUser/{consortiumId}/{userId}': addUserConsortium,
 
         //* Add amenity to consortium
         '/api/consortium/add/{consortiumId}/{amenityId]': addAmenityConsortium,
@@ -415,7 +425,8 @@ const swaggerDefinition: OAS3Definition = {
         '/api/consortium/delete/{consortiumId}': deleteConsortium,
 
         //* Remove user from consortium
-        '/api/consortium/delete/{consortiumId}/{userID}': deleteUserConsortium,
+        '/api/consortium/removeUser/{consortiumId}/{userID}':
+            deleteUserConsortium,
 
         // *-----------------------------Api payment Routes-----------------------------------------------------------
 
