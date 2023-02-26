@@ -6,3 +6,10 @@ export interface PaymentsValues {
   method: string
   status: string
 }
+
+export interface PaymentData {
+  note: string
+  ammount: string
+  paymentMethod: string
+  image: string | null
+}
