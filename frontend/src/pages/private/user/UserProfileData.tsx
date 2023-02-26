@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { userStore } from '../../../store/user'
 import UserEditProfile from '../EditProfileDashboard'
+import { useAuthStore } from '../../../store/auth'
+import removeMembersService from '../../../services/removeMemberService'
 
 const defaultImg = '/assets/defaultUser.svg'
 
@@ -8,6 +10,17 @@ const UserProfile = () => {
   const [edit, setEdit] = useState(false)
   const user = userStore((state) => state.userData)
   console.log(user)
+
+  const userId = useAuthStore((state) => state.id)
+  const consortiumId = user?.consortium?.find(() => true)?._id
+  const handleDelete = async () => {
+    console.log(userId, consortiumId)
+
+    if (userId && consortiumId) {
+      await removeMembersService(consortiumId, userId)
+      console.log('ok')
+    }
+  }
 
   return (
     <div className="hidden sm:inline">
@@ -39,6 +52,8 @@ const UserProfile = () => {
             <p className=" my-6">{user?.phone}</p>
             <p className=" my-6">Piso|Dto: {user?.apt}</p>
           </div>
+
+          <button onClick={handleDelete}>delete</button>
         </>
       ) : (
         <UserEditProfile setEdit={setEdit} />
