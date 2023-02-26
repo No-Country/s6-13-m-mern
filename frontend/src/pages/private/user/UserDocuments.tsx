@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { SearchBar } from '../../../components/SearchBar'
 import { TitleComponents } from '../../../components/TitleComponents'
-import UserCreatePayments from '../user/createPayment/UserCreatePayments'
+import UserCreatePayments from './UserCreatePayments'
 
 const documents = [
   {

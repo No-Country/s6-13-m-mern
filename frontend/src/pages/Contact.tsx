@@ -2,7 +2,7 @@ import Container from '../components/Container'
 import { useForm, type SubmitHandler } from 'react-hook-form'
 import { useState } from 'react'
 import { PulseLoader } from 'react-spinners'
-import { EmailValues } from '../interfaces/emailIntefaces'
+import { EmailValues } from '../interfaces/emailInterfaces'
 import emailService from '../services/emailService'
 
 const Contact = () => {

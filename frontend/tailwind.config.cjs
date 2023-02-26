@@ -52,6 +52,10 @@ module.exports = {
           '0%': { transform: 'scale(1) translate(0, 0)', transformOrigin: '84% 50%' },
           '100%': { transform: 'scale(1.25) translateX(20px)', transformOrigin: 'right' },
         },
+        rotation: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
         slideInBlurredBottom: {
           '0%': {
             transform: 'translateY(1000px) scaleY(2.5) scaleX(0.2)',
@@ -64,6 +68,26 @@ module.exports = {
             transformOrigin: '50% 50%',
             filter: 'blur(0)',
             opacity: '1',
+          },
+        },
+        slideInFwdCenter: {
+          '0%': {
+            transform: 'translateZ(-1400px)',
+            opacity: '0',
+          },
+          '100%': {
+            transform: 'translateZ(0)',
+            opacity: '1',
+          }
+        },
+        slideOutLeft: {
+          '0%': {
+            transform: 'translateX(0)',
+            opacity: '1',
+          },
+          '100%': {
+            transform: 'translateX(-1000px)',
+            opacity: '0',
           },
         },
         swingInTop: {
@@ -89,7 +113,10 @@ module.exports = {
         fadeInBottom: 'fadeInBottom 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000)',
         kenburnsRight: 'kenburnsRight 5s ease-out both',
         write: 'write 0.8s steps(30) 0.2s',
+        rotation: 'rotation 2s linear infinite',
         slideInBlurredBottom: 'slideInBlurredBottom 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000)',
+        slideInFwdCenter: 'slideInFwdCenter 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940)',
+        slideOutLeft: 'slideOutLeft 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both',
         swingInTop: 'swingInTop 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both',
         jelloHorizontal: 'jelloHorizontal 0.9s both 1s',
       },
