@@ -11,5 +11,7 @@ export interface IResponse {
     id?: ObjectId
     user?: User
     consortiumRetrieved?: Consortium
+    consortium?: Consortium
     payment?: Payment
+    error?: any
 }
