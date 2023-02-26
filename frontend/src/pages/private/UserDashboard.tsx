@@ -8,6 +8,7 @@ import UserProfileData from './user/UserProfileData'
 import UserDocuments from './user/UserDocuments'
 import Logout from '../../components/Logout'
 import { useLocation } from 'react-router-dom'
+import Profile from './admin/MobileProfile'
 
 const defaultImg = '/assets/defaultUser.svg'
 
@@ -27,7 +28,7 @@ const UserDashboard = () => {
 
   return (
     <HeroUser>
-      <div className=" w-full h-fit px-10">
+      <div className="hidden sm:inline w-full h-fit px-10">
         <div className="flex min-h-[560px] pt-12 justify-center">
           <div className=" hidden sm:inline bg-[#BFD5FF] bg-opacity-70 min-w-[200px] lg:min-w-[268px] border-2 border-black rounded-lg p-5 relative">
             <div className="lg:flex mt-5 mb-3 lg:mb-10 text-center ">
@@ -151,6 +152,12 @@ const UserDashboard = () => {
         logout={logout}
         setLogout={setLogout}
       />
+      <div className="sm:hidden w-full h-full overflow-y-scroll no-scrollbar">
+        {menu === 'profile' && <Profile />} {menu === 'information' && <UserInformation />}
+        {menu === 'amenities' && <UserAmenities />}
+        {menu === 'complaint' && <UserComplaints />}
+        {menu === 'payments' && <UserDocuments />}
+      </div>
     </HeroUser>
   )
 }
