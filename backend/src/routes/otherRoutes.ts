@@ -1,10 +1,14 @@
 import { Router } from 'express'
-import { snedMail } from '../controllers'
-import { contactValidate } from '../middlewares'
+import { sendContraint, snedMail } from '../controllers'
+import {
+    constraintValidate,
+    contactValidate,
+    validateToken,
+} from '../middlewares'
 
 const router = Router()
 
 router.post('/sendEmail', contactValidate, snedMail)
-// router.post('/sendEmail', contactValidate, snedMail)
+router.post('/sendConstraint', validateToken, constraintValidate, sendContraint)
 
 export default router
