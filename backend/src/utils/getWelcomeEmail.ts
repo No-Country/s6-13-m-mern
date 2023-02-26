@@ -577,7 +577,7 @@ const getWelcomeEmail = (name: string, lastname: string, link: string) => {
                     
                     <td valign="top" class="mcnTextContent" style="padding: 0px 18px 9px;color: #002A61;font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;font-size: 16px;">
                     
-                        <h3 style="text-align: center;"><span style="color:#004AAD"><strong><span style="font-size:24px"><span style="font-family:open sans,helvetica neue,helvetica,arial,sans-serif">Welcome&nbsp;${name}" "${lastname} to&nbsp;S.O.S Consortia!!</span></span></strong></span></h3>
+                        <h3 style="text-align: center;"><span style="color:#004AAD"><strong><span style="font-size:24px"><span style="font-family:open sans,helvetica neue,helvetica,arial,sans-serif">Welcome&nbsp;${name} ${lastname} to&nbsp;S.O.S Consortia!!</span></span></strong></span></h3>
 
 <p style="color: #002A61;font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;font-size: 16px;"><span style="color:#002A61">Thanks for register in Consortia.You have&nbsp;to validate your account clicking the button below. Then ask&nbsp;your administrator to add you to the consortium you belong to. When you are added you will be able to see the information on your dashboard.</span><br>
 &nbsp;</p>
