@@ -107,11 +107,11 @@ const UserDashboard = () => {
                     Amenities
                   </button>
                 </div>
-                <div className={`block ${menu === 'complaints' ? 'font-bold bg-[#EFF6FF] rounded-md' : ''}`}>
+                <div className={`block ${menu === 'complaint' ? 'font-bold bg-[#EFF6FF] rounded-md' : ''}`}>
                   <button
                     className="flex items-center py-3"
                     onClick={() => {
-                      setMenu('complaints')
+                      setMenu('complaint')
                     }}
                   >
                     <img

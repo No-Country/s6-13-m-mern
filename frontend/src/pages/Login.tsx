@@ -72,7 +72,7 @@ const Login = () => {
   })
 
   return (
-    <BackgroundImage imageUrl="/assets/oneBuild.svg">
+    <BackgroundImage imageUrl="https://res.cloudinary.com/dozwd1ssj/image/upload/v1677333255/Body_Foto_kfit97.png">
       {logError === 'invalid' && (
         <p className="absolute w-full h-8 px-8 bg-red rounded-b-sm border border-black text-lg font-sans text-white">
           The email address or password is incorrect. Please retry..
