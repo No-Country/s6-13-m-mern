@@ -10,7 +10,7 @@ const UserProfile = () => {
   console.log(user)
 
   return (
-    <div>
+    <div className="hidden sm:inline">
       {!edit ? (
         <>
           <div className="flex font-bold text-xl text-blueDark ml-11 mt-7">
@@ -37,7 +37,7 @@ const UserProfile = () => {
             </p>
             <p className=" my-6">{user?.email}</p>
             <p className=" my-6">{user?.phone}</p>
-            <p className=" my-6">{user?.consortium?.map((cons) => cons.address)}</p>
+            <p className=" my-6">Piso|Dto: {user?.apt}</p>
           </div>
         </>
       ) : (
