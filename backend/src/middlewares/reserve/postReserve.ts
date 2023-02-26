@@ -28,6 +28,6 @@ export const postReserve = [
     if (!errors.isEmpty()) {
         return res.status(403).json({ ok: false, error: errors.array() })
     }
-    next();
+    return next();
 },
 ]
