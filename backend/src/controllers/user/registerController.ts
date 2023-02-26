@@ -3,6 +3,7 @@ import { IResponse } from '../../interfaces'
 import { registerService } from '../../services'
 import { jwtGenerate } from '../../utils'
 import { sendMail } from '../../utils/sendMail'
+import getWelcomeEmail from '../../utils/getWelcomeEmail'
 
 export const registerController = async (req: Request, res: Response) => {
     const { name, lastname, email, password, phone } = req.body
@@ -27,7 +28,7 @@ export const registerController = async (req: Request, res: Response) => {
             // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
         }/validateAccount/${user._id}/${userToken}`
         const subject: string = 'Active account'
-        const message: string = `<p>Click the link below to active your account <a href="${url}">LINK</a></p>`
+        const message: string = getWelcomeEmail(user.name, user.lastname, url)
         await sendMail(email, subject, message)
 
         user.token = userToken
