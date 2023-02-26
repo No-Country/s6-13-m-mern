@@ -20,7 +20,7 @@ const BlueModal = (props: ModalType) => {
             }}
             className="relative w-fit h-fit pointer-events-none"
           >
-            <div className=" w-[530px] border-2 border-black shadow-lg relative block flex-col pointer-events-auto bg-blueDark bg-clip-padding rounded-2xl outline-none text-current text-center text-lg">
+            <div className=" w-[530px] border border-black shadow-lg relative block flex-col pointer-events-auto bg-blueDark bg-clip-padding rounded-2xl outline-none text-current text-center text-lg">
               <div className="modal-body relative p-4 text-white my-6">{props.children}</div>
             </div>
           </div>

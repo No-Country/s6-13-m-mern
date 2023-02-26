@@ -17,7 +17,7 @@ const Logout = ({ logout, setLogout }: Props) => {
           handleLogout()
           setLogout(false)
         }}
-        className="bg-blue text-white text-lg w-20 rounded-2xl mt-6 mx-4 border-[1.5px] border-black h-[29px]"
+        className="bg-blue text-white text-lg w-20 rounded-2xl mt-6 mx-4 h-[29px]"
       >
         YES
       </button>
@@ -25,7 +25,7 @@ const Logout = ({ logout, setLogout }: Props) => {
         onClick={() => {
           setLogout(false)
         }}
-        className=" bg-blueDark text-white text-lg w-20 rounded-2xl mt-6 mx-4 border-[1.5px] border-black h-[29px]"
+        className=" bg-blueDark text-white text-lg w-20 rounded-2xl mt-6 mx-4 border-[1.5px] border-blue h-[29px]"
       >
         NO
       </button>

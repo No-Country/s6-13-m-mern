@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link/*, useLocation */ } from 'react-router-dom'
 import UserNavbar from './UserNavbar'
 import { useAuthStore } from '../store/auth'
 import { userStore } from '../store/user'
@@ -16,6 +16,10 @@ const Header = () => {
   const userId = useAuthStore((state) => state.id)
   const setUser = userStore((state) => state.setData)
   const user = userStore((state) => state.userData)
+
+  /* const location = useLocation()
+  const path = location.pathname
+  const showNav = path.substring(0, 5) === '/user' || path.substring(0, 6) === '/admin' */
 
   const { headerTitle } = Titles()
 
@@ -56,6 +60,7 @@ const Header = () => {
   }
 
   return (
+    // <header className={`${!showNav ? 'hidden sm:inline' : ''}`}>
     <header>
       <div className="bg-blueDark fixed z-50 w-full">
         <nav className=" h-[60px] sm:h-20 flex flex-wrap items-center justify-between md:justify-around w-full px-3 text-[15px] xl:w-[1200px] xl:mx-auto ">
@@ -157,7 +162,7 @@ const Header = () => {
           >
             <li className="">
               <Link
-              state={{ show: 'profile' }}
+                state={{ show: 'profile' }}
                 className="dropdown-item text-sm rounded-lg py-4 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-black hover:bg-[#DEDEDE]"
                 to={`${user?.role === 'admin' ? 'admin' : 'user'}`}
               >
@@ -187,7 +192,7 @@ const Header = () => {
                 </li>
                 <li className="">
                   <Link
-                  state={{ show: 'payments' }}
+                    state={{ show: 'payments' }}
                     className="dropdown-item text-sm rounded-lg py-4 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-black hover:bg-[#DEDEDE]"
                     to="user"
                   >
@@ -196,7 +201,7 @@ const Header = () => {
                 </li>
                 <li className="">
                   <Link
-                  state={{ show: 'amenities' }}
+                    state={{ show: 'amenities' }}
                     className="dropdown-item text-sm rounded-lg py-4 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-black hover:bg-[#DEDEDE]"
                     to="user"
                   >
@@ -205,7 +210,7 @@ const Header = () => {
                 </li>
                 <li className="">
                   <Link
-                  state={{ show: 'complaint' }}
+                    state={{ show: 'complaint' }}
                     className="dropdown-item text-sm rounded-lg py-4 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-black hover:bg-[#DEDEDE]"
                     to="user"
                   >
