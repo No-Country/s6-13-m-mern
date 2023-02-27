@@ -39,6 +39,7 @@ import {
     addAmenityConsortium,
     deleteConsortium,
     deleteUserConsortium,
+    editConsortium,
 } from './consortiumRoutes'
 import {
     changePaymentStatus,
@@ -421,8 +422,11 @@ const swaggerDefinition: OAS3Definition = {
         //* Add amenity to consortium
         '/api/consortium/add/{consortiumId}/{amenityId]': addAmenityConsortium,
 
+        //* Edit consortium
+        '/api/consortium/editConsortium/{consortiumId}/{id}': editConsortium,
+
         //* Delete consortium
-        '/api/consortium/delete/{consortiumId}': deleteConsortium,
+        '/api/consortium/delete/{consortiumId}/{id}': deleteConsortium,
 
         //* Remove user from consortium
         '/api/consortium/removeUser/{consortiumId}/{userID}':

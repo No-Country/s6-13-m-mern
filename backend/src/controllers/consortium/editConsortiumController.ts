@@ -2,8 +2,9 @@ import { Request, Response } from 'express'
 import { IResponse } from '../../interfaces'
 import { getConsortiumService } from '../../services'
 
-export const deleteConsortium = async (req: Request, res: Response) => {
+export const editConsortiumController = async (req: Request, res: Response) => {
     const { consortiumId, id } = req.params
+    const { name, floor, address, apt, amenities } = req.body
 
     try {
         const { ok, status, consortium } = (await getConsortiumService(
@@ -22,11 +23,16 @@ export const deleteConsortium = async (req: Request, res: Response) => {
                 .json({ ok: false, msg: 'User is not the consortium admin' })
         }
 
-        consortium.status = 'disabled'
+        consortium.name = name
+        consortium.address = address
+        consortium.floor = floor
+        consortium.apt = apt
+        consortium.amenities = amenities
         await consortium.save()
 
-        return res.status(status).json({ ok, msg: 'Consortium deleted' })
-    } catch (error: any) {
-        return res.status(400).json({ error: error.message })
+        return res.status(status).json({ ok, msg: 'Consortium Edited' })
+    } catch (error) {
+        console.log(error)
+        return error
     }
 }
