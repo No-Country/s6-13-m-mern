@@ -10,11 +10,11 @@ export const putAmenityService = async(id: string, body: IAmenity) => {
   )
 
   if(amenityUpdate){
-    const { name, description, reservable, size, schedule } = amenityUpdate
+    const { name, description, reservable, size, img } = amenityUpdate
     const response = {
       status: 200,
       msg: 'Amenity actualizada con exito',
-      amenity: { name, description, reservable, size, schedule },
+      amenity: { name, description, reservable, size, img },
       ok: true
     }
     return response
