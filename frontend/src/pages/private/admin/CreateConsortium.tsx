@@ -93,7 +93,7 @@ const CreateConsortium = () => {
             <div className="bg-blue bg-opacity-20 w-[880px] border-[2.5px] border-black rounded-lg mt-[50px] h-[560px] overflow-visible no-scrollbar">
               <div className='grid grid-flow-col w-full mt-10 justify-around items-center'>
                 <div className='self-start'>
-                  <BackTitleComponent title="Create Consortium" navigateTo='/' />
+                  <BackTitleComponent title="Create Consortium" navigateTo='/admin/consortium' />
                   <img className='rounded-md mt-10 ml-10 border-2 border-black' src="https://res.cloudinary.com/dozwd1ssj/image/upload/v1677111896/bild-sky_owpyai.png" alt="" />
                 </div>
                 <div>
