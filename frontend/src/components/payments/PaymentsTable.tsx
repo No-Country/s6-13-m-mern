@@ -43,6 +43,7 @@ const PaymentsTable = ({ data, setData, dataToCompare, filterValue, setIsDataMod
   }
 
   const sortedData = (data: PaymentsValues[]) => {
+    if (data.length === 0) return []
     return data.sort((a, b) => {
       const statusOrder = ['pending', 'denied', 'validated']
       return statusOrder.indexOf(a.pStatus) - statusOrder.indexOf(b.pStatus)
@@ -64,44 +65,48 @@ const PaymentsTable = ({ data, setData, dataToCompare, filterValue, setIsDataMod
         </tr>
       </thead>
       <tbody>
-        {sortedData(data)
-          .filter((row) => row.user.name.toLocaleLowerCase().includes(filterValue.toLowerCase()))
-          .map((row: PaymentsValues, index: number) => (
-            <tr
-              key={row._id}
-              className={`${index !== data.length - 1 ? 'border-b-[1px] border-greyLight' : ''}`}
-            >
-              <td className="pt-5 py-2">{row.user.name}</td>
-              <td className="pt-5 py-2 text-blue">
-                <a
-                  target="_blank"
-                  href={row.image}
-                  className="underline decoration-1 hover:text-violet ease-out duration-300"
-                  rel="noreferrer"
-                >
-                  {row.image.split('/')[row.image.split('/').length - 1]}
-                </a>
-              </td>
-              <td className="pt-5 py-2">{row.ammount}</td>
-              <td className="pt-5 py-2">{row.paymentMethod}</td>
-
-              <td
-                className="pt-5 py-2"
+        {data.length === 0 ? (
+          <h3>There are no payments to display</h3>
+        ) : (
+          sortedData(data)
+            .filter((row) => row.user.name.toLocaleLowerCase().includes(filterValue.toLowerCase()))
+            .map((row: PaymentsValues, index: number) => (
+              <tr
                 key={row._id}
+                className={`${index !== data.length - 1 ? 'border-b-[1px] border-greyLight' : ''}`}
               >
-                <select
-                  onChange={(e) => {
-                    selectOption(e, index)
-                  }}
-                  value={row.pStatus}
+                <td className="pt-5 py-2">{row.user.name}</td>
+                <td className="pt-5 py-2 text-blue">
+                  <a
+                    target="_blank"
+                    href={row.image}
+                    className="underline decoration-1 hover:text-violet ease-out duration-300"
+                    rel="noreferrer"
+                  >
+                    {row.image.split('/')[row.image.split('/').length - 1]}
+                  </a>
+                </td>
+                <td className="pt-5 py-2">{row.ammount}</td>
+                <td className="pt-5 py-2">{row.paymentMethod}</td>
+
+                <td
+                  className="pt-5 py-2"
+                  key={row._id}
                 >
-                  <option value="pending">Pending</option>
-                  <option value="denied">Denied</option>
-                  <option value="validated">Validated</option>
-                </select>
-              </td>
-            </tr>
-          ))}
+                  <select
+                    onChange={(e) => {
+                      selectOption(e, index)
+                    }}
+                    value={row.pStatus}
+                  >
+                    <option value="pending">Pending</option>
+                    <option value="denied">Denied</option>
+                    <option value="validated">Validated</option>
+                  </select>
+                </td>
+              </tr>
+            ))
+        )}
       </tbody>
     </table>
   )
