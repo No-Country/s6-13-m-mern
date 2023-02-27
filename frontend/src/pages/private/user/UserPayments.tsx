@@ -1,17 +1,26 @@
 import { useEffect, useState } from 'react'
 import { SearchBar } from '../../../components/SearchBar'
 import { TitleComponents } from '../../../components/TitleComponents'
-import getUserPayments from '../../../services/getUserPaymentsService'
+import getUserPaymentsService from '../../../services/getUserPaymentsService'
 import { useAuthStore } from '../../../store/auth'
 import { convertDate } from '../../../utils/dateUtils'
 import UserCreatePayments from './UserCreatePayments'
+
+interface UserData {
+  _id: string
+  name: string
+  lastname: string
+  email: string
+  img: string
+  phone: string
+}
 
 interface PaymentsValues {
   _id: string
   creationDate: string
   pStatus: string
   note: string
-  user: string
+  user: UserData
   ammount: string
   paymentMethod: string
   image: string
@@ -35,7 +44,7 @@ const UserDocuments = () => {
   const getPayments = (id: string) => {
     console.log(id)
     if (id) {
-      getUserPayments(id)
+      getUserPaymentsService(id)
         .then((response) => {
           setData(response)
           setLoadingPayments(false)
@@ -137,7 +146,7 @@ const UserDocuments = () => {
                   src="../assets/Pdf.svg"
                   className="w-[32px]"
                 />
-                <p>{document.user}</p>
+                <p>{document.user.name}</p>
               </a>
             ))}
           </div>

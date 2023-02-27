@@ -1,9 +1,8 @@
 import { AxiosError } from 'axios'
 import axios from '../axios/axiosInstance'
 
-const getConsortiumPaymentsService = async (id: string) => {
+const getUserPaymentsService = async (id: string) => {
   try {
-    console.log('ID: ---- ', id)
     const res = await axios.get(`/api/payment/getUserPayments/${id}`)
     return res.data.payments
   } catch (error) {
@@ -12,4 +11,4 @@ const getConsortiumPaymentsService = async (id: string) => {
   }
 }
 
-export default getConsortiumPaymentsService
+export default getUserPaymentsService
