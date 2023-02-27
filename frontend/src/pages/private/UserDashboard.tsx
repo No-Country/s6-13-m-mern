@@ -30,23 +30,23 @@ const UserDashboard = () => {
     <HeroUser>
       <div className="hidden sm:inline w-full h-fit px-10">
         <div className="flex min-h-[560px] pt-12 justify-center">
-          <div className=" hidden sm:inline bg-[#BFD5FF] bg-opacity-70 min-w-[200px] lg:min-w-[268px] border-2 border-black rounded-lg p-5 relative">
+          <div className="hidden sm:inline bg-[#BFD5FF] bg-opacity-70 min-w-[100px] lg:min-w-[268px] border-2 border-black rounded-lg p-5 relative">
             <div className="lg:flex mt-5 mb-3 lg:mb-10 text-center ">
-              <div className="rounded-full h-[90px] w-[90px] overflow-hidden border-2 border-black relative mx-auto">
+              <div className="rounded-full h-[65px] lg:h-[90px] w-[65px] lg:w-[90px] overflow-hidden border-2 border-black relative mx-auto">
                 <img
-                  className="object-cover h-[90px] min-w-full"
+                  className="object-cover h-full lg:h-[90px] min-w-full"
                   src={user?.img || defaultImg}
                   alt=""
                 />
               </div>
-              <div className="text-base text-center mx-auto">
+              <div className="hidden lg:inline text-base text-center mx-auto">
                 <p className=" font-bold">
                   {user?.name} {user?.lastname}
                 </p>
                 {user?.role === 'tenant' && <p>Owner</p>}
               </div>
             </div>
-            <div className={`block ${menu === 'profile' ? 'font-bold bg-[#EFF6FF] rounded-md' : ''}`}>
+            <div className={`block ${menu === 'profile' ? 'font-bold lg:bg-[#EFF6FF] rounded-md' : ''}`}>
               <button
                 className="flex items-center py-3"
                 onClick={() => {
@@ -56,14 +56,14 @@ const UserDashboard = () => {
                 <img
                   src="/assets/icons/Person.svg"
                   alt=""
-                  className=" h-5 mx-2"
+                  className="h-5 mx-4 lg:mx-2"
                 />
-                My profile
+                <span className="hidden lg:inline">My Profile</span>
               </button>
             </div>
             {user?.role === 'tenant' && (
               <>
-                <div className={`block ${menu === 'information' ? 'font-bold bg-[#EFF6FF] rounded-md' : ''}`}>
+                <div className={`block ${menu === 'information' ? 'font-bold lg:bg-[#EFF6FF] rounded-md' : ''}`}>
                   <button
                     className="flex items-center py-3"
                     onClick={() => {
@@ -73,12 +73,12 @@ const UserDashboard = () => {
                     <img
                       src="/assets/icons/Info.svg"
                       alt=""
-                      className=" h-5 mx-2"
+                      className="h-5 mx-4 lg:mx-2"
                     />
-                    Information
+                    <span className="hidden lg:inline">Information</span>
                   </button>
                 </div>
-                <div className={`block ${menu === 'payments' ? 'font-bold bg-[#EFF6FF] rounded-md' : ''}`}>
+                <div className={`block ${menu === 'payments' ? 'font-bold lg:bg-[#EFF6FF] rounded-md' : ''}`}>
                   <button
                     className="flex items-center py-3"
                     onClick={() => {
@@ -88,12 +88,12 @@ const UserDashboard = () => {
                     <img
                       src="/assets/icons/Payments.svg"
                       alt=""
-                      className=" h-5 mx-2"
+                      className="h-5 mx-4 lg:mx-2"
                     />
-                    My Payments
+                    <span className="hidden lg:inline">My Payments</span>
                   </button>
                 </div>
-                <div className={`block ${menu === 'amenities' ? 'font-bold bg-[#EFF6FF] rounded-md' : ''}`}>
+                <div className={`block ${menu === 'amenities' ? 'font-bold lg:bg-[#EFF6FF] rounded-md' : ''}`}>
                   <button
                     className="flex items-center py-3"
                     onClick={() => {
@@ -103,12 +103,12 @@ const UserDashboard = () => {
                     <img
                       src="/assets/icons/Amenities.svg"
                       alt=""
-                      className=" h-5 mx-2"
+                      className="h-5 mx-4 lg:mx-2"
                     />
-                    Amenities
+                    <span className="hidden lg:inline">Ameneties</span>
                   </button>
                 </div>
-                <div className={`block ${menu === 'complaint' ? 'font-bold bg-[#EFF6FF] rounded-md' : ''}`}>
+                <div className={`block ${menu === 'complaint' ? 'font-bold lg:bg-[#EFF6FF] rounded-md' : ''}`}>
                   <button
                     className="flex items-center py-3"
                     onClick={() => {
@@ -118,9 +118,9 @@ const UserDashboard = () => {
                     <img
                       src="/assets/icons/Complaints.svg"
                       alt=""
-                      className=" h-5 mx-2"
+                      className="h-5 mx-4 lg:mx-2"
                     />
-                    Complaints
+                    <span className="hidden lg:inline">Complaints</span>
                   </button>
                 </div>
               </>
@@ -134,9 +134,9 @@ const UserDashboard = () => {
               <img
                 src="/assets/icons/Logout2.svg"
                 alt=""
-                className=" h-5 mx-2"
+                className="h-5 mx-4 lg:mx-2"
               />
-              Logout
+              <span className="hidden lg:inline">Logout</span>
             </button>
           </div>
           <div className="bg-[#B4CAE7] bg-opacity-50 w-[880px] border border-black rounded-lg  pb-6">
