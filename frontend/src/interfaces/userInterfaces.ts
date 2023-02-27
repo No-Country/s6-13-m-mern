@@ -25,6 +25,8 @@ interface Admin {
   lastname: string
   name: string
   _id: string
+  img: string
+  phone: string
 }
 
 export interface IResponseUser {

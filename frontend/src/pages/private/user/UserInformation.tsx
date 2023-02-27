@@ -21,12 +21,14 @@ const UserInformation = () => {
           setActiveIndex={setActiveIndex}
         >
           <div className="flex justify-around">
-            <h4>
-              <b>Name:</b> {consortium?.name}
-            </h4>
-            <h4>
-              <b>Address:</b> {consortium?.address}
-            </h4>
+            <div>
+              <h4>
+                <b>Name:</b> {consortium?.name}
+              </h4>
+              <h4>
+                <b>Address:</b> {consortium?.address}
+              </h4>
+            </div>
             <img
               src={consortium?.img}
               alt=""
@@ -40,8 +42,25 @@ const UserInformation = () => {
           activeIndex={activeIndex}
           setActiveIndex={setActiveIndex}
         >
-          <h4><b>Name:</b> {admin?.name} {admin?.lastname}</h4>
-          <h4><b>Email:</b> {admin?.email}</h4>
+          <div className="flex justify-around">
+            <div>
+              <h4>
+                <b>Name:</b> {admin?.name} {admin?.lastname}
+              </h4>
+              <h4>
+                <b>Email:</b> {admin?.email}
+              </h4>
+              <h4>
+                <b>Phone:</b> {admin?.phone}
+              </h4>
+            </div>
+            <div className=" w-20">
+              <img
+                src={admin?.img}
+                alt=""
+              />
+            </div>
+          </div>
         </Accordion>
       </div>
     </div>
