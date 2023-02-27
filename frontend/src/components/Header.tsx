@@ -172,6 +172,7 @@ const Header = () => {
             {user?.role === 'admin' && (
               <li className="">
                 <Link
+                  state={{ show: 'My consortiums' }}
                   className="dropdown-item text-sm rounded-lg py-4 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-black hover:bg-[#DEDEDE]"
                   to="admin"
                 >
