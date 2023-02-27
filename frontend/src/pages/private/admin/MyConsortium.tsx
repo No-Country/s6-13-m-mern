@@ -38,7 +38,7 @@ const MyConsortium = ({ setMenu }: Props) => {
               alt="card"
             />
             <span className="text-lg text-center font-bold absolute bottom-1 w-full border-t-2 border-black bg-slate-300 bg-opacity-30">
-              {consortium.address}
+              {consortium.name}
             </span>
           </Link>
         ))}

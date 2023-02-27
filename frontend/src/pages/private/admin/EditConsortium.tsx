@@ -45,7 +45,7 @@ const EditConsortium = () => {
   } = useForm<FormValues>({ mode: 'onTouched' })
 
   useEffect(() => {
-    ;(async () => {
+    (async () => {
       const amenitiesCont: AmenitiesListInt[] = []
 
       const res = (await getUserByIdService(userId)) as IResponseUser
@@ -86,7 +86,7 @@ const EditConsortium = () => {
   const { id } = useParams<{ id: string }>()
   const handleDelete = async () => {
     if (id) {
-      const res = await deleteConsortiumService(id)
+      const res = await deleteConsortiumService(id, userId)
       console.log(res)
 
       console.log('deleted')
@@ -120,7 +120,6 @@ const EditConsortium = () => {
       <section className="pb-32">
         <Container>
           <div className="flex gap-7">
-            <div className="bg-blue bg-opacity-20 w-[880px] border-[2.5px] border-black rounded-lg mt-[50px] h-[560px] overflow-visible no-scrollbar">
               <div className="grid grid-flow-col w-full mt-10 justify-around items-center">
                 <div className="self-start">
                   <BackTitleComponent
@@ -220,8 +219,12 @@ const EditConsortium = () => {
                 </div>
               </div>
             </div>
-          </div>
-          <button onClick={handleDelete}>delete</button>
+          <button
+            className=" mt-10 text-center text-white rounded-md px-10 py-3 bg-blueDark"
+            onClick={handleDelete}
+          >
+            Delete Consortium
+          </button>
         </Container>
       </section>
     </>

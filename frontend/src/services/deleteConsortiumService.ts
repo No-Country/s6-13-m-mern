@@ -1,8 +1,8 @@
 import axios from '../axios/axiosInstance'
 
-export const deleteConsortiumService = async (id: string) => {
+export const deleteConsortiumService = async (consortiumId: string, userId: string) => {
   try {
-    const res = await axios.delete(`api/consortium/delete/${id}`)
+    const res = await axios.delete(`api/consortium/delete/${consortiumId}/${userId}`)
     return res
   } catch (err) {
     console.log(err)

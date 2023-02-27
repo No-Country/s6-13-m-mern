@@ -1,14 +1,14 @@
 import { useState } from 'react'
 import Accordion from '../../../components/Accordion'
 import { userStore } from '../../../store/user'
-import { useConsortiumStore } from '../../../store/consortium'
 
 const UserInformation = () => {
   const [activeIndex, setActiveIndex] = useState('')
 
   const user = userStore((state) => state.userData)
   const consortium = user?.consortium?.find(() => true)
-  console.log(consortium)
+  const admin = user?.consortium?.find(() => true)?.admin
+  console.log(user)
 
   return (
     <div>
@@ -21,9 +21,17 @@ const UserInformation = () => {
           setActiveIndex={setActiveIndex}
         >
           <div className="flex justify-around">
-            <h4><b>Name:</b> {consortium?.name}</h4>
-            <h4><b>Address:</b> {consortium?.address}</h4>
-            <img src={consortium?.img} alt="" className=' w-20' />
+            <h4>
+              <b>Name:</b> {consortium?.name}
+            </h4>
+            <h4>
+              <b>Address:</b> {consortium?.address}
+            </h4>
+            <img
+              src={consortium?.img}
+              alt=""
+              className=" w-20"
+            />
           </div>
         </Accordion>
         <Accordion
@@ -32,9 +40,8 @@ const UserInformation = () => {
           activeIndex={activeIndex}
           setActiveIndex={setActiveIndex}
         >
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. In illum magni et facere accusantium autem dicta,
-          omnis repellat reprehenderit sed doloribus culpa maxime, nam, numquam inventore hic temporibus aliquam
-          tenetur?
+          <h4><b>Name:</b> {admin?.name} {admin?.lastname}</h4>
+          <h4><b>Email:</b> {admin?.email}</h4>
         </Accordion>
       </div>
     </div>
