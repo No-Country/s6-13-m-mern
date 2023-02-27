@@ -24,6 +24,8 @@ import LayoutPrivateUser from '../components/layouPrivates/LayoutPrivateUser'
 import LayoutPrivateAdmin from '../components/layouPrivates/LayoutPrivateAdmin'
 import UnderConstruction from '../pages/UnderConstruction'
 import LayoutPrivateTenant from '../components/layouPrivates/LayoutPrivateTenant'
+import CreateConsortium from '../pages/private/admin/CreateConsortium'
+// import EditConsortium from '../pages/private/admin/EditConsortium'
 
 export const router = createBrowserRouter([
   {
@@ -57,6 +59,7 @@ export const router = createBrowserRouter([
         element: <LayoutPrivateAdmin />,
         children: [
           { index: true, element: <AdminDashboard /> },
+          { path: '/admin/consortium', element: <CreateConsortium /> },
           { path: '/admin/consortium/:id', element: <ConsortiumDashboard /> },
           { path: '/admin/editinfo/:id', element: <ConsortiumEditInfo /> },
           { path: '/admin/payments/:id', element: <ConsortiumPayments /> },
