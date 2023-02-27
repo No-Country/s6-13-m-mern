@@ -35,7 +35,7 @@ export const createPayment = async (req: Request, res: Response) => {
         )) as IResponse
         ok = consortiumResponse.ok
         status = consortiumResponse.status
-        const consortiumRetrieved = consortiumResponse.consortiumRetrieved
+        const consortiumRetrieved = consortiumResponse.consortium
 
         //* Comprobar que existe el consorcio con el id
         if (!ok && status === 404) {
