@@ -32,6 +32,7 @@ const PaymentsTable = ({ data, setData, dataToCompare, filterValue, setIsDataMod
   }, [data])
 
   const isDataModified = () => {
+    if (!Array.isArray(data)) return
     let isModified = false
     data.forEach((item) => {
       const sameIdItem = dataToCompare.find((itemToCompare) => item._id === itemToCompare._id)
@@ -43,7 +44,7 @@ const PaymentsTable = ({ data, setData, dataToCompare, filterValue, setIsDataMod
   }
 
   const sortedData = (data: PaymentsValues[]) => {
-    if (data.length === 0) return []
+    if (!Array.isArray(data) || data.length === 0) return []
     return data.sort((a, b) => {
       const statusOrder = ['pending', 'denied', 'validated']
       return statusOrder.indexOf(a.pStatus) - statusOrder.indexOf(b.pStatus)
@@ -65,8 +66,12 @@ const PaymentsTable = ({ data, setData, dataToCompare, filterValue, setIsDataMod
         </tr>
       </thead>
       <tbody>
-        {data.length === 0 ? (
-          <h3>There are no payments to display</h3>
+        {!Array.isArray(data) || data.length === 0 ? (
+          <tr>
+            <td>
+              <h3>There are no payments to display</h3>
+            </td>
+          </tr>
         ) : (
           sortedData(data)
             .filter((row) => row.user.name.toLocaleLowerCase().includes(filterValue.toLowerCase()))
