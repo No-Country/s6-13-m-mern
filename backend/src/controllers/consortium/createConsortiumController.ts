@@ -1,4 +1,5 @@
 import { Request, Response } from 'express'
+import { IResponse } from '../../interfaces'
 import { createConsortiumService } from '../../services/consortium'
 
 export const createConsortium = async (req: Request, res: Response) => {
