@@ -1,6 +1,7 @@
 import { Request, Response } from 'express'
-import { IResponse } from '../../interfaces'
-import { getConsortiumService } from '../../services'
+import { Types } from 'mongoose'
+import { IConsortium, IResponse } from '../../interfaces'
+import { getConsortiumService, getUserService } from '../../services'
 
 export const deleteConsortium = async (req: Request, res: Response) => {
     const { consortiumId, id } = req.params
@@ -22,7 +23,19 @@ export const deleteConsortium = async (req: Request, res: Response) => {
                 .json({ ok: false, msg: 'User is not the consortium admin' })
         }
 
+        consortium.users.forEach(async (element: Types.ObjectId) => {
+            const { user } = (await getUserService({
+                id: element.toString(),
+            })) as IResponse
+            user.consortium = user.consortium.filter(
+                (c: IConsortium) => c?._id?.toString() !== consortiumId
+            )
+            await user.save()
+        })
+
         consortium.status = 'disabled'
+        consortium.users = []
+
         await consortium.save()
 
         return res.status(status).json({ ok, msg: 'Consortium deleted' })
