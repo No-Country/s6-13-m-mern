@@ -207,7 +207,7 @@ const ConsortiumMembers = () => {
           OK
         </button>
       </BlueModal>
-      <div className=" h-screen mb-24">
+      <div className=" min-h-screen h-fit mb-24">
         <h2 className=" text-[28px] font-bold text-blueDark mt-16 mb-8">Members</h2>
         <Autocomplete
           options={filteredUsers}
