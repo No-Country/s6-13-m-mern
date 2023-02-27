@@ -31,6 +31,11 @@ const ConsortiumPayments = () => {
     if (id) {
       getConsortiumPayments(id)
         .then((response) => {
+          if (!Array.isArray(data)) {
+            setErrorGetPayments(true)
+            console.log('ERROR: ', response)
+            return
+          }
           setData(response)
           setDataToCompare(response)
           setLoadingPayments(false)
