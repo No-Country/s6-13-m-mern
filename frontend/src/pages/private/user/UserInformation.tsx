@@ -1,8 +1,14 @@
 import { useState } from 'react'
 import Accordion from '../../../components/Accordion'
+import { userStore } from '../../../store/user'
+import { useConsortiumStore } from '../../../store/consortium'
 
 const UserInformation = () => {
   const [activeIndex, setActiveIndex] = useState('')
+
+  const user = userStore((state) => state.userData)
+  const consortium = useConsortiumStore((state) => state.consortiumData)
+  console.log(consortium)
 
   return (
     <div>
@@ -14,13 +20,11 @@ const UserInformation = () => {
           activeIndex={activeIndex}
           setActiveIndex={setActiveIndex}
         >
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. In illum magni et facere accusantium autem dicta,
-          omnis repellat reprehenderit sed doloribus culpa maxime, nam, numquam inventore hic temporibus aliquam
-          tenetur? Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum voluptates animi ad exercitationem
-          cupiditate repellendus iste ipsam corrupti similique beatae. Aspernatur obcaecati consequuntur nam
-          necessitatibus id, eaque laudantium placeat maxime. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Sapiente iusto temporibus impedit voluptas tempora velit officiis omnis id. Autem nesciunt voluptate dolor
-          quaerat, assumenda rem sequi veritatis molestiae labore a!
+          <div className="flex">
+            <div>
+              <b>Name:</b>
+            </div>
+          </div>
         </Accordion>
         <Accordion
           title="Administrator information"
