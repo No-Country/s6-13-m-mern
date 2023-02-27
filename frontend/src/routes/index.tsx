@@ -14,7 +14,6 @@ import Validate from '../pages/Validate'
 import ConsortiumMembers from '../pages/private/admin/consortium/ConsortiumMembers'
 import ResetPass from '../pages/ResetPass'
 import ChangePass from '../pages/ChangePass'
-import ConsortiumEditInfo from '../pages/private/admin/consortium/ConsortiumEditInfo'
 import ConsortiumPayments from '../pages/private/admin/consortium/ConsortiumPayments'
 import ConsortiumEnterExit from '../pages/private/admin/consortium/ConsortiumEnterExit'
 import ConsortiumEvents from '../pages/private/admin/consortium/ConsortiumEvents'
@@ -24,6 +23,9 @@ import LayoutPrivateUser from '../components/layouPrivates/LayoutPrivateUser'
 import LayoutPrivateAdmin from '../components/layouPrivates/LayoutPrivateAdmin'
 import UnderConstruction from '../pages/UnderConstruction'
 import LayoutPrivateTenant from '../components/layouPrivates/LayoutPrivateTenant'
+import CreateConsortium from '../pages/private/admin/CreateConsortium'
+import EditConsortium from '../pages/private/admin/EditConsortium'
+// import EditConsortium from '../pages/private/admin/EditConsortium'
 
 export const router = createBrowserRouter([
   {
@@ -57,8 +59,9 @@ export const router = createBrowserRouter([
         element: <LayoutPrivateAdmin />,
         children: [
           { index: true, element: <AdminDashboard /> },
+          { path: '/admin/consortium', element: <CreateConsortium /> },
           { path: '/admin/consortium/:id', element: <ConsortiumDashboard /> },
-          { path: '/admin/editinfo/:id', element: <ConsortiumEditInfo /> },
+          { path: '/admin/editinfo/:id', element: <EditConsortium /> },
           { path: '/admin/payments/:id', element: <ConsortiumPayments /> },
           { path: '/admin/entrance/:id', element: <ConsortiumEnterExit /> },
           { path: '/admin/events/:id', element: <ConsortiumEvents /> },

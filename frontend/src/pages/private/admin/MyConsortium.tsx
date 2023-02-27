@@ -13,7 +13,7 @@ const MyConsortium = ({ setMenu }: Props) => {
 
   return (
     <section>
-      <div className="flex font-bold text-xl text-blueDark ml-11 mt-7">
+      <div className="flex font-bold text-xl text-blueDark ml-11 mt-32 lg:mt-7">
         <h3>My consortiums</h3>
       </div>
       <div className="flex flex-wrap justify-center sm:justify-start gap-4 sm:gap-2 lg:gap-4 xl:gap-10 mt-8 mx-8 sm:mx-4 md:ml-8 xl:ml-16 2xl:ml-32">
@@ -34,7 +34,7 @@ const MyConsortium = ({ setMenu }: Props) => {
               />
             </Link>
             <img
-              src="https://res.cloudinary.com/dozwd1ssj/image/upload/v1676344376/Card_Home_Admin_omrprw.png"
+              src={consortium.img}
               alt="card"
             />
             <span className="text-lg text-center font-bold absolute bottom-1 w-full border-t-2 border-black bg-slate-300 bg-opacity-30">

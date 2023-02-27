@@ -3,9 +3,8 @@ import { createConsortiumService } from '../../services/consortium'
 
 export const createConsortium = async (req: Request, res: Response) => {
     try {
-        const { ok, status, consortium, error } = await createConsortiumService(
-            req.body
-        )
+        const { ok, status, consortium, error } =
+            (await createConsortiumService(req.body)) as IResponse
 
         if (!ok) return res.status(400).json({ error })
         return res.status(status).json(consortium)
