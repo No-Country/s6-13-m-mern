@@ -14,3 +14,11 @@ export const createConsortiumService = async (data: ConsortiumCreationValues) =>
   const response = await instance.post('api/consortium/create', { data })
   return response
 }
+
+export const getConsortiumAmenities = async (consortiumId: string) => {
+  const consortiumAmenities = await instance.get(`api/amenity/${consortiumId}`)
+  console.log(consortiumAmenities)
+}
+// export editConsortiumService = async (data: any){
+// const response = await instance.put
+// }
