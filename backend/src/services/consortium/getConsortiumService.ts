@@ -1,12 +1,17 @@
 import Consortium from '../../models/Consortium'
 
 export const getConsortiumService = async (id: string) => {
-    console.log(id)
     if (id !== 'all') {
         try {
             const consortiumRetrieved = await Consortium.findById(id)
                 .select('-createdAt -updatedAt')
-                .populate('payments')
+                .populate({
+                    path: 'payments',
+                    populate: {
+                        path: 'user',
+                        select: 'name lastname img phone email apt',
+                    },
+                })
 
             if (!consortiumRetrieved) {
                 const response = {

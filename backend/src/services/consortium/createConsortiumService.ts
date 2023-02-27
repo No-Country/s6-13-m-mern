@@ -1,38 +1,57 @@
 import Consortium from './../../models/Consortium'
 import User from './../../models/User'
+import { IConsortium } from '../../interfaces/consortium'
 
-export const createConsortiumService = async (body: any) => {
+export const createConsortiumService = async (data: IConsortium) => {
     try {
-        const { userId, name, address, floor, apt, amenities } = body.data
-        const creator = await User.findOne({ _id: userId })
-
-        if (!creator)
-            return {
-                ok: false,
-                status: 404,
-                error: 'Email/Usuario no encontrado',
-            }
-
-        if (!creator)
-            return {
-                ok: false,
-                status: 404,
-                error: 'Email/Usuario no encontrado',
-            }
-
-        const consortium = await Consortium.create({
+        const {
+            _id,
             name,
             address,
-            admin: creator._id,
-            floor: Number(floor),
-            apt: Number(apt),
-            amenities
+            users,
+            admin,
+            floor,
+            apt,
+            schedule,
+            img,
+            amenities,
+            payments,
+        } = data
+        const creator = await User.findOne({ _id: admin })
+
+        if (!creator)
+            return {
+                ok: false,
+                status: 404,
+                error: 'Email/Usuario no encontrado',
+            }
+
+        if (!creator)
+            return {
+                ok: false,
+                status: 404,
+                error: 'Email/Usuario no encontrado',
+            }
+
+        const consortium = new Consortium({
+            _id,
+            name,
+            address,
+            admin,
+            floor,
+            apt,
+            users,
+            schedule,
+            img,
+            amenities,
+            payments,
         })
+
         await consortium.save()
 
         const { modifiedCount } = await User.updateOne(
             {
-                _id: userId,
+                _id: admin,
             },
             {
                 $addToSet: {
@@ -55,6 +74,7 @@ export const createConsortiumService = async (body: any) => {
             consortium,
         }
     } catch (error: any) {
+        console.log(error)
         return error
     }
 }
