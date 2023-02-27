@@ -45,9 +45,9 @@ const EditConsortium = () => {
 
       setUser(res.user)
 
-      newOptions.forEach((option) => {
-        amenitiesCont.push({ value: option.name, label: option.name, id: option._id })
-      })
+      // newOptions.forEach((option) => {
+      //   amenitiesCont.push({ value: option.name, label: option.name, id: option._id })
+      // })
 
       setState({ ...state, amenitiesList: amenitiesCont })
     }
