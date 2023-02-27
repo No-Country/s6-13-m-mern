@@ -11,12 +11,20 @@ export const getUserService = async (data: IData) => {
     if (data.id) {
         user = await User.findById(data.id).populate({
             path: 'consortium',
-            select: 'name address img',
+            select: 'name address img admin',
+            populate: {
+                path: 'admin',
+                select: 'name lastname email phone img',
+            },
         })
     } else {
         user = await User.findOne({ email: data.mail }).populate({
             path: 'consortium',
-            select: 'name address img',
+            select: 'name address img admin',
+            populate: {
+                path: 'admin',
+                select: 'name lastname email phone img',
+            },
         })
     }
 
