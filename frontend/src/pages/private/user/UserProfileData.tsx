@@ -3,22 +3,30 @@ import { userStore } from '../../../store/user'
 import UserEditProfile from '../EditProfileDashboard'
 import { useAuthStore } from '../../../store/auth'
 import removeMembersService from '../../../services/removeMemberService'
+import BlueModal from '../../../components/modal/BlueModal'
+import { PulseLoader } from 'react-spinners'
 
 const defaultImg = '/assets/defaultUser.svg'
 
 const UserProfile = () => {
   const [edit, setEdit] = useState(false)
+  const [modal, setModal] = useState(false)
+  const [loading, setLoading] = useState(false)
   const user = userStore((state) => state.userData)
-  console.log(user)
 
   const userId = useAuthStore((state) => state.id)
   const consortiumId = user?.consortium?.find(() => true)?._id
+  const consortiumAddress = user?.consortium?.find(() => true)?.address
+
   const handleDelete = async () => {
     console.log(userId, consortiumId)
 
     if (userId && consortiumId) {
+      setLoading(true)
       await removeMembersService(consortiumId, userId)
-      console.log('ok')
+      setLoading(false)
+      setModal(false)
+      location.reload()
     }
   }
 
@@ -50,14 +58,41 @@ const UserProfile = () => {
             </p>
             <p className=" my-6">{user?.email}</p>
             <p className=" my-6">{user?.phone}</p>
+            {user?.role === 'tenant' && <p className=" my-6">Address: {consortiumAddress}</p>}
             <p className=" my-6">Piso|Dto: {user?.apt}</p>
           </div>
 
-          <button onClick={handleDelete}>delete</button>
+          {user?.role === 'tenant' && (
+            <button
+              className="bg-blueDark disabled:opacity-60 text-white text-sm w-72 h-12 rounded-2xl block mx-auto"
+              onClick={() => {
+                setModal(true)
+              }}
+            >
+              This is not your consortium?<b> Leave</b>
+            </button>
+          )}
         </>
       ) : (
         <UserEditProfile setEdit={setEdit} />
       )}
+      <BlueModal isOpen={modal}>
+        <p>Are you sure you want to leave the consortium?</p>
+        <button
+          onClick={handleDelete}
+          className="bg-blue text-white text-lg w-20 rounded-2xl mt-6 mx-4 h-[29px]"
+        >
+          {loading ? <PulseLoader color="white" /> : 'YES'}
+        </button>
+        <button
+          onClick={() => {
+            setModal(false)
+          }}
+          className=" bg-blueDark text-white text-lg w-20 rounded-2xl mt-6 mx-4 border-[1.5px] border-blue h-[29px]"
+        >
+          NO
+        </button>
+      </BlueModal>
     </div>
   )
 }
