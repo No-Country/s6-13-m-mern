@@ -1,15 +1,12 @@
 import { Request, Response } from 'express'
 import { createConsortiumService } from '../../services/consortium'
+import { IResponse } from '../../interfaces/response'
 
 export const createConsortium = async (req: Request, res: Response) => {
     try {
-        const { ok, status, consortium, error } = await createConsortiumService(
-            req.body
-        )
-        console.log(ok)
-        console.log(status)
-        console.log(consortium)
-        console.log(error)
+        const { ok, status, consortium, error } =
+            (await createConsortiumService(req.body)) as IResponse
+
         if (!ok) return res.status(400).json({ error })
         return res.status(status).json(consortium)
     } catch (error: any) {

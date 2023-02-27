@@ -3,7 +3,7 @@ import { AxiosError } from 'axios'
 
 const addMembersService = async (consortiumId: string, userId: string) => {
   try {
-    const resAdd = await axios.put(`/api/consortium/add/${consortiumId}/${userId}`)
+    const resAdd = await axios.put(`/api/consortium/addUser/${consortiumId}/${userId}`)
     return resAdd
   } catch (error) {
     const err = error as AxiosError

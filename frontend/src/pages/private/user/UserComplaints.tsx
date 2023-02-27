@@ -1,24 +1,43 @@
 import { useState } from 'react'
 import { useForm, type SubmitHandler } from 'react-hook-form'
 import { PulseLoader } from 'react-spinners'
+import { userStore } from '../../../store/user'
+import UserComplaintService from '../../../services/UserComplaintService'
+import BlueModal from '../../../components/modal/BlueModal'
 
-interface Complaint {
+interface ComplaintForm {
   subject: string
   description: string
 }
 
 const UserComplaints = () => {
   const [loading, setLoading] = useState(false)
+  const [modalOk, setModalOk] = useState(false)
 
   const {
     register,
     handleSubmit,
     formState: { isDirty, isValid },
-  } = useForm<Complaint>({ mode: 'onTouched' })
+  } = useForm<ComplaintForm>({ mode: 'onTouched' })
 
-  const customSubmit: SubmitHandler<Complaint> = async (data: Complaint) => {
-    setLoading(true)
-    console.log('hola')
+  const user = userStore((state) => state.userData)
+  const adminEmail = user?.consortium?.find(() => true)?.admin.email
+  const customSubmit: SubmitHandler<ComplaintForm> = async (data: ComplaintForm) => {
+    const { subject, description } = data
+    if (user) {
+      const { apt, name, lastname } = user
+      const dataMail = {
+        name: `${name} ${lastname}`,
+        apt,
+        email: adminEmail,
+        subject,
+        message: description,
+      }
+      setLoading(true)
+      await UserComplaintService(dataMail)
+      setModalOk(true)
+      setLoading(false)
+    }
   }
 
   return (
@@ -61,6 +80,17 @@ const UserComplaints = () => {
           </form>
         </div>
       </div>
+      <BlueModal isOpen={modalOk}>
+        <p>Your complaint has been sent.</p>
+        <button
+          onClick={() => {
+            setModalOk(false)
+          }}
+          className="bg-blue text-white text-lg w-14 h-10 rounded-2xl mt-6"
+        >
+          OK
+        </button>
+      </BlueModal>
     </div>
   )
 }
