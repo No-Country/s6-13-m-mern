@@ -13,7 +13,7 @@ const MyConsortium = ({ setMenu }: Props) => {
 
   return (
     <section>
-      <div className="flex font-bold text-xl text-blueDark ml-11 mt-7">
+      <div className="flex font-bold text-xl text-blueDark ml-11 mt-32 lg:mt-7">
         <h3>My consortiums</h3>
       </div>
       <div className="flex flex-wrap justify-center sm:justify-start gap-4 sm:gap-2 lg:gap-4 xl:gap-10 mt-8 mx-8 sm:mx-4 md:ml-8 xl:ml-16 2xl:ml-32">

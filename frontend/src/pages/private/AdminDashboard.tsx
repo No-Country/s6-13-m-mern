@@ -1,12 +1,13 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import CreateConsortium from './admin/CreateConsortium'
 import MyConsortium from './admin/MyConsortium'
 import EditConsortium from './admin/EditConsortium'
 import { userStore } from '../../store/user'
-import UserProfile from './user/UserProfileData'
+import UserProfileData from './user/UserProfileData'
 import Logout from '../../components/Logout'
 import Profile from './admin/MobileProfile'
 import HeroUser from '../../components/HeroUser'
+import { useLocation } from 'react-router-dom'
 
 const defaultImg = '/assets/defaultUser.svg'
 
@@ -14,6 +15,14 @@ const adminDashboard = () => {
   const user = userStore((state) => state.userData)
   const [logout, setLogout] = useState(false)
   const [menu, setMenu] = useState('My consortiums')
+
+  const location = useLocation()
+
+  useEffect(() => {
+    if (location.state) {
+      setMenu(location.state.show)
+    }
+  }, [location])
 
   return (
     <HeroUser>
@@ -36,11 +45,11 @@ const adminDashboard = () => {
               </div>
             </div>
             <div className="mt-16 lg:mt-0">
-              <div className={`block ${menu === 'Profile' ? 'font-bold lg:bg-[#EFF6FF] rounded-md' : ''}`}>
+              <div className={`block ${menu === 'profile' ? 'font-bold lg:bg-[#EFF6FF] rounded-md' : ''}`}>
                 <button
                   className="flex items-center py-3"
                   onClick={() => {
-                    setMenu('Profile')
+                    setMenu('profile')
                   }}
                 >
                   <img
@@ -82,7 +91,7 @@ const adminDashboard = () => {
             </button>
           </div>
           <div className="bg-[#B4CAE7] bg-opacity-50 w-[880px] border border-black rounded-lg  pb-6">
-            {menu === 'Profile' && <UserProfile />}
+            {menu === 'profile' && <UserProfileData />}
             {menu === 'My consortiums' && <MyConsortium setMenu={setMenu} />}
             {menu === 'Create consortium' && <CreateConsortium />}
             {menu === 'Edit consortium' && <EditConsortium />}
@@ -94,7 +103,7 @@ const adminDashboard = () => {
         setLogout={setLogout}
       />
       <div className="sm:hidden w-full h-full overflow-y-scroll no-scrollbar">
-        {menu === 'Profile' && <Profile />}
+        {menu === 'profile' && <Profile />}
         {menu === 'My consortiums' && <MyConsortium setMenu={setMenu} />}
       </div>
     </HeroUser>

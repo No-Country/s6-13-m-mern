@@ -153,7 +153,8 @@ const UserDashboard = () => {
         setLogout={setLogout}
       />
       <div className="sm:hidden w-full h-full overflow-y-scroll no-scrollbar">
-        {menu === 'profile' && <Profile />} {menu === 'information' && <UserInformation />}
+        {menu === 'profile' && <Profile />}
+        {menu === 'information' && <UserInformation />}
         {menu === 'amenities' && <UserAmenities />}
         {menu === 'complaint' && <UserComplaints />}
         {menu === 'payments' && <UserDocuments />}
