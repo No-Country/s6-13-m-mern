@@ -5,10 +5,10 @@ import consortiums from '../../utils/mockups/consortium.json'
 export const consortiumMockService = async () => {
     try {
         const isConsortium = await Consortium.findOne()
-
         if (isConsortium === null) {
             consortiums.forEach(async (consortiumMock) => {
                 await createConsortiumService(consortiumMock)
+                console.log('second')
             })
         }
     } catch (error) {

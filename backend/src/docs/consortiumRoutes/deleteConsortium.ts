@@ -16,13 +16,27 @@ export const deleteConsortium = {
                 },
                 required: true,
             },
+            {
+                name: 'id',
+                in: 'path',
+                schema: {
+                    type: 'string',
+                },
+                required: true,
+            },
         ],
         responses: {
             '200': {
-                description: 'Consorcio eliminado',
+                description: 'Consortium deleted',
+            },
+            '401': {
+                description: 'User is not the consortium admin',
             },
             '404': {
-                description: 'No existe consorcio en esa direccion',
+                description: 'Consortium not found',
+            },
+            '500': {
+                description: 'Server Error',
             },
         },
     },
