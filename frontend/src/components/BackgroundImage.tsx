@@ -11,6 +11,7 @@ const BackgroundImage = ({ imageUrl, children }: Props) => {
       style={{
         background: `linear-gradient(rgba(247, 225, 225,.35), rgba(247, 225, 225,.35)), url("${imageUrl}")`,
         backgroundSize: 'cover',
+        backgroundPosition: 'center',
       }}
     >
       {children}
