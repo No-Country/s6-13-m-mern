@@ -23,7 +23,7 @@ export const getConsortiumService = async (id: string) => {
             const response = {
                 ok: true,
                 status: 200,
-                consortiumRetrieved,
+                consortium: consortiumRetrieved,
             }
             return response
         } catch (error) {
@@ -36,7 +36,7 @@ export const getConsortiumService = async (id: string) => {
     const response = {
         ok: true,
         status: 200,
-        consortiumRetrieved,
+        consortium: consortiumRetrieved,
     }
     return response
 }
