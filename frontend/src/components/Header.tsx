@@ -61,7 +61,7 @@ const Header = () => {
 
   return (
     // <header className={`${!showNav ? 'hidden sm:inline' : ''}`}>
-    <header>
+    <header className='sm:h-20 '>
       <div className="bg-blueDark fixed z-50 w-full">
         <nav className=" h-[60px] sm:h-20 flex flex-wrap items-center justify-between md:justify-around w-full px-3 text-[15px] xl:w-[1200px] xl:mx-auto ">
           <svg
