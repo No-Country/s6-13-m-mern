@@ -34,7 +34,7 @@ const MyConsortium = ({ setMenu }: Props) => {
               />
             </Link>
             <img
-              src="https://res.cloudinary.com/dozwd1ssj/image/upload/v1676344376/Card_Home_Admin_omrprw.png"
+              src={consortium.img}
               alt="card"
             />
             <span className="text-lg text-center font-bold absolute bottom-1 w-full border-t-2 border-black bg-slate-300 bg-opacity-30">
