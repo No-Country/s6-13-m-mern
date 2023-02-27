@@ -20,3 +20,19 @@ export enum EPaymentMethod {
     cash = 'cash',
     transfer = 'transfer',
 }
+
+export enum EReserve {
+    reserved = 'reserved',
+    canceled = 'canceled',
+}
+
+export enum EType {
+    events = 'events',
+    entrance = 'entrance',
+    exits = 'exits',
+}
+
+export enum EStatusNot {
+    active = 'active',
+    inactive = 'inactive'
+}

@@ -5,7 +5,4 @@ export interface IAmenity {
     reservable: boolean
     img: string
     size: number
-    reserve: Types.ObjectId
-    consortium: Types.ObjectId
-    schedule: Types.ObjectId
 }

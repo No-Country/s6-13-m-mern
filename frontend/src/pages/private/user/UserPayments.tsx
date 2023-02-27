@@ -42,10 +42,14 @@ const UserDocuments = () => {
   }, [])
 
   const getPayments = (id: string) => {
-    console.log(id)
     if (id) {
       getUserPaymentsService(id)
         .then((response) => {
+          if (!Array.isArray(data)) {
+            setErrorGetPayments(true)
+            console.log('ERROR: ', response)
+            return
+          }
           setData(response)
           setLoadingPayments(false)
         })
@@ -129,26 +133,30 @@ const UserDocuments = () => {
                     justify-center
                     overflow-y-auto no-scrollbar"
           >
-            {data.map((document) => (
-              <a
-                key={document._id}
-                className="h-[140px] flex flex-col
+            {!Array.isArray(data) || data.length === 0 ? (
+              <h3>There are no results to show.</h3>
+            ) : (
+              data.map((document) => (
+                <a
+                  key={document._id}
+                  className="h-[140px] flex flex-col
                           items-center justify-between
                           border-2 border-black
                           rounded-xl bg-white
                           pt-4 pb-2 font-inter"
-                href={document.image}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <h4 className="font-bold">{`VOUCHER - ${convertDate(document.creationDate)}`}</h4>
-                <img
-                  src="../assets/Pdf.svg"
-                  className="w-[32px]"
-                />
-                <p>{document.user.name}</p>
-              </a>
-            ))}
+                  href={document.image}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <h4 className="font-bold">{`VOUCHER - ${convertDate(document.creationDate)}`}</h4>
+                  <img
+                    src="../assets/Pdf.svg"
+                    className="w-[32px]"
+                  />
+                  <p>{document.user.name}</p>
+                </a>
+              ))
+            )}
           </div>
         </div>
         <button

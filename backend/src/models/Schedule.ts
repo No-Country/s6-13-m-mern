@@ -7,7 +7,6 @@ const scheduleSchema = new Schema<ISchedule>(
         name: {
             type: String,
             required: true,
-            unique: true,
             trim: true,
         },
         reserve: [
@@ -20,6 +19,10 @@ const scheduleSchema = new Schema<ISchedule>(
             type: String,
             enum: EStatus,
             default: 'active',
+        },
+        amenity: {
+            type: Types.ObjectId,
+            ref: 'Amenity',
         },
     },
     {
