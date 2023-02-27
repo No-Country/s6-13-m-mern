@@ -1,6 +1,8 @@
+import { type ReactNode } from 'react'
+
 interface Props {
   title: string
-  children: string
+  children: ReactNode
   index: string
   activeIndex: string
   setActiveIndex: React.Dispatch<React.SetStateAction<string>>

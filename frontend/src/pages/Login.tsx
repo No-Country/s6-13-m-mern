@@ -102,7 +102,7 @@ const Login = () => {
       )}
       {width > 640 ? (
         // ------------------ DESKTOP ------------------
-        <BackgroundImage imageUrl="/assets/oneBuild.svg" >
+        <BackgroundImage imageUrl="https://res.cloudinary.com/dozwd1ssj/image/upload/v1677333255/Body_Foto_kfit97.png">
           <Container>
             <div className="font-sans text-[24px] py-14 h-max">
               <h1 className="text-[30px]">Welcome!</h1>
@@ -189,7 +189,7 @@ const Login = () => {
           <div className="font-sans text-[24px] py-14 h-screen grid content-center">
             {/* <h1 className="text-[30px]">Welcome!</h1> */}
             <h2 className="ml-6 mb-16">Please fill your info to start</h2>
-            <div >
+            <div>
               <form onSubmit={handleSubmit(customSubmit)}>
                 <input
                   className={`border-2 ${
@@ -242,11 +242,11 @@ const Login = () => {
                   onClick={() => {
                     loginGoogle()
                   }}
-                  >
+                >
                   <img
                     src="/assets/social/Google.png"
                     alt=""
-                    />
+                  />
                 </button>
                 {/* <button className="mx-3">
                   <img

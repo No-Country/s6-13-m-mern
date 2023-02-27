@@ -93,7 +93,7 @@ const adminDashboard = () => {
           <div className="bg-[#B4CAE7] bg-opacity-50 w-[880px] border border-black rounded-lg  pb-6">
             {menu === 'profile' && <UserProfileData />}
             {menu === 'My consortiums' && <MyConsortium setMenu={setMenu} />}
-            {menu === 'Create consortium' && <CreateConsortium />}
+            {menu === 'Create consortium' && <CreateConsortium setMenu={setMenu} />}
             {menu === 'Edit consortium' && <EditConsortium />}
           </div>
         </div>

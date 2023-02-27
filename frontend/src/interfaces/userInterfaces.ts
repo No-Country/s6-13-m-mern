@@ -17,6 +17,7 @@ interface UserConsortia {
   address: string
   admin: Admin
   img?: string
+  name: string
 }
 
 interface Admin {
@@ -24,6 +25,8 @@ interface Admin {
   lastname: string
   name: string
   _id: string
+  img: string
+  phone: string
 }
 
 export interface IResponseUser {
