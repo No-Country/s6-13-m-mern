@@ -3,15 +3,15 @@ import { createConsortiumService } from '../consortium'
 import consortiums from '../../utils/mockups/consortium.json'
 
 export const consortiumMockService = async () => {
-    const isUser = await Consortium.findOne()
+    try {
+        const isConsortium = await Consortium.findOne()
 
-    if (!isUser) {
-        consortiums.forEach(async (consortium: any) => {
-            try {
-                await createConsortiumService(consortium)
-            } catch (error) {
-                return error
-            }
-        })
+        if (isConsortium === null) {
+            consortiums.forEach(async (consortiumMock) => {
+                await createConsortiumService(consortiumMock)
+            })
+        }
+    } catch (error) {
+        return error
     }
 }

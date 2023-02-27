@@ -1,15 +1,16 @@
-import { ObjectId } from 'mongoose'
+import { Types } from 'mongoose'
 import { EStatus } from '../utils/enums'
 export interface IConsortium {
+    _id?: Types.ObjectId | string
     name: string
     address: string
-    users: ObjectId[] | string[] | array
-    admin: ObjectId
+    users: Types.ObjectId[] | string[]
+    admin: Types.ObjectId | string
     floor: number
     apt: number
-    img: string
-    amenities: ObjectId[]
-    schedule: ObjectId
-    payments: ObjectId[] | string[]
+    img?: string
+    amenities?: Types.ObjectId[] | string[]
+    schedule?: Types.ObjectId | string | null
+    payments?: Types.ObjectId[] | string[]
     status?: EStatus
 }
