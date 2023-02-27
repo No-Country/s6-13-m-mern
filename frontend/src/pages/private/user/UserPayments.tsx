@@ -1,140 +1,169 @@
-import BackTitleComponent from '../../../components/BackTitleComponent'
-import Container from '../../../components/Container'
+import { useEffect, useState } from 'react'
+import { SearchBar } from '../../../components/SearchBar'
+import { TitleComponents } from '../../../components/TitleComponents'
+import getUserPayments from '../../../services/getUserPaymentsService'
+import { convertDate } from '../../../utils/dateUtils'
+import UserCreatePayments from './UserCreatePayments'
 
-const tableData = [
-  {
-    id_: '1',
-    name: 'Mónica Rivera',
-    vouchers: 'https://i.ytimg.com/vi/OTJdf_0oU8Q/mqdefault.jpg',
-    amount: '$200',
-    method: 'Cash',
-    status: 'Pending',
-  },
-  {
-    id_: '2',
-    name: 'Mónica Rivera',
-    vouchers: 'https://i.ytimg.com/vi/OTJdf_0oU8Q/mqdefault.jpg',
-    amount: '$200',
-    method: 'Transfer',
-    status: 'Pending',
-  },
-  {
-    id_: '3',
-    name: 'Mónica Rivera',
-    vouchers: 'https://i.ytimg.com/vi/OTJdf_0oU8Q/mqdefault.jpg',
-    amount: '$200',
-    method: 'Cash',
-    status: 'Denied',
-  },
-  {
-    id_: '4',
-    name: 'Mónica Rivera',
-    vouchers: 'https://i.ytimg.com/vi/OTJdf_0oU8Q/mqdefault.jpg',
-    amount: '$200',
-    method: 'Cash',
-    status: 'Validated',
-  },
-]
+interface PaymentsValues {
+  _id: string
+  creationDate: string
+  pStatus: string
+  note: string
+  user: string
+  ammount: string
+  paymentMethod: string
+  image: string
+  status: string
+}
 
-const UserPayments = () => {
-  const headers = ['Name', 'Vouchers', 'Amount', 'Method', 'Status']
+const UserDocuments = () => {
+  const [create, setCreate] = useState(false)
+  const [data, setData] = useState<PaymentsValues[]>([])
+  const [loadingPayments, setLoadingPayments] = useState(false)
+  const [errorGetPayments, setErrorGetPayments] = useState(false)
 
-  const renderSearch = () => (
-    <div className="flex mt-6">
-      <input
-        type="text"
-        autoComplete="off"
-        className="border border-black
-                   p-1 rounded-lg w-full h-12
-                   placeholder:italic placeholder:text-grey
-                   px-5"
-        placeholder="Search by member"
-      />
-      <i
-        className="fa-solid fa-magnifying-glass
-                    -ml-8 text-xl text-grey my-auto"
-      ></i>
-    </div>
-  )
+  useEffect(() => {
+    setLoadingPayments(true)
+    getPayments()
+  }, [])
 
-  const renderTable = () => (
-    <table className="text-left font-inter text-lg">
-      <tr className="border-b-[1px] border-greyLight">
-        {headers.map((header, index) => (
-          <th
-            className="h-full pt-6"
-            key={index}
-          >
-            {header}
-          </th>
-        ))}
-      </tr>
-      {tableData.map((row, index) => (
-        <tr
-          key={row.id_}
-          className={`${index !== tableData.length - 1 ? 'border-b-[1px] border-greyLight' : ''}`}
+  const getPayments = () => {
+    getUserPayments()
+      .then((response) => {
+        console.log(response)
+        setData(response)
+        setLoadingPayments(false)
+      })
+      .catch((error) => {
+        console.log(error)
+        setErrorGetPayments(true)
+        setLoadingPayments(false)
+      })
+  }
+
+  const renderLoading = () => {
+    return (
+      <div className="flex justify-center h-[440px] items-center">
+        <div
+          className="w-full h-full flex
+                            justify-center items-center"
         >
-          <td
-            className="pt-5 py-2"
-            key={row.id_}
+          <div
+            className="animate-fadeInRight flex
+                         flex-col items-center gap-y-3"
           >
-            {row.name}
-          </td>
-          <td
-            className="pt-5 py-2 text-blue"
-            key={row.id_}
-          >
-            <a
-              href={row.vouchers}
-              className="underline decoration-1 hover:text-violet ease-out duration-300"
-            >
-              {row.vouchers.split('/')[row.vouchers.split('/').length - 1]}
-            </a>
-          </td>
-          <td
-            className="pt-5 py-2"
-            key={row.id_}
-          >
-            {row.amount}
-          </td>
-          <td
-            className="pt-5 py-2"
-            key={row.id_}
-          >
-            {row.method}
-          </td>
-          <td
-            className="pt-5 py-2"
-            key={row.id_}
-          >
-            {row.status}
-          </td>
-        </tr>
-      ))}
-    </table>
-  )
-
-  return (
-    <div className="w-full min-h-[680px] bg-white">
-      <Container>
-        <div className="mt-20">
-          <BackTitleComponent
-            title="Payments"
-            navigateTo="/user"
-          />
-          <div className="flex justify-center">
-            <div className="relative flex flex-col w-[67vw] min-w-[350px] max-w-[1200px]">
-              {renderSearch()}
-              {renderTable()}
-              <button className="absolute -bottom-24 right-0 text-lg bg-blueDark text-white px-12 py-3 rounded-lg">
-                Save changes
-              </button>
+            <span
+              className="w-[108px] h-[108px] border-[10px]
+                                 border-dotted border-blueDark
+                                 rounded-full inline-block relative
+                                 box-border animate-rotation"
+            ></span>
+            <div className="font-bold text-blueDark text-center">
+              <p>Loading Payments...</p>
             </div>
           </div>
         </div>
-      </Container>
-    </div>
+      </div>
+    )
+  }
+
+  const renderError = () => {
+    return (
+      <div className="flex justify-center h-[440px] items-center">
+        <div
+          className="w-full h-full flex
+                            justify-center items-center"
+        >
+          <div
+            className="animate-fadeInRight flex
+                         flex-col items-center gap-y-3"
+          >
+            <img
+              className="w-[108px] h-[108px]"
+              src="https://res.cloudinary.com/dozwd1ssj/image/upload/v1677383270/cancelar_vw30xs.png"
+            />
+            <div className="font-bold text-blueDark text-center">
+              <p>
+                Error retrieving payment data from the API/server.
+                <br /> Please check your internet connection or try again later.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  const renderPayments = () => {
+    return (
+      <div>
+        <div className="-translate-y-5 w-full flex justify-center">
+          <div className="w-full ml-[10%]">
+            <SearchBar
+              userType="user"
+              searchIn="documents"
+            />
+          </div>
+        </div>
+        <div className="w-full px-11 mb-5">
+          <div
+            className="w-full h-[340px]
+                    grid grid-cols-[repeat(auto-fill,220px)]
+                    gap-x-16 gap-y-8
+                    justify-center
+                    overflow-y-auto no-scrollbar"
+          >
+            {data.map((document) => (
+              <a
+                key={document._id}
+                className="h-[140px] flex flex-col
+                          items-center justify-between
+                          border-2 border-black
+                          rounded-xl bg-white
+                          pt-4 pb-2 font-inter"
+                href={document.image}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <h4 className="font-bold">{`VOUCHER - ${convertDate(document.creationDate)}`}</h4>
+                <img
+                  src="../assets/Pdf.svg"
+                  className="w-[32px]"
+                />
+                <p>{document.user}</p>
+              </a>
+            ))}
+          </div>
+        </div>
+        <button
+          onClick={() => {
+            setCreate(true)
+          }}
+          className="bg-blueDark text-white
+                          text-xl w-[360px] h-10
+                          rounded-lg block mx-auto"
+        >
+          Create new payment
+        </button>
+      </div>
+    )
+  }
+
+  return (
+    <>
+      {!create ? (
+        <div>
+          <TitleComponents title="Payments" />
+          {loadingPayments && renderLoading()}
+          {!loadingPayments && errorGetPayments && renderError()}
+          {!loadingPayments && !errorGetPayments && renderPayments()}
+        </div>
+      ) : (
+        <UserCreatePayments setCreate={setCreate} />
+      )}
+    </>
   )
 }
 
-export default UserPayments
+export default UserDocuments
