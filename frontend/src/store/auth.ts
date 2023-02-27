@@ -5,6 +5,7 @@ interface State {
   token: string
   id: string
   role: string
+  consortium: [{ _id: string | undefined, address: string | undefined }] | never[]
 }
 
 interface Actions {
@@ -12,6 +13,7 @@ interface Actions {
   setLogout: () => void
   setId: (id: string) => void
   setRole: (role: string) => void
+  setConsortium: (consortium: [{ _id: string | undefined, address: string | undefined }]) => void
 }
 
 export const useAuthStore = create(
@@ -20,6 +22,7 @@ export const useAuthStore = create(
       token: '',
       id: '',
       role: '',
+      consortium: [],
       setToken: (token: string) => {
         set((state) => ({
           token,
@@ -35,11 +38,17 @@ export const useAuthStore = create(
           role,
         }))
       },
+      setConsortium: (consortium: [{ _id: string | undefined, address: string | undefined }] | never[]) => {
+        set((state) => ({
+          consortium,
+        }))
+      },
       setLogout: () => {
         set(() => ({
           token: '',
           id: '',
-          role: ''
+          role: '',
+          consortium: []
         }))
       },
     }),
