@@ -1,4 +1,4 @@
-import { Schema, model, Types } from 'mongoose'
+import { Schema, model } from 'mongoose'
 import { IAmenity } from '../interfaces/amenity'
 
 const amenitySchema = new Schema<IAmenity>(
@@ -6,7 +6,6 @@ const amenitySchema = new Schema<IAmenity>(
         name: {
             type: String,
             required: true,
-            unique: true,
             trim: true,
         },
         description: {
@@ -26,18 +25,6 @@ const amenitySchema = new Schema<IAmenity>(
         size: {
             type: Number,
             required: true,
-        },
-        reserve: [{
-            type: Types.ObjectId,
-            ref: 'Reserve',
-        }],
-        consortium: {
-            type: Types.ObjectId,
-            ref: 'Consortium',
-        },
-        schedule: {
-            type: Types.ObjectId,
-            ref: 'Schedule',
         },
     },
     {

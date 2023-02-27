@@ -3,5 +3,6 @@ export interface IReserve {
     user: user.id
     startDate: date
     endDate: date
-    status: EStatus
+    status: EReserve
+    amenity: amenity.id
 }

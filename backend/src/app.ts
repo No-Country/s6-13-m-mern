@@ -17,6 +17,7 @@ import scheduleRoutes from './routes/scheduleRoutes'
 import consortiumRoutes from './routes/consortiumRoutes'
 import otherRoutes from './routes/otherRoutes'
 import paymentRoutes from './routes/paymentRoutes'
+import notificationRoutes from './routes/notificationRoutes'
 
 dotenv.config()
 const app = express()
@@ -50,6 +51,7 @@ app.use('/api/reserve', reserveRoutes)
 app.use('/api/schedule', scheduleRoutes)
 app.use('/api/consortium', consortiumRoutes)
 app.use('/api/payment', paymentRoutes)
+app.use('/api/notification', notificationRoutes)
 app.use('/api', otherRoutes)
 
 //* documentation
