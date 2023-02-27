@@ -426,7 +426,7 @@ const swaggerDefinition: OAS3Definition = {
         '/api/consortium/editConsortium/{consortiumId}/{id}': editConsortium,
 
         //* Delete consortium
-        '/api/consortium/delete/{consortiumId}': deleteConsortium,
+        '/api/consortium/delete/{consortiumId}/{id}': deleteConsortium,
 
         //* Remove user from consortium
         '/api/consortium/removeUser/{consortiumId}/{userID}':

@@ -28,6 +28,11 @@ router.put(
 )
 router.put('/add/:consortiumId/:amenityId', addAmenityConsortium)
 router.put('/removeUser/:consortiumId/:userId', deleteConsortiumUser)
-router.delete('/delete/:consortiumId', deleteConsortium)
+router.delete(
+    '/delete/:consortiumId/:id',
+    validateAdmin,
+    compareIds,
+    deleteConsortium
+)
 
 export default router

@@ -15,8 +15,7 @@ export const editConsortiumController = async (req: Request, res: Response) => {
         if (!ok && status === 404) {
             return res.status(status).json({ ok, msg: 'Consortium not found' })
         }
-        console.log(consortium.admin)
-        console.log(id)
+
         // Comprobar si el el admin del consorcio
         if (consortium.admin.toString() !== id) {
             return res
