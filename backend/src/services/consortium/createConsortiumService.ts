@@ -18,7 +18,6 @@ export const createConsortiumService = async (data: IConsortium) => {
             payments,
         } = data
         const creator = await User.findOne({ _id: admin })
-        console.log(creator)
 
         if (!creator)
             return {
@@ -69,14 +68,13 @@ export const createConsortiumService = async (data: IConsortium) => {
             }
         }
 
-        console.log('llego aca?')
-
         return {
             ok: true,
             status: 200,
             consortium,
         }
     } catch (error: any) {
+        console.log(error)
         return error
     }
 }
