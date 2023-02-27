@@ -2,7 +2,9 @@ import Payment from '../../models/Payment'
 
 export const getUserpaymentsService = async (id: string) => {
     try {
-        const payments = await Payment.find().select('-createdAt -updatedAt')
+        const payments = await Payment.find()
+            .select('-createdAt -updatedAt')
+            .populate({ path: 'user', select: 'name lastname email phone img' })
 
         if (!payments || payments.length < 1) {
             const response = {
@@ -13,7 +15,7 @@ export const getUserpaymentsService = async (id: string) => {
         }
 
         const userPayments = payments.filter(
-            (payment) => payment.user.toString() === id
+            (payment: any) => payment.user._id.toString() === id
         )
 
         return {
