@@ -20,3 +20,8 @@ export enum EPaymentMethod {
     cash = 'cash',
     transfer = 'transfer',
 }
+
+export enum EReserve {
+    reserved = 'reserved',
+    canceled = 'canceled',
+}
