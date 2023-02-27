@@ -3,7 +3,7 @@ import User from './../../models/User'
 
 export const createConsortiumService = async (body: any) => {
     try {
-        const { userId, name, address, floor, apt } = body
+        const { userId, name, address, floor, apt, amenities } = body.data
         const creator = await User.findOne({ _id: userId })
 
         if (!creator)
@@ -26,6 +26,7 @@ export const createConsortiumService = async (body: any) => {
             admin: creator._id,
             floor: Number(floor),
             apt: Number(apt),
+            amenities
         })
         await consortium.save()
 
