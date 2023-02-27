@@ -57,7 +57,7 @@ const CreateConsortium = () => {
     try {
       setState({ ...state, load: true })
       const amenitieParsedValues = data.amenities.map((amenity) => amenity.id)
-      const consortiumInfo: ConsortiumCreationValues = { userId, ...data, amenities: amenitieParsedValues }
+      const consortiumInfo: ConsortiumCreationValues = { admin: userId, ...data, amenities: amenitieParsedValues }
       const response: any = await createConsortiumService(consortiumInfo)
       const userConsortiumValues: [{ _id: string | undefined, address: string | undefined }] = [{ _id: response.data?._id, address: data.address }]
       setConsortium(userConsortiumValues)

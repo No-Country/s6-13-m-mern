@@ -13,7 +13,7 @@ export interface FormValues {
 }
 
 export interface ConsortiumCreationValues extends Omit<FormValues, 'amenities'> {
-  userId: string | undefined
+  admin: string | undefined
   amenities: string[]
 }
 
