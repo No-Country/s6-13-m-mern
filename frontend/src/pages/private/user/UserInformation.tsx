@@ -7,7 +7,7 @@ const UserInformation = () => {
   const [activeIndex, setActiveIndex] = useState('')
 
   const user = userStore((state) => state.userData)
-  const consortium = useConsortiumStore((state) => state.consortiumData)
+  const consortium = user?.consortium?.find(() => true)
   console.log(consortium)
 
   return (
@@ -20,10 +20,10 @@ const UserInformation = () => {
           activeIndex={activeIndex}
           setActiveIndex={setActiveIndex}
         >
-          <div className="flex">
-            <div>
-              <b>Name:</b>
-            </div>
+          <div className="flex justify-around">
+            <h4><b>Name:</b> {consortium?.name}</h4>
+            <h4><b>Address:</b> {consortium?.address}</h4>
+            <img src={consortium?.img} alt="" className=' w-20' />
           </div>
         </Accordion>
         <Accordion

@@ -17,6 +17,7 @@ interface UserConsortia {
   address: string
   admin: Admin
   img?: string
+  name: string
 }
 
 interface Admin {

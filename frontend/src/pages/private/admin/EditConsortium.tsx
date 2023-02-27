@@ -21,6 +21,7 @@ import {
 import { PulseLoader } from 'react-spinners'
 import BlueModal from '../../../components/modal/BlueModal'
 import { useParams } from 'react-router-dom'
+import { deleteConsortiumService } from '../../../services/deleteConsortiumService'
 
 const EditConsortium = () => {
   // const { id }: string = useParams()
@@ -68,7 +69,7 @@ const EditConsortium = () => {
       setState({ ...state, load: true })
       const amenitieParsedValues = data.amenities.map((amenity) => amenity.id)
       /* ESTO LO COMENTÉ PORQUE ESTÁ SIN USO Y TIRA ERROR */
-      //const consortiumInfo: ConsortiumCreationValues = { userId, ...data, amenities: amenitieParsedValues }
+      // const consortiumInfo: ConsortiumCreationValues = { userId, ...data, amenities: amenitieParsedValues }
       // const response: any = await createConsortiumService(consortiumInfo)
       setState({ ...state, openModal: true, load: false })
     } catch (error) {
@@ -79,6 +80,16 @@ const EditConsortium = () => {
         load: false,
       })
       console.log(error)
+    }
+  }
+
+  const { id } = useParams<{ id: string }>()
+  const handleDelete = async () => {
+    if (id) {
+      const res = await deleteConsortiumService(id)
+      console.log(res)
+
+      console.log('deleted')
     }
   }
 
@@ -114,7 +125,7 @@ const EditConsortium = () => {
                 <div className="self-start">
                   <BackTitleComponent
                     title="Edit Consortium"
-                    navigateTo="/admin/consortium"
+                    navigateTo="/admin"
                   />
                   <img
                     className="rounded-md mt-10 ml-10 border-2 border-black"
@@ -210,6 +221,7 @@ const EditConsortium = () => {
               </div>
             </div>
           </div>
+          <button onClick={handleDelete}>delete</button>
         </Container>
       </section>
     </>
