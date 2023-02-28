@@ -2,8 +2,14 @@ import { PulseLoader } from 'react-spinners'
 import BackTitleComponent from '../../../components/BackTitleComponent'
 import WhiteModal from '../../../components/modal/WhiteModal'
 import { useForm, type SubmitHandler } from 'react-hook-form'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import BlueModal from '../../../components/modal/BlueModal'
+import { userStore } from '../../../store/user'
+import { useAuthStore } from '../../../store/auth'
+import { Notification } from '../../../interfaces/notificationInterfaces'
+import createNotificationsService from '../../../services/createNotificationsService'
+import getNotificationsService from '../../../services/getNotificationsService'
+import Accordion from '../../../components/Accordion'
 
 interface Entrance {
   subject: string
@@ -12,8 +18,10 @@ interface Entrance {
 
 const UserNotifications = () => {
   const [loading, setLoading] = useState(false)
+  const [notification, setNotification] = useState<Notification[]>()
   const [modal, setModal] = useState(false)
   const [modalOk, setModalOk] = useState(false)
+  const [activeIndex, setActiveIndex] = useState('')
 
   const {
     register,
@@ -21,13 +29,41 @@ const UserNotifications = () => {
     formState: { isDirty, isValid },
   } = useForm<Entrance>({ mode: 'onTouched' })
 
+  const user = userStore((state) => state.userData)
+  const consortiumId = user?.consortium?.find(() => true)?._id
+  const userId = useAuthStore((state) => state.id)
+
   const customSubmit: SubmitHandler<Entrance> = async (data: Entrance) => {
-    setLoading(true)
-    console.log('hola')
-    setModal(false)
-    setModalOk(true)
-    setLoading(false)
+    const { subject, description } = data
+    if (consortiumId) {
+      const notifData: Notification = {
+        subject,
+        description,
+        consortium: consortiumId,
+        issuer: userId,
+        type: 'entrance',
+        creationDate: Date.now(),
+      }
+      setLoading(true)
+      const res = await createNotificationsService(notifData)
+      console.log(res)
+      setModal(false)
+      setModalOk(true)
+      setLoading(false)
+    }
   }
+
+  const getNotifications = async (id: string) => {
+    const notifications: Notification[] = await getNotificationsService(id)
+    setNotification(notifications)
+  }
+
+  useEffect(() => {
+    if (consortiumId) {
+      // eslint-disable-next-line @typescript-eslint/no-floating-promises
+      getNotifications(consortiumId)
+    }
+  }, [consortiumId])
 
   return (
     <div className=" min-h-screen m-[50px]">
@@ -35,9 +71,18 @@ const UserNotifications = () => {
         navigateTo="/user"
         title="Notifications"
       />
-      <div className=" m-12">
-        <h4>Consortium Meeting</h4>
-        <hr />
+      <div className=" m-6">
+        {notification?.map((not, i) => (
+          <Accordion
+            title={not.subject}
+            index={i.toString()}
+            activeIndex={activeIndex}
+            setActiveIndex={setActiveIndex}
+            key={not._id}
+          >
+            {not.description}
+          </Accordion>
+        ))}
       </div>
       <button
         className="bg-blueDark disabled:opacity-60 text-white text-xl w-60 h-12 rounded-lg block mt-8 mb-5 ml-auto mr-12"
@@ -47,7 +92,12 @@ const UserNotifications = () => {
       >
         Add entrance
       </button>
-      <WhiteModal isOpen={modal}>
+      <WhiteModal
+        isOpen={modal}
+        toggle={() => {
+          setModal(false)
+        }}
+      >
         <div className="px-4 -my-3">
           <h3 className="font-bold text-xl text-blueDark text-start">Add New Event</h3>
           <form
