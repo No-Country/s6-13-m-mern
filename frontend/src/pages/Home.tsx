@@ -5,6 +5,22 @@ import WhatsappDialog from '../components/WhatsappDialog'
 
 const Home = () => {
   const [show, setShow] = useState(false)
+  const check = (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      stroke="#002a61"
+      className="w-6 h-6"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+      />
+    </svg>
+  )
 
   return (
     <section className="bg-content bg-redLight w-full">
@@ -57,21 +73,21 @@ const Home = () => {
               <ul className="absolute px-20 bottom-0 translate-y-6 flex flex-row justify-between text-white text-2xl w-full font-light font-inter">
                 <li
                   className={
-                    ' text-center py-7 bg-blue w-48 rounded-lg border-2 border-black drop-shadow-[0px_3px_1px_rgba(0,0,0,0.5)] cursor-default hover:bg-[#34b7f1] hover:-translate-y-3 hover:drop-shadow-[0px_20px_8px_rgba(0,0,0,0.3)] transition ease-in-out delay-100 duration-200'
+                    ' text-center h-16 flex justify-center items-center bg-blue w-48 rounded-lg border-black drop-shadow-[0px_3px_1px_rgba(0,0,0,0.5)] cursor-default hover:bg-[#34b7f1] hover:-translate-y-3 hover:drop-shadow-[0px_20px_8px_rgba(0,0,0,0.3)] transition ease-in-out delay-100 duration-200'
                   }
                 >
                   Administrate
                 </li>
                 <li
                   className={
-                    ' text-center py-7 bg-grey w-48 rounded-lg border-2 border-black drop-shadow-[0px_3px_1px_rgba(0,0,0,0.5)] cursor-default hover:bg-[#34b7f1] hover:-translate-y-3 hover:drop-shadow-[0px_20px_8px_rgba(0,0,0,0.3)] transition ease-in-out delay-100 duration-200'
+                    ' text-center h-16 flex justify-center items-center bg-grey w-48 rounded-lg border-black drop-shadow-[0px_3px_1px_rgba(0,0,0,0.5)] cursor-default hover:bg-[#34b7f1] hover:-translate-y-3 hover:drop-shadow-[0px_20px_8px_rgba(0,0,0,0.3)] transition ease-in-out delay-100 duration-200'
                   }
                 >
                   Comunicate
                 </li>
                 <li
                   className={
-                    ' text-center py-7 bg-blueDark w-48 rounded-lg border-2 border-black drop-shadow-[0px_3px_1px_rgba(0,0,0,0.5)] cursor-default hover:bg-[#34b7f1] hover:-translate-y-3 hover:drop-shadow-[0px_20px_8px_rgba(0,0,0,0.3)] transition ease-in-out delay-100 duration-200'
+                    ' text-center h-16 flex justify-center items-center bg-blueDark w-48 rounded-lg border-black drop-shadow-[0px_3px_1px_rgba(0,0,0,0.5)] cursor-default hover:bg-[#34b7f1] hover:-translate-y-3 hover:drop-shadow-[0px_20px_8px_rgba(0,0,0,0.3)] transition ease-in-out delay-100 duration-200'
                   }
                 >
                   Make it easy!
@@ -100,12 +116,22 @@ const Home = () => {
                   It&apos;s a software that provides the <b>easiest</b> way to manage the key information of you
                   consortium
                 </p>
-                <ul className="relative list-disc text-2xl mt-12 font-inter w-full">
-                  <li className="relative left-[13vw] max-w-max">Create a dashboard</li>
-                  <li className="relative left-[44vw] max-w-max">Establishes rules of coexistence</li>
-                  <li className="relative left-[25vw] max-w-max">Know the relevant data</li>
-                  <li className="relative left-[6vw] max-w-max">Add your users</li>
-                  <li className="relative left-[59vw] -translate-y-12 max-w-max">Show everyone&apos;s debts</li>
+                <ul className="mt-12 flex justify-center gap-4">
+                  <li className="bg-white p-2 mt-1 rounded-md  flex items-center m-auto text-center border-[1px] border-[#b3b3b3] h-[80px]">
+                    {check} Create a dashboard
+                  </li>
+                  <li className="bg-white p-2 mt-20 rounded-md  flex items-center m-auto text-center  border-[1px] border-[#b3b3b3] h-[80px]">
+                    {check} Establishes rules of coexistence
+                  </li>
+                  <li className="bg-white p-2 mt-1 rounded-md  flex items-center m-auto text-center h-[80px]">
+                    {check} Know the relevant data
+                  </li>
+                  <li className="bg-white p-2 mt-20 rounded-md  flex items-center m-auto text-center border-[1px] border-[#b3b3b3] h-[80px]">
+                    {check} Add your users
+                  </li>
+                  <li className="bg-white p-2 mt-1 rounded-md flex items-center m-auto text-center  border-[1px] border-[#b3b3b3] h-[80px]">
+                    {check} Show everyone&apos;s debts
+                  </li>
                 </ul>
               </div>
             </div>
