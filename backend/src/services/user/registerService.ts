@@ -13,6 +13,7 @@ export const registerService = async (user: IUser) => {
         isValidated,
         role,
         img,
+        consortium,
     } = user
     try {
         const existsUser = await User.findOne({ email })
@@ -37,6 +38,7 @@ export const registerService = async (user: IUser) => {
                 isValidated,
                 role,
                 img,
+                consortium,
             })
         } else {
             newUser = new User({
@@ -46,6 +48,7 @@ export const registerService = async (user: IUser) => {
                 password,
                 phone,
                 img,
+                consortium,
             })
         }
         const response = {

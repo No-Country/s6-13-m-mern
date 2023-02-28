@@ -8,7 +8,8 @@
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677436611/mocks/users/woman/user8_g8szfy.jpg",
         "phone": "1177461279",
         "role": "tenant",
-        "isValidated": true
+        "isValidated": true,
+        "consortium": ["63fbb87dfc13ae17e0000480"]
     },
     {
         "_id": "63fb8cf3fc13ae02b5000001",
@@ -19,7 +20,8 @@
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677436609/mocks/users/man/user6_sroawn.jpg",
         "phone": "4899961013",
         "role": "tenant",
-        "isValidated": true
+        "isValidated": true,
+        "consortium": ["63fbb87dfc13ae17e0000480"]
     },
     {
         "_id": "63fb8cf3fc13ae02b5000002",
@@ -30,7 +32,8 @@
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677436611/mocks/users/woman/user9_f9zqw2.jpg",
         "phone": "9063273143",
         "role": "tenant",
-        "isValidated": true
+        "isValidated": true,
+        "consortium": ["63fbb87dfc13ae17e0000480"]
     },
     {
         "_id": "63fb8cf3fc13ae02b5000003",
@@ -41,7 +44,8 @@
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677436609/mocks/users/man/user42_ot9s4f.jpg",
         "phone": "4961654603",
         "role": "tenant",
-        "isValidated": true
+        "isValidated": true,
+        "consortium": ["63fbb87dfc13ae17e0000480"]
     },
     {
         "_id": "63fb8cf3fc13ae02b5000004",
@@ -52,7 +56,8 @@
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677436611/mocks/users/woman/user44_lsypyt.jpg",
         "phone": "3281506953",
         "role": "tenant",
-        "isValidated": true
+        "isValidated": true,
+        "consortium": ["63fbb87dfc13ae17e0000480"]
     },
     {
         "_id": "63fb8cf3fc13ae02b5000005",
@@ -63,7 +68,8 @@
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677436609/mocks/users/man/user5_jnc5u4.jpg",
         "phone": "8737259538",
         "role": "tenant",
-        "isValidated": true
+        "isValidated": true,
+        "consortium": ["63fbb87dfc13ae17e000047c"]
     },
     {
         "_id": "63fb8cf3fc13ae02b5000006",
@@ -74,7 +80,8 @@
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677436608/mocks/users/man/user41_f4jqed.jpg",
         "phone": "2563990243",
         "role": "tenant",
-        "isValidated": true
+        "isValidated": true,
+        "consortium": ["63fbb87dfc13ae17e000047c"]
     },
     {
         "_id": "63fb8cf3fc13ae02b5000007",
@@ -85,7 +92,8 @@
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677436608/mocks/users/man/user33_rz3enj.jpg",
         "phone": "2232471171",
         "role": "tenant",
-        "isValidated": true
+        "isValidated": true,
+        "consortium": ["63fbb87dfc13ae17e000047c"]
     },
     {
         "_id": "63fb8cf3fc13ae02b5000008",
@@ -96,7 +104,8 @@
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677436611/mocks/users/woman/user45_xo3fff.jpg",
         "phone": "4577772736",
         "role": "tenant",
-        "isValidated": true
+        "isValidated": true,
+        "consortium": ["63fbb87dfc13ae17e000047c"]
     },
     {
         "_id": "63fb8cf3fc13ae02b5000009",
@@ -107,7 +116,8 @@
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677436611/mocks/users/woman/user46_c1hccj.jpg",
         "phone": "8185297863",
         "role": "tenant",
-        "isValidated": true
+        "isValidated": true,
+        "consortium": ["63fbb87dfc13ae17e000047c"]
     },
     {
         "_id": "63fb8cf3fc13ae02b500000a",
@@ -118,7 +128,8 @@
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677436608/mocks/users/man/user37_jyzhwa.jpg",
         "phone": "1571630121",
         "role": "tenant",
-        "isValidated": true
+        "isValidated": true,
+        "consortium": ["63fbb87dfc13ae17e0000474"]
     },
     {
         "_id": "63fb8cf3fc13ae02b500000b",
@@ -129,7 +140,8 @@
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677436611/mocks/users/woman/user7_urnwya.jpg",
         "phone": "6758145203",
         "role": "tenant",
-        "isValidated": true
+        "isValidated": true,
+        "consortium": ["63fbb87dfc13ae17e0000474"]
     },
     {
         "_id": "63fb8cf3fc13ae02b500000c",
@@ -140,7 +152,8 @@
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677436610/mocks/users/woman/user43_ckr8ma.jpg",
         "phone": "2102099507",
         "role": "tenant",
-        "isValidated": true
+        "isValidated": true,
+        "consortium": ["63fbb87dfc13ae17e0000474"]
     },
     {
         "_id": "63fb8cf3fc13ae02b500000d",
@@ -151,7 +164,8 @@
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677436608/mocks/users/man/user22_wzmb5w.jpg",
         "phone": "9854104415",
         "role": "tenant",
-        "isValidated": true
+        "isValidated": true,
+        "consortium": ["63fbb87dfc13ae17e0000474"]
     },
     {
         "_id": "63fb8cf3fc13ae02b500000e",
@@ -162,7 +176,8 @@
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677436608/mocks/users/man/user3_nqvpqk.jpg",
         "phone": "8708235064",
         "role": "tenant",
-        "isValidated": true
+        "isValidated": true,
+        "consortium": ["63fbb87dfc13ae17e0000474"]
     },
     {
         "_id": "63fb8cf3fc13ae02b500000f",
@@ -173,7 +188,8 @@
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677436608/mocks/users/man/user36_feqji0.jpg",
         "phone": "5517385772",
         "role": "tenant",
-        "isValidated": true
+        "isValidated": true,
+        "consortium": ["63fbb87dfc13ae17e0000478"]
     },
     {
         "_id": "63fb8cf3fc13ae02b5000010",
@@ -184,7 +200,8 @@
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677436608/mocks/users/man/user24_ien4mb.jpg",
         "phone": "2194651699",
         "role": "tenant",
-        "isValidated": true
+        "isValidated": true,
+        "consortium": ["63fbb87dfc13ae17e0000478"]
     },
     {
         "_id": "63fb8cf3fc13ae02b5000011",
@@ -195,7 +212,8 @@
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677436610/mocks/users/woman/user4_wn1thp.jpg",
         "phone": "5599727369",
         "role": "tenant",
-        "isValidated": true
+        "isValidated": true,
+        "consortium": ["63fbb87dfc13ae17e0000478"]
     },
     {
         "_id": "63fb8cf3fc13ae02b5000012",
@@ -206,7 +224,8 @@
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677436610/mocks/users/woman/user35_cewerk.jpg",
         "phone": "8875605540",
         "role": "tenant",
-        "isValidated": true
+        "isValidated": true,
+        "consortium": ["63fbb87dfc13ae17e0000478"]
     },
     {
         "_id": "63fb8cf3fc13ae02b5000013",
@@ -217,7 +236,8 @@
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677436610/mocks/users/woman/user34_zjz6qk.jpg",
         "phone": "9193981070",
         "role": "tenant",
-        "isValidated": true
+        "isValidated": true,
+        "consortium": ["63fbb87dfc13ae17e0000478"]
     },
     {
         "_id": "63fb8cf3fc13ae02b5000014",
@@ -228,7 +248,8 @@
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677436608/mocks/users/man/user31_kue1ow.jpg",
         "phone": "9161465384",
         "role": "tenant",
-        "isValidated": true
+        "isValidated": true,
+        "consortium": ["63fbb87dfc13ae17e0000484"]
     },
     {
         "_id": "63fb8cf3fc13ae02b5000015",
@@ -239,7 +260,8 @@
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677436608/mocks/users/man/user26_wjg9mf.jpg",
         "phone": "6576529221",
         "role": "tenant",
-        "isValidated": true
+        "isValidated": true,
+        "consortium": ["63fbb87dfc13ae17e0000484"]
     },
     {
         "_id": "63fb8cf3fc13ae02b5000016",
@@ -250,7 +272,8 @@
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677436607/mocks/users/man/user16_ifnyef.jpg",
         "phone": "2971087548",
         "role": "tenant",
-        "isValidated": true
+        "isValidated": true,
+        "consortium": ["63fbb87dfc13ae17e0000484"]
     },
     {
         "_id": "63fb8cf3fc13ae02b5000017",
@@ -261,7 +284,8 @@
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677436610/mocks/users/woman/user32_ew2whj.jpg",
         "phone": "1713439102",
         "role": "tenant",
-        "isValidated": true
+        "isValidated": true,
+        "consortium": ["63fbb87dfc13ae17e0000484"]
     },
     {
         "_id": "63fb8cf3fc13ae02b5000018",
@@ -272,7 +296,8 @@
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677436610/mocks/users/woman/user27_gu0j98.jpg",
         "phone": "5197804645",
         "role": "tenant",
-        "isValidated": true
+        "isValidated": true,
+        "consortium": ["63fbb87dfc13ae17e0000484"]
     },
     {
         "_id": "63fb8cf3fc13ae02b5000019",
@@ -283,7 +308,8 @@
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677436610/mocks/users/woman/user30_hqaajm.jpg",
         "phone": "2648840251",
         "role": "tenant",
-        "isValidated": true
+        "isValidated": true,
+        "consortium": ["63fbb87dfc13ae17e0000474"]
     },
     {
         "_id": "63fb8cf3fc13ae02b500001a",
@@ -294,7 +320,8 @@
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677436610/mocks/users/woman/user23_mkcx0j.jpg",
         "phone": "6454334968",
         "role": "tenant",
-        "isValidated": true
+        "isValidated": true,
+        "consortium": ["63fbb87dfc13ae17e0000478"]
     },
     {
         "_id": "63fb8cf3fc13ae02b500001b",
@@ -305,7 +332,8 @@
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677436610/mocks/users/woman/user28_uwn6tp.jpg",
         "phone": "6023744858",
         "role": "tenant",
-        "isValidated": true
+        "isValidated": true,
+        "consortium": ["63fbb87dfc13ae17e000047c"]
     },
     {
         "_id": "63fb8cf3fc13ae02b500001c",
@@ -316,7 +344,8 @@
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677436609/mocks/users/woman/user17_z875tc.jpg",
         "phone": "6918684091",
         "role": "tenant",
-        "isValidated": true
+        "isValidated": true,
+        "consortium": ["63fbb87dfc13ae17e0000480"]
     },
     {
         "_id": "63fb8cf3fc13ae02b500001d",
@@ -327,7 +356,8 @@
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677436609/mocks/users/woman/user18_jw3aus.jpg",
         "phone": "7369763690",
         "role": "tenant",
-        "isValidated": true
+        "isValidated": true,
+        "consortium": ["63fbb87dfc13ae17e0000484"]
     },
 
     {
@@ -498,25 +528,37 @@
 
     {
         "_id": "63fb8cf3fc13ae02b500002d",
-        "name": "Garv",
-        "lastname": "Mattecot",
-        "email": "gmattecot19@phpbb.com",
+        "name": "Emanuel",
+        "lastname": "Capo",
+        "email": "3m4c4p0@gmail.com",
         "password": "Mipassword123!",
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677438999/mocks/users/man/user52_rnhqyw.jpg",
         "phone": "7607536776",
         "role": "admin",
-        "isValidated": true
+        "isValidated": true,
+        "consortium": [
+            "63fbb87dfc13ae17e0000474",
+            "63fbb87dfc13ae17e0000475",
+            "63fbb87dfc13ae17e0000476",
+            "63fbb87dfc13ae17e0000477"
+        ]
     },
     {
         "_id": "63fb8cf3fc13ae02b500002e",
-        "name": "Farley",
-        "lastname": "Kubasiewicz",
-        "email": "fkubasiewicz1a@oakley.com",
+        "name": "Martin",
+        "lastname": "Kun",
+        "email": "martinkunbrc@hotmail.com",
         "password": "Mipassword123!",
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677438999/mocks/users/man/user49_rx2iy2.jpg",
         "phone": "5906305247",
         "role": "admin",
-        "isValidated": true
+        "isValidated": true,
+        "consortium": [
+            "63fbb87dfc13ae17e0000478",
+            "63fbb87dfc13ae17e0000479",
+            "63fbb87dfc13ae17e000047a",
+            "63fbb87dfc13ae17e000047b"
+        ]
     },
     {
         "_id": "63fb8cf3fc13ae02b500002f",
@@ -527,7 +569,13 @@
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677439439/mocks/users/woman/user60_omgvhq.jpg",
         "phone": "8003979472",
         "role": "admin",
-        "isValidated": true
+        "isValidated": true,
+        "consortium": [
+            "63fbb87dfc13ae17e000047c",
+            "63fbb87dfc13ae17e000047d",
+            "63fbb87dfc13ae17e000047e",
+            "63fbb87dfc13ae17e000047f"
+        ]
     },
     {
         "_id": "63fb8cf3fc13ae02b5000030",
@@ -538,7 +586,13 @@
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677438999/mocks/users/man/user50_uq0meq.jpg",
         "phone": "5837433100",
         "role": "admin",
-        "isValidated": true
+        "isValidated": true,
+        "consortium": [
+            "63fbb87dfc13ae17e0000480",
+            "63fbb87dfc13ae17e0000481",
+            "63fbb87dfc13ae17e0000482",
+            "63fbb87dfc13ae17e0000483"
+        ]
     },
     {
         "_id": "63fb8cf3fc13ae02b5000031",
@@ -549,6 +603,12 @@
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677439438/mocks/users/woman/user59_m13ups.jpg",
         "phone": "7575045251",
         "role": "admin",
-        "isValidated": true
+        "isValidated": true,
+        "consortium": [
+            "63fbb87dfc13ae17e0000484",
+            "63fbb87dfc13ae17e0000485",
+            "63fbb87dfc13ae17e0000486",
+            "63fbb87dfc13ae17e0000487"
+        ]
     }
 ]
