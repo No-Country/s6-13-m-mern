@@ -1,140 +1,130 @@
 [
-  {
-    "_id": "508f1f77btf86cd799439012",
-    "consortium": "63ebcd8cfc13ae6120000024",
-    "name": "Piscina",
-    "description": "descripcion piscina",
-    "reservable": true,
-    "img": "https://img.lovepik.com/free-png/20220127/lovepik-swimming-pool-png-image_401893480_wh1200.png",
-    "size":10,
-    "reserve": [
-      {"_id":"63e2546cfc13ae373c000898"}
-    ],
-    "schedule":
-      {"_id":"63f2b427fc13ae631e00000a"}
-  },
-  {
-    "_id": "507f1g77btf86cd799439011",
-    "consortium": "63ebcd8cfc13ae6120000024",
-    "name": "Quincho",
-    "description": "Desc quincho",
-    "reservable": true,
-    "img": "https://www.quinchosizacar.com/images/quincho-goliat/quincho-goliat-enchape-ladrillo.png",
-    "size":15,
-    "reserve": [
-      {"_id":"63e2546cfc13ae373c000899"}
-    ],
-    "schedule":
-      {"_id":"63f2b427fc13ae631e00000d"}
-  },
-  {
-    "_id": "507f1g77btf86cd799439014",
-    "consortium": "63ebcd8cfc13ae6120000024",
-    "name": "Patio",
-    "description": "Desc Patio",
-    "reservable": true,
-    "img": "https://www.quinchosizacar.com/images/quincho-goliat/quincho-goliat-enchape-ladrillo.png",
-    "size":10,
-    "reserve": [
-      {"_id":"63e2546cfc13ae373c00089a"}
-    ],
-    "schedule":
-      {"_id":"63f2b427fc13ae631e00000c"}
-  },
-  {
-    "_id": "507f1g77btf86cd799439015",
-    "consortium": "63ebcd8cfc13ae6120000024",
-    "name": "SUM",
-    "description": "Desc SUM",
-    "reservable": true,
-    "img": "https://www.quinchosizacar.com/images/quincho-goliat/quincho-goliat-enchape-ladrillo.png",
-    "size":30,
-    "reserve": [],
-    "schedule":""
-  },
-  {
-    "_id": "507f1g77btf86cd799439017",
-    "consortium": "63ebcd8cfc13ae6120000024",
-    "name": "Terraza",
-    "description": "Desc Terraza",
-    "reservable": true,
-    "img": "https://www.quinchosizacar.com/images/quincho-goliat/quincho-goliat-enchape-ladrillo.png",
-    "size":10,
-    "reserve": [],
-    "schedule":""
-  },
-
-  {
-    "_id": "63f5253bfc13ae4b1f000c28",
-    "consortium": "63ebcd8cfc13ae6120000025",
-    "name": "SUM",
-    "description": "Desc SUM",
-    "reservable": true,
-    "img": "https://www.quinchosizacar.com/images/quincho-goliat/quincho-goliat-enchape-ladrillo.png",
-    "size":30,
-    "reserve": [
-      {"_id":"63f2b31cfc13ae631e000004"}
-    ],
-    "schedule":
-      {"_id":"63f2b427fc13ae631e00000e"}
-  },
-  {
-    "_id": "63f5253bfc13ae4b1f000c29",
-    "consortium": "63ebcd8cfc13ae6120000025",
-    "name": "Terraza",
-    "description": "Desc Terraza",
-    "reservable": true,
-    "img": "https://www.quinchosizacar.com/images/quincho-goliat/quincho-goliat-enchape-ladrillo.png",
-    "size":10,
-    "reserve": [
-      {"_id": "63e2546cfc13ae373c00089b"},
-      {"_id": "63e2546cfc13ae373c00089c"}
-    ],
-    "schedule":
-      {"_id":"63f2b427fc13ae631e000010"}
-  },
-
-  {
-    "_id": "63f5253bfc13ae4b1f000c2b",
-    "consortium": "63ebcd8cfc13ae6120000026",
-    "name": "Piscina",
-    "description": "descripcion piscina",
-    "reservable": true,
-    "img": "https://img.lovepik.com/free-png/20220127/lovepik-swimming-pool-png-image_401893480_wh1200.png",
-    "size":10,
-    "reserve": [
-      {"_id":"63f2b31cfc13ae631e000003"},
-      {"_id":"63f2b31cfc13ae631e000002"}
-    ],
-    "schedule":
-      {"_id":"63f2b427fc13ae631e000011"}
-  },
-  {
-    "_id": "63f5253bfc13ae4b1f000c2c",
-    "consortium": "63ebcd8cfc13ae6120000026",
-    "name": "Quincho",
-    "description": "Desc quincho",
-    "reservable": true,
-    "img": "https://www.quinchosizacar.com/images/quincho-goliat/quincho-goliat-enchape-ladrillo.png",
-    "size":15,
-    "reserve": [
-      {"_id":"63f2b31cfc13ae631e000001"}
-    ],
-    "schedule":
-      {"_id":"63f2b427fc13ae631e000012"}
-  },
-  {
-    "_id": "63f5253bfc13ae4b1f000c2d",
-    "consortium": "63ebcd8cfc13ae6120000026",
-    "name": "Lavanderia",
-    "description": "Desc Lavanderia",
-    "reservable": true,
-    "img": "https://www.quinchosizacar.com/images/quincho-goliat/quincho-goliat-enchape-ladrillo.png",
-    "size":5,
-    "reserve": [
-      {"_id":"63f2b31cfc13ae631e000000"}
-    ],
-    "schedule":
-      {"_id":"63f2b427fc13ae631e00000f"}
-  }
+    {
+        "_id": "63fc901efc13ae471d00019a",
+        "name": "Swimming Pool",
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum",
+        "reservable": false,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677495661/mocks/amenities/Swimming_Pool_qg2mba.jpg",
+        "size": 1
+    },
+    {
+        "_id": "63fc901efc13ae471d00019b",
+        "name": "Terrace",
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum",
+        "reservable": true,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677495406/mocks/amenities/Terrace_un6q1w.jpg",
+        "size": 2
+    },
+    {
+        "_id": "63fc901efc13ae471d00019c",
+        "name": "Gym",
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum",
+        "reservable": false,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677495404/mocks/amenities/Gym_tl7cke.jpg",
+        "size": 3
+    },
+    {
+        "_id": "63fc901efc13ae471d00019d",
+        "name": "Chill out",
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum",
+        "reservable": true,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677495405/mocks/amenities/Chill_out_lwyetr.jpg",
+        "size": 4
+    },
+    {
+        "_id": "63fc901efc13ae471d00019e",
+        "name": "Spa",
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum",
+        "reservable": true,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677495404/mocks/amenities/Spa_cnwr9u.jpg",
+        "size": 5
+    },
+    {
+        "_id": "63fc901efc13ae471d00019f",
+        "name": "Meditation area",
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum",
+        "reservable": false,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677495404/mocks/amenities/Meditation_area_lc4dqt.jpg",
+        "size": 6
+    },
+    {
+        "_id": "63fc901efc13ae471d0001a0",
+        "name": "Parkland",
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum",
+        "reservable": false,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677495406/mocks/amenities/Parkland_s6yu1k.jpg",
+        "size": 7
+    },
+    {
+        "_id": "63fc901efc13ae471d0001a1",
+        "name": "Jacuzzi",
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum",
+        "reservable": true,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677495404/mocks/amenities/Jacuzzi_nrwrut.jpg",
+        "size": 8
+    },
+    {
+        "_id": "63fc901efc13ae471d0001a2",
+        "name": "Game Room",
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum",
+        "reservable": false,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677495406/mocks/amenities/Game_Room_rfmiui.jpg",
+        "size": 9
+    },
+    {
+        "_id": "63fc901efc13ae471d0001a3",
+        "name": "Coworking",
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum",
+        "reservable": true,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677495404/mocks/amenities/Coworking_ezhqze.jpg",
+        "size": 10
+    },
+    {
+        "_id": "63fc901efc13ae471d0001a4",
+        "name": "Laundry",
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum",
+        "reservable": false,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677495406/mocks/amenities/Laundry_fgb0ex.jpg",
+        "size": 11
+    },
+    {
+        "_id": "63fc901efc13ae471d0001a5",
+        "name": "Bicycle Rack",
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum",
+        "reservable": false,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677495404/mocks/amenities/Bicycle_Rack_ruwlvo.jpg",
+        "size": 12
+    },
+    {
+        "_id": "63fc901efc13ae471d0001a6",
+        "name": "Car Parking",
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum",
+        "reservable": false,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677495405/mocks/amenities/Car_Parking_km53jl.jpg",
+        "size": 13
+    },
+    {
+        "_id": "63fc901efc13ae471d0001a7",
+        "name": "Children's games",
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum",
+        "reservable": false,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677495406/mocks/amenities/Children_s_games_qrvpxf.jpg",
+        "size": 14
+    },
+    {
+        "_id": "63fc901efc13ae471d0001a8",
+        "name": "Children´s Park",
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum",
+        "reservable": false,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677495406/mocks/amenities/Children_s_Park_wpo6gv.jpg",
+        "size": 15
+    },
+    {
+        "_id": "63fc901efc13ae471d0001a9",
+        "name": "Business Center",
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum",
+        "reservable": true,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677495405/mocks/amenities/Business_Center_pi55uo.jpg",
+        "size": 16
+    }
 ]
