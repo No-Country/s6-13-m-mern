@@ -11,11 +11,13 @@ const Profile = () => {
       {!edit ? (
         <div className="flex sm:hidden flex-col items-center sm:mt-8">
           <div className="bg-blueDark w-full flex justify-center pt-16">
-            <img
-              className="sm:w-28 md:w-32 rounded-full sm:rounded-lg border-2 border-white -mb-8 sm:-mb-0"
-              src={user?.img}
-              alt="photo"
-            />
+            <div className="w-[125px]">
+              <img
+                className="sm:w-28 md:w-32 rounded-full sm:rounded-lg border-2 border-white -mb-8 sm:-mb-0"
+                src={user?.img}
+                alt="photo"
+              />
+            </div>
           </div>
           <div className="flex gap-2 ml-8 mt-8 sm:mt-0 sm:ml-0">
             <h2 className="sm:mt-12 sm:font-bold text-2xl sm:text-xl md:text-2xl sm:text-blueDark">
