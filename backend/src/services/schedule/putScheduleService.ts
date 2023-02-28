@@ -8,11 +8,11 @@ export const putScheduleService = async (id: string, body: ISchedule) => {
         }).select('-createdAt -updatedAt')
 
         if (scheduleUpdate) {
-            const { name, reserve } = scheduleUpdate
+            const { reserve } = scheduleUpdate
             const response = {
                 status: 200,
                 msg: 'Schedule actualizada con exito',
-                schedule: { name, reserve },
+                schedule: { reserve },
                 ok: true,
             }
             return response

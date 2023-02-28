@@ -3,6 +3,9 @@ export interface IReserve {
     user: user.id
     startDate: date
     endDate: date
+    startHour:string
+    endHour:string
     status: EReserve
-    amenity: amenity.id
+    amenity: Types.ObjectId
+    consortium: Types.ObjectId
 }
