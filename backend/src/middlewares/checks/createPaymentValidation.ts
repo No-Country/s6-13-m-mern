@@ -2,7 +2,7 @@ import { Response, Request, NextFunction } from 'express'
 import { body, validationResult } from 'express-validator'
 
 export const createPaymentValidation = [
-    body('image').isURL().withMessage('Image must be an URL'),
+    body('image').isString().withMessage('Image must be an URL'),
     body('note')
         .notEmpty()
         .withMessage('Note is required')
