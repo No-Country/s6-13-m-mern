@@ -115,131 +115,134 @@ const Signin = () => {
         </p>
       )}
       {width > 640 ? (
-      // ------------------ DESKTOP ------------------
-      <Container>
-        <div className=" font-sans text-[24px] py-14 h-max ">
-          <h1 className="text-[30px]">Welcome!</h1>
-          <h2 className="ml-6 mb-8">Please fill your info to start</h2>
-          <div className="w-full">
-            <form onSubmit={handleSubmit(customSubmit)} className='lg:w-fit mx-auto'>
-              <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-5 ">
-                <div className="lg:max-w-[440px] justify-self-start">
-                  <input
-                    className={`border-2 ${
-                      !errors.name ? 'border-blueDark' : 'border-red'
-                    } rounded-lg h-12 px-4 mb-8 w-full placeholder:italic placeholder:text-grey bg-transparent focus:outline-none text-lg`}
-                    type="text"
-                    placeholder="Enter your name"
-                    autoComplete="off"
-                    {...register('name', { required: true })}
-                  />
-                  <input
-                    className={`border-2 ${
-                      !errors.lastname ? 'border-blueDark' : 'border-red'
-                    } rounded-lg h-12 px-4 mb-8 w-full placeholder:italic placeholder:text-grey bg-transparent focus:outline-none text-lg`}
-                    type="text"
-                    placeholder="Enter your lastname"
-                    autoComplete="off"
-                    {...register('lastname', { required: true })}
-                  />
-                  <input
-                    className={`border-2 ${
-                      !errors.email ? 'border-blueDark' : 'border-red'
-                    } rounded-lg h-12 px-4 mb-8 w-full placeholder:italic placeholder:text-grey bg-transparent focus:outline-none text-lg`}
-                    type="email"
-                    placeholder="Enter your email"
-                    autoComplete="off"
-                    {...register('email', {
-                      required: true,
-                      pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i,
-                    })}
-                  />
-                </div>
-                <div className="lg:max-w-[440px] justify-self-end">
-                  <input
-                    className={`border-2 ${
-                      !errors.password ? 'border-blueDark' : 'border-red'
-                    } rounded-lg h-12 px-4 mb-8 w-full placeholder:italic placeholder:text-grey bg-transparent focus:outline-none text-lg`}
-                    type="password"
-                    placeholder="Enter your password"
-                    {...register('password', {
-                      required: true,
-                      pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-                    })}
-                  />
-                  <input
-                    className={`border-2 ${
-                      !errors.password2 ? 'border-blueDark' : 'border-red'
-                    } rounded-lg h-12 px-4 mb-8 w-full placeholder:italic placeholder:text-grey bg-transparent focus:outline-none text-lg`}
-                    type="password"
-                    placeholder="Repeat your password"
-                    {...register('password2', {
-                      required: true,
-                      validate: (val: string) => watch('password') === val,
-                    })}
-                  />
-                  <input
-                    className={`border-2 ${
-                      !errors.phone ? 'border-blueDark' : 'border-red'
-                    } rounded-lg h-12 px-4 mb-8 w-full placeholder:italic placeholder:text-grey bg-transparent focus:outline-none text-lg`}
-                    type="text"
-                    placeholder="Enter your phone"
-                    autoComplete="off"
-                    // eslint-disable-next-line no-useless-escape
-                    {...register('phone', { pattern: /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/ })}
-                  />
-                </div>
-              </div>
-              <div className="flex justify-start mb-6">
-                <input
-                  type="checkbox"
-                  className="w-7 mr-2"
-                  {...register('check', { required: true })}
-                />
-                <h3 className="text-lg">
-                  I agree to the
-                  <Link
-                    to=""
-                    className="ml-2 underline text-blueDark font-bold mb-5"
-                  >
-                    terms and conditions and privacy policy.
-                  </Link>
-                </h3>
-              </div>
-              <div>
-                <button
-                  type="submit"
-                  className="bg-blueDark disabled:opacity-60 text-white text-xl w-60 h-12 rounded-2xl block ml-auto mb-2"
-                  disabled={!isDirty || !isValid}
-                >
-                  {loading ? <PulseLoader color="white" /> : 'SIGN IN'}
-                </button>
-                <div className="flex justify-end text-lg">
-                  <h3>Already a member? </h3>
-                  <Link
-                    to="/login"
-                    className="ml-2 underline text-blueDark font-bold mb-5"
-                  >
-                    Log In
-                  </Link>
-                </div>
-              </div>
-            </form>
-
-            <h3 className="mb-5 text-center">Or continue with</h3>
-            <div className="flex justify-center">
-              <button
-                className="mx-10"
-                onClick={() => {
-                  loginGoogle()
-                }}
+        // ------------------ DESKTOP ------------------
+        <Container>
+          <div className=" font-sans text-[24px] py-14 h-max mb-20">
+            <h1 className="text-[30px]">Welcome!</h1>
+            <h2 className="ml-6 mb-8">Please fill your info to start</h2>
+            <div className="w-full">
+              <form
+                onSubmit={handleSubmit(customSubmit)}
+                className="lg:w-fit mx-auto"
               >
-                <img
-                  src="/assets/social/Google.png"
-                  alt=""
-                />
-              </button>
-              {/* <button className="mx-10">
+                <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-5 ">
+                  <div className="lg:max-w-[440px] justify-self-start">
+                    <input
+                      className={`border-2 ${
+                        !errors.name ? 'border-blueDark' : 'border-red'
+                      } rounded-lg h-12 px-4 mb-8 w-full placeholder:italic placeholder:text-grey bg-transparent focus:outline-none text-lg`}
+                      type="text"
+                      placeholder="Enter your name"
+                      autoComplete="off"
+                      {...register('name', { required: true })}
+                    />
+                    <input
+                      className={`border-2 ${
+                        !errors.lastname ? 'border-blueDark' : 'border-red'
+                      } rounded-lg h-12 px-4 mb-8 w-full placeholder:italic placeholder:text-grey bg-transparent focus:outline-none text-lg`}
+                      type="text"
+                      placeholder="Enter your lastname"
+                      autoComplete="off"
+                      {...register('lastname', { required: true })}
+                    />
+                    <input
+                      className={`border-2 ${
+                        !errors.email ? 'border-blueDark' : 'border-red'
+                      } rounded-lg h-12 px-4 mb-8 w-full placeholder:italic placeholder:text-grey bg-transparent focus:outline-none text-lg`}
+                      type="email"
+                      placeholder="Enter your email"
+                      autoComplete="off"
+                      {...register('email', {
+                        required: true,
+                        pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i,
+                      })}
+                    />
+                  </div>
+                  <div className="lg:max-w-[440px] justify-self-end">
+                    <input
+                      className={`border-2 ${
+                        !errors.password ? 'border-blueDark' : 'border-red'
+                      } rounded-lg h-12 px-4 mb-8 w-full placeholder:italic placeholder:text-grey bg-transparent focus:outline-none text-lg`}
+                      type="password"
+                      placeholder="Enter your password"
+                      {...register('password', {
+                        required: true,
+                        pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+                      })}
+                    />
+                    <input
+                      className={`border-2 ${
+                        !errors.password2 ? 'border-blueDark' : 'border-red'
+                      } rounded-lg h-12 px-4 mb-8 w-full placeholder:italic placeholder:text-grey bg-transparent focus:outline-none text-lg`}
+                      type="password"
+                      placeholder="Repeat your password"
+                      {...register('password2', {
+                        required: true,
+                        validate: (val: string) => watch('password') === val,
+                      })}
+                    />
+                    <input
+                      className={`border-2 ${
+                        !errors.phone ? 'border-blueDark' : 'border-red'
+                      } rounded-lg h-12 px-4 mb-8 w-full placeholder:italic placeholder:text-grey bg-transparent focus:outline-none text-lg`}
+                      type="text"
+                      placeholder="Enter your phone"
+                      autoComplete="off"
+                      // eslint-disable-next-line no-useless-escape
+                      {...register('phone', { pattern: /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/ })}
+                    />
+                  </div>
+                </div>
+                <div className="flex justify-start mb-6">
+                  <input
+                    type="checkbox"
+                    className="w-7 mr-2"
+                    {...register('check', { required: true })}
+                  />
+                  <h3 className="text-lg">
+                    I agree to the
+                    <Link
+                      to=""
+                      className="ml-2 underline text-blueDark font-bold mb-5"
+                    >
+                      terms and conditions and privacy policy.
+                    </Link>
+                  </h3>
+                </div>
+                <div>
+                  <button
+                    type="submit"
+                    className="bg-blueDark disabled:opacity-60 text-white text-xl w-60 h-12 rounded-2xl block ml-auto mb-2"
+                    disabled={!isDirty || !isValid}
+                  >
+                    {loading ? <PulseLoader color="white" /> : 'SIGN IN'}
+                  </button>
+                  <div className="flex justify-end text-lg">
+                    <h3>Already a member? </h3>
+                    <Link
+                      to="/login"
+                      className="ml-2 underline text-blueDark font-bold mb-5"
+                    >
+                      Log In
+                    </Link>
+                  </div>
+                </div>
+              </form>
+
+              <h3 className="mb-5 text-center">Or continue with</h3>
+              <div className="flex justify-center">
+                <button
+                  className="mx-10"
+                  onClick={() => {
+                    loginGoogle()
+                  }}
+                >
+                  <img
+                    src="/assets/social/Google.png"
+                    alt=""
+                  />
+                </button>
+                {/* <button className="mx-10">
                 <img
                   src="/assets/social/Facebook.png"
                   alt=""
@@ -251,86 +254,86 @@ const Signin = () => {
                   alt=""
                 />
               </button> */}
+              </div>
             </div>
           </div>
-        </div>
-      </Container>
+        </Container>
       ) : (
-      // ------------------ MOBILE ------------------
-      <Container>
-        <div className="font-sans text-[24px]  py-14 h-screen grid content-center">
+        // ------------------ MOBILE ------------------
+        <Container>
+          <div className="font-sans text-[24px]  py-14 h-screen grid content-center">
             {/* <h1 className="text-[30px]">Welcome!</h1> */}
             <h2 className="ml-6 mb-8">Please fill your info to start</h2>
-            <div >
+            <div>
               <form onSubmit={handleSubmit(customSubmit)}>
-                  <input
-                    className={`border-2 ${
-                      !errors.name ? 'border-blueDark' : 'border-red'
-                    } rounded-lg h-12 px-4 mb-8 w-full placeholder:italic placeholder:text-grey bg-transparent focus:outline-none text-lg`}
-                    type="text"
-                    placeholder="Enter your name"
-                    autoComplete="off"
-                    {...register('name', { required: true })}
-                  />
-                  <input
-                    className={`border-2 ${
-                      !errors.email ? 'border-blueDark' : 'border-red'
-                    } rounded-lg h-12 px-4 mb-8 w-full placeholder:italic placeholder:text-grey bg-transparent focus:outline-none text-lg`}
-                    type="email"
-                    placeholder="Enter your email"
-                    autoComplete="off"
-                    {...register('email', {
-                      required: true,
-                      pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i,
-                    })}
-                  />
                 <input
-                    className={`border-2 ${
-                      !errors.password ? 'border-blueDark' : 'border-red'
-                    } rounded-lg h-12 px-4 mb-8 w-full placeholder:italic placeholder:text-grey bg-transparent focus:outline-none text-lg`}
-                    type="password"
-                    placeholder="Enter your password"
-                    {...register('password', {
-                      required: true,
-                      pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-                    })}
-                  />
-                  <input
-                    className={`border-2 ${
-                      !errors.password2 ? 'border-blueDark' : 'border-red'
-                    } rounded-lg h-12 px-4 mb-8 w-full placeholder:italic placeholder:text-grey bg-transparent focus:outline-none text-lg`}
-                    type="password"
-                    placeholder="Repeat your password"
-                    {...register('password2', {
-                      required: true,
-                      validate: (val: string) => watch('password') === val,
-                    })}
-                  />
-              <div>
-                <button
-                  type="submit"
-                  className="bg-blueDark disabled:opacity-60 text-white text-xl w-full h-12 rounded-2xl block ml-auto mb-8"
-                  disabled={!isDirty || !isValid}
-                >
-                  {loading ? <PulseLoader color="white" /> : 'SIGN IN'}
-                </button>
-              </div>
-            </form>
-
-            <h3 className="mb-5 text-center">Or continue with</h3>
-            <div className="flex justify-center">
-              <button
-                className="mx-10"
-                onClick={() => {
-                  loginGoogle()
-                }}
-              >
-                <img
-                  src="/assets/social/Google.png"
-                  alt=""
+                  className={`border-2 ${
+                    !errors.name ? 'border-blueDark' : 'border-red'
+                  } rounded-lg h-12 px-4 mb-8 w-full placeholder:italic placeholder:text-grey bg-transparent focus:outline-none text-lg`}
+                  type="text"
+                  placeholder="Enter your name"
+                  autoComplete="off"
+                  {...register('name', { required: true })}
                 />
-              </button>
-              {/* <button className="mx-10">
+                <input
+                  className={`border-2 ${
+                    !errors.email ? 'border-blueDark' : 'border-red'
+                  } rounded-lg h-12 px-4 mb-8 w-full placeholder:italic placeholder:text-grey bg-transparent focus:outline-none text-lg`}
+                  type="email"
+                  placeholder="Enter your email"
+                  autoComplete="off"
+                  {...register('email', {
+                    required: true,
+                    pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i,
+                  })}
+                />
+                <input
+                  className={`border-2 ${
+                    !errors.password ? 'border-blueDark' : 'border-red'
+                  } rounded-lg h-12 px-4 mb-8 w-full placeholder:italic placeholder:text-grey bg-transparent focus:outline-none text-lg`}
+                  type="password"
+                  placeholder="Enter your password"
+                  {...register('password', {
+                    required: true,
+                    pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+                  })}
+                />
+                <input
+                  className={`border-2 ${
+                    !errors.password2 ? 'border-blueDark' : 'border-red'
+                  } rounded-lg h-12 px-4 mb-8 w-full placeholder:italic placeholder:text-grey bg-transparent focus:outline-none text-lg`}
+                  type="password"
+                  placeholder="Repeat your password"
+                  {...register('password2', {
+                    required: true,
+                    validate: (val: string) => watch('password') === val,
+                  })}
+                />
+                <div>
+                  <button
+                    type="submit"
+                    className="bg-blueDark disabled:opacity-60 text-white text-xl w-full h-12 rounded-2xl block ml-auto mb-8"
+                    disabled={!isDirty || !isValid}
+                  >
+                    {loading ? <PulseLoader color="white" /> : 'SIGN IN'}
+                  </button>
+                </div>
+              </form>
+
+              <h3 className="mb-5 text-center">Or continue with</h3>
+              <div className="flex justify-center">
+                <button
+                  className="mx-10"
+                  onClick={() => {
+                    loginGoogle()
+                  }}
+                >
+                  <img
+                    src="/assets/social/Google.png"
+                    alt=""
+                  />
+                </button>
+                {/* <button className="mx-10">
                 <img
                   src="/assets/social/Facebook.png"
                   alt=""
@@ -342,10 +345,10 @@ const Signin = () => {
                   alt=""
                 />
               </button> */}
+              </div>
             </div>
           </div>
-        </div>
-      </Container>
+        </Container>
       )}
     </>
   )

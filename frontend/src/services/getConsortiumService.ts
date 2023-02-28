@@ -4,7 +4,7 @@ import axios from '../axios/axiosInstance'
 const getConsortiumService = async (id: string) => {
   try {
     const consortia = await axios.get(`/api/consortium/get/${id}`)
-    return consortia.data.consortiumRetrieved
+    return consortia.data.consortium
   } catch (error) {
     const err = error as AxiosError
     console.log(err)
