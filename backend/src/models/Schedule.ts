@@ -4,10 +4,9 @@ import { EStatus } from '../utils/enums'
 
 const scheduleSchema = new Schema<ISchedule>(
     {
-        name: {
-            type: String,
-            required: true,
-            trim: true,
+        consortium: {
+            type: Types.ObjectId,
+            ref: 'Consortium',
         },
         reserve: [
             {

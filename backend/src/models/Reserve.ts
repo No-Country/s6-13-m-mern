@@ -17,6 +17,14 @@ const reserveSchema = new Schema<IReserve>(
             type: Date,
             required: true,
         },
+        startHour: {
+            type: String,
+            required: true,
+        },
+        endHour: {
+            type: String,
+            required: true,
+        },
         status: {
             type: String,
             enum: EReserve,
@@ -25,6 +33,10 @@ const reserveSchema = new Schema<IReserve>(
         amenity: {
             type: Types.ObjectId,
             ref: 'Amenity',
+        },
+        consortium: {
+            type: Types.ObjectId,
+            ref: 'Consortium',
         },
     },
     {
