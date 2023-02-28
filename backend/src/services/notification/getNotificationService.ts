@@ -3,7 +3,7 @@ import Notification from "../../models/Notification";
 export const getNotificationService = async(idConsortium: string)=> {
   if(idConsortium){
     try {
-      const notificationRetrived = await Notification.find({consortium:idConsortium}).select('-createdAt -updateAt');
+      const notificationRetrived = await Notification.find({consortium: idConsortium}).select('-createdAt -updateAt');
 
       if(!notificationRetrived){
         const response = {
@@ -13,7 +13,7 @@ export const getNotificationService = async(idConsortium: string)=> {
         return response
       }
       const response = {
-        ok:true,
+        ok: true,
         status: 200,
         notificationRetrived
       }
