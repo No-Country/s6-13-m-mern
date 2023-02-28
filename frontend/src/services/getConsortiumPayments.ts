@@ -12,8 +12,8 @@ const getConsortiumPayments = async (id: string | undefined) => {
     }
     const res = await axios.get(`/api/payment/consortiumPayments/${id}`, {
       headers: {
-        Authorization: `Bearer ${token}`,
-      }
+        token: `${token}`,
+      },
     })
     return res.data.payments
   } catch (error) {
