@@ -2,7 +2,9 @@ import express from 'express'
 
  import {
   getNotificationController,
-  postNotificationController
+  postNotificationController,
+  deleteNotificationController,
+  putNotificationController
  } from '../controllers'
 
 // import {
@@ -19,9 +21,9 @@ router.get('/id/:idConsortium', getNotificationController)
 router.post('/post', postNotificationController)
 
 // Delete Notification
-  router.delete('/delete/:id', )
+  router.delete('/delete/:id', deleteNotificationController)
 
 // Put Notification
-router.put('/put/:id', )
+router.put('/put/:id', putNotificationController)
 
 export default router
