@@ -16,7 +16,14 @@
         "apt": 20,
         "schedule": null,
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677441657/mocks/Consocios/consorcio9_s43bdu.jpg",
-        "amenities": [],
+        "amenities": [
+            "63fc901efc13ae471d00019a",
+            "63fc901efc13ae471d00019b",
+            "63fc901efc13ae471d00019c",
+            "63fc901efc13ae471d00019d",
+            "63fc901efc13ae471d0001a5",
+            "63fc901efc13ae471d0001a9"
+        ],
         "payments": []
     },
     {
@@ -29,7 +36,12 @@
         "apt": 32,
         "schedule": null,
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677441657/mocks/Consocios/consorcio1_qwcktv.jpg",
-        "amenities": [],
+        "amenities": [
+            "63fc901efc13ae471d0001a8",
+            "63fc901efc13ae471d0001a6",
+            "63fc901efc13ae471d0001a3",
+            "63fc901efc13ae471d0001a0"
+        ],
         "payments": []
     },
     {
@@ -42,7 +54,14 @@
         "apt": 27,
         "schedule": null,
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677441656/mocks/Consocios/consorcio4_fl1b9t.jpg",
-        "amenities": [],
+        "amenities": [
+            "63fc901efc13ae471d00019f",
+            "63fc901efc13ae471d00019e",
+            "63fc901efc13ae471d00019d",
+            "63fc901efc13ae471d00019c",
+            "63fc901efc13ae471d00019b",
+            "63fc901efc13ae471d00019a"
+        ],
         "payments": []
     },
     {
@@ -55,7 +74,13 @@
         "apt": 35,
         "schedule": null,
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677441655/mocks/Consocios/consorcio33_iwjvnb.jpg",
-        "amenities": [],
+        "amenities": [
+            "63fc901efc13ae471d0001a4",
+            "63fc901efc13ae471d0001a5",
+            "63fc901efc13ae471d0001a6",
+            "63fc901efc13ae471d0001a8",
+            "63fc901efc13ae471d00019a"
+        ],
         "payments": []
     },
     {
@@ -75,7 +100,12 @@
         "apt": 28,
         "schedule": null,
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677441655/mocks/Consocios/consorcio28_wukbqr.jpg",
-        "amenities": [],
+        "amenities": [
+            "63fc901efc13ae471d0001a2",
+            "63fc901efc13ae471d0001a1",
+            "63fc901efc13ae471d0001a8",
+            "63fc901efc13ae471d0001a9"
+        ],
         "payments": []
     },
     {
@@ -88,7 +118,12 @@
         "apt": 27,
         "schedule": null,
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677441655/mocks/Consocios/consorcio24_othskf.jpg",
-        "amenities": [],
+        "amenities": [
+            "63fc901efc13ae471d00019f",
+            "63fc901efc13ae471d00019d",
+            "63fc901efc13ae471d00019b",
+            "63fc901efc13ae471d00019a"
+        ],
         "payments": []
     },
     {
@@ -101,7 +136,14 @@
         "apt": 15,
         "schedule": null,
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677441650/mocks/Consocios/consorcio23_uikijf.jpg",
-        "amenities": [],
+        "amenities": [
+            "63fc901efc13ae471d00019a",
+            "63fc901efc13ae471d00019b",
+            "63fc901efc13ae471d00019c",
+            "63fc901efc13ae471d00019e",
+            "63fc901efc13ae471d0001a2",
+            "63fc901efc13ae471d0001a3"
+        ],
         "payments": []
     },
     {
@@ -114,7 +156,12 @@
         "apt": 18,
         "schedule": null,
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677441654/mocks/Consocios/consorcio20_gogo12.jpg",
-        "amenities": [],
+        "amenities": [
+            "63fc901efc13ae471d00019f",
+            "63fc901efc13ae471d00019d",
+            "63fc901efc13ae471d00019b",
+            "63fc901efc13ae471d00019a"
+        ],
         "payments": []
     },
     {
@@ -134,7 +181,14 @@
         "apt": 34,
         "schedule": null,
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677441654/mocks/Consocios/consorcio27_pnvs7m.jpg",
-        "amenities": [],
+        "amenities": [
+            "63fc901efc13ae471d00019a",
+            "63fc901efc13ae471d00019b",
+            "63fc901efc13ae471d00019c",
+            "63fc901efc13ae471d00019e",
+            "63fc901efc13ae471d0001a2",
+            "63fc901efc13ae471d0001a3"
+        ],
         "payments": []
     },
     {
@@ -147,7 +201,14 @@
         "apt": 54,
         "schedule": null,
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677441655/mocks/Consocios/consorcio3_g7gkku.jpg",
-        "amenities": [],
+        "amenities": [
+            "63fc901efc13ae471d00019a",
+            "63fc901efc13ae471d00019b",
+            "63fc901efc13ae471d00019c",
+            "63fc901efc13ae471d00019d",
+            "63fc901efc13ae471d0001a5",
+            "63fc901efc13ae471d0001a9"
+        ],
         "payments": []
     },
     {
@@ -160,7 +221,14 @@
         "apt": 20,
         "schedule": null,
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677441654/mocks/Consocios/consorcio2_p3jqte.jpg",
-        "amenities": [],
+        "amenities": [
+            "63fc901efc13ae471d00019a",
+            "63fc901efc13ae471d00019b",
+            "63fc901efc13ae471d00019c",
+            "63fc901efc13ae471d00019d",
+            "63fc901efc13ae471d0001a5",
+            "63fc901efc13ae471d0001a9"
+        ],
         "payments": []
     },
     {
@@ -173,7 +241,12 @@
         "apt": 12,
         "schedule": null,
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677441651/mocks/Consocios/consorcio7_sagayn.jpg",
-        "amenities": [],
+        "amenities": [
+            "63fc901efc13ae471d0001a2",
+            "63fc901efc13ae471d0001a1",
+            "63fc901efc13ae471d0001a8",
+            "63fc901efc13ae471d0001a9"
+        ],
         "payments": []
     },
     {
@@ -193,7 +266,14 @@
         "apt": 29,
         "schedule": null,
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677441652/mocks/Consocios/consorcio8_jvsi7q.jpg",
-        "amenities": [],
+        "amenities": [
+            "63fc901efc13ae471d00019f",
+            "63fc901efc13ae471d00019e",
+            "63fc901efc13ae471d00019d",
+            "63fc901efc13ae471d00019c",
+            "63fc901efc13ae471d00019b",
+            "63fc901efc13ae471d00019a"
+        ],
         "payments": []
     },
     {
@@ -206,7 +286,12 @@
         "apt": 32,
         "schedule": null,
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677441653/mocks/Consocios/consorcio15_bd0kxs.jpg",
-        "amenities": [],
+        "amenities": [
+            "63fc901efc13ae471d00019f",
+            "63fc901efc13ae471d00019d",
+            "63fc901efc13ae471d00019b",
+            "63fc901efc13ae471d00019a"
+        ],
         "payments": []
     },
     {
@@ -219,7 +304,14 @@
         "apt": 45,
         "schedule": null,
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677441653/mocks/Consocios/consorcio12_qt5znn.jpg",
-        "amenities": [],
+        "amenities": [
+            "63fc901efc13ae471d00019f",
+            "63fc901efc13ae471d00019e",
+            "63fc901efc13ae471d00019d",
+            "63fc901efc13ae471d00019c",
+            "63fc901efc13ae471d00019b",
+            "63fc901efc13ae471d00019a"
+        ],
         "payments": []
     },
     {
@@ -232,7 +324,14 @@
         "apt": 8,
         "schedule": null,
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677441651/mocks/Consocios/consorcio31_kmueff.jpg",
-        "amenities": [],
+        "amenities": [
+            "63fc901efc13ae471d00019f",
+            "63fc901efc13ae471d00019e",
+            "63fc901efc13ae471d00019d",
+            "63fc901efc13ae471d00019c",
+            "63fc901efc13ae471d00019b",
+            "63fc901efc13ae471d00019a"
+        ],
         "payments": []
     },
     {
@@ -252,7 +351,14 @@
         "apt": 10,
         "schedule": null,
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677441651/mocks/Consocios/consorcio5_h65ury.jpg",
-        "amenities": [],
+        "amenities": [
+            "63fc901efc13ae471d00019a",
+            "63fc901efc13ae471d00019b",
+            "63fc901efc13ae471d00019c",
+            "63fc901efc13ae471d00019d",
+            "63fc901efc13ae471d0001a5",
+            "63fc901efc13ae471d0001a9"
+        ],
         "payments": []
     },
     {
@@ -265,7 +371,14 @@
         "apt": 20,
         "schedule": null,
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677441651/mocks/Consocios/consorcio6_bvo1ll.jpg",
-        "amenities": [],
+        "amenities": [
+            "63fc901efc13ae471d00019a",
+            "63fc901efc13ae471d00019b",
+            "63fc901efc13ae471d00019c",
+            "63fc901efc13ae471d00019d",
+            "63fc901efc13ae471d0001a5",
+            "63fc901efc13ae471d0001a9"
+        ],
         "payments": []
     },
     {
@@ -278,7 +391,12 @@
         "apt": 28,
         "schedule": null,
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677441650/mocks/Consocios/consorcio22_c6aodj.jpg",
-        "amenities": [],
+        "amenities": [
+            "63fc901efc13ae471d00019f",
+            "63fc901efc13ae471d00019d",
+            "63fc901efc13ae471d00019b",
+            "63fc901efc13ae471d00019a"
+        ],
         "payments": []
     },
     {
@@ -291,7 +409,12 @@
         "apt": 32,
         "schedule": null,
         "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677441650/mocks/Consocios/consorcio21_yzgbis.jpg",
-        "amenities": [],
+        "amenities": [
+            "63fc901efc13ae471d0001a2",
+            "63fc901efc13ae471d0001a1",
+            "63fc901efc13ae471d0001a8",
+            "63fc901efc13ae471d0001a9"
+        ],
         "payments": []
     }
 ]
