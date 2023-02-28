@@ -21,6 +21,7 @@ import {
 import { PulseLoader } from 'react-spinners'
 import BlueModal from '../../../components/modal/BlueModal'
 import { useParams } from 'react-router-dom'
+import { deleteConsortiumService } from '../../../services/deleteConsortiumService'
 
 const EditConsortium = () => {
   // const { id }: string = useParams()
@@ -44,7 +45,7 @@ const EditConsortium = () => {
   } = useForm<FormValues>({ mode: 'onTouched' })
 
   useEffect(() => {
-    ;(async () => {
+    (async () => {
       const amenitiesCont: AmenitiesListInt[] = []
 
       const res = (await getUserByIdService(userId)) as IResponseUser
@@ -68,7 +69,7 @@ const EditConsortium = () => {
       setState({ ...state, load: true })
       const amenitieParsedValues = data.amenities.map((amenity) => amenity.id)
       /* ESTO LO COMENTÉ PORQUE ESTÁ SIN USO Y TIRA ERROR */
-      //const consortiumInfo: ConsortiumCreationValues = { userId, ...data, amenities: amenitieParsedValues }
+      // const consortiumInfo: ConsortiumCreationValues = { userId, ...data, amenities: amenitieParsedValues }
       // const response: any = await createConsortiumService(consortiumInfo)
       setState({ ...state, openModal: true, load: false })
     } catch (error) {
@@ -79,6 +80,16 @@ const EditConsortium = () => {
         load: false,
       })
       console.log(error)
+    }
+  }
+
+  const { id } = useParams<{ id: string }>()
+  const handleDelete = async () => {
+    if (id) {
+      const res = await deleteConsortiumService(id, userId)
+      console.log(res)
+
+      console.log('deleted')
     }
   }
 
@@ -109,12 +120,11 @@ const EditConsortium = () => {
       <section className="pb-32">
         <Container>
           <div className="flex gap-7">
-            <div className="bg-blue bg-opacity-20 w-[880px] border-[2.5px] border-black rounded-lg mt-[50px] h-[560px] overflow-visible no-scrollbar">
               <div className="grid grid-flow-col w-full mt-10 justify-around items-center">
                 <div className="self-start">
                   <BackTitleComponent
                     title="Edit Consortium"
-                    navigateTo="/admin/consortium"
+                    navigateTo="/admin"
                   />
                   <img
                     className="rounded-md mt-10 ml-10 border-2 border-black"
@@ -209,7 +219,12 @@ const EditConsortium = () => {
                 </div>
               </div>
             </div>
-          </div>
+          <button
+            className=" mt-10 text-center text-white rounded-md px-10 py-3 bg-blueDark"
+            onClick={handleDelete}
+          >
+            Delete Consortium
+          </button>
         </Container>
       </section>
     </>

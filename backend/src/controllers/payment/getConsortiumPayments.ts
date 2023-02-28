@@ -5,7 +5,7 @@ import { getConsortiumService } from '../../services'
 export const getConsortiumPayments = async (req: Request, res: Response) => {
     const { id } = req.params
     try {
-        const { ok, status, consortiumRetrieved } = (await getConsortiumService(
+        const { ok, status, consortium } = (await getConsortiumService(
             id
         )) as IResponse
 
@@ -16,7 +16,7 @@ export const getConsortiumPayments = async (req: Request, res: Response) => {
 
         return res
             .status(status)
-            .json({ ok: true, payments: consortiumRetrieved.payments })
+            .json({ ok: true, payments: consortium.payments })
     } catch (error) {
         return res.status(500).json({ ok: false, error })
     }

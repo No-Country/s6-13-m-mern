@@ -1,8 +1,14 @@
 import { useState } from 'react'
 import Accordion from '../../../components/Accordion'
+import { userStore } from '../../../store/user'
 
 const UserInformation = () => {
   const [activeIndex, setActiveIndex] = useState('')
+
+  const user = userStore((state) => state.userData)
+  const consortium = user?.consortium?.find(() => true)
+  const admin = user?.consortium?.find(() => true)?.admin
+  console.log(user)
 
   return (
     <div>
@@ -14,13 +20,21 @@ const UserInformation = () => {
           activeIndex={activeIndex}
           setActiveIndex={setActiveIndex}
         >
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. In illum magni et facere accusantium autem dicta,
-          omnis repellat reprehenderit sed doloribus culpa maxime, nam, numquam inventore hic temporibus aliquam
-          tenetur? Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum voluptates animi ad exercitationem
-          cupiditate repellendus iste ipsam corrupti similique beatae. Aspernatur obcaecati consequuntur nam
-          necessitatibus id, eaque laudantium placeat maxime. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Sapiente iusto temporibus impedit voluptas tempora velit officiis omnis id. Autem nesciunt voluptate dolor
-          quaerat, assumenda rem sequi veritatis molestiae labore a!
+          <div className="flex justify-around">
+            <div>
+              <h4>
+                <b>Name:</b> {consortium?.name}
+              </h4>
+              <h4>
+                <b>Address:</b> {consortium?.address}
+              </h4>
+            </div>
+            <img
+              src={consortium?.img}
+              alt=""
+              className=" w-20"
+            />
+          </div>
         </Accordion>
         <Accordion
           title="Administrator information"
@@ -28,9 +42,25 @@ const UserInformation = () => {
           activeIndex={activeIndex}
           setActiveIndex={setActiveIndex}
         >
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. In illum magni et facere accusantium autem dicta,
-          omnis repellat reprehenderit sed doloribus culpa maxime, nam, numquam inventore hic temporibus aliquam
-          tenetur?
+          <div className="flex justify-around">
+            <div>
+              <h4>
+                <b>Name:</b> {admin?.name} {admin?.lastname}
+              </h4>
+              <h4>
+                <b>Email:</b> {admin?.email}
+              </h4>
+              <h4>
+                <b>Phone:</b> {admin?.phone}
+              </h4>
+            </div>
+            <div className=" w-20">
+              <img
+                src={admin?.img}
+                alt=""
+              />
+            </div>
+          </div>
         </Accordion>
       </div>
     </div>

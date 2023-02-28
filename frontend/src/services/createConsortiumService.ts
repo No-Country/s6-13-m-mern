@@ -11,8 +11,12 @@ export const getAllAmenitiesService = async () => {
 }
 
 export const createConsortiumService = async (data: ConsortiumCreationValues) => {
-  const response = await instance.post('api/consortium/create', { data })
-  return response
+  try {
+    const response = await instance.post('api/consortium/create', data)
+    return response
+  } catch (err) {
+    console.log(err)
+  }
 }
 
 export const getConsortiumAmenities = async (consortiumId: string) => {

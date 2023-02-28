@@ -59,7 +59,6 @@ export const router = createBrowserRouter([
         element: <LayoutPrivateAdmin />,
         children: [
           { index: true, element: <AdminDashboard /> },
-          { path: '/admin/consortium', element: <CreateConsortium /> },
           { path: '/admin/consortium/:id', element: <ConsortiumDashboard /> },
           { path: '/admin/editinfo/:id', element: <EditConsortium /> },
           { path: '/admin/payments/:id', element: <ConsortiumPayments /> },
