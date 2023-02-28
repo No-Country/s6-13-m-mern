@@ -12,6 +12,7 @@ export const getConsortiumService = async (id: string) => {
                         select: 'name lastname img phone email apt',
                     },
                 })
+                .populate('amenities')
 
             if (!consortiumRetrieved) {
                 const response = {
