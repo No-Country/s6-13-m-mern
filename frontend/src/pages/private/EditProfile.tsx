@@ -1,6 +1,4 @@
-import { useState } from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
-import { Link } from 'react-router-dom'
 import BlueModal from '../../components/modal/BlueModal'
 import { UserProfile } from '../../interfaces/userInterfaces'
 import editProfileService from '../../services/editProfileService'
@@ -22,7 +20,6 @@ const EditProfile = ({ preloadValues, setEdit }: EditProfileProps) => {
 
   const onSubmit: SubmitHandler<UserProfile> = async (data) => {
     await editProfileService(data)
-    console.log(data, ' la respuesta')
   }
   const image = userStore((state) => state.userData?.img)
 
