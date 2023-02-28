@@ -3,6 +3,7 @@ import { IResponse } from '../../interfaces'
 import { getUserService } from '../../services'
 import { jwtGenerate } from '../../utils'
 import { sendMail } from '../../utils/sendMail'
+import getForgotPasswordEmail from '../../utils/getForgotPasswordEmail'
 
 export const forgetPasswordController = async (req: Request, res: Response) => {
     const { mail } = req.body
@@ -20,11 +21,12 @@ export const forgetPasswordController = async (req: Request, res: Response) => {
         }
 
         user.token = jwtGenerate(user._id, user.role, '10m')
-        const url: string = `${process.env.URL_FRONT || 'http://localhost:5173'
+        const url: string = `${
+            process.env.URL_FRONT || 'http://localhost:5173'
             // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-            }/changePassword/${user._id}/${user.token}`
+        }/changePassword/${user._id}/${user.token}`
         const subject: string = 'Password Recovery Link'
-        const message: string = `<p>Click here to change your password <a href="${url}">LINK</a></p>`
+        const message: string = getForgotPasswordEmail(url)
         await sendMail(user.email, subject, message)
 
         // user.token = userToken

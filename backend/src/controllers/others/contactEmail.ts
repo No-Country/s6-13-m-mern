@@ -1,4 +1,5 @@
 import { Request, Response } from 'express'
+import getContactEmail from '../../utils/getContactEmail'
 import { sendMail } from '../../utils/sendMail'
 
 export const snedMail = async (req: Request, res: Response) => {
@@ -8,11 +9,12 @@ export const snedMail = async (req: Request, res: Response) => {
     const correo: string = email
     const mensaje: string = message
 
-    const messageBody: string = `<div>
-    <p>Name: ${nombre}</p>
-    <p>Mail: ${correo}</p>
-    <p>${mensaje}</p>
-    </div>`
+    // const messageBody: string = `<div>
+    // <p>Name: ${nombre}</p>
+    // <p>Mail: ${correo}</p>
+    // <p>${mensaje}</p>
+    // </div>`
+    const messageBody: string = getContactEmail(nombre, correo, mensaje)
 
     try {
         await sendMail(process.env.NODEMAILER_MAIL, subject, messageBody)
