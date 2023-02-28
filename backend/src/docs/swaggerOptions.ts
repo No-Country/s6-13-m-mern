@@ -1,4 +1,5 @@
 import swaggerJSDoc, { OAS3Definition, OAS3Options } from 'swagger-jsdoc'
+import { editConsortium } from './consortiumRoutes/editConsortium'
 
 import {
     userRegister,
@@ -39,7 +40,6 @@ import {
     addAmenityConsortium,
     deleteConsortium,
     deleteUserConsortium,
-    editConsortium,
 } from './consortiumRoutes'
 import {
     changePaymentStatus,

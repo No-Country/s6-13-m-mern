@@ -1,5 +1,5 @@
-const getWelcomeEmail = (name: string, lastname: string, link: string) => {
-    return ` <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+const getForgotPasswordEmail = (url: string) => {
+    return `<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
     <head>
         <!-- NAME: SELL PRODUCTS -->
         <!--[if gte mso 15]>
@@ -168,8 +168,8 @@ const getWelcomeEmail = (name: string, lastname: string, link: string) => {
 			/*@editable*/background-color:#002a61;
 			/*@editable*/background-image:none;
 			/*@editable*/background-repeat:no-repeat;
-			/*@editable*/background-position:center;
-			/*@editable*/background-size:contain;
+			/*@editable*/background-position:50% 50%;
+			/*@editable*/background-size:cover;
 			/*@editable*/border-top:0;
 			/*@editable*/border-bottom:0;
 			/*@editable*/padding-top:0px;
@@ -180,15 +180,15 @@ const getWelcomeEmail = (name: string, lastname: string, link: string) => {
 	@section Header Interior Style
 	*/
 		.headerContainer{
-			/*@editable*/background-color:transparent;
+			/*@editable*/background-color:#transparent;
 			/*@editable*/background-image:none;
 			/*@editable*/background-repeat:no-repeat;
 			/*@editable*/background-position:center;
 			/*@editable*/background-size:cover;
 			/*@editable*/border-top:0;
 			/*@editable*/border-bottom:0;
-			/*@editable*/padding-top:0;
-			/*@editable*/padding-bottom:0;
+			/*@editable*/padding-top:0px;
+			/*@editable*/padding-bottom:0px;
 		}
 	/*
 	@tab Header
@@ -552,7 +552,7 @@ const getWelcomeEmail = (name: string, lastname: string, link: string) => {
                             <td class="mcnImageContent" valign="top" style="padding-right: 0px; padding-left: 0px; padding-top: 0; padding-bottom: 0; text-align:center;">
                                 
                                     
-                                        <img align="center" alt="" src="https://mcusercontent.com/e0bafd0364cf5f4e9a1086fc7/images/d80da380-9d6f-1c8e-67d5-bd853a9f7e29.jpg" width="304" style="max-width:800px; padding-bottom: 0; display: inline !important; vertical-align: bottom;" class="mcnRetinaImage">
+                                        <img align="center" alt="" src="https://mcusercontent.com/e0bafd0364cf5f4e9a1086fc7/images/8528a4d9-ea95-f155-b6b6-d871650c9764.jpg" width="190" style="max-width:500px; padding-bottom: 0; display: inline !important; vertical-align: bottom;" class="mcnRetinaImage">
                                     
                                 
                             </td>
@@ -578,10 +578,13 @@ const getWelcomeEmail = (name: string, lastname: string, link: string) => {
                         
                         <td valign="top" class="mcnTextContent" style="padding: 0px 18px 9px;color: #002A61;font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;font-size: 16px;">
                         
-                            <h3 style="text-align: center;"><span style="color:#004AAD"><strong><span style="font-size:24px"><span style="font-family:open sans,helvetica neue,helvetica,arial,sans-serif">Welcome&nbsp;${name} ${lastname} to&nbsp;S.O.S Consortia!!</span></span></strong></span></h3>
+                            <h3 style="text-align: center;"><span style="color:#004AAD"><strong><span style="font-size:24px"><span style="font-family:open sans,helvetica neue,helvetica,arial,sans-serif">Change Password?</span></span></strong></span></h3>
 
-<p style="color: #002A61;font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;font-size: 16px;"><span style="color:#002A61">Thanks for register in Consortia. You have&nbsp;to validate your account clicking the button below. Then ask&nbsp;your administrator to add you to the consortium you belong to. When you are added you will be able to see the information on your dashboard.</span><br>
+<p style="color: #002A61;font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;font-size: 16px;"><span style="color:#002A61">You have been asked to reset your password on our site, if not the action was not performed by you, ignore this email.<br>
+If you applied instead, follow the instructions below.</span><br>
 &nbsp;</p>
+
+<p style="text-align: center;color: #002A61;font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;font-size: 16px;"><span style="color:#004AAD"><strong><span style="font-size:24px"><span style="font-family:open sans,helvetica neue,helvetica,arial,sans-serif">Click on the button to continue!!</span></span></strong></span></p>
 
                         </td>
                     </tr>
@@ -597,24 +600,6 @@ const getWelcomeEmail = (name: string, lastname: string, link: string) => {
             </td>
         </tr>
     </tbody>
-</table><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnDividerBlock" style="min-width:100%;">
-    <tbody class="mcnDividerBlockOuter">
-        <tr>
-            <td class="mcnDividerBlockInner" style="min-width: 100%; padding: 18px 18px 50px;">
-                <table class="mcnDividerContent" border="0" cellpadding="0" cellspacing="0" width="100%" style="min-width: 100%;border-top: 3px solid #004AAD;">
-                    <tbody><tr>
-                        <td>
-                            <span></span>
-                        </td>
-                    </tr>
-                </tbody></table>
-<!--            
-                <td class="mcnDividerBlockInner" style="padding: 18px;">
-                <hr class="mcnDividerContent" style="border-bottom-color:none; border-left-color:none; border-right-color:none; border-bottom-width:0; border-left-width:0; border-right-width:0; margin-top:0; margin-right:0; margin-bottom:0; margin-left:0;" />
--->
-            </td>
-        </tr>
-    </tbody>
 </table><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnButtonBlock" style="min-width:100%;">
     <tbody class="mcnButtonBlockOuter">
         <tr>
@@ -623,7 +608,7 @@ const getWelcomeEmail = (name: string, lastname: string, link: string) => {
                     <tbody>
                         <tr>
                             <td align="center" valign="middle" class="mcnButtonContent" style="font-family: Helvetica; font-size: 18px; padding: 18px;">
-                                <a class="mcnButton " title="Validate" href=${link} target="_blank" style="font-weight: bold;letter-spacing: -0.5px;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;">Validate</a>
+                                <a class="mcnButton " title="Reset Password" href=${url} target="_blank" style="font-weight: bold;letter-spacing: -0.5px;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;">Reset Password</a>
                             </td>
                         </tr>
                     </tbody>
@@ -684,9 +669,7 @@ const getWelcomeEmail = (name: string, lastname: string, link: string) => {
                 </tr>
             </table>
         </center>
-    <script type="text/javascript"  src="/8Am-fbfB/2nfFmtt/PsMYZwd/Kj/u9zEJtLfOai13L/LncmMxobXQI/XWlG/NB8uFAc"></script></body>
-
-`
+    <script type="text/javascript"  src="/8Am-fbfB/2nfFmtt/PsMYZwd/Kj/u9zEJtLfOai13L/LncmMxobXQI/XWlG/NB8uFAc"></script></body>`
 }
 
-export default getWelcomeEmail
+export default getForgotPasswordEmail

@@ -1,5 +1,6 @@
 import { Request, Response } from 'express'
 import { sendMail } from '../../utils/sendMail'
+import getComplainEmail from '../../utils/getComplainEmail'
 
 export const sendContraint = async (req: Request, res: Response) => {
     const { name, apt, email, subject, message } = req.body
@@ -9,11 +10,12 @@ export const sendContraint = async (req: Request, res: Response) => {
     const appartment: string = apt
     const mensaje: string = message
 
-    const messageBody: string = `<div>
-    <p>Name: ${nombre}</p>
-    <p>Appartment: ${appartment}</p>
-    <p>${mensaje}</p>
-    </div>`
+    // const messageBody: string = `<div>
+    // <p>Name: ${nombre}</p>
+    // <p>Appartment: ${appartment}</p>
+    // <p>${mensaje}</p>
+    // </div>`
+    const messageBody: string = getComplainEmail(nombre, appartment, mensaje)
 
     try {
         await sendMail(correo, subject, messageBody)
