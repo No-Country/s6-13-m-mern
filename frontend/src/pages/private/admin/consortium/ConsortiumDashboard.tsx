@@ -47,18 +47,21 @@ export const ConsortiumDashboard: FC<ConsortiumDashboardProps> = ({ name = 'Admi
 
   return (
     <div className="m-auto max-w-screen-xl flex flex-col justify-start items-center gap-4 py-10 relative ">
-      <Link
-        to="/admin"
-        className="text-left self-start pl-20"
-      >
-        ⬅ Panel
-      </Link>
       <div
         className="text-blueDark w-full p-10 max-w-screen-xl m-auto text-2xl font-bold font-inter text-center
-                    md:text-left md:text-3xl
-                    lg:pl-28
-                    "
+        md:text-left md:text-3xl
+        lg:pl-28 flex
+        "
       >
+        <Link
+          to="/admin"
+          className=""
+        >
+          <img
+            className="w-[14px] mr-6"
+            src={'/assets/icons/left-arrow.svg'}
+          />
+        </Link>
         Welcome {name}!
       </div>
       <div

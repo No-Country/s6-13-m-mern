@@ -90,7 +90,7 @@ const UserProfile = () => {
           }}
           className=" bg-blueDark text-white text-lg w-20 rounded-2xl mt-6 mx-4 border-[1.5px] border-blue h-[29px]"
         >
-          NO
+          Cancel
         </button>
       </BlueModal>
     </div>

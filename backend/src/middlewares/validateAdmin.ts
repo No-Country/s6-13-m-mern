@@ -20,13 +20,17 @@ export const validateAdmin = async (
             })
         }
 
-        const { role } = jwt.verify(
+        const payload = jwt.verify(
             token,
             `${process.env.JWT_SECRET || ''}`
         ) as IPayload
 
+        req.id = payload.id
+        req.role = payload.role
+        req.token = token
+
         //* Compruebo que sea un admin
-        if (role !== 'admin') {
+        if (payload.role !== 'admin') {
             return res.status(404).json({
                 ok: false,
                 msg: 'Not Authorized',

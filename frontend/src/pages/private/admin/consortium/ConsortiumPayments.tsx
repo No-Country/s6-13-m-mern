@@ -31,6 +31,11 @@ const ConsortiumPayments = () => {
     if (id) {
       getConsortiumPayments(id)
         .then((response) => {
+          if (!Array.isArray(data)) {
+            setErrorGetPayments(true)
+            console.log('ERROR: ', response)
+            return
+          }
           setData(response)
           setDataToCompare(response)
           setLoadingPayments(false)
@@ -223,27 +228,31 @@ const ConsortiumPayments = () => {
   }
 
   return (
-    <div className="w-full h-[780px] mb-[100px] overflow-scroll bg-white">
+    <div
+      className="w-full min-h-[780px] mb-[250px] bg-white"
+      ref={ref}
+    >
       <Container>
-        <div
-          className="mt-20"
-          ref={ref}
-        >
+        <div className="mt-20">
           <BackTitleComponent
             title="Payments"
             navigateTo={`/admin/consortium/${id ?? ''}`}
           />
         </div>
-        <DynamicStatusView
-          loading={loadingSaveChanges}
-          loadingMessage={'Saving changes to payment statuses.<br />Please wait a moment...'}
-          isSuccess={successSaveChanges}
-          successMessage={'Success! Payment status changes<br /> have been saved.'}
-          error={errorSaveChanges}
-          errorMessage={
-            'Some changes to the payment statuses<br /> were not saved correctly.<br /> Please check your internet connection and try again.'
-          }
-        />
+        {(loadingSaveChanges || successSaveChanges || errorSaveChanges) && (
+          <div className="h-[780px]">
+            <DynamicStatusView
+              loading={loadingSaveChanges}
+              loadingMessage={'Saving changes to payment statuses.<br />Please wait a moment...'}
+              isSuccess={successSaveChanges}
+              successMessage={'Success! Payment status changes<br /> have been saved.'}
+              error={errorSaveChanges}
+              errorMessage={
+                'Some changes to the payment statuses<br /> were not saved correctly.<br /> Please check your internet connection and try again.'
+              }
+            />
+          </div>
+        )}
         <div className={isPaymentsViewExit ? 'animate-slideOutLeft' : ''}>
           {loadingPayments && renderLoadingPayments()}
           {!loadingPayments && errorGetPayments && renderErrorGetPayments()}

@@ -15,8 +15,13 @@ const port = process.env.PORT || 3001
 // eslint-disable-next-line @typescript-eslint/no-floating-promises
 connectDB()
 
+// async function delay<T>(value: number): Promise<T> {
+//     return await new Promise((resolve) => setTimeout(resolve, value))
+// }
+
 export const server = app.listen(port, async () => {
     await userMockService()
+    // delay(1000).then(async () => await consortiumMockService())
     await consortiumMockService()
     await amenityMockService()
     // await reserveMockService()
