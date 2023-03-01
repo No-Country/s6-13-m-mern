@@ -1,4 +1,5 @@
 import { useAuthStore } from '../store/auth'
+import { userStore } from '../store/user'
 import BlueModal from './modal/BlueModal'
 
 interface Props {
@@ -8,6 +9,7 @@ interface Props {
 
 const Logout = ({ logout, setLogout }: Props) => {
   const handleLogout = useAuthStore((state) => state.setLogout)
+  const userLogout = userStore((state) => state.setLogout)
 
   return (
     <BlueModal isOpen={logout}>
@@ -15,6 +17,7 @@ const Logout = ({ logout, setLogout }: Props) => {
       <button
         onClick={() => {
           handleLogout()
+          userLogout()
           setLogout(false)
         }}
         className="bg-blue text-white text-lg w-20 rounded-2xl mt-6 mx-4 h-[29px]"

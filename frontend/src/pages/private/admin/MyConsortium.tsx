@@ -18,41 +18,41 @@ const MyConsortium = ({ setMenu }: Props) => {
       </div>
       <div className="flex flex-wrap max-w-md mx-auto overflow-hidden md:max-w-2xl justify-center sm:justify-start gap-4 sm:gap-2 lg:gap-4 xl:gap-10 mt-8  sm:mx-4 md:ml-8 xl:ml-16 2xl:ml-32">
         {user?.consortium?.map((consortium) => (
-          <Link
-            // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-            to={`/admin/consortium/${consortium._id}`}
-            key={consortium._id}
-            className="relative shadow-2xl border-2 border-black rounded-xl overflow-hidden"
-          >
+          <div className=' w-[270px] h-[160px] overflow-hidden rounded-lg border border-blueDark relative items-center flex'
+          key={consortium._id}>
             <Link
-              to={`/admin/editinfo/${consortium._id}`}
-              className="absolute top-2 right-2"
+              // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+              to={`/admin/consortium/${consortium._id}`}
+              className="w-[270px] drop-shadow-2xl"
             >
+              <Link
+                to={`/admin/editinfo/${consortium._id}`}
+                className="absolute top-2 right-2"
+              >
+                <img
+                  src="../assets/edit.png"
+                  alt=""
+                />
+              </Link>
               <img
-                src="../assets/edit.png"
-                alt=""
+                src={consortium.img}
+                alt="card"
+                className=' '
               />
             </Link>
-          <div className="h-36 w-64 object-cover">
-          <img
-              src={consortium.img}
-              alt="card"
-              className='h-full w-full object-cover object-center'
-            />
+              <span className="text-lg text-center absolute bottom-0 w-full border-t-2 border-black bg-slate-300 bg-opacity-80">
+                {consortium.name}
+              </span>
           </div>
-            <span className="text-lg text-center font-bold absolute bottom-1 w-full border-t-2 border-black bg-slate-300 bg-opacity-30">
-              {consortium.name}
-            </span>
-          </Link>
         ))}
         <button
           onClick={handleClick}
-          className="flex flex-col items-center bg-blueDark h-36 w-64 rounded-lg border-2 border-black drop-shadow-2xl"
+          className="flex flex-col items-center bg-blueDark w-[270px] h-[160px] rounded-lg border-2 border-black drop-shadow-2xl"
         >
           <img
             src="../assets/Vector.png"
             alt="icon"
-            className="mt-6 mb-4 rounded-full border-4 border-white p-2 w-14"
+            className="mt-8 mb-4 rounded-full border-4 border-white p-2 w-14"
           />
           <p className="text-white text-center text-lg pb-2">Add consortium</p>
         </button>

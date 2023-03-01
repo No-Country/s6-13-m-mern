@@ -10,7 +10,11 @@ interface ComplaintForm {
   description: string
 }
 
-const UserComplaints = () => {
+interface Props {
+  setMenu: React.Dispatch<React.SetStateAction<string>>
+}
+
+const UserComplaints = ({ setMenu }: Props) => {
   const [loading, setLoading] = useState(false)
   const [modalOk, setModalOk] = useState(false)
 
@@ -85,6 +89,7 @@ const UserComplaints = () => {
         <button
           onClick={() => {
             setModalOk(false)
+            setMenu('profile')
           }}
           className="bg-blue text-white text-lg w-14 h-10 rounded-2xl mt-6"
         >

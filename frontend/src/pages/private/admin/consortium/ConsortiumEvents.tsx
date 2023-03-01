@@ -1,5 +1,4 @@
 import { PulseLoader } from 'react-spinners'
-import BackTitleComponent from '../../../../components/BackTitleComponent'
 import WhiteModal from '../../../../components/modal/WhiteModal'
 import { useForm, type SubmitHandler } from 'react-hook-form'
 import { useEffect, useState } from 'react'
@@ -9,7 +8,7 @@ import { Notification } from '../../../../interfaces/notificationInterfaces'
 import createNotificationsService from '../../../../services/createNotificationsService'
 import getNotificationsService from '../../../../services/getNotificationsService'
 import Accordion from '../../../../components/Accordion'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 interface Entrance {
   subject: string
@@ -22,6 +21,9 @@ const ConsortiumEvents = () => {
   const [modal, setModal] = useState(false)
   const [modalOk, setModalOk] = useState(false)
   const [activeIndex, setActiveIndex] = useState('')
+  const [restart, setRestart] = useState(false)
+
+  const navigate = useNavigate()
 
   const { id } = useParams()
 
@@ -45,8 +47,8 @@ const ConsortiumEvents = () => {
         creationDate: Date.now(),
       }
       setLoading(true)
-      const res = await createNotificationsService(notifData)
-      console.log(res)
+      await createNotificationsService(notifData)
+      setRestart(!restart)
       setModal(false)
       setModalOk(true)
       setLoading(false)
@@ -64,14 +66,22 @@ const ConsortiumEvents = () => {
       // eslint-disable-next-line @typescript-eslint/no-floating-promises
       getNotifications(id)
     }
-  }, [id])
+  }, [id, restart])
 
   return (
-    <div className=" min-h-screen m-[50px]">
-      <BackTitleComponent
-        navigateTo="/admin"
-        title="Events"
-      />
+    <div className=" min-h-screen m-[50px] max-w-[1100px] mx-auto px-6">
+      <div className=" flex text-[28px] font-bold text-blueDark mt-16 mb-8">
+        <button
+          onClick={() => {
+            navigate(-1)
+          }}
+        >
+          <div className=" h-[30px] mr-5">
+            <img src={'/assets/icons/left-arrow.svg'} />
+          </div>
+        </button>
+        <h2>Events</h2>
+      </div>
       <div className=" m-6">
         {notification?.map((not, i) => (
           <Accordion

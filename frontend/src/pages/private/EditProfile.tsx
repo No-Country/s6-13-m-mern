@@ -34,7 +34,7 @@ const EditProfile = ({ preloadValues, setEdit }: EditProfileProps) => {
       <BlueModal isOpen={isSubmitted}>
         Your profile has been updated!
         <button
-          className="bg-white text-black rounded-md flex p-1 m-auto mt-6 shadow-xl hover:bg-blue hover:text-white"
+          className="bg-blue text-white text-center text-lg w-24 h-8 rounded-2xl bg-whit block mx-auto mt-6 shadow-xl hover:bg-blue hover:text-white"
           onClick={() => {
             setEdit(false)
           }}
