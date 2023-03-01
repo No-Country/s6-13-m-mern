@@ -6,7 +6,7 @@ const MobileBar = () => {
   const showNav = path.substring(0, 5) === '/user' || path.substring(0, 6) === '/admin'
 
   return (
-    <div className={`${!showNav ? 'hidden sm:inline' : ''}`}>
+    <div className={`${!showNav ? 'hidden' : ' sm:hidden'}`}>
 
     <div className=" shadow-lg bg-white w-[90vw] h-[60px] rounded-lg flex px-5 justify-between items-center z-50">
       <Link to="">
@@ -23,7 +23,7 @@ const MobileBar = () => {
           className=" h-12"
         />
       </Link>
-      <Link to="">
+      <Link to="/user">
         <img
           src="/assets/icons/Profile.svg"
           alt=""
