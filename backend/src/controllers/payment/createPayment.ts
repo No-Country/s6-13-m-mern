@@ -8,6 +8,7 @@ export const createPayment = async (req: Request, res: Response) => {
     const { id } = req.params
     let ok: boolean | undefined
     let status: number | undefined
+
     try {
         const userResponse = (await getUserService({ id })) as IResponse
         ok = userResponse.ok

@@ -18,8 +18,14 @@ const EditProfile = ({ preloadValues, setEdit }: EditProfileProps) => {
     defaultValues: preloadValues,
   })
 
+  const setData = userStore((state) => state.setData)
+
   const onSubmit: SubmitHandler<UserProfile> = async (data) => {
-    await editProfileService(data)
+    const resp = await editProfileService(data)
+
+    if (resp?.data.ok) {
+      setData(resp.data.user)
+    }
   }
   const image = userStore((state) => state.userData?.img)
 
