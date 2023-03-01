@@ -1,5 +1,5 @@
 import React from 'react'
-import { convertDate } from '../utils/dateUtils'
+import { formatDate } from '../utils/dateUtils'
 
 interface Props {
   setModal: React.Dispatch<React.SetStateAction<boolean>>
@@ -24,7 +24,7 @@ const DetailModal = ({ setModal, name, lastname, creationDate, amount, note }: P
         </div>
         <div className="w-full h-full flex flex-col justify-between items-center px-10 py-16">
           <h4 className="font-bold text-blueDark">
-            {name && lastname && creationDate ? `by ${name} ${lastname} (${convertDate(creationDate)})` : ''}
+            {name && lastname && creationDate ? `by ${name} ${lastname} (${formatDate(creationDate)})` : ''}
           </h4>
           <h4 className="italic font-bold">Cash - ${amount}</h4>
           <p className="w-full">

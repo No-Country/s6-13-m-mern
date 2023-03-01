@@ -4,7 +4,7 @@ import { SearchBar } from '../../../components/SearchBar'
 import { TitleComponents } from '../../../components/TitleComponents'
 import getUserPaymentsService from '../../../services/getUserPaymentsService'
 import { useAuthStore } from '../../../store/auth'
-import { convertDate } from '../../../utils/dateUtils'
+import { formatMonthAndYear } from '../../../utils/dateUtils'
 import UserCreatePayments from './UserCreatePayments'
 
 interface UserData {
@@ -172,16 +172,24 @@ const UserDocuments = () => {
                 document.paymentMethod === 'transfer' ? (
                   <a
                     key={document._id}
-                    className="h-[140px] flex flex-col
+                    className={`h-[140px] flex flex-col
                           items-center justify-between
-                          border-2 border-black
+                          border-2 ${
+                            document.pStatus === 'pending'
+                              ? 'border-[#f8d049]'
+                              : document.pStatus === 'denied'
+                              ? 'border-red'
+                              : document.pStatus === 'validated'
+                              ? 'border-greenLight'
+                              : ''
+                          }
                           rounded-xl bg-white
-                          pt-4 pb-2 font-inter"
+                          pt-4 pb-2 font-inter`}
                     href={document.image}
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <h4 className="font-bold">{`VOUCHER - ${convertDate(document.creationDate)}`}</h4>
+                    <h4 className="font-bold">{`VOUCHER - ${formatMonthAndYear(document.creationDate)}`}</h4>
                     <img
                       src="../assets/Pdf.svg"
                       className="w-[32px]"
@@ -191,13 +199,21 @@ const UserDocuments = () => {
                 ) : (
                   <div
                     key={document._id}
-                    className="h-[140px] flex flex-col
-                items-center justify-between
-                border-2 border-black
-                rounded-xl bg-white
-                pt-4 pb-2 font-inter"
+                    className={`h-[140px] flex flex-col
+                    items-center justify-between
+                    border-2 ${
+                      document.pStatus === 'pending'
+                        ? 'border-[#f8d049]'
+                        : document.pStatus === 'denied'
+                        ? 'border-red'
+                        : document.pStatus === 'validated'
+                        ? 'border-greenLight'
+                        : ''
+                    }
+                    rounded-xl bg-white
+                    pt-4 pb-2 font-inter`}
                   >
-                    <h4 className="font-bold">{convertDate(document.creationDate)}</h4>
+                    <h4 className="font-bold">{formatMonthAndYear(document.creationDate)}</h4>
                     <h4 className="italic">Cash - ${document.ammount}</h4>
                     <button
                       onClick={() => {
