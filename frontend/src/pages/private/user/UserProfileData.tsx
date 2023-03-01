@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { userStore } from '../../../store/user'
 import UserEditProfile from '../EditProfileDashboard'
 import { useAuthStore } from '../../../store/auth'
@@ -12,6 +12,7 @@ const UserProfile = () => {
   const [edit, setEdit] = useState(false)
   const [modal, setModal] = useState(false)
   const [loading, setLoading] = useState(false)
+
   const user = userStore((state) => state.userData)
 
   const userId = useAuthStore((state) => state.id)
@@ -26,7 +27,6 @@ const UserProfile = () => {
       await removeMembersService(consortiumId, userId)
       setLoading(false)
       setModal(false)
-      location.reload()
     }
   }
 
