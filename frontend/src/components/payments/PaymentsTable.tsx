@@ -1,5 +1,6 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { PaymentsValues } from '../../interfaces/paymentsInterfaces'
+import DetailModal from '../DetailModal'
 
 interface Props {
   data: PaymentsValues[]
@@ -51,8 +52,26 @@ const PaymentsTable = ({ data, setData, dataToCompare, filterValue, setIsDataMod
     })
   }
 
+  const [paymentDetail, setPaymentDetail] = useState<PaymentsValues>()
+  const [modal, setModal] = useState(false)
+
+  const handleClickDetail = (payment: PaymentsValues) => {
+    setPaymentDetail(payment)
+    setModal(true)
+  }
+
   return (
     <table className="text-left font-inter text-lg">
+      {modal && (
+        <DetailModal
+          setModal={setModal}
+          name={paymentDetail?.user.name}
+          lastname={paymentDetail?.user.lastname}
+          creationDate={paymentDetail?.creationDate}
+          amount={paymentDetail?.ammount}
+          note={paymentDetail?.note}
+        />
+      )}
       <thead>
         <tr className="border-b-[1px] border-greyLight">
           {headers.map((header, index) => (
@@ -82,14 +101,23 @@ const PaymentsTable = ({ data, setData, dataToCompare, filterValue, setIsDataMod
               >
                 <td className="pt-5 py-2">{row.user.name}</td>
                 <td className="pt-5 py-2 text-blue">
-                  <a
-                    target="_blank"
-                    href={row.image}
-                    className="underline decoration-1 hover:text-violet ease-out duration-300"
-                    rel="noreferrer"
-                  >
-                    {row.image.split('/')[row.image.split('/').length - 1]}
-                  </a>
+                  {row.image !== '' ? (
+                    <a
+                      target="_blank"
+                      href={row.image}
+                      className="underline decoration-1 hover:text-violet ease-out duration-300"
+                      rel="noreferrer"
+                    >
+                      {row.image.split('/')[row.image.split('/').length - 1]}
+                    </a>
+                  ) : (
+                    <button
+                      onClick={() => { handleClickDetail(row) }}
+                      className="border-2 border-blue rounded-lg px-4 py-1 hover:bg-blue hover:text-white"
+                    >
+                      Detail
+                    </button>
+                  )}
                 </td>
                 <td className="pt-5 py-2">{row.ammount}</td>
                 <td className="pt-5 py-2">{row.paymentMethod}</td>
