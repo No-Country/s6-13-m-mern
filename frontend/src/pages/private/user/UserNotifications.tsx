@@ -1,5 +1,4 @@
 import { PulseLoader } from 'react-spinners'
-import BackTitleComponent from '../../../components/BackTitleComponent'
 import WhiteModal from '../../../components/modal/WhiteModal'
 import { useForm, type SubmitHandler } from 'react-hook-form'
 import { useEffect, useState } from 'react'
@@ -74,7 +73,7 @@ const UserNotifications = () => {
       <div className=" flex text-[28px] font-bold text-blueDark mt-16 mb-8">
           <button
             onClick={() => {
-              navigate(-1)
+              navigate('/user')
             }}
           >
             <div className=" h-[30px] mr-5">

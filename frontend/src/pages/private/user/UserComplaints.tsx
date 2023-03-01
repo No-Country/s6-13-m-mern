@@ -22,6 +22,7 @@ const UserComplaints = ({ setMenu }: Props) => {
     register,
     handleSubmit,
     formState: { isDirty, isValid },
+    reset
   } = useForm<ComplaintForm>({ mode: 'onTouched' })
 
   const user = userStore((state) => state.userData)
@@ -41,6 +42,7 @@ const UserComplaints = ({ setMenu }: Props) => {
       await UserComplaintService(dataMail)
       setModalOk(true)
       setLoading(false)
+      reset()
     }
   }
 

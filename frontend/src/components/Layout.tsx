@@ -12,7 +12,7 @@ const Layout = () => {
         <Header />
       </div>
       <Outlet />
-      <div className=" sm:block ">
+      <div className=" hidden sm:block ">
         <Footer />
       </div>
       <div className=" fixed bottom-0 right-1/2 translate-x-1/2 z-50">
