@@ -107,7 +107,7 @@ const UserNavbar = () => {
                   className="dropdown-item my-1 text-sm rounded-lg py-4 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-black hover:bg-[#DEDEDE]"
                   to={`${user?.role === 'admin' ? '/admin' : '/user'}`}
                 >
-                  Change Profile
+                  My Profile
                 </Link>
               </li>
               <hr className="h-0 my-2 border border-solid border-t-0 border-gray-700 opacity-25" />

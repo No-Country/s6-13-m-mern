@@ -16,7 +16,11 @@ interface ReserveForm {
   endHour: string
 }
 
-const UserAmenities = () => {
+interface Props {
+  setCreate: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const UserAmenities = ({ setCreate }: Props) => {
   const [amenities, setAmenities] = useState<Amenity[]>()
   const [loading, setLoading] = useState(false)
   const [modalOk, setModalOk] = useState(false)
@@ -25,6 +29,7 @@ const UserAmenities = () => {
     register,
     handleSubmit,
     formState: { isDirty, isValid },
+    reset,
   } = useForm<ReserveForm>({ mode: 'onTouched' })
 
   const userId = useAuthStore((state) => state.id)
@@ -56,6 +61,8 @@ const UserAmenities = () => {
       await addReserveService(dataReserve)
       setModalOk(true)
       setLoading(false)
+      setCreate(false)
+      reset()
     }
   }
 
@@ -66,7 +73,19 @@ const UserAmenities = () => {
 
   return (
     <div>
-      <h3 className="font-bold text-xl ml-11 mt-7">Make your reservation</h3>
+      <div className="flex gap-x-6 text-blueDark font-bold text-xl items-center m-10">
+        <button
+          className=""
+          onClick={() => {
+            setCreate(false)
+          }}
+        >
+          <div className="fex flex-col w-[11.25px] h-[22.5px]">
+            <img src={'../../assets/icons/left-arrow.svg'} />
+          </div>
+        </button>
+        <h3>Make your reservation</h3>
+      </div>
       <div className="text-center max-w-[350px] mx-auto my-10">
         <h5 className=" font-bold text-lg text-blueDark text-start mb-5">Consortium: {consortiumName}</h5>
         <form onSubmit={handleSubmit(customSubmit)}>

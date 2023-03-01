@@ -23,3 +23,12 @@ export interface ConsortiumStateValues {
   load: boolean
   message: string
 }
+
+export interface Amenity {
+  _id: string
+  name: string
+  description: string
+  reservable: boolean
+  img: string
+  size: number
+}

@@ -14,7 +14,7 @@ const defaultImg = '/assets/defaultUser.svg'
 const adminDashboard = () => {
   const user = userStore((state) => state.userData)
   const [logout, setLogout] = useState(false)
-  const [menu, setMenu] = useState('My consortiums')
+  const [menu, setMenu] = useState('profile')
 
   const location = useLocation()
 

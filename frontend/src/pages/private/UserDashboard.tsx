@@ -9,6 +9,7 @@ import UserDocuments from './user/UserPayments'
 import Logout from '../../components/Logout'
 import { useLocation } from 'react-router-dom'
 import Profile from './admin/MobileProfile'
+import MyReserves from './user/MyReserves'
 
 const defaultImg = '/assets/defaultUser.svg'
 
@@ -142,7 +143,7 @@ const UserDashboard = () => {
           <div className="bg-[#B4CAE7] bg-opacity-50 w-[880px] border border-black rounded-lg  pb-6">
             {menu === 'profile' && <UserProfileData />}
             {menu === 'information' && <UserInformation />}
-            {menu === 'amenities' && <UserAmenities />}
+            {menu === 'amenities' && <MyReserves />}
             {menu === 'complaint' && <UserComplaints setMenu={setMenu} />}
             {menu === 'payments' && <UserDocuments />}
           </div>
@@ -155,7 +156,7 @@ const UserDashboard = () => {
       <div className="sm:hidden w-full h-full overflow-y-scroll no-scrollbar">
         {menu === 'profile' && <Profile />}
         {menu === 'information' && <UserInformation />}
-        {menu === 'amenities' && <UserAmenities />}
+        {menu === 'amenities' && <MyReserves />}
         {menu === 'complaint' && <UserComplaints setMenu={setMenu} />}
         {menu === 'payments' && <UserDocuments />}
       </div>
