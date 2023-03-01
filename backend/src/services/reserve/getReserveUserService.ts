@@ -5,7 +5,7 @@ export const getReserveUserService = async(idUser: string) => {
     try {
       const reserveRetrieved = await Reserve.find({user: idUser}).select(
         '-createdAt -updatedAt'
-      )
+      ).populate('amenity')
   
     if(!reserveRetrieved){
       const response = {
@@ -26,7 +26,7 @@ export const getReserveUserService = async(idUser: string) => {
   }
   const reserveRetrieved = await Reserve.find().select(
     '-createdAt -updatedAt'
-  )
+  ).populate('amenity')
   const response = {
     ok: true,
     status: 200,
