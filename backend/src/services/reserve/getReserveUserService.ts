@@ -3,7 +3,7 @@ import Reserve from '../../models/Reserve'
 export const getReserveUserService = async(idUser: string) => {
   if(idUser !== 'all'){
     try {
-      const reserveRetrieved = await Reserve.find({user:idUser}).select(
+      const reserveRetrieved = await Reserve.find({user: idUser}).select(
         '-createdAt -updatedAt'
       )
   

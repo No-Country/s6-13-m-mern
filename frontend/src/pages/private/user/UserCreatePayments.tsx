@@ -58,7 +58,7 @@ const UserCreatePayments = ({ setCreate }: Props) => {
           note: payment.note,
           ammount: payment.amount,
           paymentMethod: payment.paymentMethod.toLowerCase(),
-          image: null,
+          image: '',
         }
       } else {
         const preset = process.env.VITE_APP_PRESET_VOUCHERS
@@ -74,6 +74,8 @@ const UserCreatePayments = ({ setCreate }: Props) => {
           image: imageUploadResponse.url,
         }
       }
+
+      console.log('envio')
 
       await createPayment(newPayment)
     } catch (err) {

@@ -9,7 +9,7 @@ export const userMockService = async () => {
         if (isUser === null) {
             users.forEach(async (userMock) => {
                 const { user } = (await registerService(userMock)) as IResponse
-                await user.save()
+                user.save()
                 console.log('first')
             })
         }

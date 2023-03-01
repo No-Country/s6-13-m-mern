@@ -4,7 +4,7 @@ import { INotification } from '../interfaces'
 
 const notificationSchema = new Schema<INotification>(
   {
-    consortium:{
+    consortium: {
       type: Types.ObjectId,
       required: true,
       ref: 'Consortium',
