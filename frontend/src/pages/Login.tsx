@@ -104,7 +104,7 @@ const Login = () => {
         // ------------------ DESKTOP ------------------
         <BackgroundImage imageUrl="https://res.cloudinary.com/dozwd1ssj/image/upload/v1677333255/Body_Foto_kfit97.png">
           <Container>
-            <div className="font-sans text-[24px] py-14 h-max">
+            <div className="font-sans text-[24px] py-14 h-max mb-20">
               <h1 className="text-[30px]">Welcome!</h1>
               <h2 className="ml-6 mb-8">Please fill your info to start</h2>
               <div className="md:w-[454px]">
@@ -132,9 +132,9 @@ const Login = () => {
                       pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
                     })}
                   />
-                  <Link to="/resetpassword">
-                    <p className="text-end text-base mb-8">Forgot your password?</p>
-                  </Link>
+                  <p className="text-end text-base mb-8">
+                    <Link to="/resetpassword">Forgot your password?</Link>
+                  </p>
                   <button
                     type="submit"
                     className="bg-blueDark disabled:opacity-60 text-white text-xl w-60 h-12 rounded-2xl block ml-auto mb-5"

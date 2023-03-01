@@ -6,7 +6,12 @@ export interface ConsortiaData {
   admin: string
   floor: number
   apt: number
-  amenities?: []
+  amenities?: Amenity[]
   payments?: []
   status: string
+}
+
+export interface Amenity {
+  _id: string
+  name: string
 }

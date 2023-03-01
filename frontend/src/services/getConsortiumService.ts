@@ -10,7 +10,7 @@ const getConsortiumService = async (id: string) => {
         token: `${token}`,
       },
     })
-    return consortia.data.consortiumRetrieved
+    return consortia.data.consortium
   } catch (error) {
     const err = error as AxiosError
     console.log(err)
