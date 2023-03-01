@@ -35,6 +35,7 @@ const UserDocuments = () => {
   const userId = useAuthStore((state) => state.id)
   const [modal, setModal] = useState(false)
   const [paymentDetail, setPaymentDetail] = useState<PaymentsValues>()
+  const [isPaymentsChanged, setIsPaymentsChanged] = useState(false)
 
   useEffect(() => {
     setLoadingPayments(true)
@@ -42,6 +43,16 @@ const UserDocuments = () => {
       getPayments(userId)
     }
   }, [])
+
+  useEffect(() => {
+    if (isPaymentsChanged && userId) {
+      console.log('Entró?')
+      setIsPaymentsChanged(false)
+      setCreate(false)
+      setLoadingPayments(true)
+      getPayments(userId)
+    }
+  }, [isPaymentsChanged])
 
   const getPayments = (id: string) => {
     if (id) {
@@ -60,6 +71,7 @@ const UserDocuments = () => {
           setErrorGetPayments(true)
           setLoadingPayments(false)
         })
+      setIsPaymentsChanged(false)
     }
   }
 
@@ -133,13 +145,15 @@ const UserDocuments = () => {
             />
           </div>
         </div>
-        <div className="w-full px-11 mb-5">
+        <div className="w-full px-11 mb-5 overflow-y-auto">
           <div
             className="w-full h-[340px]
                     grid grid-cols-[repeat(auto-fill,220px)]
-                    gap-x-16 gap-y-8
+                    gap-x-10 gap-y-8
                     justify-center
-                    overflow-y-auto no-scrollbar"
+                    overflow-y-auto
+                    scrollPayments
+                    "
           >
             {!Array.isArray(data) || data.length === 0 ? (
               <h3>There are no results to show.</h3>
@@ -246,7 +260,10 @@ const UserDocuments = () => {
           {!loadingPayments && !errorGetPayments && renderPayments()}
         </div>
       ) : (
-        <UserCreatePayments setCreate={setCreate} />
+        <UserCreatePayments
+          setCreate={setCreate}
+          setIsPaymentsChanged={setIsPaymentsChanged}
+        />
       )}
     </>
   )

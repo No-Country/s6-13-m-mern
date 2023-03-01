@@ -10,9 +10,10 @@ import { isValidAmountFormat } from '../../../utils/validationUtils'
 
 interface Props {
   setCreate: React.Dispatch<React.SetStateAction<boolean>>
+  setIsPaymentsChanged: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const UserCreatePayments = ({ setCreate }: Props) => {
+const UserCreatePayments = ({ setCreate, setIsPaymentsChanged }: Props) => {
   const user = userStore((state) => state.userData)
   const [file, setSelectedFile] = useState<null | File>(null)
   const [payment, setPayment] = useState({
@@ -102,6 +103,7 @@ const UserCreatePayments = ({ setCreate }: Props) => {
     setIsSuccess(true)
     setTimeout(() => {
       resetValues()
+      setIsPaymentsChanged(true)
     }, 2000)
   }
 

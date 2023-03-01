@@ -20,3 +20,23 @@
   z-index: 1
 }
 
+.scrollPayments {
+  scrollbar-width: thin;
+  scrollbar-color: #8bb8e8 #d7e8e2;
+}
+
+/* Works on Chrome, Edge, and Safari */
+.scrollPayments::-webkit-scrollbar {
+  width: 10px;
+}
+
+.scrollPayments::-webkit-scrollbar-track {
+  background: #c1dce9;
+  border-radius: 20px;
+}
+
+.scrollPayments::-webkit-scrollbar-thumb {
+  background-color: #8bb8e8;
+  border-radius: 20px;
+  border: 1px solid #d7dfe8;
+}
