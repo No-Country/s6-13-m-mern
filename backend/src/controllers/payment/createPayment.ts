@@ -29,7 +29,7 @@ export const createPayment = async (req: Request, res: Response) => {
         if (!consortiumID) {
             return res
                 .status(status)
-                .json({ ok, msg: 'The user does not belong to any consortium' })
+                .json({ ok: false, msg: 'The user does not belong to any consortium' })
         }
         const consortiumResponse = (await getConsortiumService(
             consortiumID._id

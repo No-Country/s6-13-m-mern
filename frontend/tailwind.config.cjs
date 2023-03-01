@@ -80,6 +80,16 @@ module.exports = {
             opacity: '1',
           }
         },
+        slideInTop: {
+          '0%': {
+            transform: 'translateY(-1000px)',
+            opacity: '0',
+          },
+          '100%': {
+            transform: 'translateY(0)',
+            opacity: '1',
+          }
+        },
         slideOutLeft: {
           '0%': {
             transform: 'translateX(0)',
@@ -116,6 +126,7 @@ module.exports = {
         rotation: 'rotation 2s linear infinite',
         slideInBlurredBottom: 'slideInBlurredBottom 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000)',
         slideInFwdCenter: 'slideInFwdCenter 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940)',
+        slideInTop: 'slideInTop 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both',
         slideOutLeft: 'slideOutLeft 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both',
         swingInTop: 'swingInTop 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both',
         jelloHorizontal: 'jelloHorizontal 0.9s both 1s',

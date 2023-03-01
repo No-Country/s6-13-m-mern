@@ -100,6 +100,8 @@ const ConsortiumPayments = () => {
     setSuccessSaveChanges(true)
     setTimeout(() => {
       resetValues()
+      setLoadingPayments(true)
+      getPayments()
     }, 2000)
   }
 
