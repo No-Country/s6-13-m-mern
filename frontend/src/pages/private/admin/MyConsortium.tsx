@@ -16,13 +16,13 @@ const MyConsortium = ({ setMenu }: Props) => {
       <div className="flex font-bold text-xl text-blueDark ml-11 mt-32 lg:mt-7">
         <h3>My consortium</h3>
       </div>
-      <div className="flex flex-wrap justify-center sm:justify-start gap-4 sm:gap-2 lg:gap-4 xl:gap-10 mt-8 mx-8 sm:mx-4 md:ml-8 xl:ml-16 2xl:ml-32">
+      <div className="flex flex-wrap max-w-md mx-auto overflow-hidden md:max-w-2xl justify-center sm:justify-start gap-4 sm:gap-2 lg:gap-4 xl:gap-10 mt-8  sm:mx-4 md:ml-8 xl:ml-16 2xl:ml-32">
         {user?.consortium?.map((consortium) => (
           <Link
             // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
             to={`/admin/consortium/${consortium._id}`}
             key={consortium._id}
-            className="w-64 relative drop-shadow-2xl"
+            className="relative shadow-2xl border-2 border-black rounded-xl overflow-hidden"
           >
             <Link
               to={`/admin/editinfo/${consortium._id}`}
@@ -33,10 +33,13 @@ const MyConsortium = ({ setMenu }: Props) => {
                 alt=""
               />
             </Link>
-            <img
+          <div className="h-36 w-64 object-cover">
+          <img
               src={consortium.img}
               alt="card"
+              className='h-full w-full object-cover object-center'
             />
+          </div>
             <span className="text-lg text-center font-bold absolute bottom-1 w-full border-t-2 border-black bg-slate-300 bg-opacity-30">
               {consortium.name}
             </span>
@@ -44,7 +47,7 @@ const MyConsortium = ({ setMenu }: Props) => {
         ))}
         <button
           onClick={handleClick}
-          className="flex flex-col items-center bg-blueDark w-64 rounded-lg border-2 border-black drop-shadow-2xl"
+          className="flex flex-col items-center bg-blueDark h-36 w-64 rounded-lg border-2 border-black drop-shadow-2xl"
         >
           <img
             src="../assets/Vector.png"
