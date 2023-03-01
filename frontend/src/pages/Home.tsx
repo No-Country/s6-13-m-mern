@@ -142,14 +142,14 @@ const Home = () => {
       </section>
       <section className="sm:hidden">
         {show && <WhatsappDialog setShow={setShow} />}
-        <div className="w-[800px]">
+        <div className="w-[780px] -mx-16">
           <img
             src="/assets/Grilla.png"
             alt="grilla"
             className="-m-72 -ml-40 w-full"
           />
         </div>
-        <div className="absolute top-[520px] left-6">
+        <div className="absolute top-[480px] left-6">
           <button
             onClick={() => {
               setShow(true)
