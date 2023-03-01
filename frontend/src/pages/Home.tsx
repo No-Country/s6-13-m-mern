@@ -149,7 +149,7 @@ const Home = () => {
             className="-m-72 -ml-40 w-full"
           />
         </div>
-        <div className="absolute top-[520px] left-12">
+        <div className="absolute top-[520px] left-6">
           <button
             onClick={() => {
               setShow(true)
@@ -161,12 +161,12 @@ const Home = () => {
             />
           </button>
         </div>
-        <div className="flex flex-col gap-4 mt-80 ml-14">
+        <div className="flex flex-col gap-4 mt-80 ml-8">
           <h2 className="text-3xl font-bold text-blueDark">Welcome to S.O.S Consortia</h2>
-          <h4 className="text-2xl text-blueDark">Your ideal software for consortia management</h4>
+          <h4 className="text-xl text-blueDark">Your ideal software for consortia management</h4>
         </div>
-        <div className='mt-4'>
-          <Link to='/login' className='ml-80 border-2 border-blueDark py-4 px-10 rounded-lg shadow-2xl'>
+        <div className='mt-6'>
+          <Link to='/login' className='ml-40 border-2 border-blueDark py-4 px-10 rounded-lg shadow-2xl'>
             <span className='text-blueDark text-lg'>Get Started!</span>
           </Link>
         </div>
