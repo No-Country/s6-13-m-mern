@@ -1,8 +1,8 @@
 const Footer = () => {
   return (
-    <div className="relative txt-[13px]">
+    <div className="hidden sm:block relative txt-[13px]">
       {/* <section className="curved relative bg-redLight h-[13vh] z-[1] "></section> */}
-      <div className=" overflow-hidden min-w-full h-[13vh] mt-[-13vh] ">
+      <div className="overflow-hidden min-w-full h-[13vh] mt-[-13vh] ">
         <svg
           viewBox="0 0 500 150"
           preserveAspectRatio="none"
