@@ -143,7 +143,7 @@ const UserDashboard = () => {
             {menu === 'profile' && <UserProfileData />}
             {menu === 'information' && <UserInformation />}
             {menu === 'amenities' && <UserAmenities />}
-            {menu === 'complaint' && <UserComplaints />}
+            {menu === 'complaint' && <UserComplaints setMenu={setMenu} />}
             {menu === 'payments' && <UserDocuments />}
           </div>
         </div>
@@ -156,7 +156,7 @@ const UserDashboard = () => {
         {menu === 'profile' && <Profile />}
         {menu === 'information' && <UserInformation />}
         {menu === 'amenities' && <UserAmenities />}
-        {menu === 'complaint' && <UserComplaints />}
+        {menu === 'complaint' && <UserComplaints setMenu={setMenu} />}
         {menu === 'payments' && <UserDocuments />}
       </div>
     </HeroUser>

@@ -7,7 +7,7 @@ import BlueModal from '../../../../components/modal/BlueModal'
 import addMembersService from '../../../../services/addMembersService'
 import PulseLoader from 'react-spinners/PulseLoader'
 import removeMembersService from '../../../../services/removeMemberService'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import getConsortiumService from '../../../../services/getConsortiumService'
 import { ConsortiaData } from '../../../../interfaces/consortiaInterfaces'
 import { UserProfile } from '../../../../interfaces/userInterfaces'
@@ -27,6 +27,7 @@ const ConsortiumMembers = () => {
 
   const { id } = useParams()
   const adminId = useAuthStore((state) => state.id)
+  const navigate = useNavigate()
 
   const filter = (value: string) => {
     // eslint-disable-next-line array-callback-return
@@ -101,91 +102,90 @@ const ConsortiumMembers = () => {
           setModalOpen(false)
         }}
       >
-        <div className=' mx-6'>
-
-        {selectedUser && deleteMode ? (
-          <>
-            <h2 className=" text-xl font-bold text-blueDark mb-7">
-              Do you want to remove the user {selectedUser?.name} {selectedUser?.lastname}?
-            </h2>
-            <div className="flex justify-center mt-6">
-              <button
-                className="bg-blueDark text-white text-base w-36 h-8 rounded-lg mx-3"
-                onClick={() => {
-                  // eslint-disable-next-line @typescript-eslint/no-floating-promises
-                  handleDelete(selectedUser._id)
-                }}
-              >
-                {loading ? <PulseLoader color="white" /> : 'Delete Member'}
-              </button>
-              <button
-                className="bg-white text-blueDark border-blueDark border text-base w-36 h-8 rounded-lg mx-3"
-                onClick={() => {
-                  setModalOpen(false)
-                  setDeleteMode(false)
-                }}
-              >
-                Cancel
-              </button>
-            </div>
-          </>
-        ) : selectedUser?.consortium?.length === 0 ? (
-          <>
-            <h2 className=" text-xl font-bold text-blueDark mb-7">A member has been found!</h2>
-            <div className=" px-8 text-start text-base">
-              <h4 className=" text-blueDark">Email</h4>
-              <p className="ml-4 mb-3">{selectedUser?.email}</p>
-              <h4 className=" text-blueDark">Name</h4>
-              <p className="ml-4 mb-3">
-                {selectedUser?.name} {selectedUser?.lastname}
-              </p>
-            </div>
-            <div className="flex justify-center mt-6">
-              <button
-                className="bg-blueDark text-white text-base w-28 h-8 rounded-lg mx-3"
-                onClick={() => {
-                  // eslint-disable-next-line @typescript-eslint/no-floating-promises
-                  handleAdd(selectedUser._id)
-                }}
+        <div className=" mx-6">
+          {selectedUser && deleteMode ? (
+            <>
+              <h2 className=" text-xl font-bold text-blueDark mb-7">
+                Do you want to remove the user {selectedUser?.name} {selectedUser?.lastname}?
+              </h2>
+              <div className="flex justify-center mt-6">
+                <button
+                  className="bg-blueDark text-white text-base w-36 h-8 rounded-lg mx-3"
+                  onClick={() => {
+                    // eslint-disable-next-line @typescript-eslint/no-floating-promises
+                    handleDelete(selectedUser._id)
+                  }}
                 >
-                {loading ? <PulseLoader color="white" /> : 'Add Member'}
-              </button>
-              <button
-                className="bg-white text-blueDark border-blueDark border text-base w-28 h-8 rounded-lg mx-3"
-                onClick={() => {
-                  setModalOpen(false)
-                }}
+                  {loading ? <PulseLoader color="white" /> : 'Delete Member'}
+                </button>
+                <button
+                  className="bg-white text-blueDark border-blueDark border text-base w-36 h-8 rounded-lg mx-3"
+                  onClick={() => {
+                    setModalOpen(false)
+                    setDeleteMode(false)
+                  }}
                 >
-                Cancel
-              </button>
-            </div>
-          </>
-        ) : (
-          <>
-            <h2 className=" text-xl font-bold text-blueDark mb-7">
-              This person belongs to another consortium, cannot be added
-            </h2>
-            <div className=" px-8 text-start text-base">
-              <h4 className=" text-blueDark">Email</h4>
-              <p className="ml-4 mb-3">{selectedUser?.email}</p>
-              <h4 className=" text-blueDark">Name</h4>
-              <p className="ml-4 mb-3">
-                {selectedUser?.name} {selectedUser?.lastname}
-              </p>
-            </div>
-            <div className="flex justify-center mt-6">
-              <button
-                className="bg-white text-blueDark border-blueDark border text-base w-28 h-8 rounded-lg mx-3"
-                onClick={() => {
-                  setModalOpen(false)
-                }}
+                  Cancel
+                </button>
+              </div>
+            </>
+          ) : selectedUser?.consortium?.length === 0 ? (
+            <>
+              <h2 className=" text-xl font-bold text-blueDark mb-7">A member has been found!</h2>
+              <div className=" px-8 text-start text-base">
+                <h4 className=" text-blueDark">Email</h4>
+                <p className="ml-4 mb-3">{selectedUser?.email}</p>
+                <h4 className=" text-blueDark">Name</h4>
+                <p className="ml-4 mb-3">
+                  {selectedUser?.name} {selectedUser?.lastname}
+                </p>
+              </div>
+              <div className="flex justify-center mt-6">
+                <button
+                  className="bg-blueDark text-white text-base w-28 h-8 rounded-lg mx-3"
+                  onClick={() => {
+                    // eslint-disable-next-line @typescript-eslint/no-floating-promises
+                    handleAdd(selectedUser._id)
+                  }}
                 >
-                Ok
-              </button>
-            </div>
-          </>
-        )}
-      </div>
+                  {loading ? <PulseLoader color="white" /> : 'Add Member'}
+                </button>
+                <button
+                  className="bg-white text-blueDark border-blueDark border text-base w-28 h-8 rounded-lg mx-3"
+                  onClick={() => {
+                    setModalOpen(false)
+                  }}
+                >
+                  Cancel
+                </button>
+              </div>
+            </>
+          ) : (
+            <>
+              <h2 className=" text-xl font-bold text-blueDark mb-7">
+                This person belongs to another consortium, cannot be added
+              </h2>
+              <div className=" px-8 text-start text-base">
+                <h4 className=" text-blueDark">Email</h4>
+                <p className="ml-4 mb-3">{selectedUser?.email}</p>
+                <h4 className=" text-blueDark">Name</h4>
+                <p className="ml-4 mb-3">
+                  {selectedUser?.name} {selectedUser?.lastname}
+                </p>
+              </div>
+              <div className="flex justify-center mt-6">
+                <button
+                  className="bg-white text-blueDark border-blueDark border text-base w-28 h-8 rounded-lg mx-3"
+                  onClick={() => {
+                    setModalOpen(false)
+                  }}
+                >
+                  Ok
+                </button>
+              </div>
+            </>
+          )}
+        </div>
       </WhiteModal>
       <BlueModal
         isOpen={confirmModal}
@@ -208,7 +208,18 @@ const ConsortiumMembers = () => {
         </button>
       </BlueModal>
       <div className=" min-h-screen h-fit mb-24">
-        <h2 className=" text-[28px] font-bold text-blueDark mt-16 mb-8">Members</h2>
+        <div className=" flex text-[28px] font-bold text-blueDark mt-16 mb-8">
+          <button
+            onClick={() => {
+              navigate(-1)
+            }}
+          >
+            <div className=" h-[30px] mr-5">
+              <img src={'/assets/icons/left-arrow.svg'} />
+            </div>
+          </button>
+          <h2>Members</h2>
+        </div>
         <Autocomplete
           options={filteredUsers}
           setSelectedOption={(u) => {

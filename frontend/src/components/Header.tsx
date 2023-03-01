@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Link/*, useLocation */ } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import UserNavbar from './UserNavbar'
 import { useAuthStore } from '../store/auth'
 import { userStore } from '../store/user'
@@ -17,9 +17,9 @@ const Header = () => {
   const setUser = userStore((state) => state.setData)
   const user = userStore((state) => state.userData)
 
-  /* const location = useLocation()
+  const location = useLocation()
   const path = location.pathname
-  const showNav = path.substring(0, 5) === '/user' || path.substring(0, 6) === '/admin' */
+  const showNav = path.substring(0, 5) === '/user' || path.substring(0, 6) === '/admin'
 
   const { headerTitle } = Titles()
 
@@ -60,8 +60,7 @@ const Header = () => {
   }
 
   return (
-    // <header className={`${!showNav ? 'hidden sm:inline' : ''}`}>
-    <header className='sm:h-20 '>
+    <header className={`${!showNav ? 'hidden sm:inline h-[80px]' : ''}`}>
       <div className="bg-blueDark fixed z-50 w-full">
         <nav className=" h-[60px] sm:h-20 flex flex-wrap items-center justify-between md:justify-around w-full px-3 text-[15px] xl:w-[1200px] xl:mx-auto ">
           <svg

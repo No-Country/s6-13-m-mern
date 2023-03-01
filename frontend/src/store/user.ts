@@ -7,6 +7,7 @@ interface State {
 
 interface Actions {
   setData: (userData: UserProfile) => void
+  setLogout: () => void
 }
 
 export const userStore = create<State & Actions>((set) => ({
@@ -14,6 +15,11 @@ export const userStore = create<State & Actions>((set) => ({
   setData: (userData: UserProfile) => {
     set((state) => ({
       userData,
+    }))
+  },
+  setLogout: () => {
+    set(() => ({
+      userData: null,
     }))
   },
 }))

@@ -75,34 +75,34 @@ const Login = () => {
 
   return (
     <>
-      {logError === 'invalid' && (
-        <p className="absolute w-full h-8 px-8 bg-red rounded-b-sm border border-black text-lg font-sans text-white">
-          The email address or password is incorrect. Please retry..
-        </p>
-      )}
-      {logError === 'unverified' && (
-        <p className="absolute w-full h-8 px-8 bg-red rounded-b-sm border border-black text-lg font-sans text-white">
-          The email is not verified, please check your email
-        </p>
-      )}
-      {(errors.email?.type === 'required' || errors.password?.type === 'required') && (
-        <p className="absolute w-full h-8 px-8 bg-red rounded-b-sm border border-black text-lg font-sans text-white">
-          Complete all required fields
-        </p>
-      )}
-      {errors.email?.type === 'pattern' && (
-        <p className="absolute w-full h-8 px-8 bg-red rounded-b-sm border border-black text-lg font-sans text-white">
-          It&apos;s not a valid e-mail
-        </p>
-      )}
-      {errors.password?.type === 'pattern' && (
-        <p className="absolute w-full h-8 px-8 bg-red rounded-b-sm border border-black text-lg font-sans text-white">
-          It&apos;s not a valid password
-        </p>
-      )}
-      {width > 640 ? (
-        // ------------------ DESKTOP ------------------
+      <div className="hidden sm:inline">
+        {/* ------------------ DESKTOP ------------------ */}
         <BackgroundImage imageUrl="https://res.cloudinary.com/dozwd1ssj/image/upload/v1677333255/Body_Foto_kfit97.png">
+          {logError === 'invalid' && (
+            <p className="absolute w-full h-8 px-8 bg-red rounded-b-sm border border-black text-lg font-sans text-white">
+              The email address or password is incorrect. Please retry..
+            </p>
+          )}
+          {logError === 'unverified' && (
+            <p className="absolute w-full h-8 px-8 bg-red rounded-b-sm border border-black text-lg font-sans text-white">
+              The email is not verified, please check your email
+            </p>
+          )}
+          {(errors.email?.type === 'required' || errors.password?.type === 'required') && (
+            <p className="absolute w-full h-8 px-8 bg-red rounded-b-sm border border-black text-lg font-sans text-white">
+              Complete all required fields
+            </p>
+          )}
+          {errors.email?.type === 'pattern' && (
+            <p className="absolute w-full h-8 px-8 bg-red rounded-b-sm border border-black text-lg font-sans text-white">
+              It&apos;s not a valid e-mail
+            </p>
+          )}
+          {errors.password?.type === 'pattern' && (
+            <p className="absolute w-full h-8 px-8 bg-red rounded-b-sm border border-black text-lg font-sans text-white">
+              It&apos;s not a valid password
+            </p>
+          )}
           <Container>
             <div className="font-sans text-[24px] py-14 h-max mb-20">
               <h1 className="text-[30px]">Welcome!</h1>
@@ -183,12 +183,28 @@ const Login = () => {
             </div>
           </Container>
         </BackgroundImage>
-      ) : (
-        // ------------------ MOBILE ------------------
+      </div>
+
+      {/* ------------------ MOBILE ------------------ */}
+      <div className="sm:hidden">
         <Container>
-          <div className="font-sans text-[24px] py-14 h-screen grid content-center">
-            {/* <h1 className="text-[30px]">Welcome!</h1> */}
-            <h2 className="ml-6 mb-16">Please fill your info to start</h2>
+          <div className="font-sans text-[24px] py-14 grid">
+            <div className=" flex text-[30px] font-bold text-blueDark mb-8 justify-between items-center">
+              <button
+                onClick={() => {
+                  navigate('/')
+                }}
+              >
+                <div className=" h-[30px] mr-5">
+                  <img src={'/assets/icons/left-arrow.svg'} />
+                </div>
+              </button>
+              <h2>Log In</h2>
+              <Link to="/signin">
+                <small className="text-sm">Sign In</small>
+              </Link>
+            </div>
+            <h2 className=" mb-6 text-lg text-center">Please fill your info to start</h2>
             <div>
               <form onSubmit={handleSubmit(customSubmit)}>
                 <input
@@ -206,7 +222,7 @@ const Login = () => {
                 <input
                   className={`border-2 ${
                     !errors.password ? 'border-blueDark' : 'border-red'
-                  } rounded-lg h-12 px-4 mb-8 w-full placeholder:italic placeholder:text-grey bg-transparent focus:outline-none text-lg`}
+                  } rounded-lg h-12 px-4 mb-2 w-full placeholder:italic placeholder:text-grey bg-transparent focus:outline-none text-lg`}
                   type="password"
                   placeholder="Enter your password"
                   {...register('password', {
@@ -235,7 +251,7 @@ const Login = () => {
                   Sign In
                 </Link>
               </div> */}
-              <h3 className="mb-5 text-center">Or continue with</h3>
+              <h3 className="mb-5 text-center text-lg">Or continue with</h3>
               <div className="flex justify-center">
                 <button
                   className="mx-3"
@@ -264,7 +280,7 @@ const Login = () => {
             </div>
           </div>
         </Container>
-      )}
+      </div>
     </>
   )
 }
