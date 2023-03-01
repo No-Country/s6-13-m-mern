@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import DetailModal from '../../../components/DetailModal'
 import { SearchBar } from '../../../components/SearchBar'
 import { TitleComponents } from '../../../components/TitleComponents'
 import getUserPaymentsService from '../../../services/getUserPaymentsService'
@@ -136,7 +137,16 @@ const UserDocuments = () => {
   const renderPayments = () => {
     return (
       <div>
-        {modal && renderModal()}
+        {modal && (
+          <DetailModal
+            setModal={setModal}
+            name={paymentDetail?.user.name}
+            lastname={paymentDetail?.user.lastname}
+            creationDate={paymentDetail?.creationDate}
+            amount={paymentDetail?.ammount}
+            note={paymentDetail?.note}
+          />
+        )}
         <div className="-translate-y-5 w-full flex justify-center">
           <div className="w-full ml-[10%]">
             <SearchBar
@@ -213,39 +223,6 @@ const UserDocuments = () => {
         >
           Create new payment
         </button>
-      </div>
-    )
-  }
-
-  const renderModal = () => {
-    return (
-      <div className="fixed inset-0 flex justify-center items-center bg-blue bg-opacity-50 z-50">
-        <div className="animate-slideInTop relative w-[560px] h-[347px] rounded-xl border-2 border-blueDark flex flex-col justify-center items-center bg-white">
-          <div
-            onClick={() => {
-              setModal(false)
-            }}
-            className="absolute right-5 top-5 cursor-pointer"
-          >
-            <img src="https://res.cloudinary.com/dozwd1ssj/image/upload/v1677639798/close-outline_b6olmb.png" />
-          </div>
-          <div className="w-full h-full flex flex-col justify-between items-center px-10 py-16">
-            <h4 className="font-bold text-blueDark">
-              {paymentDetail?.user?.name && paymentDetail?.user?.lastname && paymentDetail?.creationDate
-                ? `by ${paymentDetail.user.name} ${paymentDetail.user.lastname} (${convertDate(
-                    paymentDetail.creationDate,
-                  )})`
-                : ''}
-            </h4>
-            <h4 className="italic font-bold">Cash - ${paymentDetail?.ammount}</h4>
-            <p className="w-full">
-              <span className="font-bold pb-2 w-full">
-                Note: <br />
-              </span>
-              {paymentDetail?.note}
-            </p>
-          </div>
-        </div>
       </div>
     )
   }
