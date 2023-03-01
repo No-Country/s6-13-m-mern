@@ -7,7 +7,14 @@ interface Props {
 
 const UserEditProfile = ({ setEdit }: Props) => {
   const data = userStore((state) => state.userData)
-  return data ? <EditProfile preloadValues={data} setEdit={setEdit} /> : <div>Loading...</div>
+  return data ? (
+    <EditProfile
+      preloadValues={data}
+      setEdit={setEdit}
+    />
+  ) : (
+    <div>Loading...</div>
+  )
 }
 
 export default UserEditProfile

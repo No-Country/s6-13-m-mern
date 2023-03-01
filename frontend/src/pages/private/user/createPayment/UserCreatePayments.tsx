@@ -35,7 +35,8 @@ const UserCreatePayments = ({ setCreate }: Props) => {
       <div
         className="cursor-pointer"
         onClick={() => {
-          (document.querySelector('.input-field') as HTMLInputElement).click()
+          // eslint-disable-next-line @typescript-eslint/no-extra-semi
+          ;(document.querySelector('.input-field') as HTMLInputElement).click()
         }}
       >
         {image && (
