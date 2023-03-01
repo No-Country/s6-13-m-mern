@@ -20,7 +20,7 @@ const Layout = () => {
           </>
         ) : (
           <>
-            <div className=' fixed bottom-2 right-1/2 translate-x-1/2 z-50'>
+            <div className=' fixed bottom-0 right-1/2 translate-x-1/2 z-50'>
               <MobileBar />
             </div>
           </>
