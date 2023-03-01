@@ -10,10 +10,10 @@ const Profile = () => {
     <section>
       {!edit ? (
         <div className="flex sm:hidden flex-col items-center sm:mt-8">
-          <div className="bg-blueDark w-full flex justify-center pt-16">
+          <div className="bg-blueDark w-full flex justify-center pt-32">
             <div className="w-[125px]">
               <img
-                className="sm:w-28 md:w-32 rounded-full sm:rounded-lg border-2 border-white -mb-8 sm:-mb-0"
+                className="h-32 object-cover sm:w-28 md:w-32 rounded-full sm:rounded-lg border-2 border-white -mb-8 sm:-mb-0"
                 src={user?.img}
                 alt="photo"
               />
