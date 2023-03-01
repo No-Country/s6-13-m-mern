@@ -16,7 +16,7 @@ const MyConsortium = ({ setMenu }: Props) => {
       <div className="flex font-bold text-xl text-blueDark ml-11 mt-32 lg:mt-7">
         <h3>My consortium</h3>
       </div>
-      <div className="flex flex-wrap justify-center sm:justify-start gap-4 sm:gap-2 lg:gap-4 xl:gap-10 mt-8 mx-8 sm:mx-4 md:ml-8 xl:ml-16 2xl:ml-32">
+      <div className="flex flex-wrap max-w-md mx-auto overflow-hidden md:max-w-2xl justify-center sm:justify-start gap-4 sm:gap-2 lg:gap-4 xl:gap-10 mt-8  sm:mx-4 md:ml-8 xl:ml-16 2xl:ml-32">
         {user?.consortium?.map((consortium) => (
           <div className=' w-[270px] h-[160px] overflow-hidden rounded-lg border border-blueDark relative items-center flex'
           key={consortium._id}>

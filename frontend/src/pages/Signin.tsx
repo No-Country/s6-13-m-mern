@@ -10,13 +10,12 @@ import { useGoogleLogin } from '@react-oauth/google'
 import axios from 'axios'
 import { loginGoogleService } from '../services/loginGoogleService'
 import { useAuthStore } from '../store/auth'
-import useScreenSize from '../hooks/useScreenSize'
+import SigninMobile from '../components/SigninMobile'
 
 const Signin = () => {
   const [modalOpen, setModalOpen] = useState(false)
   const [loading, setLoading] = useState(false)
   const [mailError, setMailError] = useState(false)
-  const { width } = useScreenSize()
   const {
     register,
     handleSubmit,
@@ -263,118 +262,7 @@ const Signin = () => {
       </div>
       {/* ------------------ MOBILE ------------------ */}
       <div className="sm:hidden">
-        <Container>
-          <div className="font-sans text-[24px]  py-14 grid">
-            <div className=" flex text-[30px] font-bold text-blueDark mb-8 justify-between items-center">
-              <button
-                onClick={() => {
-                  navigate('/')
-                }}
-              >
-                <div className=" h-[30px] mr-5">
-                  <img src={'/assets/icons/left-arrow.svg'} />
-                </div>
-              </button>
-              <h2>Sign In</h2>
-              <Link to="/login">
-                <small className="text-sm">Log In</small>
-              </Link>
-            </div>
-            <h2 className=" mb-6 text-lg text-center">Please fill your info to start</h2>
-            <div>
-              <form onSubmit={handleSubmit(customSubmit)}>
-                <input
-                  className={`border-2 ${
-                    !errors.name ? 'border-blueDark' : 'border-red'
-                  } rounded-lg h-12 px-4 mb-4 w-full placeholder:italic placeholder:text-grey bg-transparent focus:outline-none text-lg`}
-                  type="text"
-                  placeholder="Enter your name"
-                  autoComplete="off"
-                  {...register('name', { required: true })}
-                />
-                <input
-                  className={`border-2 ${
-                    !errors.lastname ? 'border-blueDark' : 'border-red'
-                  } rounded-lg h-12 px-4 mb-4 w-full placeholder:italic placeholder:text-grey bg-transparent focus:outline-none text-lg`}
-                  type="text"
-                  placeholder="Enter your lastname"
-                  autoComplete="off"
-                  {...register('lastname', { required: true })}
-                />
-                <input
-                  className={`border-2 ${
-                    !errors.email ? 'border-blueDark' : 'border-red'
-                  } rounded-lg h-12 px-4 mb-4 w-full placeholder:italic placeholder:text-grey bg-transparent focus:outline-none text-lg`}
-                  type="email"
-                  placeholder="Enter your email"
-                  autoComplete="off"
-                  {...register('email', {
-                    required: true,
-                    pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i,
-                  })}
-                />
-                <input
-                  className={`border-2 ${
-                    !errors.password ? 'border-blueDark' : 'border-red'
-                  } rounded-lg h-12 px-4 mb-4 w-full placeholder:italic placeholder:text-grey bg-transparent focus:outline-none text-lg`}
-                  type="password"
-                  placeholder="Enter your password"
-                  {...register('password', {
-                    required: true,
-                    pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-                  })}
-                />
-                <input
-                  className={`border-2 ${
-                    !errors.password2 ? 'border-blueDark' : 'border-red'
-                  } rounded-lg h-12 px-4 mb-4 w-full placeholder:italic placeholder:text-grey bg-transparent focus:outline-none text-lg`}
-                  type="password"
-                  placeholder="Repeat your password"
-                  {...register('password2', {
-                    required: true,
-                    validate: (val: string) => watch('password') === val,
-                  })}
-                />
-                <div>
-                  <button
-                    type="submit"
-                    className="bg-blueDark disabled:opacity-60 text-white text-xl w-full h-12 rounded-2xl block ml-auto mb-4"
-                    disabled={!isDirty || !isValid}
-                  >
-                    {loading ? <PulseLoader color="white" /> : 'SIGN IN'}
-                  </button>
-                </div>
-              </form>
-
-              <h3 className="mb-5 text-center text-lg">Or continue with</h3>
-              <div className="flex justify-center">
-                <button
-                  className="mx-10"
-                  onClick={() => {
-                    loginGoogle()
-                  }}
-                >
-                  <img
-                    src="/assets/social/Google.png"
-                    alt=""
-                  />
-                </button>
-                {/* <button className="mx-10">
-                <img
-                  src="/assets/social/Facebook.png"
-                  alt=""
-                />
-              </button>
-              <button className="mx-10">
-                <img
-                  src="/assets/social/Twitter.png"
-                  alt=""
-                />
-              </button> */}
-              </div>
-            </div>
-          </div>
-        </Container>
+        <SigninMobile />
       </div>
     </>
   )
