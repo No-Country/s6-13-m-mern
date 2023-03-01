@@ -59,7 +59,7 @@ const UserProfile = () => {
             <p className=" my-6">{user?.email}</p>
             <p className=" my-6">{user?.phone}</p>
             {user?.role === 'tenant' && <p className=" my-6">Address: {consortiumAddress}</p>}
-            <p className=" my-6">Piso|Dto: {user?.apt}</p>
+            {user?.role === 'tenant' && <p className=" my-6">Piso|Dto: {user?.apt !== 'NaN' ? user.apt : '3º C'}</p>}
           </div>
 
           {user?.role === 'tenant' && (
