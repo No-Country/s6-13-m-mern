@@ -52,18 +52,14 @@ PORT=Number of the port where you wanna run api (ex. 3002).
 ##### _Front .env_
 
 ```
-VITE_APP_ID_CLIENT_GOOGLE = For use Login with Google.
-VITE_APP_GMAPS_API_KEY = For use Google Maps Api.
+VITE_DEPLOY_URL: URL where the frontend is deployed.
+VITE_LOCAL_BASE_URL: URL where the frontend is running in local
+VITE_APP_GOOGLE_ID: For use Login with Google.
+VITE_APP_CLOUDNAME: name to upload user photos in cloudinary.
+VITE_APP_PRESET_VOUCHERS: preset to upload products photos in cloudinary.
+VITE_APP_PRESET_EDIT_USER_PHOTOS: preset to upload products photos in cloudinary.
+VITE_APP_PRESET_CONSORTIUMS: preset to upload products photos in cloudinary.
 
-VITE_APP_MAILCHIMP_URL = For use mailchimp for send newsletter email.
-
-VITE_APP_PRESET_USER = preset to upload user photos in cloudinary.
-VITE_APP_PRESET_PRODUCTS = preset to upload products photos in cloudinary.
-VITE_APP_PRESET_ADOPT_PETS= preset to upload pets photos in cloudinary.
-
-VITE_APP_CLOUDNAME = name of your cloudinary.
-
-VITE_APP_API_ROUTE = Localhost of you api ( ex. http://localhost:4000).
 ```
 
 
