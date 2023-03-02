@@ -126,7 +126,10 @@ VITE_APP_PRESET_CONSORTIUMS: preset to upload products photos in cloudinary.
 
 ### 👉🏻 DevOps
 
-### Yamila Paez : [LinkedIn]() | [GitHub]() | [Portfolio]()
+| <img src="https://avatars.githubusercontent.com/u/64668681?v=4" width=80>|
+|:-:|
+| Yamila Paez |
+|<a href="https://github.com/Bellantra"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/yamila-paez-70b7587b/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> ||
 
 ## ✔ UI/UX
 
