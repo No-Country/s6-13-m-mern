@@ -114,23 +114,15 @@ VITE_APP_PRESET_CONSORTIUMS: preset to upload products photos in cloudinary.
 
 ### 👉🏻 Developers
 
-### Frontend:
+| <img src="https://ca.slack-edge.com/T032Y55Q6VC-U047ZE0Q1KM-e8c525dd8f81-512" width=50>| <img src="https://i.ibb.co/yB46R01/image.png" width=50>|  <img src="https://avatars.githubusercontent.com/u/76481399?v=4" width=50>  |  <img src="https://avatars.githubusercontent.com/u/70997096?v=4" width=50>  |  <img src="https://avatars.githubusercontent.com/u/77250452?v=4" width=50> |
+:-:|:-:|:-:|:-:|:-:|
+| **Emanuel Capo**  | **Martín Kun**  | **Ariel Martínez**  | **Ivan Belasich**  | **Nico Smael** |
+| <a href="https://github.com/Emanuel-Capo"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/emanuel-capo/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/MartinKun"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/mart%C3%ADn-kun-b13620209/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/Arielstereo"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/arielstereo/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/ivanbelasich"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/ivanbelasich/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/SmaelNicolas"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/smaeln/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
 
-### Emanuel Capo : [LinkedIn]() | [GitHub]() | [Portfolio]()
-
-### Martín Kun : [LinkedIn]() | [GitHub]() | [Portfolio]()
-
-### Ariel Martinez : [LinkedIn]() | [GitHub]() | [Portfolio]()
-
-### Ivan Belasich : [LinkedIn]() | [GitHub]() | [Portfolio]()
-
-### Nico Smael : [LinkedIn]() | [GitHub]() | [Portfolio]()
-
-### David Castro : [LinkedIn]() | [GitHub]() | [Portfolio]()
-
-### Javier Morón : [LinkedIn]() | [GitHub]() | [Portfolio]()
-
-### Omar Lestrade : [LinkedIn]() | [GitHub]() | [Portfolio]()
+| <img src="https://avatars.githubusercontent.com/u/54191492?v=4" width=50>| <img src="https://media.licdn.com/dms/image/C4E03AQGAd-fOl_IvoQ/profile-displayphoto-shrink_800_800/0/1636827638945?e=1683158400&v=beta&t=HimNyjU9hnzEYzZltIRCYd87pFyQ32n4dlQ3Rxlhjfo" width=50>|  <img src="https://avatars.githubusercontent.com/u/100742080?v=4" width=50>  | 
+:-:|:-:|:-:|
+| **Javier Morón**  | **Omar Lestrade**  | **David Castro**  |
+| <a href="https://github.com/requin883"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/javier-alberto-moron-de-oliveira-a7504218a"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/Lestradez"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/omar-lestrade/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/deca-dev"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/davidcastroanaya/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | 
 
 ### 👉🏻 DevOps
 
