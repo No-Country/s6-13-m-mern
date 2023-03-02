@@ -24,8 +24,7 @@ export const upLoadFile = async (
     setImage(response.secure_url)
   } catch (error) {
     console.log(error)
-    setError(true)
-  } finally {
     setLoading(false)
+    setError(true)
   }
 }

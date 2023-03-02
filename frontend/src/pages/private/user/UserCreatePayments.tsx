@@ -38,7 +38,7 @@ const UserCreatePayments = ({ setCreate, setIsPaymentsChanged }: Props) => {
 
     if (name === 'amount') {
       const isValidAmount = isValidAmountFormat(value)
-      if (!isValidAmount) return
+      if (!isValidAmount && payment.amount.length < 1) return
     }
 
     setPayment({ ...payment, [name]: value })
