@@ -62,6 +62,10 @@ VITE_APP_PRESET_CONSORTIUMS: preset to upload products photos in cloudinary.
 
 ```
 
+### 👉🏻 Project Manager
+
+### 👉🏻 Larry Aguilera
+
 
 ## ✔ Backend
 
@@ -84,10 +88,9 @@ VITE_APP_PRESET_CONSORTIUMS: preset to upload products photos in cloudinary.
 
 ### 👉🏻 Developers
 
-| <img src="https://res.cloudinary.com/diyk4to11/image/upload/v1664465766/Integrantes/Yamila_gi0sl2.jpg" width=50>| <img src="https://res.cloudinary.com/diyk4to11/image/upload/v1664465581/Integrantes/Nora_kmtlar.jpg" width=50>|
-|:-:|:-:|
-| **Yamila Paez**| **Nora Saucedo**|
-| <a href="https://github.com/Bellantra"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/yamila-paez-70b7587b/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/NorSAUCE"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/nora-patricia-saucedo-6b3746225"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
+### Pablo Zalazar : [LinkedIn]() | [GitHub]() | [Portfolio]()
+
+### Santiago Rivanegra : [LinkedIn]() | [GitHub]() | [Portfolio]()
 
 <hr/>
 
@@ -111,10 +114,27 @@ VITE_APP_PRESET_CONSORTIUMS: preset to upload products photos in cloudinary.
 
 ### 👉🏻 Developers
 
-| <img src="https://avatars.githubusercontent.com/u/30716739?v=4" width=50>| <img src="https://res.cloudinary.com/diyk4to11/image/upload/v1664465097/Integrantes/Daniel_zvpphk.jpg" width=50>|  <img src="https://avatars.githubusercontent.com/u/103131605?v=4" width=50>  |  <img src="https://res.cloudinary.com/diyk4to11/image/upload/v1664465188/Integrantes/Francisco_rqloby.jpg" width=50>  |  <img src="https://res.cloudinary.com/diyk4to11/image/upload/v1664465504/Integrantes/LuisMi_yvmw6a.png" width=50> |
-:-:|:-:|:-:|:-:|:-:|
-| **Jeyther Yriza**  | **Daniel Albanez**  | **Saira Arteaga**  | **Francisco Rey**  | **LuMi** |
-| <a href="https://github.com/Jeyther"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/jeyther"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/danielalbanez40"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/danielalbanez/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/smirart1"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/sairamiranda/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/franrey98"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/francisco-rey-71060419a/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/lumiguz"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/lumidev/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
+### Frontend:
+
+### Emanuel Capo : [LinkedIn]() | [GitHub]() | [Portfolio]()
+
+### Martín Kun : [LinkedIn]() | [GitHub]() | [Portfolio]()
+
+### Ariel Martinez : [LinkedIn]() | [GitHub]() | [Portfolio]()
+
+### Ivan Belasich : [LinkedIn]() | [GitHub]() | [Portfolio]()
+
+### Nico Smael : [LinkedIn]() | [GitHub]() | [Portfolio]()
+
+### David Castro : [LinkedIn]() | [GitHub]() | [Portfolio]()
+
+### Javier Morón : [LinkedIn]() | [GitHub]() | [Portfolio]()
+
+### Omar Lestrade : [LinkedIn]() | [GitHub]() | [Portfolio]()
+
+### 👉🏻 DevOps
+
+### Yamila Paez : [LinkedIn]() | [GitHub]() | [Portfolio]()
 
 ## ✔ UI/UX
 
@@ -126,19 +146,11 @@ VITE_APP_PRESET_CONSORTIUMS: preset to upload products photos in cloudinary.
 
 ### 👉🏻 Designer
 
-| <img src="https://res.cloudinary.com/diyk4to11/image/upload/v1666206668/Integrantes/4b94dc66375663.62dc2dd79dd14_tkhwac.png" width=80>|
-|:-:|
-| Andres Fuentes|
-| <a href="https://www.behance.net/andrsplazas1"><img src="https://img.shields.io/badge/Behance-%2320232a.svg?style=for-the-badge&logo=Behance&logoColor=%%2361DAFB"/></a> <a href="https://www.linkedin.com/in/eafuentes"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> ||
+### Sofía Munno : [LinkedIn]() | [GitHub]() | [Portfolio]()
 
 ### 👉🏻 Team Leader
 
 
-| <img src="https://media-exp1.licdn.com/dms/image/C4D03AQF9rsUvFbgBoQ/profile-displayphoto-shrink_800_800/0/1655738132255?e=1671667200&v=beta&t=SQxTTu16OigEskquv-1wXmuK72t6H_5chkWc2RSDSSg" width=80>|
-|:-:|
-| Alejandro Cardenas |
-|<a href="https://github.com/Al3x4nDr0s"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/alejandro-alfredo-cardenas/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> ||
+### Maiten Cullen
 
-## Communication
 
-[![](https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=Discord&logoColor=fff)](https://discord.gg/dyxDxw8w) [![](https://img.shields.io/badge/Trello-095ED8?style=for-the-badge&logo=Trello&logoColor=fff)](https://trello.com/b/BbJrA9Gq/no-country-s4-11) [![](https://img.shields.io/badge/Slack-%23ED8B00?style=for-the-badge&logo=Slack&logoColor=fff)](https://slack.com/intl/es-pe/)
