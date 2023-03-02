@@ -55,7 +55,7 @@ export const ConsortiumDashboard: FC<ConsortiumDashboardProps> = ({ name = 'Admi
       >
         <Link
           to="/admin"
-          className=""
+          state='My consortiums'
         >
           <img
             className="w-[14px] mr-6"
