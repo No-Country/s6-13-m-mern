@@ -193,7 +193,7 @@ VITE_APP_PRESET_CONSORTIUMS: preset to upload consortium photos in cloudinary.
 
 ### 👉🏻 Designer
 
-| <img src="https://ca.slack-edge.com/T032Y55Q6VC-U04FYD33P24-f276a0d22d2b-512" width=80>|
+| <img src="https://ca.slack-edge.com/T032Y55Q6VC-U04FYD33P24-f276a0d22d2b-512" width=100>|
 |:-:|
 | Sofía Munno|
 | <a href="https://www.linkedin.com/in/sofia-munno/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> ||
