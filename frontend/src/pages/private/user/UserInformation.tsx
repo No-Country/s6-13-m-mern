@@ -29,11 +29,13 @@ const UserInformation = () => {
                 <b>Address:</b> {consortium?.address}
               </h4>
             </div>
-            <img
-              src={consortium?.img}
-              alt=""
-              className=" w-20"
-            />
+            <div className=" w-[170px] h-[100px] overflow-hidden rounded-lg border border-blueDark relative items-center flex">
+              <img
+                src={consortium?.img}
+                alt="card"
+                className=" w-[170px]"
+              />
+            </div>
           </div>
         </Accordion>
         <Accordion
@@ -55,10 +57,13 @@ const UserInformation = () => {
               </h4>
             </div>
             <div className=" w-20">
-              <img
-                src={admin?.img}
-                alt=""
-              />
+              <div className=" w-[100px] h-[100px] overflow-hidden rounded-lg border border-blueDark">
+                <img
+                  src={admin?.img}
+                  alt="card"
+                  className=" w-[100px]"
+                />
+              </div>
             </div>
           </div>
         </Accordion>
