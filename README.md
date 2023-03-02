@@ -62,13 +62,27 @@ VITE_APP_PRESET_CONSORTIUMS: preset to upload products photos in cloudinary.
 
 ```
 
-### 👉🏻 Project Manager
+## ✔ Team Leader
+
+
+| <img src="https://ca.slack-edge.com/T032Y55Q6VC-U047K0D926B-866efd742e9c-512" width=100>|
+|:-:|
+| Maitén Cullen|
+| <a href="https://www.linkedin.com/in/maiten-cullen-/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> ||
+
+## ✔ Project Manager
 
 | <img src="https://avatars.githubusercontent.com/u/55728194?v=4" width=80>|
 |:-:|
 | Larry Aguilera |
 |<a href="https://github.com/larrydaguilera"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/larrydaguilera//"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> ||
 
+## ✔ DevOps
+
+| <img src="https://avatars.githubusercontent.com/u/64668681?v=4" width=80>|
+|:-:|
+| Yamila Paez |
+|<a href="https://github.com/Bellantra"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/yamila-paez-70b7587b/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> ||
 
 ## ✔ Backend
 
@@ -114,7 +128,7 @@ VITE_APP_PRESET_CONSORTIUMS: preset to upload products photos in cloudinary.
 
 ### 👉🏻 Built with 🛠️
 
-![JavaScript](https://img.shields.io/badge/JavaScript-%23323330.svg?style=for-the-badge&logo=Javascript&logoColor=%23F7DF1E) ![React](https://img.shields.io/badge/React-149eca?style=for-the-badge&logo=react&logoColor=fff) ![Redux](https://img.shields.io/badge/Redux_Toolkit-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white) ![MUI](https://img.shields.io/badge/MUI-007FFF?style=for-the-badge&logo=MUI&logoColor=fff) ![Framer Motion](https://img.shields.io/badge/Framer_Motion-d2c?style=for-the-badge&logo=Framer_Motion&logoColor=fff) ![Formik](https://img.shields.io/badge/Formik-172B4D?style=for-the-badge&logo=Formik&logoColor=fff) ![Yup](https://img.shields.io/badge/Yup-crimson?style=for-the-badge&logo=Yup&logoColor=fff) ![React Router](https://img.shields.io/badge/React_Router-000?style=for-the-badge&logo=reactrouter&logoColor=fff) ![Google Maps Api](https://img.shields.io/badge/Google_Maps_Api-DE4032?style=for-the-badge&logo=GoogleMaps&logoColor=fff) ![Vercel](https://img.shields.io/badge/vercel%20-%23000000.svg?&style=for-the-badge&logo=vercel&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-blue.svg?style=for-the-badge&logo=TypeScript&logoColor=white) ![React](https://img.shields.io/badge/React-149eca?style=for-the-badge&logo=react&logoColor=fff) ![Zustand](https://img.shields.io/badge/Zustand-%232E7D32.svg?style=for-the-badge&logo=zustand&logoColor=white) ![React Router](https://img.shields.io/badge/React_Router-000?style=for-the-badge&logo=reactrouter&logoColor=fff) ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
 ### 👉🏻 Developers
 
@@ -127,13 +141,6 @@ VITE_APP_PRESET_CONSORTIUMS: preset to upload products photos in cloudinary.
 :-:|:-:|:-:|
 | **Javier Morón**  | **Omar Lestrade**  | **David Castro**  |
 | <a href="https://github.com/requin883"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/javier-alberto-moron-de-oliveira-a7504218a"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/Lestradez"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/omar-lestrade/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/deca-dev"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/davidcastroanaya/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | 
-
-### 👉🏻 DevOps
-
-| <img src="https://avatars.githubusercontent.com/u/64668681?v=4" width=80>|
-|:-:|
-| Yamila Paez |
-|<a href="https://github.com/Bellantra"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/yamila-paez-70b7587b/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> ||
 
 ## ✔ UI/UX
 
@@ -149,10 +156,5 @@ VITE_APP_PRESET_CONSORTIUMS: preset to upload products photos in cloudinary.
 |:-:|
 | Sofía Munno|
 | <a href=""><img src="https://img.shields.io/badge/Behance-%2320232a.svg?style=for-the-badge&logo=Behance&logoColor=%%2361DAFB"/></a> <a href="https://www.linkedin.com/in/sofia-munno/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> ||
-
-### 👉🏻 Team Leader
-
-
-### Maiten Cullen
 
 
