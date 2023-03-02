@@ -1,10 +1,13 @@
-<p align="center" ><img width="50px" align="center"src="[https://i.ibb.co/TLGMJGz/app.png](https://i.ibb.co/TLGMJGz/app.png)"></p> 
+<p align="center" ><img width="100%" align="center"src="https://res.cloudinary.com/dozwd1ssj/image/upload/v1677761786/app_mkhyc5.png"></p> 
 
 
 <h2> Are you tired of inefficient administration in your neighborhood/condominium/building?</h2>
 
 <h3 align="center" >We have the perfect solution for you! Our Condominium Management application allows you to manage everything related to your condominium or building in an efficient and organized way.</h3> 
 <br/>
+
+<p align = "center"> <img src = "[https://i.ibb.co/TLGMJGz/app.png](https://i.ibb.co/TLGMJGz/app.png)" /> </p>
+<br />
 
 With our application, you'll have access to all the functionalities you need for complete accounting and administrative management. You'll be able to upload and view condominium/building account statements, payment receipts, invoices/budgets for fixed and contracted services, and much more. Additionally, you'll be able to access relevant documentation such as community rules, internal regulations, meeting outcomes, and improvement or investment projects.
 
@@ -32,11 +35,9 @@ _3 - You will have to create you own account for [nodeMailer](https://nodemailer
 
 _4 - You will have to create you own account for [Cloudinary](https://cloudinary.com/)_
 
-_5 - You will have to create you own account for [Google Maps](https://developers.google.com/)_
+_5 - Install the dependencies with **`npm install`** at Back and Front folders_
 
-_6 - Install the dependencies with **`npm install`** at Back and Front folders_
-
-_7 - Run the server with  **`npm run dev`** (development) or npm start (production)_
+_6 - Run the server with  **`npm run dev`** (development) or npm start (production)_
 
 ##### _Back .env_
 
