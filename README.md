@@ -72,7 +72,7 @@ VITE_APP_PRESET_CONSORTIUMS: preset to upload consortium photos in cloudinary.
 - Conduct user testing and ensure identified issues are addressed.
 - Ensure website response times are optimal and performance requirements are met.
 - Monitor implementation and ensure project timelines are met.
-
+<br />
 
 | <img src="https://ca.slack-edge.com/T032Y55Q6VC-U047K0D926B-866efd742e9c-512" width=100>|
 |:-:|
@@ -101,6 +101,15 @@ VITE_APP_PRESET_CONSORTIUMS: preset to upload consortium photos in cloudinary.
 |<a href="https://github.com/larrydaguilera"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/larrydaguilera//"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> ||
 
 ## ✔ DevOps
+
+### 👉🏻 Task List ✅
+
+- Set up the development environment for the project, including resource provisioning and infrastructure configuration.
+- Establish version control processes and continuous integration.
+- Automate the build, testing, and deployment of the application.
+- Implement a configuration management strategy to ensure consistency and repeatability of deployments.
+- Implement security measures for the application and its infrastructure.
+- Deploy the backend and frontend of the application to the production environment.
 
 | <img src="https://avatars.githubusercontent.com/u/64668681?v=4" width=80>|
 |:-:|
@@ -162,6 +171,18 @@ VITE_APP_PRESET_CONSORTIUMS: preset to upload consortium photos in cloudinary.
 | <a href="https://github.com/requin883"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/javier-alberto-moron-de-oliveira-a7504218a"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/Lestradez"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/omar-lestrade/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/deca-dev"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/davidcastroanaya/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | 
 
 ## ✔ UI/UX
+
+### 👉🏻 Task List ✅
+
+- Create web and mobile designs in Figma that are consistent with the project's brand and vision.
+- Create a wireframe for the web and mobile application that shows the navigation and structure of the user interface.
+- Work with the development team to ensure that the designs are compatible with the technologies and requirements of the project.
+- Create responsive designs that work on a variety of screen sizes and devices.
+- Upload images to Cloudinary for storage and management.
+- Create a design system that can be used in future iterations of the project or in other projects.
+- Create and maintain a library of reusable design elements.
+- Conduct user testing and adjust designs based on feedback received.
+- Work with the development team to ensure that designs are implemented correctly.
 
 ### 👉🏻 Built with 🛠️
 
