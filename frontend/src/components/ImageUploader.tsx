@@ -27,6 +27,9 @@ const ImageUploader = ({ setImage, image, preset }: Props) => {
     upLoadFile(fileSelected, preset, setLoading, setImage, setError)
       .then((response) => {
         console.log(response)
+        setTimeout(() => {
+          setLoading(false)
+        }, 2000)
       })
       .catch((error) => {
         console.log(error)

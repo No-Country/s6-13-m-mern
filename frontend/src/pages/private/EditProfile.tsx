@@ -1,8 +1,10 @@
-import { useForm, SubmitHandler } from 'react-hook-form'
+import { useState } from 'react'
+import ImageUploader from '../../components/ImageUploader'
 import BlueModal from '../../components/modal/BlueModal'
 import { UserProfile } from '../../interfaces/userInterfaces'
 import editProfileService from '../../services/editProfileService'
 import { userStore } from '../../store/user'
+import { isValidApt, isValidName, isValidNumber } from '../../utils/validationUtils'
 
 interface EditProfileProps {
   preloadValues: UserProfile
@@ -10,24 +12,51 @@ interface EditProfileProps {
 }
 
 const EditProfile = ({ preloadValues, setEdit }: EditProfileProps) => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isSubmitting, isSubmitted },
-  } = useForm({
-    defaultValues: preloadValues,
-  })
+  const [data, setData] = useState(preloadValues)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
 
-  const setData = userStore((state) => state.setData)
+  const setStoreData = userStore((state) => state.setData)
 
-  const onSubmit: SubmitHandler<UserProfile> = async (data) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    data.img = image
     const resp = await editProfileService(data)
-
     if (resp?.data.ok) {
-      setData(resp.data.user)
+      setIsSubmitting(false)
+      setStoreData(resp.data.user)
+      setIsSubmitted(true)
     }
   }
-  const image = userStore((state) => state.userData?.img)
+
+  const handleChange = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = target
+
+    if (name === 'name') {
+      const isValidNameFormat = isValidName(value)
+      if (!isValidNameFormat && data.name?.length !== 1) return
+    }
+    if (name === 'lastname') {
+      const isValidLastNameFormat = isValidName(value)
+      if (!isValidLastNameFormat && data.lastname?.length !== 1) return
+    }
+
+    if (name === 'phone') {
+      const isValidNumberFormat = isValidNumber(value)
+      if (!isValidNumberFormat && data.phone?.length !== 1) return
+    }
+
+    if (name === 'apt') {
+      const isValidAptFormat = isValidApt(value)
+      if (!isValidAptFormat) return
+    }
+
+    setData({ ...data, [name]: value })
+  }
+
+  const preset = process.env.VITE_APP_PRESET_EDIT_USER_PHOTOS
+  const [image, setImage] = useState(preloadValues.img)
 
   return (
     <>
@@ -58,74 +87,82 @@ const EditProfile = ({ preloadValues, setEdit }: EditProfileProps) => {
             <h3>Edit Profile</h3>
           </div>
         </div>
+        <ImageUploader
+          setImage={setImage}
+          image={image}
+          preset={preset}
+        />
         <form
-          onSubmit={handleSubmit(onSubmit)}
+          onSubmit={handleSubmit}
           className="grid px-6 justify-center"
         >
-          <div className=" h-[130px] w-[130px] overflow-hidden border-2 border-black rounded-lg relative mx-auto my-6">
-            <img
-              className="object-cover h-[130px] min-w-full"
-              src={image}
-            />
-          </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 ">
-            <div className=" p-3 grid">
+            <div className="relative p-3 grid">
               <label className="text-lg text-blueDark font-bold">Name</label>
               <input
+                type={'text'}
                 className="w-[300px] rounded-lg border-2 border-blueDark p-2"
-                {...register('name', {
-                  required: true,
-                })}
+                name={'name'}
+                onChange={handleChange}
+                value={data.name}
               />
-              {errors.name && <small>The field cannot be empty</small>}
+              {data.name === '' && (
+                <small className="absolute -bottom-[6px] left-5 text-red">The name cannot be empty</small>
+              )}
             </div>
-            <div className="p-3 grid">
+            <div className=" relative p-3 grid">
               <label className="text-lg text-blueDark font-bold">Last name</label>
               <input
+                type={'text'}
                 className="w-[300px] rounded-lg border-2 border-blueDark p-2"
-                {...register('lastname', {
-                  required: true,
-                })}
+                name={'lastname'}
+                onChange={handleChange}
+                value={data.lastname}
               />
-              {errors.lastname && <small>The field cannot be empty</small>}
+              {data.lastname === '' && (
+                <small className="absolute -bottom-[6px] left-5 text-red">The lastname cannot be empty</small>
+              )}
             </div>
             <div className="p-3 grid">
               <label className="text-lg text-blueDark font-bold">Phone</label>
               <input
+                type={'text'}
                 className="w-[300px] rounded-lg border-2 border-blueDark p-2"
-                {...register('phone', {
-                  minLength: 10,
-                })}
+                minLength={10}
+                maxLength={20}
+                name={'phone'}
+                onChange={handleChange}
+                value={data.phone}
               />
-              {errors.phone && <small>The field cannot be empty and must be a number</small>}
+              {/* errors.phone && <small>The field cannot be empty and must be a number</small> */}
             </div>
 
             <div className="p-3 grid">
               <label className="text-lg text-blueDark font-bold">Profile image</label>
               <input
                 className="w-[300px] rounded-lg border-2 border-blueDark p-2"
-                {...register('img', {
-                  required: true,
-                })}
+                readOnly
+                value={image}
               />
-              {errors.img && <small>The field cannot be empty</small>}
             </div>
             {preloadValues.role !== 'admin' && (
               <div className="p-3 grid">
                 <label className="text-lg text-blueDark font-bold">Apt</label>
                 <input
+                  onChange={handleChange}
+                  type={'text'}
                   className="w-[300px] rounded-lg border-2 border-blueDark p-2"
-                  {...register('apt', {
-                    required: true,
-                  })}
+                  name={'apt'}
+                  value={data.apt}
                 />
-                {errors.apt && <small>The field cannot be empty</small>}
+                {/* errors.apt && <small>The field cannot be empty</small> */}
               </div>
             )}
             <div className="p-3 flex justify-center items-center pb-[7px] pt-[30px]">
               <button
                 type="submit"
-                className="bg-blueDark rounded-lg w-[198px] h-[50px] text-white text-lg leading-6"
+                className="bg-blueDark rounded-lg w-[198px] h-[50px] text-white text-lg leading-6 disabled:opacity-50"
+                disabled={data.name === '' || data.lastname === ''}
               >
                 {isSubmitting ? (
                   <div
