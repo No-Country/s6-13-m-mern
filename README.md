@@ -1,13 +1,14 @@
 <p align="center" ><img width="100%" align="center"src="https://res.cloudinary.com/dozwd1ssj/image/upload/v1677761786/app_mkhyc5.png"></p> 
 
+<br />
 
 <h2> Are you tired of inefficient administration in your neighborhood/condominium/building?</h2>
 
 <h3 align="center" >We have the perfect solution for you! Our Condominium Management application allows you to manage everything related to your condominium or building in an efficient and organized way.</h3> 
 <br/>
+<p align="center" ><img align="center"src="https://res.cloudinary.com/dozwd1ssj/image/upload/v1677762524/nuevo_logo_bold-removebg-preview_2_yfyw9i.png"></p> 
 
 <p align = "center"> <img src = "[https://i.ibb.co/TLGMJGz/app.png](https://i.ibb.co/TLGMJGz/app.png)" /> </p>
-<br />
 
 With our application, you'll have access to all the functionalities you need for complete accounting and administrative management. You'll be able to upload and view condominium/building account statements, payment receipts, invoices/budgets for fixed and contracted services, and much more. Additionally, you'll be able to access relevant documentation such as community rules, internal regulations, meeting outcomes, and improvement or investment projects.
 
@@ -19,7 +20,6 @@ With our Condominium Management application, you can take your condominium/build
 
 <h3 align="center"  ><b>You can check out our webpage here:</b></h3>
 <h3 align="center"><a href="https://sos-consortia.onrender.com" target="_blank" rel="noopener noreferrer"> 🏢 S.O.S Consortia 🏢</a></h3>
-<p align="center" ><img align="center"src="https://res.cloudinary.com/dozwd1ssj/image/upload/v1677762524/nuevo_logo_bold-removebg-preview_2_yfyw9i.png"></p> 
 
 <hr/>
 
