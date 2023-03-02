@@ -109,7 +109,7 @@ VITE_APP_PRESET_CONSORTIUMS: preset to upload consortium photos in cloudinary.
 - Automate the build, testing, and deployment of the application.
 - Implement a configuration management strategy to ensure consistency and repeatability of deployments.
 - Implement security measures for the application and its infrastructure.
-- Deploy the backend on Heroku and frontend of the application to the production environment.
+- Deploy the backend and frontend of the application to the production environment.
 <br />
 
 | <img src="https://avatars.githubusercontent.com/u/64668681?v=4" width=80>|
