@@ -11,6 +11,9 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { deleteConsortiumService } from '../../../services/deleteConsortiumService'
 import getConsortiumService from '../../../services/getConsortiumService'
 import { Amenity } from '../../../interfaces/consortiaInterfaces'
+import { userStore } from '../../../store/user'
+import getUserByIdService from '../../../services/getUserByIdService'
+import { IResponseUser } from '../../../interfaces/userInterfaces'
 
 const EditConsortium = () => {
   const { id } = useParams<{ id: string }>()
@@ -82,6 +85,8 @@ const EditConsortium = () => {
         // const response: any = await createConsortiumService(consortiumInfo)
         await editConsortiumService(id, userId, newData)
         setState({ ...state, openModal: true, load: false })
+        // eslint-disable-next-line @typescript-eslint/no-floating-promises
+        getUser()
       } catch (error) {
         setState({
           ...state,
@@ -99,6 +104,17 @@ const EditConsortium = () => {
       console.log(res)
 
       console.log('deleted')
+    }
+  }
+
+  const setUser = userStore((state) => state.setData)
+
+  const getUser = async () => {
+    try {
+      const res = (await getUserByIdService(userId)) as IResponseUser
+      setUser(res.user)
+    } catch (error) {
+      console.log('error')
     }
   }
 
