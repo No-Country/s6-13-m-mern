@@ -86,14 +86,15 @@ VITE_APP_PRESET_CONSORTIUMS: preset to upload products photos in cloudinary.
 ### 👉🏻 Built with 🛠️
 
 ![NodeJS](https://img.shields.io/badge/Node.js-6DA55F?style=for-the-badge&logo=Node.js&logoColor=white) 
-![Express.js](https://img.shields.io/badge/Express.js-%23404d59.svg?style=for-the-badge&logo=Express&logoColor=%2361DAFB) ![TypeScript](https://img.shields.io/badge/TypeScript-blue.svg?style=for-the-badge&logo=TypeScript&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=MongoDB&logoColor=white) 
-![Mongoose](https://img.shields.io/badge/Mongoose-%2320232a.svg?style=for-the-badge&logo=Mongoose&logoColor=%%2361DAFB) ![JWT](https://img.shields.io/badge/JWT-blue.svg?style=for-the-badge&logo=JWT&logoColor=%blue) ![Mailchimp](https://img.shields.io/badge/Mailchimp-FFE200?style=for-the-badge&logo=Mailchimp&logoColor=000) ![Nodemailer](https://img.shields.io/badge/Nodemailer-0F9DCE?style=for-the-badge&logo=Nodemailer&logoColor=fff)  ![Heroku](https://img.shields.io/badge/heroku%20-%23430098.svg?&style=for-the-badge&logo=heroku&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-blue.svg?style=for-the-badge&logo=TypeScript&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=MongoDB&logoColor=white) 
+![Mongoose](https://img.shields.io/badge/Mongoose-%2320232a.svg?style=for-the-badge&logo=Mongoose&logoColor=%%2361DAFB) ![JWT](https://img.shields.io/badge/JWT-blue.svg?style=for-the-badge&logo=JWT&logoColor=%blue) ![Nodemailer](https://img.shields.io/badge/Nodemailer-0F9DCE?style=for-the-badge&logo=Nodemailer&logoColor=fff)  ![Heroku](https://img.shields.io/badge/heroku%20-%23430098.svg?&style=for-the-badge&logo=heroku&logoColor=white)
 
 ### 👉🏻 Developers
 
-### Pablo Zalazar : [LinkedIn]() | [GitHub]() | [Portfolio]()
-
-### Santiago Rivanegra : [LinkedIn]() | [GitHub]() | [Portfolio]()
+| <img src="https://avatars.githubusercontent.com/u/57506571?v=4" width=50>| <img src="https://avatars.githubusercontent.com/u/61857753?v=4" width=50>|
+:-:|:-:|
+| **Pablo Zalazar**  | **Santiago Rivanegra**  |
+| <a href="https://github.com/pablo-zalazar"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/pablozalazar/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/SantiagoRivanegra"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/santiagorivanegra/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | 
 
 <hr/>
 
