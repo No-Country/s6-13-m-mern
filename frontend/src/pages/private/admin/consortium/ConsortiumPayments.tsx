@@ -91,7 +91,7 @@ const ConsortiumPayments = () => {
     goToTop()
     setIsPaymentsViewExit(true)
     setTimeout(() => {
-      setLoadingSaveChanges(true)
+      setLoadingSaveChanges(false)
     }, 400)
   }
 
