@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import HeroUser from '../../components/HeroUser'
 import UserInformation from './user/UserInformation'
-import UserAmenities from './user/UserAmenities'
 import { userStore } from '../../store/user'
 import UserComplaints from './user/UserComplaints'
 import UserProfileData from './user/UserProfileData'

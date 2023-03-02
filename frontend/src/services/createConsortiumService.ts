@@ -1,5 +1,5 @@
 import instance from '../axios/axiosInstance'
-import { ConsortiumCreationValues } from '../interfaces/amenitiesInterfaces'
+import { ConsortiumCreationValues, EditConsortium } from '../interfaces/amenitiesInterfaces'
 import { useAuthStore } from '../store/auth'
 
 const token = useAuthStore.getState().token
@@ -30,13 +30,27 @@ export const createConsortiumService = async (data: ConsortiumCreationValues) =>
 }
 
 export const getConsortiumAmenities = async (consortiumId: string) => {
-  const consortiumAmenities = await instance.get(`api/amenity/${consortiumId}`, {
-    headers: {
-      token: `${token}`,
-    },
-  })
-  console.log(consortiumAmenities)
+  try {
+    const consortiumAmenities = await instance.get(`api/amenity/${consortiumId}`, {
+      headers: {
+        token: `${token}`,
+      },
+    })
+    return consortiumAmenities
+  } catch (err) {
+    console.log(err)
+  }
 }
-// export editConsortiumService = async (data: any){
-// const response = await instance.put
-// }
+
+export const editConsortiumService = async (consortiumId: string, userId: string, data: EditConsortium) => {
+  try {
+    const response = await instance.put(`api/consortium/editConsortium/${consortiumId}/${userId}`, data, {
+      headers: {
+        token: `${token}`,
+      },
+    })
+    return response
+  } catch (err) {
+    console.log(err)
+  }
+}

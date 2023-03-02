@@ -7,9 +7,17 @@ export interface AmenitiesListInt {
 export interface FormValues {
   name: string
   address: string
-  floor: string
-  apt: string
-  amenities: [AmenitiesListInt]
+  floor: number
+  apt: number
+  amenities: AmenitiesListInt[]
+}
+
+export interface EditConsortium {
+  name: string
+  address: string
+  floor: number
+  apt: number
+  amenities: string[]
 }
 
 export interface ConsortiumCreationValues extends Omit<FormValues, 'amenities'> {

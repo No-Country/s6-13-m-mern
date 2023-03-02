@@ -29,7 +29,7 @@ const MyConsortium = ({ setMenu }: Props) => {
               <img
                 src="../assets/edit.png"
                 alt=""
-                className='mx-auto pt-1'
+                className='mx-auto pt-2'
               />
             </Link>
             <Link

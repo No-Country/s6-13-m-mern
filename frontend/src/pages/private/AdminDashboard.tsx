@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import CreateConsortium from './admin/CreateConsortium'
 import MyConsortium from './admin/MyConsortium'
-import EditConsortium from './admin/EditConsortium'
 import { userStore } from '../../store/user'
 import UserProfileData from './user/UserProfileData'
 import Logout from '../../components/Logout'
@@ -20,7 +19,7 @@ const adminDashboard = () => {
 
   useEffect(() => {
     if (location.state) {
-      setMenu(location.state.show)
+      setMenu(location.state)
     }
   }, [location])
 
@@ -94,7 +93,7 @@ const adminDashboard = () => {
             {menu === 'profile' && <UserProfileData />}
             {menu === 'My consortiums' && <MyConsortium setMenu={setMenu} />}
             {menu === 'Create consortium' && <CreateConsortium setMenu={setMenu} />}
-            {menu === 'Edit consortium' && <EditConsortium />}
+            {/* {menu === 'Edit consortium' && <EditConsortium />} */}
           </div>
         </div>
       </div>

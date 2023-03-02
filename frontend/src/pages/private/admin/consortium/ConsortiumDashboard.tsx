@@ -46,7 +46,7 @@ export const ConsortiumDashboard: FC<ConsortiumDashboardProps> = ({ name = 'Admi
   ]
 
   return (
-    <div className="m-auto max-w-screen-xl flex flex-col justify-start items-center gap-4 py-10 relative ">
+    <div className="m-auto max-w-screen-xl flex flex-col justify-start items-center gap-4 py-10 relative mb-32">
       <div
         className="text-blueDark w-full p-10 max-w-screen-xl m-auto text-2xl font-bold font-inter text-center
         md:text-left md:text-3xl
@@ -55,7 +55,7 @@ export const ConsortiumDashboard: FC<ConsortiumDashboardProps> = ({ name = 'Admi
       >
         <Link
           to="/admin"
-          className=""
+          state='My consortiums'
         >
           <img
             className="w-[14px] mr-6"
