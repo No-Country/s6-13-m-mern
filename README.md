@@ -89,12 +89,10 @@ VITE_APP_PRESET_CONSORTIUMS: preset to upload products photos in cloudinary.
 ### 👉🏻 Task List ✅
 
 - Development of Rest Api for Lost and Found pets with NodeJs, TypeScript and Express.
-- Validations with Express Validator.
 - MongoDb Database. 
 - Creating filters with Mongoose and regular expressions. 
 - Users validation wiith JWT and Google. 
 - Sending emails with Nodemailer for contact, welcome and password recovery.
-- Signing up subscribers for Newsletter with Mailchimp.
 - Deployed on Heroku
 
 ### 👉🏻 Built with 🛠️
@@ -116,19 +114,17 @@ VITE_APP_PRESET_CONSORTIUMS: preset to upload products photos in cloudinary.
 
 ### 👉🏻 Task List ✅
 
-- Development of the view through dynamic components with Javascript and React.
-- Adding style with Material UI components, tables and elements.
+- Development of the view through dynamic components with TypeScript and React.
+- Adding style with Tailwind.
 - Creating the linked routes of the page using React Router.
-- Formik, Yup, Axios and Redux to control and submit form data.
+- Axios, react-hook-form and Zustand to control and submit form data.
 - Using Google Oauth API as Login alternative.
-- Using Google Maps API to show dinamical maps and Location Autocomplete.
 - obtaining and uploading images of pets with Cloudinary.
-- Visual and attractive animations added with Framer Motion.
 - Deployed on Vercel.
 
 ### 👉🏻 Built with 🛠️
 
-![TypeScript](https://img.shields.io/badge/TypeScript-blue.svg?style=for-the-badge&logo=TypeScript&logoColor=white) ![React](https://img.shields.io/badge/React-149eca?style=for-the-badge&logo=react&logoColor=fff) ![Zustand](https://img.shields.io/badge/Zustand-%232E7D32.svg?style=for-the-badge&logo=zustand&logoColor=white) ![React Router](https://img.shields.io/badge/React_Router-000?style=for-the-badge&logo=reactrouter&logoColor=fff) ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-blue.svg?style=for-the-badge&logo=TypeScript&logoColor=white) ![React](https://img.shields.io/badge/React-149eca?style=for-the-badge&logo=react&logoColor=fff) ![Zustand](https://img.shields.io/badge/Zustand-%232E7D32.svg?style=for-the-badge&logo=zustand&logoColor=white) ![React Router](https://img.shields.io/badge/React_Router-000?style=for-the-badge&logo=reactrouter&logoColor=fff) ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white) ![Cloudinary](https://img.shields.io/badge/Cloudinary-%231563FF.svg?&style=for-the-badge&logo=google-cloud&logoColor=white)
 
 ### 👉🏻 Developers
 
