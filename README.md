@@ -64,6 +64,15 @@ VITE_APP_PRESET_CONSORTIUMS: preset to upload consortium photos in cloudinary.
 
 ## ✔ Team Leader
 
+### 👉🏻 Task List ✅
+
+- Hold a meeting with the team to present the project scope, objectives, and timelines.
+- Set clear delivery dates for each task and ensure team members understand the deadlines.
+- Identify and address issues that arise during project development.
+- Conduct user testing and ensure identified issues are addressed.
+- Ensure website response times are optimal and performance requirements are met.
+- Monitor implementation and ensure project timelines are met.
+
 
 | <img src="https://ca.slack-edge.com/T032Y55Q6VC-U047K0D926B-866efd742e9c-512" width=100>|
 |:-:|
