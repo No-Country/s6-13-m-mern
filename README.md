@@ -56,9 +56,9 @@ VITE_DEPLOY_URL: URL where the frontend is deployed.
 VITE_LOCAL_BASE_URL: URL where the frontend is running in local
 VITE_APP_GOOGLE_ID: For use Login with Google.
 VITE_APP_CLOUDNAME: name to upload user photos in cloudinary.
-VITE_APP_PRESET_VOUCHERS: preset to upload products photos in cloudinary.
-VITE_APP_PRESET_EDIT_USER_PHOTOS: preset to upload products photos in cloudinary.
-VITE_APP_PRESET_CONSORTIUMS: preset to upload products photos in cloudinary.
+VITE_APP_PRESET_VOUCHERS: preset to upload voucher payments photos in cloudinary.
+VITE_APP_PRESET_EDIT_USER_PHOTOS: preset to upload user photos in cloudinary.
+VITE_APP_PRESET_CONSORTIUMS: preset to upload consortium photos in cloudinary.
 
 ```
 
@@ -71,6 +71,20 @@ VITE_APP_PRESET_CONSORTIUMS: preset to upload products photos in cloudinary.
 | <a href="https://www.linkedin.com/in/maiten-cullen-/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> ||
 
 ## ✔ Project Manager
+
+### 👉🏻 Task List ✅
+
+- Conduct a project kickoff meeting to present the scope, objectives, and timelines.
+- Review and define project requirements with the programming team and stakeholders.
+- Create a project plan with a breakdown of tasks, timelines, and team responsibilities.
+- Assign specific tasks to team members and establish clear delivery dates.
+- Coordinate with the design team to ensure the user interface design aligns with the client's needs.
+- Conduct user testing and ensure identified issues are addressed.
+- Ensure website response times are optimal and performance requirements are met.
+- Monitor implementation and ensure project timelines are met.
+- Perform final testing and ensure the website is ready for launch.
+- Conduct a project closing meeting to discuss results, team performance, and lessons learned.
+<br />
 
 | <img src="https://avatars.githubusercontent.com/u/55728194?v=4" width=80>|
 |:-:|
