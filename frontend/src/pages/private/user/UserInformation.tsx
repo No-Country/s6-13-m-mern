@@ -29,11 +29,11 @@ const UserInformation = () => {
                 <b>Address:</b> {consortium?.address}
               </h4>
             </div>
-            <div className=" w-[170px] h-[100px] overflow-hidden rounded-lg border border-blueDark relative items-center flex">
+            <div className="overflow-hidden rounded-lg border border-blueDark relative items-center flex">
               <img
                 src={consortium?.img}
                 alt="card"
-                className=" w-[170px]"
+                className=" max-w-[170px] max-h-[170px] object-cover"
               />
             </div>
           </div>
@@ -56,12 +56,12 @@ const UserInformation = () => {
                 <b>Phone:</b> {admin?.phone}
               </h4>
             </div>
-            <div className=" w-20">
-              <div className=" w-[100px] h-[100px] overflow-hidden rounded-lg border border-blueDark">
+            <div className="">
+              <div className=" overflow-hidden rounded-lg border border-blueDark">
                 <img
                   src={admin?.img}
                   alt="card"
-                  className=" w-[100px]"
+                  className=" max-w-[170px] max-h-[170px] object-cover"
                 />
               </div>
             </div>
