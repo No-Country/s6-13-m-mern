@@ -142,7 +142,7 @@ VITE_APP_PRESET_CONSORTIUMS: preset to upload products photos in cloudinary.
 
 ![Figma](https://img.shields.io/badge/Figma-%23F24E1E.svg?style=for-the-badge&logo=Figma&logoColor=white) ![Cloudinary](https://img.shields.io/badge/Cloudinary-%231563FF.svg?&style=for-the-badge&logo=google-cloud&logoColor=white)
 
-### <a href="https://www.figma.com/file/4b5wGH4naRF0EoVPpavEt5/Encontrar-pets?node-id=342%3A8385"><img height="18px" src="https://img.icons8.com/color/344/figma--v1.png"/> Mockup</a>
+### <a href="https://www.figma.com/file/9wogU2sKAhx3jECYp9ddxQ/e-consorcio?node-id=0%3A1&t=YIkH3Z9mBkRkVvQu-0"><img height="18px" src="https://img.icons8.com/color/344/figma--v1.png"/> Mockup</a>
 
 ### 👉🏻 Designer
 
