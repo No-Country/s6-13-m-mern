@@ -1,18 +1,18 @@
-<img align="center" src="https://i.ibb.co/TLGMJGz/app.png">
+<p align="center" ><img width="50px" align="center"src="[https://i.ibb.co/TLGMJGz/app.png](https://i.ibb.co/TLGMJGz/app.png)"></p> 
 
 
-<h3> Are you tired of inefficient administration in your neighborhood/condominium/building? We have the perfect solution for you! Our Condominium Management application allows you to manage everything related to your condominium or building in an efficient and organized way.
+<h2> Are you tired of inefficient administration in your neighborhood/condominium/building?</h2>
+
+<h3 align="center" >We have the perfect solution for you! Our Condominium Management application allows you to manage everything related to your condominium or building in an efficient and organized way.</h3> 
+<br/>
 
 With our application, you'll have access to all the functionalities you need for complete accounting and administrative management. You'll be able to upload and view condominium/building account statements, payment receipts, invoices/budgets for fixed and contracted services, and much more. Additionally, you'll be able to access relevant documentation such as community rules, internal regulations, meeting outcomes, and improvement or investment projects.
 
 But that's not all. We've also included a functionality for managing reservations of common spaces like the multipurpose room. Through a calendar, you can reserve time slots by day or hour to use the space. And to ensure everything runs fairly, we've set up reservation requirements such as being up to date with expenses, taxes, and fees.
 
 With our Condominium Management application, you can take your condominium/building management to the next level. Sign up now and start enjoying more efficient and organized management!</h3>
-<p align="center" ><img width="50px" align="center"src="https://res.cloudinary.com/diyk4to11/image/upload/v1665058097/Imagenes%20Dise%C3%B1o%20UX/Gif%20Carga%20de%20Pantallas/Carga_Pantalla_-_Animacion_vztvtb.gif"></p> 
 
 <hr/>
-
-<img align="center" src="https://res.cloudinary.com/diyk4to11/image/upload/v1666373293/Imagenes%20Dise%C3%B1o%20UX/Logo/Captura_de_pantalla_2022-10-21_122803_skr4dj.png">
 
 <h3 align="center"  ><b>You can check out our webpage here:</b></h3>
 <h3 align="center"><a href="https://petfinder-phi.vercel.app/" target="_blank" rel="noopener noreferrer"> 🐾 Pet Finder 🐾</a></h3>
