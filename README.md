@@ -18,9 +18,8 @@ With our Condominium Management application, you can take your condominium/build
 <hr/>
 
 <h3 align="center"  ><b>You can check out our webpage here:</b></h3>
-<h3 align="center"><a href="https://petfinder-phi.vercel.app/" target="_blank" rel="noopener noreferrer"> 🐾 Pet Finder 🐾</a></h3>
-<p  align="center" ><a href="https://www.youtube.com/watch?v=X5mUV5qxs3I" target="_blank" rel="noopener noreferrer"> <img src="https://img.shields.io/badge/Video Preview%20-%23FF0000.svg?&style=for-the-badge&logo=YouTube&logoColor=white"/></a></p>
-<p align="center" ><img width="50px" align="center"src="https://res.cloudinary.com/diyk4to11/image/upload/v1665058097/Imagenes%20Dise%C3%B1o%20UX/Gif%20Carga%20de%20Pantallas/Carga_Pantalla_-_Animacion_vztvtb.gif"></p> 
+<h3 align="center"><a href="https://sos-consortia.onrender.com" target="_blank" rel="noopener noreferrer"> 🏢 S.O.S Consortia 🏢</a></h3>
+<p align="center" ><img align="center"src="https://res.cloudinary.com/dozwd1ssj/image/upload/v1677762524/nuevo_logo_bold-removebg-preview_2_yfyw9i.png"></p> 
 
 <hr/>
 
@@ -42,12 +41,12 @@ _6 - Run the server with  **`npm run dev`** (development) or npm start (producti
 ##### _Back .env_
 
 ```
-PORT = Number of the port where you wanna run api (ex. 4000).
-DB = For Db in MongoDB.
-SECRET_KEY : Is the secret key used for JWT.
-BASE_URL = localhost of you api ( ex. http://localhost:5173).
-EMAIL_PASSWORD = The Password of the email used in Nodemailer.
-EMAIL_API = The email there you want to use in Nodemailer.
+MONGODB_URI= For Db in MongoDB.
+URL_FRONT= For connect with frontend url
+JWT_SECRET= Secret key used for JWT.
+NODEMAILER_MAIL= The email there you want to use in Nodemailer.
+NODEMAILER_PASSWORD=The Password of the email used in Nodemailer.
+PORT=Number of the port where you wanna run api (ex. 3002).
 ```
 
 ##### _Front .env_
