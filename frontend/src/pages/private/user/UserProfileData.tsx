@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { userStore } from '../../../store/user'
 import UserEditProfile from '../EditProfileDashboard'
 import { useAuthStore } from '../../../store/auth'

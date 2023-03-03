@@ -153,10 +153,10 @@ const EditConsortium = () => {
         </p>
       )} */}
 
-      <section className="pb-32">
+      <section className="pb-32 pt-16 sm:pt-0">
         <Container>
           <div>
-            <div className=" flex text-[28px] font-bold text-blueDark mt-16 mb-8">
+            <div className="flex font-bold text-xl text-blueDark mt-10 items-center justify-center sm:justify-start mb-8">
               <button
                 onClick={() => {
                   navigate('/admin', { state: 'My consortiums' })
@@ -166,10 +166,10 @@ const EditConsortium = () => {
                   <img src={'/assets/icons/left-arrow.svg'} />
                 </div>
               </button>
-              <h2>Edit Consortium</h2>
+              <h3>Edit Consortium</h3>
             </div>
-            <div className="flex w-full mt-10 justify-around items-center">
-              <div className=" w-[270px] h-[160px] overflow-hidden rounded-lg border border-blueDark relative items-center flex">
+            <div className="flex flex-col xl:flex-row w-full mt-16 justify-around items-center">
+              <div className=" w-[270px] h-[160px] overflow-hidden rounded-lg border border-blueDark relative items-center flex mb-10">
                 <img
                   src={img || 'https://res.cloudinary.com/dozwd1ssj/image/upload/v1677157941/edit_lgdzbk.png'}
                   alt="card"
