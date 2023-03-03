@@ -34,8 +34,10 @@ const Login = () => {
     const resp = await loginService(data)
 
     if (!resp.ok) {
-      if (resp.msg === 'Email or password is invalid') setLogError('invalid')
-      if (resp.msg === 'Unverified email') setLogError('unverified')
+      console.log('resp', resp.msg)
+      if (resp.msg === 'Passwords are different') setLogError('invalid')
+      if (resp.msg === 'Email or password is invalid') setLogError('unverified')
+
       setLoading(false)
     }
     if (resp.ok) {
@@ -79,7 +81,7 @@ const Login = () => {
         <BackgroundImage imageUrl="https://res.cloudinary.com/dozwd1ssj/image/upload/v1677333255/Body_Foto_kfit97.png">
           {logError === 'invalid' && (
             <p className="absolute w-full h-8 px-8 bg-red rounded-b-sm border border-black text-lg font-sans text-white">
-              The email address or password is incorrect. Please retry..
+              The password is incorrect. Please retry..
             </p>
           )}
           {logError === 'unverified' && (
