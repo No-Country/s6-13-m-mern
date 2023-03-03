@@ -11,15 +11,16 @@ import { useLocation } from 'react-router-dom'
 const defaultImg = '/assets/defaultUser.svg'
 
 const adminDashboard = () => {
-  const user = userStore((state) => state.userData)
-  const [logout, setLogout] = useState(false)
   const [menu, setMenu] = useState('profile')
+  const [logout, setLogout] = useState(false)
+
+  const user = userStore((state) => state.userData)
 
   const location = useLocation()
 
   useEffect(() => {
     if (location.state) {
-      setMenu(location.state)
+      setMenu(location.state.show)
     }
   }, [location])
 
@@ -104,6 +105,7 @@ const adminDashboard = () => {
       <div className="sm:hidden w-full h-full overflow-y-scroll no-scrollbar">
         {menu === 'profile' && <Profile />}
         {menu === 'My consortiums' && <MyConsortium setMenu={setMenu} />}
+        {menu === 'Create consortium' && <CreateConsortium setMenu={setMenu} />}
       </div>
     </HeroUser>
   )

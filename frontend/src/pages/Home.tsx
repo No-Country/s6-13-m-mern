@@ -24,7 +24,7 @@ const Home = () => {
   )
 
   return (
-    <div>
+    <>
       <section className="hidden sm:inline bg-content bg-redLight w-full">
         {show && <WhatsappDialog setShow={setShow} />}
         <div className="relative drop-shadow-[0px_10px_7px_rgba(0,0,0,0.5)] z-10">
@@ -140,7 +140,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="sm:hidden">
+      <section className="overflow-y-scroll no-scrollbar h-screen sm:hidden">
         {show && <WhatsappDialog setShow={setShow} />}
         <div className="w-[780px] -mx-16">
           <img
@@ -171,7 +171,7 @@ const Home = () => {
           </Link>
         </div>
       </section>
-    </div>
+    </>
   )
 }
 

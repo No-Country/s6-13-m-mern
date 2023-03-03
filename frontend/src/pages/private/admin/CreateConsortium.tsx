@@ -116,9 +116,9 @@ const CreateConsortium = ({ setMenu }: Props) => {
         </p>
       )}
 
-      <section className="pb-32">
-        <div className="grid grid-flow-col w-full mt-10 justify-around items-center">
-          <div className="self-start">
+      <section className="pb-32 pt-16 sm:pt-0">
+        <div className="flex flex-col sm:flex-row w-full mt-10 justify-around items-center">
+          <div className="items-center sm:self-start">
             <div className="flex gap-x-6 text-blueDark font-bold text-xl items-center">
               <button
                 className=""
@@ -126,7 +126,7 @@ const CreateConsortium = ({ setMenu }: Props) => {
                   setMenu('My consortiums')
                 }}
               >
-                <div className="fex flex-col w-[11.25px] h-[22.5px]">
+                <div className="flex flex-col w-[11.25px] h-[22.5px]">
                   <img src={'../../assets/icons/left-arrow.svg'} />
                 </div>
               </button>
@@ -138,7 +138,7 @@ const CreateConsortium = ({ setMenu }: Props) => {
               alt=""
             />
           </div>
-          <div>
+          <div className='mt-16'>
             <form
               className="w-72"
               onSubmit={handleSubmit(customSubmit)}
