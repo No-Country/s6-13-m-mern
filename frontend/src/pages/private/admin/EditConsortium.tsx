@@ -157,15 +157,15 @@ const EditConsortium = () => {
         <Container>
           <div>
             <div className="flex font-bold text-xl text-blueDark mt-10 items-center justify-center sm:justify-start mb-8">
-              <button
-                onClick={() => {
-                  navigate('/admin', { state: 'My consortiums' })
-                }}
-              >
-                <div className=" h-[30px] mr-5">
-                  <img src={'/assets/icons/left-arrow.svg'} />
-                </div>
-              </button>
+            <button
+            onClick={() => {
+              navigate(-1)
+            }}
+          >
+            <div className=" h-[30px] mr-5">
+              <img src={'/assets/icons/left-arrow.svg'} />
+            </div>
+          </button>
               <h3>Edit Consortium</h3>
             </div>
             <div className="flex flex-col xl:flex-row w-full mt-16 justify-around items-center">

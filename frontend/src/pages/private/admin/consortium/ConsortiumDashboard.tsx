@@ -1,11 +1,12 @@
 import { type FC } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 
 interface ConsortiumDashboardProps {
   name?: string
 }
 export const ConsortiumDashboard: FC<ConsortiumDashboardProps> = ({ name = 'Admin' }: ConsortiumDashboardProps) => {
   const { id } = useParams<{ id: string }>()
+  const navigate = useNavigate()
 
   const actions = [
     {
@@ -53,15 +54,15 @@ export const ConsortiumDashboard: FC<ConsortiumDashboardProps> = ({ name = 'Admi
         lg:pl-28 flex
         "
       >
-        <Link
-          to="/admin"
-          state='My consortiums'
-        >
-          <img
-            className="w-[14px] mr-6"
-            src={'/assets/icons/left-arrow.svg'}
-          />
-        </Link>
+        <button
+            onClick={() => {
+              navigate(-1)
+            }}
+          >
+            <div className=" h-[30px] mr-5">
+              <img src={'/assets/icons/left-arrow.svg'} />
+            </div>
+          </button>
         Welcome {name}!
       </div>
       <div

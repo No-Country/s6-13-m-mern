@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import BackTitleComponent from '../../../../components/BackTitleComponent'
 import Container from '../../../../components/Container'
 import PaymentsTable from '../../../../components/payments/PaymentsTable'
@@ -21,6 +21,7 @@ const ConsortiumPayments = () => {
   const [member, setMember] = useState('')
   const ref = useRef<HTMLDivElement>(null)
   const { id } = useParams()
+  const navigate = useNavigate()
 
   useEffect(() => {
     setLoadingPayments(true)
@@ -130,7 +131,7 @@ const ConsortiumPayments = () => {
           type="text"
           autoComplete="off"
           className="border border-black
-                   p-1 rounded-lg w-full h-12
+                   p-1 rounded-lg w-full h-10 lg:h-12
                    placeholder:italic placeholder:text-grey
                    px-5"
           placeholder="Search by member"
@@ -165,8 +166,8 @@ const ConsortiumPayments = () => {
             }}
             disabled={!isDataModified}
             className="absolute -bottom-24
-                         right-0 text-lg bg-blueDark
-                         text-white px-12 py-3 rounded-lg
+                         md:right-0 text-lg bg-blueDark
+                         text-white px-28 lg:px-12 py-3 rounded-lg
                          disabled:opacity-60"
           >
             Save changes
@@ -235,11 +236,17 @@ const ConsortiumPayments = () => {
       ref={ref}
     >
       <Container>
-        <div className="mt-20">
-          <BackTitleComponent
-            title="Payments"
-            navigateTo={`/admin/consortium/${id ?? ''}`}
-          />
+        <div className="flex text-[25px] md:text-[28px] font-bold text-blueDark mt-32 md:mt-16 mb-8">
+        <button
+            onClick={() => {
+              navigate(-1)
+            }}
+          >
+            <div className=" h-[30px] mr-5">
+              <img src={'/assets/icons/left-arrow.svg'} />
+            </div>
+          </button>
+          <h2>Payments</h2>
         </div>
         {(loadingSaveChanges || successSaveChanges || errorSaveChanges) && (
           <div className="h-[780px]">

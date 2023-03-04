@@ -95,7 +95,7 @@ const ConsortiumMembers = () => {
   }
 
   return (
-    <Container>
+    <div className="min-h-screen m-[50px] max-w-[1100px] mx-auto px-6">
       <WhiteModal
         isOpen={modalOpen}
         toggle={() => {
@@ -208,7 +208,7 @@ const ConsortiumMembers = () => {
         </button>
       </BlueModal>
       <div className=" min-h-screen h-fit mb-24">
-        <div className=" flex text-[28px] font-bold text-blueDark mt-16 mb-8">
+        <div className=" flex text-[28px] font-bold text-blueDark mt-24 mb-8">
           <button
             onClick={() => {
               navigate(-1)
@@ -236,7 +236,7 @@ const ConsortiumMembers = () => {
           value={input}
           name="user"
         />
-        <table className="w-full text-left my-12">
+        <table className="w-full text-left my-12 text-[11px] sm:text-base md:text-lg">
           <thead>
             <tr className=" border-b border-b-greyLight">
               <th>Name</th>
@@ -256,9 +256,9 @@ const ConsortiumMembers = () => {
                 </td>
                 <td className="py-4">{user.email}</td>
                 <td className="py-4">{user.phone}</td>
-                <td className="py-4 text-end">
+                <td className="hidden md:inline py-4 text-end">
                   <button
-                    className=" bg-red text-white text-sm w-32 h-8 rounded-2xl mx-3"
+                    className=" bg-red text-white text-sm w-32 h-8 rounded-2xl mx-3 mt-3"
                     onClick={() => {
                       setSelectedUser(user)
                       setDeleteMode(true)
@@ -268,12 +268,27 @@ const ConsortiumMembers = () => {
                     Remove member
                   </button>
                 </td>
+                <td className="md:hidden py-4">
+                  <button
+                    className="pt-1"
+                    onClick={() => {
+                      setSelectedUser(user)
+                      setDeleteMode(true)
+                      setModalOpen(true)
+                    }}
+                  >
+                    <img
+                      src="../../assets/Remove.png"
+                      alt="remove"
+                    />
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-    </Container>
+    </div>
   )
 }
 
