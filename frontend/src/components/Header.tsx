@@ -45,6 +45,10 @@ const Header = () => {
     }
   }
 
+  const pageUp = () => {
+    window.scroll(0, 0)
+  }
+
   useEffect(() => {
     if (userId !== '') {
       // eslint-disable-next-line @typescript-eslint/no-floating-promises
@@ -98,6 +102,7 @@ const Header = () => {
           <ul className="text-xs md:text-[15px] text-white items-center justify-between hidden w-full sm:flex sm:items-center sm:w-auto">
             <li className="min-w-fit">
               <Link
+                onClick={pageUp}
                 to=""
                 className="uppercase p-4 py-2 block hover:underline hover:scale-110 transition duration-300 ease-out hover:ease-in"
               >
@@ -106,6 +111,7 @@ const Header = () => {
             </li>
             <li className="min-w-fit">
               <Link
+                onClick={pageUp}
                 to="/about"
                 className="uppercase p-4 py-2 block hover:underline hover:scale-110 transition duration-300 ease-out hover:ease-in"
               >
@@ -114,6 +120,7 @@ const Header = () => {
             </li>
             <li className="min-w-fit">
               <Link
+                onClick={pageUp}
                 to="/contact"
                 className="uppercase p-4 py-2 block hover:underline hover:scale-110 transition duration-300 ease-out hover:ease-in"
               >
@@ -122,6 +129,7 @@ const Header = () => {
             </li>
             <li className="min-w-fit">
               <Link
+                onClick={pageUp}
                 to="/features"
                 className="uppercase p-4 py-2 block hover:underline hover:scale-110 transition duration-300 ease-out hover:ease-in"
               >
