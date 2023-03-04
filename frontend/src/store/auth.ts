@@ -1,11 +1,12 @@
+/* eslint-disable @typescript-eslint/member-delimiter-style */
 import { create } from 'zustand'
-import { persist } from 'zustand/middleware'
+import { devtools, persist } from 'zustand/middleware'
 
 interface State {
   token: string
   id: string
   role: string
-  consortium: [{ _id: string | undefined, address: string | undefined }] | never[]
+  consortium: [{ _id: string | undefined; address: string | undefined }] | never[]
 }
 
 interface Actions {
@@ -13,47 +14,57 @@ interface Actions {
   setLogout: () => void
   setId: (id: string) => void
   setRole: (role: string) => void
-  setConsortium: (consortium: [{ _id: string | undefined, address: string | undefined }]) => void
+  setConsortium: (consortium: [{ _id: string | undefined; address: string | undefined }]) => void
 }
 
-export const useAuthStore = create(
-  persist<State & Actions>(
-    (set) => ({
-      token: '',
-      id: '',
-      role: '',
-      consortium: [],
-      setToken: (token: string) => {
-        set((state) => ({
-          token,
-        }))
+export const useAuthStore = create<State & Actions>()(
+  devtools(
+    persist(
+      (set) => ({
+        token: '',
+        id: '',
+        role: '',
+        consortium: [],
+        setToken: (token: string) => {
+          set((state) => ({
+            token,
+          }))
+        },
+        setId: (id: string) => {
+          set((state) => ({
+            id,
+          }))
+        },
+        setRole: (role: string) => {
+          set((state) => ({
+            role,
+          }))
+        },
+        setConsortium: (consortium: [{ _id: string | undefined; address: string | undefined }] | never[]) => {
+          set((state) => ({
+            consortium,
+          }))
+        },
+        setLogout: () => {
+          set(() => ({
+            token: '',
+            id: '',
+            role: '',
+            consortium: [],
+          }))
+        },
+      }),
+      {
+        name: 'auth',
       },
-      setId: (id: string) => {
-        set((state) => ({
-          id,
-        }))
-      },
-      setRole: (role: string) => {
-        set((state) => ({
-          role,
-        }))
-      },
-      setConsortium: (consortium: [{ _id: string | undefined, address: string | undefined }] | never[]) => {
-        set((state) => ({
-          consortium,
-        }))
-      },
-      setLogout: () => {
-        set(() => ({
-          token: '',
-          id: '',
-          role: '',
-          consortium: []
-        }))
-      },
-    }),
+    ),
     {
-      name: 'auth',
+      name: 'Auth',
+      enabled: true,
+      anonymousActionType: 'AuthAction',
+      serialize: {
+        options: true,
+      },
     },
   ),
 )

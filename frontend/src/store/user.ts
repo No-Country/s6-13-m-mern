@@ -1,4 +1,5 @@
 import { create } from 'zustand'
+import { devtools } from 'zustand/middleware'
 import { UserProfile } from '../interfaces/userInterfaces'
 
 interface State {
@@ -10,16 +11,28 @@ interface Actions {
   setLogout: () => void
 }
 
-export const userStore = create<State & Actions>((set) => ({
-  userData: null,
-  setData: (userData: UserProfile) => {
-    set((state) => ({
-      userData,
-    }))
-  },
-  setLogout: () => {
-    set(() => ({
+export const userStore = create<State & Actions>()(
+  devtools(
+    (set) => ({
       userData: null,
-    }))
-  },
-}))
+      setData: (userData: UserProfile) => {
+        set((state) => ({
+          userData,
+        }))
+      },
+      setLogout: () => {
+        set(() => ({
+          userData: null,
+        }))
+      },
+    }),
+    {
+      name: 'user',
+      enabled: true,
+      anonymousActionType: 'UserAction',
+      serialize: {
+        options: true,
+      },
+    },
+  ),
+)
