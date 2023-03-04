@@ -66,7 +66,7 @@ const SigninMobile = () => {
 
   return (
     <Container>
-      <div className="font-sans text-[24px]  py-14 grid">
+      <div className="font-sans text-[24px]  py-14 grid -mt-[60px]">
         <div className=" flex text-[30px] font-bold text-blueDark mb-8 justify-between items-center">
           <button
             onClick={() => {

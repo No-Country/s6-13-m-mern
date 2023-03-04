@@ -8,12 +8,11 @@ const UserInformation = () => {
   const user = userStore((state) => state.userData)
   const consortium = user?.consortium?.find(() => true)
   const admin = user?.consortium?.find(() => true)?.admin
-  console.log(user)
 
   return (
     <div>
-      <h3 className="font-bold text-xl ml-11 mt-7">Information</h3>
-      <div className=" px-14">
+      <h3 className=" text-center sm:text-start font-bold text-xl sm:ml-11 mt-7">Information</h3>
+      <div className=" px-4 sm:px-14">
         <Accordion
           title="Consortium information"
           index="3"

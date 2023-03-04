@@ -48,9 +48,9 @@ const UserComplaints = ({ setMenu }: Props) => {
 
   return (
     <div>
-      <h3 className="font-bold text-xl ml-11 mt-7">New Complaint</h3>
-      <div className=" px-14 py-4">
-        <p>Complete the following form to create a complaint to the Admin.</p>
+      <h3 className=" text-center sm:text-start font-bold text-xl sm:ml-11 mt-7">New Complaint</h3>
+      <div className=" px-4 sm:px-14 py-4">
+        <p className=' text-center sm:text-start'>Complete the following form to create a complaint to the Admin.</p>
         <div className="">
           <form
             onSubmit={handleSubmit(customSubmit)}

@@ -140,7 +140,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="overflow-y-scroll no-scrollbar h-screen sm:hidden">
+      <section className="overflow-y-scroll no-scrollbar h-screen sm:hidden -mt-[60px]">
         {show && <WhatsappDialog setShow={setShow} />}
         <div className="w-[780px] -mx-16">
           <img

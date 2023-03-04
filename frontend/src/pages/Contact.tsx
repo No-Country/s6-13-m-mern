@@ -38,7 +38,7 @@ const Contact = () => {
   }
 
   return (
-    <section className="bg-content bg-white w-full h-full">
+    <section className="bg-content w-full h-full">
       {isEmailSended && (
         <p
           id={'toast'}
@@ -50,24 +50,24 @@ const Contact = () => {
       {error && (
         <p
           id={'toast'}
-          className="fixed w-full h-8 px-8 bg-red rounded-b-sm border border-black text-lg font-sans text-white animate-slideInTop"
+          className="fixed w-full h-8 px-8 rounded-b-sm border border-black text-lg font-sans text-white animate-slideInTop"
         >
           📩❌ Failed to send email. Please try again later or contact customer support for further assistance.
         </p>
       )}
       <Container>
-        <div className="w-full h-[750px] flex items-center">
-          <div className="flex flex-row w-full justify-between">
-            <div className="h-[564px] flex flex-col justify-between animate-fadeInLeft">
+        <div className="flex items-center justify-center p-5">
+          <div className="flex flex-row gap-6">
+            <div className="flex flex-col animate-fadeInLeft justify-between">
               <div>
                 <h1 className="text-4.5xl font-bold text-blueDark">Contact</h1>
-                <h2 className="text-2xl ml-9 py-2">Have a question? Send us a message</h2>
+                <h2 className="text-2xl text-center py-6">Have a question? Send us a message</h2>
               </div>
               <form
                 onSubmit={handleSubmit(sendEmail)}
-                className="w-[508px] text-lg flex flex-col justify-between h-[410px]"
+                className=" text-lg flex flex-col gap-6"
               >
-                <div className="w-full flex flex-row justify-between gap-x-6">
+                <div className="w-full grid gap-x-6 lg:flex lg:flex-row gap-y-6">
                   <div className="relative w-full flex flex-col">
                     <input
                       {...register('name', { required: true })}
@@ -78,7 +78,7 @@ const Contact = () => {
                       maxLength={100}
                     />
                     {errors.name?.type === 'required' && (
-                      <div className="absolute left-2 -bottom-6 text-sm text-red">Name is required</div>
+                      <div className="absolute left-2 -bottom-5 text-sm text-red">Name is required</div>
                     )}
                   </div>
 
@@ -96,10 +96,10 @@ const Contact = () => {
                       maxLength={255}
                     />
                     {errors.email?.type === 'required' && (
-                      <div className="absolute left-2 -bottom-6 text-sm text-red">Email is required</div>
+                      <div className="absolute left-2 -bottom-5 text-sm text-red">Email is required</div>
                     )}
                     {errors.email?.type === 'pattern' && (
-                      <div className="absolute left-2 -bottom-6 text-sm text-red">It&apos;s not a valid e-mail</div>
+                      <div className="absolute left-2 -bottom-5 text-sm text-red">It&apos;s not a valid e-mail</div>
                     )}
                   </div>
                 </div>
@@ -114,7 +114,7 @@ const Contact = () => {
                     maxLength={255}
                   />
                   {errors.subject?.type === 'required' && (
-                    <div className="absolute left-2 -bottom-6 text-sm text-red">Subject is required</div>
+                    <div className="absolute left-2 -bottom-5 text-sm text-red">Subject is required</div>
                   )}
                 </div>
 
@@ -127,23 +127,22 @@ const Contact = () => {
                     maxLength={500}
                   />
                   {errors.message?.type === 'required' && (
-                    <div className="absolute left-2 -bottom-6 text-sm text-red">Message is required</div>
+                    <div className="absolute left-2 -bottom-5 text-sm text-red">Message is required</div>
                   )}
                 </div>
-
                 <button
                   type={'submit'}
-                  className="p-3 w-full h-[54px] rounded-lg bg-blueDark text-white disabled:opacity-60"
+                  className="w-full h-[54px] rounded-lg bg-blueDark text-white disabled:opacity-60"
                   disabled={!isDirty || !isValid}
                 >
                   {loading ? <PulseLoader color="white" /> : 'Send'}
                 </button>
               </form>
             </div>
-            <div className="w-[564px] h-[564px] bg-[#D9D9D9] rounded-lg overflow-hidden border-2 border-black animate-fadeInRight">
+            <div className="overflow-hidden rounded-md hidden lg:flex">
               <img
                 src={'https://res.cloudinary.com/dozwd1ssj/image/upload/v1676392678/person-typing_rcvxpc.png'}
-                className="w-full hover:animate-kenburnsRight"
+                className="hover:animate-kenburnsRight rounded-md"
               />
             </div>
           </div>
@@ -152,18 +151,6 @@ const Contact = () => {
       <div className="h-[850px] bg-palePink">
         <Container>
           <div className="relative w-full h-[700px] px-10 pt-16">
-            <div className="absolute top-8 right-2 w-[330px] h-[304px] rounded-lg border-2 border-black overflow-hidden">
-              <img
-                src={'https://res.cloudinary.com/dozwd1ssj/image/upload/v1676392872/faccade1_n7sxvd.png'}
-                className="w-full hover:animate-kenburnsRight"
-              />
-            </div>
-            <div className="absolute bottom-2 -right-6 w-[280px] h-[342px] rounded-lg border-2 border-black overflow-hidden">
-              <img
-                src={'https://res.cloudinary.com/dozwd1ssj/image/upload/v1676392957/faccade2_yziiel.png'}
-                className="w-full hover:animate-kenburnsRight"
-              />
-            </div>
             <div className="box-border w-full h-[541px] border-[2.5px] border-grey rounded-lg overflow-hidden">
               <iframe
                 className="w-full h-full"

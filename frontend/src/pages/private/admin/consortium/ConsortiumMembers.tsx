@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import Autocomplete from '../../../../components/Autocomplete'
 import getAllUsersService from '../../../../services/getAllUsersService'
-import Container from '../../../../components/Container'
 import WhiteModal from '../../../../components/modal/WhiteModal'
 import BlueModal from '../../../../components/modal/BlueModal'
 import addMembersService from '../../../../services/addMembersService'

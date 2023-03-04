@@ -23,7 +23,6 @@ import LayoutPrivateUser from '../components/layouPrivates/LayoutPrivateUser'
 import LayoutPrivateAdmin from '../components/layouPrivates/LayoutPrivateAdmin'
 import UnderConstruction from '../pages/UnderConstruction'
 import LayoutPrivateTenant from '../components/layouPrivates/LayoutPrivateTenant'
-import CreateConsortium from '../pages/private/admin/CreateConsortium'
 import EditConsortium from '../pages/private/admin/EditConsortium'
 // import EditConsortium from '../pages/private/admin/EditConsortium'
 

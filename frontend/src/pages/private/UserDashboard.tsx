@@ -9,6 +9,7 @@ import Logout from '../../components/Logout'
 import { useLocation } from 'react-router-dom'
 import Profile from './admin/MobileProfile'
 import MyReserves from './user/MyReserves'
+import MenuMobile from './MenuMobile'
 
 const defaultImg = '/assets/defaultUser.svg'
 
@@ -22,7 +23,7 @@ const UserDashboard = () => {
 
   useEffect(() => {
     if (location.state) {
-      setMenu(location.state.show)
+      setMenu(location.state?.show)
     }
   }, [location])
 
@@ -158,6 +159,7 @@ const UserDashboard = () => {
         {menu === 'amenities' && <MyReserves />}
         {menu === 'complaint' && <UserComplaints setMenu={setMenu} />}
         {menu === 'payments' && <UserDocuments />}
+        {menu === 'menu' && <MenuMobile setMenu={setMenu} />}
       </div>
     </HeroUser>
   )

@@ -12,8 +12,8 @@ const MyConsortium = ({ setMenu }: Props) => {
   }
 
   return (
-    <section>
-      <div className="flex font-bold text-xl text-blueDark ml-11 mt-32 lg:mt-7">
+    <section className='pb-12'>
+      <div className=" text-center sm:text-start font-bold text-xl text-blueDark mt-6 sm:ml-11 sm:mt-7">
         <h3>My consortium</h3>
       </div>
       <div className="flex flex-wrap max-w-md mx-auto overflow-hidden md:max-w-2xl justify-center sm:justify-start gap-4 sm:gap-2 lg:gap-4 xl:gap-10 mt-8  sm:mx-4 md:ml-8 xl:ml-16 2xl:ml-32">
