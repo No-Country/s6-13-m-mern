@@ -33,7 +33,7 @@ export default function Autocomplete ({
           autoComplete="off"
           name={`${name}`}
           value={value}
-          className="border border-black p-1 rounded-lg w-full h-12  placeholder:italic placeholder:text-grey px-5"
+          className="border border-black p-1 rounded-lg w-full h-10 md:h-12  placeholder:italic placeholder:text-grey px-5"
           placeholder="Search members by name or email"
           onChange={(e) => {
             handleChange(e.target.value)

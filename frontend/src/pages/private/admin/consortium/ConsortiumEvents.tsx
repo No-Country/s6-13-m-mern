@@ -69,8 +69,8 @@ const ConsortiumEvents = () => {
   }, [id, restart])
 
   return (
-    <div className=" min-h-screen m-[50px] max-w-[1100px] mx-auto px-6">
-      <div className=" flex text-[28px] font-bold text-blueDark mt-16 mb-8">
+    <div className=" min-h-full md:min-h-screen m-[50px] max-w-[1100px] mx-auto px-6">
+      <div className=" flex text-[28px] font-bold text-blueDark mt-8 sm:mt-16 mb-16">
         <button
           onClick={() => {
             navigate(-1)
@@ -82,7 +82,7 @@ const ConsortiumEvents = () => {
         </button>
         <h2>Events</h2>
       </div>
-      <div className=" m-6">
+      <div className=" mt-6">
         {notification?.map((not, i) => (
           <Accordion
             title={not.subject}
@@ -96,7 +96,7 @@ const ConsortiumEvents = () => {
         ))}
       </div>
       <button
-        className="bg-blueDark disabled:opacity-60 text-white text-xl w-60 h-12 rounded-lg block mt-8 mb-5 ml-auto mr-12"
+        className="bg-blueDark disabled:opacity-60 text-white text-xl absolute bottom-32 md:bottom-16 w-80 sm:w-60 h-12 rounded-lg block md:mt-8 sm:right-16 xl:right-32 2xl:right-80"
         onClick={() => {
           setModal(true)
         }}

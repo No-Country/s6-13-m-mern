@@ -22,6 +22,27 @@ export interface PaymentsValues {
   updatedAt: string
 }
 
+interface UserData2 {
+  _id: string
+  name: string
+  lastname: string
+  email: string
+  img: string
+  phone: string
+}
+
+export interface UserPaymentsValues {
+  _id: string
+  creationDate: string
+  pStatus: string
+  note: string
+  user: UserData2
+  ammount: string
+  paymentMethod: string
+  image: string
+  status: string
+}
+
 export interface PaymentData {
   note: string
   ammount: string

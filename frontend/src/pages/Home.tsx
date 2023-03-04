@@ -165,9 +165,12 @@ const Home = () => {
           <h2 className="text-3xl font-bold text-blueDark">Welcome to S.O.S Consortia</h2>
           <h4 className="text-xl text-blueDark">Your ideal software for consortia management</h4>
         </div>
-        <div className='mt-6'>
-          <Link to='/login' className='ml-40 border-2 border-blueDark py-4 px-10 rounded-lg shadow-2xl'>
-            <span className='text-blueDark text-lg'>Get Started!</span>
+        <div className="mt-6">
+          <Link
+            to="/login"
+            className="ml-40 border-2 border-blueDark py-4 px-10 rounded-lg shadow-2xl"
+          >
+            <span className="text-blueDark text-lg">Get Started!</span>
           </Link>
         </div>
       </section>
