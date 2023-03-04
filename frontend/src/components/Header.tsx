@@ -121,19 +121,19 @@ const Header = () => {
             <li className="min-w-fit">
               <Link
                 onClick={pageUp}
-                to="/contact"
+                to="/features"
                 className="uppercase p-4 py-2 block hover:underline hover:scale-110 transition duration-300 ease-out hover:ease-in"
               >
-                Contact
+                Features
               </Link>
             </li>
             <li className="min-w-fit">
               <Link
                 onClick={pageUp}
-                to="/features"
+                to="/contact"
                 className="uppercase p-4 py-2 block hover:underline hover:scale-110 transition duration-300 ease-out hover:ease-in"
               >
-                Features
+                Contact
               </Link>
             </li>
           </ul>
