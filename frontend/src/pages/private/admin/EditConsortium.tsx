@@ -153,13 +153,13 @@ const EditConsortium = () => {
         </p>
       )} */}
 
-      <section className="pb-32 pt-16 sm:pt-0">
+      <section className="pb-32">
         <Container>
           <div>
-            <div className="flex font-bold text-xl text-blueDark mt-10 items-center justify-center sm:justify-start mb-8">
+            <div className="flex font-bold text-xl text-blueDark mt-10 items-center justify-center sm:justify-start mb-4">
               <button
                 onClick={() => {
-                  navigate('/admin', { state: 'My consortiums' })
+                  navigate(-1)
                 }}
               >
                 <div className=" h-[30px] mr-5">

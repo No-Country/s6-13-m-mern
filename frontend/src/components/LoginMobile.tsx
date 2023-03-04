@@ -42,7 +42,9 @@ const LoginMobile = () => {
       setLogError('')
       setId(resp.id)
       setRole(resp.role)
-      resp.role === 'admin' ? navigate('/admin') : navigate('/user')
+      resp.role === 'admin'
+        ? navigate('/admin', { state: { show: 'profile' } })
+        : navigate('/user', { state: { show: 'profile' } })
       setLoading(false)
     }
   }
@@ -72,7 +74,7 @@ const LoginMobile = () => {
 
   return (
     <Container>
-      <div className="font-sans text-[24px] py-14 grid">
+      <div className="font-sans text-[24px] py-14 grid -mt-[60px]">
         <div className=" flex text-[30px] font-bold text-blueDark mb-8 justify-between items-center">
           <button
             onClick={() => {

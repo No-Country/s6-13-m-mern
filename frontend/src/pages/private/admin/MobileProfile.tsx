@@ -10,16 +10,16 @@ const Profile = () => {
     <section>
       {!edit ? (
         <div className="flex sm:hidden flex-col items-center sm:mt-8">
-          <div className="bg-blueDark w-full flex justify-center pt-32">
-            <div className="w-[125px]">
+          <div className="bg-blueDark w-full flex justify-center pt-10 h-[140px]">
+            <div className="w-[154px] h-[154px] rounded-full overflow-hidden">
               <img
-                className="h-32 object-cover sm:w-28 md:w-32 rounded-full sm:rounded-lg border-2 border-white -mb-8 sm:-mb-0"
+                className="w-[154px] h-[154px] object-cover sm:w-28 md:w-32 rounded-full sm:rounded-lg border-2 border-white -mb-8 sm:-mb-0"
                 src={user?.img}
                 alt="photo"
               />
             </div>
           </div>
-          <div className="flex gap-2 ml-8 mt-8 sm:mt-0 sm:ml-0">
+          <div className="flex gap-2 ml-8 mt-20 sm:mt-0 sm:ml-0">
             <h2 className="sm:mt-12 sm:font-bold text-2xl sm:text-xl md:text-2xl sm:text-blueDark">
               {user?.name} {user?.lastname}
             </h2>

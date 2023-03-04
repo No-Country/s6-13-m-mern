@@ -1,11 +1,13 @@
 import { type FC } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import { userStore } from '../../../../store/user'
 
 interface ConsortiumDashboardProps {
   name?: string
 }
 export const ConsortiumDashboard: FC<ConsortiumDashboardProps> = ({ name = 'Admin' }: ConsortiumDashboardProps) => {
   const { id } = useParams<{ id: string }>()
+  const user = userStore((state) => state.userData)
 
   const actions = [
     {
@@ -46,7 +48,7 @@ export const ConsortiumDashboard: FC<ConsortiumDashboardProps> = ({ name = 'Admi
   ]
 
   return (
-    <div className="m-auto max-w-screen-xl flex flex-col justify-start items-center gap-4 py-10 relative mb-32">
+    <div className="m-auto max-w-screen-xl flex flex-col justify-start items-center gap-4 pb-10 relative mb-32">
       <div
         className="text-blueDark w-full p-10 max-w-screen-xl m-auto text-2xl font-bold font-inter text-center
         md:text-left md:text-3xl
@@ -55,14 +57,14 @@ export const ConsortiumDashboard: FC<ConsortiumDashboardProps> = ({ name = 'Admi
       >
         <Link
           to="/admin"
-          state='My consortiums'
+          state={{ show: 'My consortiums' }}
         >
           <img
             className="w-[14px] mr-6"
             src={'/assets/icons/left-arrow.svg'}
           />
         </Link>
-        Welcome {name}!
+        Welcome {user?.name}!
       </div>
       <div
         className="grid grid-cols-1 grid-flow-rows gap-4
