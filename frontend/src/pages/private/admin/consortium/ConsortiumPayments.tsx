@@ -5,8 +5,8 @@ import Container from '../../../../components/Container'
 import PaymentsTable from '../../../../components/payments/PaymentsTable'
 import { PaymentsValues } from '../../../../interfaces/paymentsInterfaces'
 import getConsortiumPayments from '../../../../services/getConsortiumPayments'
-import DynamicStatusView from '../../../../components/DynamicStatusView'
 import { changePaymentStatusService } from '../../../../services/changePaymentStatusService'
+import DynamicStatusView from '../../../../components/status/DynamicStatusView'
 
 const ConsortiumPayments = () => {
   const [data, setData] = useState<PaymentsValues[]>([])

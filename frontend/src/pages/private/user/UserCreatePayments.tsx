@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import DynamicStatusView from '../../../components/DynamicStatusView'
+import DynamicStatusView from '../../../components/status/DynamicStatusView'
 import UploadVoucher from '../../../components/payments/UploadVoucher'
 import { PaymentMethodEnum } from '../../../enums/paymentMethods.enum'
 import { PaymentData } from '../../../interfaces/paymentsInterfaces'
@@ -9,11 +9,11 @@ import { userStore } from '../../../store/user'
 import { isValidAmountFormat } from '../../../utils/validationUtils'
 
 interface Props {
-  setCreate: React.Dispatch<React.SetStateAction<boolean>>
-  setIsPaymentsChanged: React.Dispatch<React.SetStateAction<boolean>>
+  setIsCreateViewOpen: React.Dispatch<React.SetStateAction<boolean>>
+  setIsCreatedPayment: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const UserCreatePayments = ({ setCreate, setIsPaymentsChanged }: Props) => {
+const UserCreatePayments = ({ setIsCreateViewOpen, setIsCreatedPayment }: Props) => {
   const user = userStore((state) => state.userData)
   const [file, setSelectedFile] = useState<null | File>(null)
   const [payment, setPayment] = useState({
@@ -103,7 +103,7 @@ const UserCreatePayments = ({ setCreate, setIsPaymentsChanged }: Props) => {
     setIsSuccess(true)
     setTimeout(() => {
       resetValues()
-      setIsPaymentsChanged(true)
+      setIsCreatedPayment(true)
     }, 2000)
   }
 
@@ -159,7 +159,7 @@ const UserCreatePayments = ({ setCreate, setIsPaymentsChanged }: Props) => {
             <button
               className=""
               onClick={() => {
-                setCreate(false)
+                setIsCreateViewOpen(false)
               }}
             >
               <div className="fex flex-col w-[11.25px] h-[22.5px]">
