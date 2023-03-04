@@ -11,7 +11,7 @@ const UserInformation = () => {
 
   return (
     <div>
-      <h3 className=" text-center sm:text-start font-bold text-xl sm:ml-11 mt-7">Information</h3>
+      <h3 className=" text-[#002A61] text-center sm:text-start font-bold text-xl sm:ml-11 mt-7">Information</h3>
       <div className=" px-4 sm:px-14">
         <Accordion
           title="Consortium information"
