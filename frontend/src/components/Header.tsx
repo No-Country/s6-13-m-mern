@@ -33,6 +33,7 @@ const Header = () => {
   }
 
   const refOne = useRef<HTMLDivElement>(null)
+  const refTwo = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     document.addEventListener('click', handleClickOutside, true)
@@ -40,7 +41,7 @@ const Header = () => {
 
   const handleClickOutside = (e: MouseEvent) => {
     const target = e.target as HTMLDivElement
-    if (refOne.current && !refOne.current.contains(target)) {
+    if (!refOne.current?.contains(target) && !refTwo.current?.contains(target)) {
       setisNavOpen(false)
     }
   }
@@ -63,22 +64,24 @@ const Header = () => {
     <header className={`${!showNav ? 'hidden sm:inline' : ''}`}>
       <div className="bg-blueDark fixed z-50 w-full">
         <nav className=" h-[60px] sm:h-20 flex flex-wrap items-center justify-between md:justify-around w-full px-3 text-[15px] xl:w-[1200px] xl:mx-auto ">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            id="menu-button"
-            className="h-8 w-8 cursor-pointer sm:hidden text-white"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            onClick={handleOpenNav}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
+          <div ref={refTwo}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              id="menu-button"
+              className="h-8 w-8 cursor-pointer sm:hidden text-white"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              onClick={handleOpenNav}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </div>
           <h1 className=" text-4xl text-white font-bold sm:hidden">{headerTitle}</h1>
           <img
             className=" h-8 sm:hidden"
@@ -162,20 +165,30 @@ const Header = () => {
             <li className="">
               <Link
                 state={{ show: 'profile' }}
-                className="dropdown-item text-sm rounded-lg py-4 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-black hover:bg-[#DEDEDE]"
+                className="dropdown-item flex text-sm rounded-lg py-4 font-normal w-full whitespace-nowrap bg-transparent text-black hover:bg-[#DEDEDE]"
                 to={`${user?.role === 'admin' ? 'admin' : 'user'}`}
               >
-                Profile
+                <img
+                  src="/assets/icons/Person.svg"
+                  alt=""
+                  className="h-5 mx-4 lg:mx-2"
+                />
+                <span className="">My Profile</span>
               </Link>
             </li>
             {user?.role === 'admin' && (
               <li className="">
                 <Link
                   state={{ show: 'My consortiums' }}
-                  className="dropdown-item text-sm rounded-lg py-4 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-black hover:bg-[#DEDEDE]"
+                  className="dropdown-item text-sm rounded-lg py-4 font-normal flex w-full whitespace-nowrap bg-transparent text-black hover:bg-[#DEDEDE]"
                   to="admin"
                 >
-                  My Consortia
+                  <img
+                    src="/assets/icons/Complaints.svg"
+                    alt=""
+                    className="h-5 mx-4 lg:mx-2"
+                  />
+                  <span>My Consortiums</span>
                 </Link>
               </li>
             )}
@@ -184,54 +197,74 @@ const Header = () => {
                 <li className="">
                   <Link
                     state={{ show: 'information' }}
-                    className="dropdown-item text-sm rounded-lg py-4 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-black hover:bg-[#DEDEDE]"
+                    className="dropdown-item text-sm rounded-lg py-4 font-normal flex w-full whitespace-nowrap bg-transparent text-black hover:bg-[#DEDEDE]"
                     to="user"
                   >
-                    Information
+                    <img
+                      src="/assets/icons/Info.svg"
+                      alt=""
+                      className="h-5 mx-4 lg:mx-2"
+                    />
+                    <span>Information</span>
                   </Link>
                 </li>
                 <li className="">
                   <Link
                     state={{ show: 'payments' }}
-                    className="dropdown-item text-sm rounded-lg py-4 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-black hover:bg-[#DEDEDE]"
+                    className="dropdown-item text-sm rounded-lg py-4 font-normal flex w-full whitespace-nowrap bg-transparent text-black hover:bg-[#DEDEDE]"
                     to="user"
                   >
-                    My payments
+                    <img
+                      src="/assets/icons/Payments.svg"
+                      alt=""
+                      className="h-5 mx-4 lg:mx-2"
+                    />
+                    <span>My Payments</span>
                   </Link>
                 </li>
                 <li className="">
                   <Link
                     state={{ show: 'amenities' }}
-                    className="dropdown-item text-sm rounded-lg py-4 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-black hover:bg-[#DEDEDE]"
+                    className="dropdown-item text-sm rounded-lg py-4 font-normal flex w-full whitespace-nowrap bg-transparent text-black hover:bg-[#DEDEDE]"
                     to="user"
                   >
-                    Amenities
+                    <img
+                      src="/assets/icons/Amenities.svg"
+                      alt=""
+                      className="h-5 mx-4 lg:mx-2"
+                    />
+                    <span>Ameneties</span>
                   </Link>
                 </li>
                 <li className="">
                   <Link
                     state={{ show: 'complaint' }}
-                    className="dropdown-item text-sm rounded-lg py-4 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-black hover:bg-[#DEDEDE]"
+                    className="dropdown-item text-sm rounded-lg py-4 font-normal flex w-full whitespace-nowrap bg-transparent text-black hover:bg-[#DEDEDE]"
                     to="user"
                   >
-                    Complaints
+                    <img
+                      src="/assets/icons/Complaints.svg"
+                      alt=""
+                      className="h-5 mx-4 lg:mx-2"
+                    />
+                    <span>Complaints</span>
                   </Link>
                 </li>
               </>
             )}
             <li className="">
               <button
-                className=" flex justify-between items-center dropdown-item text-sm text-start rounded-lg py-4 px-4 w-full whitespace-nowrap bg-transparent text-blueDark font-[700] hover:bg-[#DEDEDE]"
+                className=" flex items-center dropdown-item text-sm text-start rounded-lg py-4 w-full whitespace-nowrap bg-transparent text-blueDark font-[700] hover:bg-[#DEDEDE]"
                 onClick={() => {
                   setLogout(true)
                 }}
               >
-                Logout
                 <img
-                  src="/assets/icons/Logout.svg"
+                  src="/assets/icons/Logout2.svg"
                   alt=""
-                  className=" h-10"
+                  className="h-5 mx-4 lg:mx-2"
                 />
+                <span>Logout</span>
               </button>
             </li>
           </ul>

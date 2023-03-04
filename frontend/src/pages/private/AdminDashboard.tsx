@@ -7,6 +7,7 @@ import Logout from '../../components/Logout'
 import Profile from './admin/MobileProfile'
 import HeroUser from '../../components/HeroUser'
 import { useLocation } from 'react-router-dom'
+import MenuMobile from './MenuMobile'
 
 const defaultImg = '/assets/defaultUser.svg'
 
@@ -19,7 +20,7 @@ const adminDashboard = () => {
   const location = useLocation()
 
   useEffect(() => {
-    if (location.state) {
+    if (location.state?.show) {
       setMenu(location.state.show)
     }
   }, [location])
@@ -106,6 +107,7 @@ const adminDashboard = () => {
         {menu === 'profile' && <Profile />}
         {menu === 'My consortiums' && <MyConsortium setMenu={setMenu} />}
         {menu === 'Create consortium' && <CreateConsortium setMenu={setMenu} />}
+        {menu === 'menu' && <MenuMobile setMenu={setMenu} />}
       </div>
     </HeroUser>
   )

@@ -95,7 +95,7 @@ const CreateConsortium = ({ setMenu }: Props) => {
           OK
         </button>
       </BlueModal>
-      {(errors.name?.type ||
+      {/* {(errors.name?.type ||
         errors.address?.type ||
         errors.amenities?.type ||
         errors.floor?.type ||
@@ -114,9 +114,9 @@ const CreateConsortium = ({ setMenu }: Props) => {
         <p className="absolute w-full top-28 md:top-20 pl-2 bg-red rounded-b-sm border border-black text-lg font-sans text-white">
           The number of apartments is not acceptable, please try with a value between 1 and 1000
         </p>
-      )}
+      )} */}
 
-      <section className="pb-32 pt-16 sm:pt-0">
+      <section className="pb-32">
         <div className="flex flex-col sm:flex-row w-full mt-10 justify-around items-center">
           <div className="items-center sm:self-start">
             <div className="flex gap-x-6 text-blueDark font-bold text-xl items-center">

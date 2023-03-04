@@ -20,7 +20,7 @@ const Accordion = ({ title, children, index, activeIndex, setActiveIndex }: Prop
         onClick={() => {
           handleSetIndex(index)
         }}
-        className={`flex justify-between px-6 mt-6 text-lg w-full h-[61px] bg-white border-black border ${
+        className={`flex justify-between px-3 sm:px-6 mt-6 text-lg w-full h-[61px] bg-white border-black border ${
           activeIndex === index ? 'rounded-t-lg border-b-transparent -mb-5' : 'rounded-lg'
         }`}
       >
