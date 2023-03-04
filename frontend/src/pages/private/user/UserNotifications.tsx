@@ -69,9 +69,10 @@ const UserNotifications = () => {
   }, [consortiumId, restart])
 
   return (
-    <div className=" min-h-screen m-[50px] max-w-[1100px] mx-auto px-6">
+    <div className=" min-h-screen m-[50px] max-w-[1100px] mx-auto sm:px-6">
       <div className=" flex text-[28px] font-bold text-blueDark mt-16 mb-8">
           <button
+          className='hidden sm:inline'
             onClick={() => {
               navigate('/user')
             }}
@@ -80,7 +81,7 @@ const UserNotifications = () => {
               <img src={'/assets/icons/left-arrow.svg'} />
             </div>
           </button>
-          <h2>Notificatons</h2>
+          <h2 className='mx-auto sm:mx-0'>Notificatons</h2>
         </div>
       <div className=" m-6">
         {notification?.map((not, i) => (
@@ -96,7 +97,7 @@ const UserNotifications = () => {
         ))}
       </div>
       <button
-        className="bg-blueDark disabled:opacity-60 text-white text-xl w-60 h-12 rounded-lg block mt-8 mb-5 ml-auto mr-12"
+        className="bg-blueDark disabled:opacity-60 text-white text-xl w-60 h-12 rounded-lg block mt-8 mb-5 mx-auto sm:ml-auto sm:mr-12"
         onClick={() => {
           setModal(true)
         }}

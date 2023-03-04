@@ -21,7 +21,7 @@ const adminDashboard = () => {
 
   useEffect(() => {
     if (location.state?.show) {
-      setMenu(location.state.show)
+      setMenu(location.state?.show)
     }
   }, [location])
 

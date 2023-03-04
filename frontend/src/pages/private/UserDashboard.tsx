@@ -22,8 +22,8 @@ const UserDashboard = () => {
   const location = useLocation()
 
   useEffect(() => {
-    if (location.state.show) {
-      setMenu(location.state.show)
+    if (location.state) {
+      setMenu(location.state?.show)
     }
   }, [location])
 
