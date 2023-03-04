@@ -94,7 +94,7 @@ const ConsortiumMembers = () => {
   }
 
   return (
-    <div className="min-h-screen m-[50px] max-w-[1100px] mx-auto px-6">
+    <div className="min-h-full md:min-h-screen m-[50px] max-w-[1100px] mx-auto px-6">
       <WhiteModal
         isOpen={modalOpen}
         toggle={() => {
@@ -206,8 +206,8 @@ const ConsortiumMembers = () => {
           OK
         </button>
       </BlueModal>
-      <div className=" min-h-screen h-fit mb-24">
-        <div className=" flex text-[28px] font-bold text-blueDark mt-24 mb-8">
+      <div className="min-h-full md:min-h-screen h-fit mb-24">
+        <div className=" flex text-[28px] font-bold text-blueDark mb-8">
           <button
             onClick={() => {
               navigate(-1)

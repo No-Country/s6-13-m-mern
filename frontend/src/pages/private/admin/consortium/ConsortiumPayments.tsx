@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import BackTitleComponent from '../../../../components/BackTitleComponent'
 import Container from '../../../../components/Container'
 import PaymentsTable from '../../../../components/payments/PaymentsTable'
 import { PaymentsValues } from '../../../../interfaces/paymentsInterfaces'
@@ -232,11 +231,11 @@ const ConsortiumPayments = () => {
 
   return (
     <div
-      className="w-full min-h-[780px] mb-[250px] bg-white"
+      className="w-full min-h-[780px] mb-0 md:mb-[50px] bg-white"
       ref={ref}
     >
       <Container>
-        <div className="flex text-[25px] md:text-[28px] font-bold text-blueDark mt-32 md:mt-16 mb-8">
+        <div className="flex text-[25px] md:text-[28px] font-bold text-blueDark mt-8 md:mt-16 mb-8">
         <button
             onClick={() => {
               navigate(-1)

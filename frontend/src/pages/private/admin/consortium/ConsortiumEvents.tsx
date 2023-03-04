@@ -69,8 +69,8 @@ const ConsortiumEvents = () => {
   }, [id, restart])
 
   return (
-    <div className=" min-h-screen m-[50px] max-w-[1100px] mx-auto px-6">
-      <div className=" flex text-[28px] font-bold text-blueDark mt-32 sm:mt-16 mb-16">
+    <div className=" min-h-full md:min-h-screen m-[50px] max-w-[1100px] mx-auto px-6">
+      <div className=" flex text-[28px] font-bold text-blueDark mt-8 sm:mt-16 mb-16">
         <button
           onClick={() => {
             navigate(-1)

@@ -1,5 +1,5 @@
 import { type FC } from 'react'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { userStore } from '../../../../store/user'
 
 interface ConsortiumDashboardProps {
@@ -8,7 +8,6 @@ interface ConsortiumDashboardProps {
 export const ConsortiumDashboard: FC<ConsortiumDashboardProps> = ({ name = 'Admin' }: ConsortiumDashboardProps) => {
   const { id } = useParams<{ id: string }>()
   const user = userStore((state) => state.userData)
-  const navigate = useNavigate()
 
   const actions = [
     {
@@ -65,7 +64,7 @@ export const ConsortiumDashboard: FC<ConsortiumDashboardProps> = ({ name = 'Admi
             src={'/assets/icons/left-arrow.svg'}
           />
         </Link>
-        Welcome {name}!
+        Welcome {user?.name}!
       </div>
       <div
         className="grid grid-cols-1 grid-flow-rows gap-4
