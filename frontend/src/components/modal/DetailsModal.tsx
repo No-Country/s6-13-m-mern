@@ -1,5 +1,4 @@
-import React from 'react'
-import { formatDate } from '../utils/dateUtils'
+import { formatDate } from '../../utils/dateUtils'
 
 interface Props {
   setModal: React.Dispatch<React.SetStateAction<boolean>>
@@ -10,7 +9,7 @@ interface Props {
   note: string | undefined
 }
 
-const DetailModal = ({ setModal, name, lastname, creationDate, amount, note }: Props) => {
+const DetailsModal = ({ setModal, name, lastname, creationDate, amount, note }: Props) => {
   return (
     <div className="fixed inset-0 flex justify-center items-center bg-blue bg-opacity-50 z-50">
       <div className="animate-slideInTop relative w-[560px] h-[347px] rounded-xl border-2 border-blueDark flex flex-col justify-center items-center bg-white">
@@ -39,4 +38,4 @@ const DetailModal = ({ setModal, name, lastname, creationDate, amount, note }: P
   )
 }
 
-export default DetailModal
+export default DetailsModal
