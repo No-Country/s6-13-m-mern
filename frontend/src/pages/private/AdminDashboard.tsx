@@ -79,7 +79,7 @@ const adminDashboard = () => {
                     alt=""
                     className="h-5 mx-4 lg:mx-2"
                   />
-                  <span className="hidden text-[#002A61] lg:inline">My consortiums</span>
+                  <span className="hidden text-[#002A61] lg:inline">My consortia</span>
                 </button>
               </div>
             </div>

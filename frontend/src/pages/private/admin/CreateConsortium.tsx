@@ -11,6 +11,7 @@ import {
 } from '../../../interfaces/amenitiesInterfaces'
 import { PulseLoader } from 'react-spinners'
 import BlueModal from '../../../components/modal/BlueModal'
+import { useTitle } from '../../../store/title'
 
 interface Props {
   setMenu: React.Dispatch<React.SetStateAction<string>>
@@ -18,6 +19,9 @@ interface Props {
 
 const CreateConsortium = ({ setMenu }: Props) => {
   const userId = useAuthStore((state) => state.id)
+
+  const setTitle = useTitle((state) => state.setTitle)
+  setTitle('Create consortium')
 
   // const setUser = userStore((state) => state.setData)
 
@@ -38,10 +42,10 @@ const CreateConsortium = ({ setMenu }: Props) => {
   } = useForm<FormValues>({ mode: 'onTouched' })
 
   useEffect(() => {
-    (async () => {
+    ;(async () => {
       const amenitiesCont: AmenitiesListInt[] = []
 
-      const newOptions: [{ name: string, _id: string }] = await getAllAmenitiesService()
+      const newOptions: [{ name: string; _id: string }] = await getAllAmenitiesService()
 
       // const res = (await getUserByIdService(userId)) as IResponseUser
 
@@ -117,9 +121,9 @@ const CreateConsortium = ({ setMenu }: Props) => {
       )} */}
 
       <section className="pb-32">
-        <div className="flex flex-col sm:flex-row w-full mt-10 justify-around items-center">
+        <div className="flex flex-col sm:flex-row w-full sm:mt-10 justify-around items-center">
           <div className="items-center sm:self-start">
-            <div className="flex gap-x-6 text-blueDark font-bold text-xl items-center">
+            <div className=" hidden sm:flex gap-x-6 text-blueDark font-bold text-xl items-center">
               <button
                 className=""
                 onClick={() => {
@@ -132,13 +136,23 @@ const CreateConsortium = ({ setMenu }: Props) => {
               </button>
               <h3>Create Consortium</h3>
             </div>
+            <button
+                className=""
+                onClick={() => {
+                  setMenu('My consortiums')
+                }}
+              >
+                <div className="absolute left-4 w-[11.25px] h-[22.5px] sm:hidden">
+                  <img src={'../../assets/icons/left-arrow.svg'} />
+                </div>
+              </button>
             <img
-              className="rounded-md mt-10 ml-10 border-2 border-black"
+              className="rounded-md mt-4 sm:mt-10 sm:ml-10 border-2 border-black"
               src="https://res.cloudinary.com/dozwd1ssj/image/upload/v1677111896/bild-sky_owpyai.png"
               alt=""
             />
           </div>
-          <div className='mt-16'>
+          <div className="mt-16">
             <form
               className="w-72"
               onSubmit={handleSubmit(customSubmit)}

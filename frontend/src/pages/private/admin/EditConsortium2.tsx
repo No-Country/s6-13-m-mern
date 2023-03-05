@@ -17,6 +17,7 @@ import getUserByIdService from '../../../services/getUserByIdService'
 import { useAuthStore } from '../../../store/auth'
 import { userStore } from '../../../store/user'
 import { isValidApt } from '../../../utils/validationUtils'
+import { useTitle } from '../../../store/title'
 
 const EditConsortium2 = () => {
   const userId = useAuthStore((state) => state.id)
@@ -41,9 +42,12 @@ const EditConsortium2 = () => {
   const messageLoading = 'Loading Consortium...'
   const messageError = 'Sorry, there was an error retrieving the data from the server.<br /> Please try again later.'
 
-  const getConsortium = async (idCons: string) => {
-    const consort = await getConsortiumService(idCons)
+  const setTitle = useTitle((state) => state.setTitle)
 
+  const getConsortium = async (idCons: string) => {
+    setTitle('Consortium')
+    const consort = await getConsortiumService(idCons)
+    setTitle(consort.address)
     setConsortium({
       ...consortium,
       name: consort.name,
@@ -140,8 +144,12 @@ const EditConsortium2 = () => {
           })
 
         getUser()
-          .then((response) => { console.log(response) })
-          .catch((error) => { console.log(error) })
+          .then((response) => {
+            console.log(response)
+          })
+          .catch((error) => {
+            console.log(error)
+          })
       } catch (error) {
         setModalMsg('An error has occurred, please try again later or make sure that you have admin privileges')
         setShowModal(true)
@@ -180,7 +188,7 @@ const EditConsortium2 = () => {
         <button
           onClick={() => {
             setShowModal(false)
-            navigate('/admin', { state: 'My consortiums' })
+            navigate('/admin', { state: { show: 'My consortiums' } })
           }}
           className="bg-blue text-white text-lg w-14 h-10 rounded-2xl mt-6"
         >

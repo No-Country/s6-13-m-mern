@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { userStore } from '../../../store/user'
+import { useTitle } from '../../../store/title'
 
 interface Props {
   setMenu: React.Dispatch<React.SetStateAction<string>>
@@ -11,10 +12,13 @@ const MyConsortium = ({ setMenu }: Props) => {
     setMenu('Create consortium')
   }
 
+  const setTitle = useTitle((state) => state.setTitle)
+  setTitle('My consortia')
+
   return (
     <section className='pb-12'>
-      <div className=" text-center sm:text-start font-bold text-xl text-blueDark mt-6 sm:ml-11 sm:mt-7">
-        <h3>My consortium</h3>
+      <div className=" hidden sm:block text-center sm:text-start font-bold text-xl text-blueDark mt-6 sm:ml-11 sm:mt-7">
+        <h3>My consortia</h3>
       </div>
       <div className="flex flex-wrap max-w-md mx-auto overflow-hidden md:max-w-2xl justify-center sm:justify-start gap-4 sm:gap-2 lg:gap-4 xl:gap-10 mt-8  sm:mx-4 md:ml-8 xl:ml-16 2xl:ml-32">
         {user?.consortium?.map((consortium) => (

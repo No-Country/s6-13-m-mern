@@ -5,6 +5,7 @@ import { UserProfile } from '../../interfaces/userInterfaces'
 import editProfileService from '../../services/editProfileService'
 import { userStore } from '../../store/user'
 import { isValidApt, isValidName, isValidNumber } from '../../utils/validationUtils'
+import { useTitle } from '../../store/title'
 
 interface EditProfileProps {
   preloadValues: UserProfile
@@ -15,6 +16,9 @@ const EditProfile = ({ preloadValues, setEdit }: EditProfileProps) => {
   const [data, setData] = useState(preloadValues)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+
+  const setTitle = useTitle((state) => state.setTitle)
+  setTitle('Change profile')
 
   const setStoreData = userStore((state) => state.setData)
 
