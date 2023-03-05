@@ -1,0 +1,57 @@
+[
+    {
+        "_id": "63f2b427fc13ae631e00000a",
+        "name": "Piscina",
+        "reserve": [{ "_id": "63e2546cfc13ae373c000898" }],
+        "status": "active"
+    },
+    {
+        "_id": "63f2b427fc13ae631e00000d",
+        "name": "Quincho",
+        "reserve": [{ "_id": "63e2546cfc13ae373c00089c" }],
+        "status": "active"
+    },
+    {
+        "_id": "63f2b427fc13ae631e00000c",
+        "name": "Patio",
+        "reserve": [{ "_id": "63e2546cfc13ae373c00089b" }],
+        "status": "active"
+    },
+    {
+        "_id": "63f2b427fc13ae631e00000e",
+        "name": "SUM1",
+        "reserve": [{ "_id": "63f2b31cfc13ae631e000004" }],
+        "status": "active"
+    },
+    {
+        "_id": "63f2b427fc13ae631e000010",
+        "name": "Terraza1",
+        "reserve": [
+            { "_id": "63e2546cfc13ae373c00089b" },
+            { "_id": "63e2546cfc13ae373c00089c" }
+        ],
+        "status": "active"
+    },
+
+    {
+        "_id": "63f2b427fc13ae631e00000f",
+        "name": "Lavanderia2",
+        "reserve": [{ "_id": "63f2b31cfc13ae631e000000" }],
+        "status": "active"
+    },
+    {
+        "_id": "63f2b427fc13ae631e000011",
+        "name": "Piscina2",
+        "reserve": [
+            { "_id": "63f2b31cfc13ae631e000003" },
+            { "_id": "63f2b31cfc13ae631e000002" }
+        ],
+        "status": "active"
+    },
+    {
+        "_id": "63f2b427fc13ae631e000012",
+        "name": "Quincho2",
+        "reserve": [{ "_id": "63f2b31cfc13ae631e000001" }],
+        "status": "active"
+    }
+]

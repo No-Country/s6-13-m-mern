@@ -1,0 +1,130 @@
+[
+    {
+        "_id": "63fc901efc13ae471d00019a",
+        "name": "Swimming Pool",
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum",
+        "reservable": false,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677495661/mocks/amenities/Swimming_Pool_qg2mba.jpg",
+        "size": 1
+    },
+    {
+        "_id": "63fc901efc13ae471d00019b",
+        "name": "Terrace",
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum",
+        "reservable": true,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677495406/mocks/amenities/Terrace_un6q1w.jpg",
+        "size": 2
+    },
+    {
+        "_id": "63fc901efc13ae471d00019c",
+        "name": "Gym",
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum",
+        "reservable": false,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677495404/mocks/amenities/Gym_tl7cke.jpg",
+        "size": 3
+    },
+    {
+        "_id": "63fc901efc13ae471d00019d",
+        "name": "Chill out",
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum",
+        "reservable": true,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677495405/mocks/amenities/Chill_out_lwyetr.jpg",
+        "size": 4
+    },
+    {
+        "_id": "63fc901efc13ae471d00019e",
+        "name": "Spa",
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum",
+        "reservable": true,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677495404/mocks/amenities/Spa_cnwr9u.jpg",
+        "size": 5
+    },
+    {
+        "_id": "63fc901efc13ae471d00019f",
+        "name": "Meditation area",
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum",
+        "reservable": false,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677495404/mocks/amenities/Meditation_area_lc4dqt.jpg",
+        "size": 6
+    },
+    {
+        "_id": "63fc901efc13ae471d0001a0",
+        "name": "Parkland",
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum",
+        "reservable": false,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677495406/mocks/amenities/Parkland_s6yu1k.jpg",
+        "size": 7
+    },
+    {
+        "_id": "63fc901efc13ae471d0001a1",
+        "name": "Jacuzzi",
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum",
+        "reservable": true,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677495404/mocks/amenities/Jacuzzi_nrwrut.jpg",
+        "size": 8
+    },
+    {
+        "_id": "63fc901efc13ae471d0001a2",
+        "name": "Game Room",
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum",
+        "reservable": false,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677495406/mocks/amenities/Game_Room_rfmiui.jpg",
+        "size": 9
+    },
+    {
+        "_id": "63fc901efc13ae471d0001a3",
+        "name": "Coworking",
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum",
+        "reservable": true,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677495404/mocks/amenities/Coworking_ezhqze.jpg",
+        "size": 10
+    },
+    {
+        "_id": "63fc901efc13ae471d0001a4",
+        "name": "Laundry",
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum",
+        "reservable": false,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677495406/mocks/amenities/Laundry_fgb0ex.jpg",
+        "size": 11
+    },
+    {
+        "_id": "63fc901efc13ae471d0001a5",
+        "name": "Bicycle Rack",
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum",
+        "reservable": false,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677495404/mocks/amenities/Bicycle_Rack_ruwlvo.jpg",
+        "size": 12
+    },
+    {
+        "_id": "63fc901efc13ae471d0001a6",
+        "name": "Car Parking",
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum",
+        "reservable": false,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677495405/mocks/amenities/Car_Parking_km53jl.jpg",
+        "size": 13
+    },
+    {
+        "_id": "63fc901efc13ae471d0001a7",
+        "name": "Children's games",
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum",
+        "reservable": false,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677495406/mocks/amenities/Children_s_games_qrvpxf.jpg",
+        "size": 14
+    },
+    {
+        "_id": "63fc901efc13ae471d0001a8",
+        "name": "Children´s Park",
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum",
+        "reservable": false,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677495406/mocks/amenities/Children_s_Park_wpo6gv.jpg",
+        "size": 15
+    },
+    {
+        "_id": "63fc901efc13ae471d0001a9",
+        "name": "Business Center",
+        "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum",
+        "reservable": true,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677495405/mocks/amenities/Business_Center_pi55uo.jpg",
+        "size": 16
+    }
+]

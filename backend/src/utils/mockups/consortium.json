@@ -1,0 +1,420 @@
+[
+    {
+        "_id": "63fbb87dfc13ae17e0000474",
+        "name": "Breitenberg and Sons",
+        "address": "3 Carioca Way",
+        "users": [
+            "63fb8cf3fc13ae02b500000a",
+            "63fb8cf3fc13ae02b500000b",
+            "63fb8cf3fc13ae02b500000c",
+            "63fb8cf3fc13ae02b500000d",
+            "63fb8cf3fc13ae02b500000e",
+            "63fb8cf3fc13ae02b5000019"
+        ],
+        "admin": "63fb8cf3fc13ae02b500002d",
+        "floor": 3,
+        "apt": 20,
+        "schedule": null,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677441657/mocks/Consocios/consorcio9_s43bdu.jpg",
+        "amenities": [
+            "63fc901efc13ae471d00019a",
+            "63fc901efc13ae471d00019b",
+            "63fc901efc13ae471d00019c",
+            "63fc901efc13ae471d00019d",
+            "63fc901efc13ae471d0001a5",
+            "63fc901efc13ae471d0001a9"
+        ],
+        "payments": []
+    },
+    {
+        "_id": "63fbb87dfc13ae17e0000475",
+        "name": "Bailey, Heller and Gibson",
+        "address": "7454 Eastlawn Center",
+        "users": [],
+        "admin": "63fb8cf3fc13ae02b500002d",
+        "floor": 5,
+        "apt": 32,
+        "schedule": null,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677441657/mocks/Consocios/consorcio1_qwcktv.jpg",
+        "amenities": [
+            "63fc901efc13ae471d0001a8",
+            "63fc901efc13ae471d0001a6",
+            "63fc901efc13ae471d0001a3",
+            "63fc901efc13ae471d0001a0"
+        ],
+        "payments": []
+    },
+    {
+        "_id": "63fbb87dfc13ae17e0000476",
+        "name": "Douglas, Legros and Schaefer",
+        "address": "62 Loomis Point",
+        "users": [],
+        "admin": "63fb8cf3fc13ae02b500002d",
+        "floor": 4,
+        "apt": 27,
+        "schedule": null,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677441656/mocks/Consocios/consorcio4_fl1b9t.jpg",
+        "amenities": [
+            "63fc901efc13ae471d00019f",
+            "63fc901efc13ae471d00019e",
+            "63fc901efc13ae471d00019d",
+            "63fc901efc13ae471d00019c",
+            "63fc901efc13ae471d00019b",
+            "63fc901efc13ae471d00019a"
+        ],
+        "payments": []
+    },
+    {
+        "_id": "63fbb87dfc13ae17e0000477",
+        "name": "Pfeffer and Sons",
+        "address": "04195 Lyons Avenue",
+        "users": [],
+        "admin": "63fb8cf3fc13ae02b500002d",
+        "floor": 7,
+        "apt": 35,
+        "schedule": null,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677441655/mocks/Consocios/consorcio33_iwjvnb.jpg",
+        "amenities": [
+            "63fc901efc13ae471d0001a4",
+            "63fc901efc13ae471d0001a5",
+            "63fc901efc13ae471d0001a6",
+            "63fc901efc13ae471d0001a8",
+            "63fc901efc13ae471d00019a"
+        ],
+        "payments": []
+    },
+    {
+        "_id": "63fbb87dfc13ae17e0000478",
+        "name": "Zulauf-Cruickshank",
+        "address": "721 Claremont Alley",
+        "users": [
+            "63fb8cf3fc13ae02b500000f",
+            "63fb8cf3fc13ae02b5000010",
+            "63fb8cf3fc13ae02b5000011",
+            "63fb8cf3fc13ae02b5000012",
+            "63fb8cf3fc13ae02b5000013",
+            "63fb8cf3fc13ae02b500001a"
+        ],
+        "admin": "63fb8cf3fc13ae02b500002e",
+        "floor": 8,
+        "apt": 28,
+        "schedule": null,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677441655/mocks/Consocios/consorcio28_wukbqr.jpg",
+        "amenities": [
+            "63fc901efc13ae471d0001a2",
+            "63fc901efc13ae471d0001a1",
+            "63fc901efc13ae471d0001a8",
+            "63fc901efc13ae471d0001a9"
+        ],
+        "payments": []
+    },
+    {
+        "_id": "63fbb87dfc13ae17e0000479",
+        "name": "Quigley-Steuber",
+        "address": "3 Bowman Avenue",
+        "users": [],
+        "admin": "63fb8cf3fc13ae02b500002e",
+        "floor": 9,
+        "apt": 27,
+        "schedule": null,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677441655/mocks/Consocios/consorcio24_othskf.jpg",
+        "amenities": [
+            "63fc901efc13ae471d00019f",
+            "63fc901efc13ae471d00019d",
+            "63fc901efc13ae471d00019b",
+            "63fc901efc13ae471d00019a"
+        ],
+        "payments": []
+    },
+    {
+        "_id": "63fbb87dfc13ae17e000047a",
+        "name": "Welch-Jacobi",
+        "address": "3507 Thompson Point",
+        "users": [],
+        "admin": "63fb8cf3fc13ae02b500002e",
+        "floor": 3,
+        "apt": 15,
+        "schedule": null,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677441650/mocks/Consocios/consorcio23_uikijf.jpg",
+        "amenities": [
+            "63fc901efc13ae471d00019a",
+            "63fc901efc13ae471d00019b",
+            "63fc901efc13ae471d00019c",
+            "63fc901efc13ae471d00019e",
+            "63fc901efc13ae471d0001a2",
+            "63fc901efc13ae471d0001a3"
+        ],
+        "payments": []
+    },
+    {
+        "_id": "63fbb87dfc13ae17e000047b",
+        "name": "Mitchell, Reichert and Terry",
+        "address": "75672 Lillian Plaza",
+        "users": [],
+        "admin": "63fb8cf3fc13ae02b500002e",
+        "floor": 6,
+        "apt": 18,
+        "schedule": null,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677441654/mocks/Consocios/consorcio20_gogo12.jpg",
+        "amenities": [
+            "63fc901efc13ae471d00019f",
+            "63fc901efc13ae471d00019d",
+            "63fc901efc13ae471d00019b",
+            "63fc901efc13ae471d00019a"
+        ],
+        "payments": []
+    },
+    {
+        "_id": "63fbb87dfc13ae17e000047c",
+        "name": "Price LLC",
+        "address": "83600 Macpherson Court",
+        "users": [
+            "63fb8cf3fc13ae02b5000005",
+            "63fb8cf3fc13ae02b5000006",
+            "63fb8cf3fc13ae02b5000007",
+            "63fb8cf3fc13ae02b5000008",
+            "63fb8cf3fc13ae02b5000009",
+            "63fb8cf3fc13ae02b500001b"
+        ],
+        "admin": "63fb8cf3fc13ae02b500002f",
+        "floor": 9,
+        "apt": 34,
+        "schedule": null,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677441654/mocks/Consocios/consorcio27_pnvs7m.jpg",
+        "amenities": [
+            "63fc901efc13ae471d00019a",
+            "63fc901efc13ae471d00019b",
+            "63fc901efc13ae471d00019c",
+            "63fc901efc13ae471d00019e",
+            "63fc901efc13ae471d0001a2",
+            "63fc901efc13ae471d0001a3"
+        ],
+        "payments": []
+    },
+    {
+        "_id": "63fbb87dfc13ae17e000047d",
+        "name": "Hessel-Spencer",
+        "address": "08001 Jenna Crossing",
+        "users": [],
+        "admin": "63fb8cf3fc13ae02b500002f",
+        "floor": 10,
+        "apt": 54,
+        "schedule": null,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677441655/mocks/Consocios/consorcio3_g7gkku.jpg",
+        "amenities": [
+            "63fc901efc13ae471d00019a",
+            "63fc901efc13ae471d00019b",
+            "63fc901efc13ae471d00019c",
+            "63fc901efc13ae471d00019d",
+            "63fc901efc13ae471d0001a5",
+            "63fc901efc13ae471d0001a9"
+        ],
+        "payments": []
+    },
+    {
+        "_id": "63fbb87dfc13ae17e000047e",
+        "name": "Nikolaus, Leffler and Sauer",
+        "address": "27802 Londonderry Park",
+        "users": [],
+        "admin": "63fb8cf3fc13ae02b500002f",
+        "floor": 6,
+        "apt": 20,
+        "schedule": null,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677441654/mocks/Consocios/consorcio2_p3jqte.jpg",
+        "amenities": [
+            "63fc901efc13ae471d00019a",
+            "63fc901efc13ae471d00019b",
+            "63fc901efc13ae471d00019c",
+            "63fc901efc13ae471d00019d",
+            "63fc901efc13ae471d0001a5",
+            "63fc901efc13ae471d0001a9"
+        ],
+        "payments": []
+    },
+    {
+        "_id": "63fbb87dfc13ae17e000047f",
+        "name": "Lebsack, Ernser and Jacobi",
+        "address": "97 Independence Junction",
+        "users": [],
+        "admin": "63fb8cf3fc13ae02b500002f",
+        "floor": 5,
+        "apt": 12,
+        "schedule": null,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677441651/mocks/Consocios/consorcio7_sagayn.jpg",
+        "amenities": [
+            "63fc901efc13ae471d0001a2",
+            "63fc901efc13ae471d0001a1",
+            "63fc901efc13ae471d0001a8",
+            "63fc901efc13ae471d0001a9"
+        ],
+        "payments": []
+    },
+    {
+        "_id": "63fbb87dfc13ae17e0000480",
+        "name": "Anderson Group",
+        "address": "9986 Briar Crest Drive",
+        "users": [
+            "63fb8cf3fc13ae02b5000000",
+            "63fb8cf3fc13ae02b5000001",
+            "63fb8cf3fc13ae02b5000002",
+            "63fb8cf3fc13ae02b5000003",
+            "63fb8cf3fc13ae02b5000004",
+            "63fb8cf3fc13ae02b500001c"
+        ],
+        "admin": "63fb8cf3fc13ae02b5000030",
+        "floor": 7,
+        "apt": 29,
+        "schedule": null,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677441652/mocks/Consocios/consorcio8_jvsi7q.jpg",
+        "amenities": [
+            "63fc901efc13ae471d00019f",
+            "63fc901efc13ae471d00019e",
+            "63fc901efc13ae471d00019d",
+            "63fc901efc13ae471d00019c",
+            "63fc901efc13ae471d00019b",
+            "63fc901efc13ae471d00019a"
+        ],
+        "payments": []
+    },
+    {
+        "_id": "63fbb87dfc13ae17e0000481",
+        "name": "Schuster, Marvin and Hills",
+        "address": "0 Sundown Drive",
+        "users": [],
+        "admin": "63fb8cf3fc13ae02b5000030",
+        "floor": 4,
+        "apt": 32,
+        "schedule": null,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677441653/mocks/Consocios/consorcio15_bd0kxs.jpg",
+        "amenities": [
+            "63fc901efc13ae471d00019f",
+            "63fc901efc13ae471d00019d",
+            "63fc901efc13ae471d00019b",
+            "63fc901efc13ae471d00019a"
+        ],
+        "payments": []
+    },
+    {
+        "_id": "63fbb87dfc13ae17e0000482",
+        "name": "Champlin, Feil and Mitchell",
+        "address": "8 Sunnyside Alley",
+        "users": [],
+        "admin": "63fb8cf3fc13ae02b5000030",
+        "floor": 5,
+        "apt": 45,
+        "schedule": null,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677441653/mocks/Consocios/consorcio12_qt5znn.jpg",
+        "amenities": [
+            "63fc901efc13ae471d00019f",
+            "63fc901efc13ae471d00019e",
+            "63fc901efc13ae471d00019d",
+            "63fc901efc13ae471d00019c",
+            "63fc901efc13ae471d00019b",
+            "63fc901efc13ae471d00019a"
+        ],
+        "payments": []
+    },
+    {
+        "_id": "63fbb87dfc13ae17e0000483",
+        "name": "Weber, Hilll and Ondricka",
+        "address": "33630 Autumn Leaf Way",
+        "users": [],
+        "admin": "63fb8cf3fc13ae02b5000030",
+        "floor": 1,
+        "apt": 8,
+        "schedule": null,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677441651/mocks/Consocios/consorcio31_kmueff.jpg",
+        "amenities": [
+            "63fc901efc13ae471d00019f",
+            "63fc901efc13ae471d00019e",
+            "63fc901efc13ae471d00019d",
+            "63fc901efc13ae471d00019c",
+            "63fc901efc13ae471d00019b",
+            "63fc901efc13ae471d00019a"
+        ],
+        "payments": []
+    },
+    {
+        "_id": "63fbb87dfc13ae17e0000484",
+        "name": "Schmeler-Wiza",
+        "address": "50640 North Junction",
+        "users": [
+            "63fb8cf3fc13ae02b5000014",
+            "63fb8cf3fc13ae02b5000015",
+            "63fb8cf3fc13ae02b5000016",
+            "63fb8cf3fc13ae02b5000017",
+            "63fb8cf3fc13ae02b5000018",
+            "63fb8cf3fc13ae02b500001d"
+        ],
+        "admin": "63fb8cf3fc13ae02b5000031",
+        "floor": 5,
+        "apt": 10,
+        "schedule": null,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677441651/mocks/Consocios/consorcio5_h65ury.jpg",
+        "amenities": [
+            "63fc901efc13ae471d00019a",
+            "63fc901efc13ae471d00019b",
+            "63fc901efc13ae471d00019c",
+            "63fc901efc13ae471d00019d",
+            "63fc901efc13ae471d0001a5",
+            "63fc901efc13ae471d0001a9"
+        ],
+        "payments": []
+    },
+    {
+        "_id": "63fbb87dfc13ae17e0000485",
+        "name": "Kertzmann, Hamill and McKenzie",
+        "address": "48809 Grayhawk Junction",
+        "users": [],
+        "admin": "63fb8cf3fc13ae02b5000031",
+        "floor": 5,
+        "apt": 20,
+        "schedule": null,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677441651/mocks/Consocios/consorcio6_bvo1ll.jpg",
+        "amenities": [
+            "63fc901efc13ae471d00019a",
+            "63fc901efc13ae471d00019b",
+            "63fc901efc13ae471d00019c",
+            "63fc901efc13ae471d00019d",
+            "63fc901efc13ae471d0001a5",
+            "63fc901efc13ae471d0001a9"
+        ],
+        "payments": []
+    },
+    {
+        "_id": "63fbb87dfc13ae17e0000486",
+        "name": "Bayer Inc",
+        "address": "373 Milwaukee Center",
+        "users": [],
+        "admin": "63fb8cf3fc13ae02b5000031",
+        "floor": 9,
+        "apt": 28,
+        "schedule": null,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677441650/mocks/Consocios/consorcio22_c6aodj.jpg",
+        "amenities": [
+            "63fc901efc13ae471d00019f",
+            "63fc901efc13ae471d00019d",
+            "63fc901efc13ae471d00019b",
+            "63fc901efc13ae471d00019a"
+        ],
+        "payments": []
+    },
+    {
+        "_id": "63fbb87dfc13ae17e0000487",
+        "name": "Runolfsdottir, Dietrich and Reynolds",
+        "address": "53 Barnett Park",
+        "users": [],
+        "admin": "63fb8cf3fc13ae02b5000031",
+        "floor": 8,
+        "apt": 32,
+        "schedule": null,
+        "img": "https://res.cloudinary.com/dozwd1ssj/image/upload/v1677441650/mocks/Consocios/consorcio21_yzgbis.jpg",
+        "amenities": [
+            "63fc901efc13ae471d0001a2",
+            "63fc901efc13ae471d0001a1",
+            "63fc901efc13ae471d0001a8",
+            "63fc901efc13ae471d0001a9"
+        ],
+        "payments": []
+    }
+]
