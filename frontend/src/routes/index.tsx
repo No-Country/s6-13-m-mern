@@ -23,8 +23,8 @@ import LayoutPrivateUser from '../components/layouPrivates/LayoutPrivateUser'
 import LayoutPrivateAdmin from '../components/layouPrivates/LayoutPrivateAdmin'
 import UnderConstruction from '../pages/UnderConstruction'
 import LayoutPrivateTenant from '../components/layouPrivates/LayoutPrivateTenant'
-import EditConsortium from '../pages/private/admin/EditConsortium'
-// import EditConsortium from '../pages/private/admin/EditConsortium'
+import EditConsortium2 from '../pages/private/admin/EditConsortium2'
+// import EditConsortium2 from '../pages/private/admin/EditConsortium'
 
 export const router = createBrowserRouter([
   {
@@ -59,7 +59,7 @@ export const router = createBrowserRouter([
         children: [
           { index: true, element: <AdminDashboard /> },
           { path: '/admin/consortium/:id', element: <ConsortiumDashboard /> },
-          { path: '/admin/editinfo/:id', element: <EditConsortium /> },
+          { path: '/admin/editinfo/:id', element: <EditConsortium2 /> },
           { path: '/admin/payments/:id', element: <ConsortiumPayments /> },
           { path: '/admin/entrance/:id', element: <ConsortiumEnterExit /> },
           { path: '/admin/events/:id', element: <ConsortiumEvents /> },

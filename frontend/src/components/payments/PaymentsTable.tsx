@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { PaymentsValues } from '../../interfaces/paymentsInterfaces'
-import DetailModal from '../DetailModal'
+import DetailsModal from '../modal/DetailsModal'
 
 interface Props {
   data: PaymentsValues[]
@@ -61,9 +61,9 @@ const PaymentsTable = ({ data, setData, dataToCompare, filterValue, setIsDataMod
   }
 
   return (
-    <table className="text-left font-inter text-[10px] md:text-base lg:text-lg mt-8">
+    <table className="text-left font-inter text-lg">
       {modal && (
-        <DetailModal
+        <DetailsModal
           setModal={setModal}
           name={paymentDetail?.user.name}
           lastname={paymentDetail?.user.lastname}
@@ -112,7 +112,9 @@ const PaymentsTable = ({ data, setData, dataToCompare, filterValue, setIsDataMod
                     </a>
                   ) : (
                     <button
-                      onClick={() => { handleClickDetail(row) }}
+                      onClick={() => {
+                        handleClickDetail(row)
+                      }}
                       className="border-2 border-blue rounded-lg px-4 py-1 hover:bg-blue hover:text-white"
                     >
                       Detail

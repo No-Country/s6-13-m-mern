@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
-import DetailModal from '../../../../components/DetailModal'
-import { SearchBar } from '../../../../components/SearchBar'
+import DetailModal from '../../../../components/modal/DetailsModal'
 import Loading from '../../../../components/status/Loading'
 import Error from '../../../../components/status/Error'
 import { TitleComponents } from '../../../../components/TitleComponents'
@@ -17,7 +16,7 @@ const UserPayments = () => {
   const [loadingPayments, setLoadingPayments] = useState(false)
   const [errorGetPayments, setErrorGetPayments] = useState(false)
   const userId = useAuthStore((state) => state.id)
-  const [modal, setModal] = useState(false)
+  const [showModal, setShowModal] = useState(false)
   const [paymentData, setPaymentData] = useState<UserPaymentsValues>()
 
   const errorMessage =
@@ -63,7 +62,7 @@ const UserPayments = () => {
 
   const openDetailsModal = (payment: UserPaymentsValues) => {
     setPaymentData(payment)
-    setModal(true)
+    setShowModal(true)
   }
 
   const renderLoading = () => {
@@ -87,10 +86,11 @@ const UserPayments = () => {
       <div>
         <div className="-translate-y-5 w-full flex justify-center">
           <div className="w-full ml-[10%]">
+            {/* TODO: Put the search component back in the future after restructuring the payment model
             <SearchBar
               userType="user"
-              searchIn="documents"
-            />
+              searchIn="documents"/>
+              */}
           </div>
         </div>
         <div className="w-full px-11 mb-5 overflow-y-auto">
@@ -132,9 +132,9 @@ const UserPayments = () => {
 
   return (
     <>
-      {modal && (
+      {showModal && (
         <DetailModal
-          setModal={setModal}
+          setModal={setShowModal}
           name={paymentData?.user.name}
           lastname={paymentData?.user.lastname}
           creationDate={paymentData?.creationDate}
