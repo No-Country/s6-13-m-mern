@@ -18,6 +18,7 @@ export interface EditConsortium {
   floor: number
   apt: number
   amenities: string[]
+  img: string
 }
 
 export interface ConsortiumCreationValues extends Omit<FormValues, 'amenities'> {

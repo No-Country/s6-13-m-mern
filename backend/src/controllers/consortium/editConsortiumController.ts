@@ -4,7 +4,7 @@ import { getConsortiumService } from '../../services'
 
 export const editConsortiumController = async (req: Request, res: Response) => {
     const { consortiumId, id } = req.params
-    const { name, floor, address, apt, amenities } = req.body
+    const { name, floor, address, apt, amenities, img } = req.body
 
     try {
         const { ok, status, consortium } = (await getConsortiumService(
@@ -28,6 +28,7 @@ export const editConsortiumController = async (req: Request, res: Response) => {
         consortium.floor = floor
         consortium.apt = apt
         consortium.amenities = amenities
+        consortium.img = img
         await consortium.save()
 
         return res.status(status).json({ ok, msg: 'Consortium Edited' })
