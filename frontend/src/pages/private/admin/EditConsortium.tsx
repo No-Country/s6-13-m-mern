@@ -3,7 +3,7 @@ import { useAuthStore } from '../../../store/auth'
 import { useState, useEffect } from 'react'
 import { useForm, Controller } from 'react-hook-form'
 import Select from 'react-select'
-import { getAllAmenitiesService, editConsortiumService } from '../../../services/createConsortiumService'
+import { getAllAmenitiesService } from '../../../services/createConsortiumService'
 import { AmenitiesListInt, ConsortiumStateValues, FormValues } from '../../../interfaces/amenitiesInterfaces'
 import { PulseLoader } from 'react-spinners'
 import BlueModal from '../../../components/modal/BlueModal'
@@ -24,6 +24,7 @@ const EditConsortium = () => {
 
   const getConsortium = async (idCons: string) => {
     const consort = await getConsortiumService(idCons)
+    console.log('CONSORT', consort)
     setimg(consort.img)
     const amenitiesDefault: AmenitiesListInt[] = []
     consort.amenities.forEach((option: Amenity) => {
@@ -81,12 +82,15 @@ const EditConsortium = () => {
         setState({ ...state, load: true })
         const amenitieParsedValues = data.amenities.map((amenity) => amenity.id)
         const newData = { ...data, amenities: amenitieParsedValues }
-        // const consortiumInfo: ConsortiumCreationValues = { userId, ...data, amenities: amenitieParsedValues }
-        // const response: any = await createConsortiumService(consortiumInfo)
-        await editConsortiumService(id, userId, newData)
+        // await editConsortiumService(id, userId, newData)
         setState({ ...state, openModal: true, load: false })
-        // eslint-disable-next-line @typescript-eslint/no-floating-promises
         getUser()
+          .then((response) => {
+            console.log(response)
+          })
+          .catch((error) => {
+            console.log(error)
+          })
       } catch (error) {
         setState({
           ...state,
@@ -102,7 +106,6 @@ const EditConsortium = () => {
     if (id) {
       const res = await deleteConsortiumService(id, userId)
       console.log(res)
-
       console.log('deleted')
     }
   }
@@ -156,16 +159,16 @@ const EditConsortium = () => {
       <section className="pb-32">
         <Container>
           <div>
-            <div className="flex font-bold text-xl text-blueDark mt-10 items-center justify-center sm:justify-start mb-8">
-            <button
-            onClick={() => {
-              navigate(-1)
-            }}
-          >
-            <div className=" h-[30px] mr-5">
-              <img src={'/assets/icons/left-arrow.svg'} />
-            </div>
-          </button>
+            <div className="flex font-bold text-xl text-blueDark mt-10 items-center justify-center sm:justify-start mb-4">
+              <button
+                onClick={() => {
+                  navigate(-1)
+                }}
+              >
+                <div className=" h-[30px] mr-5">
+                  <img src={'/assets/icons/left-arrow.svg'} />
+                </div>
+              </button>
               <h3>Edit Consortium</h3>
             </div>
             <div className="flex flex-col xl:flex-row w-full mt-16 justify-around items-center">
@@ -197,51 +200,51 @@ const EditConsortium = () => {
                       />
                     </div>
                     <div>
-                    <h5 className=" font-bold text-lg text-blueDark text-start">Address</h5>
-                    <input
-                      className={`border-2 ${
-                        !errors.address ? 'border-blueDark' : 'border-red'
-                      } rounded-lg h-12 px-4 mb-8 w-full placeholder:italic placeholder:text-grey bg-white focus:outline-none text-lg`}
-                      type="text"
-                      autoComplete="off"
-                      placeholder="Address"
-                      {...register('address', {
-                        required: true,
-                      })}
+                      <h5 className=" font-bold text-lg text-blueDark text-start">Address</h5>
+                      <input
+                        className={`border-2 ${
+                          !errors.address ? 'border-blueDark' : 'border-red'
+                        } rounded-lg h-12 px-4 mb-8 w-full placeholder:italic placeholder:text-grey bg-white focus:outline-none text-lg`}
+                        type="text"
+                        autoComplete="off"
+                        placeholder="Address"
+                        {...register('address', {
+                          required: true,
+                        })}
                       />
-                      </div>
-                      <div>
+                    </div>
+                    <div>
                       <h5 className=" font-bold text-lg text-blueDark text-start">Floors</h5>
-                    <input
-                      className={`border-2 ${
-                        !errors.floor ? 'border-blueDark' : 'border-red'
-                      } rounded-lg h-12 px-4 mb-8 w-full placeholder:italic placeholder:text-grey bg-white focus:outline-none text-lg`}
-                      type="number"
-                      autoComplete="off"
-                      placeholder="Floors"
-                      {...register('floor', {
-                        required: true,
-                        max: 100,
-                        min: 1,
-                      })}
+                      <input
+                        className={`border-2 ${
+                          !errors.floor ? 'border-blueDark' : 'border-red'
+                        } rounded-lg h-12 px-4 mb-8 w-full placeholder:italic placeholder:text-grey bg-white focus:outline-none text-lg`}
+                        type="number"
+                        autoComplete="off"
+                        placeholder="Floors"
+                        {...register('floor', {
+                          required: true,
+                          max: 100,
+                          min: 1,
+                        })}
                       />
-                      </div>
-                      <div>
+                    </div>
+                    <div>
                       <h5 className=" font-bold text-lg text-blueDark text-start">Units</h5>
-                    <input
-                      className={`border-2 ${
-                        !errors.apt ? 'border-blueDark' : 'border-red'
-                      } rounded-lg h-12 px-4 mb-8 w-full placeholder:italic placeholder:text-grey bg-white focus:outline-none text-lg`}
-                      type="number"
-                      autoComplete="off"
-                      placeholder="Units"
-                      {...register('apt', {
-                        required: true,
-                        max: 1000,
-                        min: 1,
-                      })}
+                      <input
+                        className={`border-2 ${
+                          !errors.apt ? 'border-blueDark' : 'border-red'
+                        } rounded-lg h-12 px-4 mb-8 w-full placeholder:italic placeholder:text-grey bg-white focus:outline-none text-lg`}
+                        type="number"
+                        autoComplete="off"
+                        placeholder="Units"
+                        {...register('apt', {
+                          required: true,
+                          max: 1000,
+                          min: 1,
+                        })}
                       />
-                      </div>
+                    </div>
                   </div>
                   <h5 className=" font-bold text-lg text-blueDark text-start">Amenities</h5>
                   <Controller

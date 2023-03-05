@@ -43,6 +43,10 @@ export const getConsortiumAmenities = async (consortiumId: string) => {
 }
 
 export const editConsortiumService = async (consortiumId: string, userId: string, data: EditConsortium) => {
+  console.log('TOKEN', token)
+  console.log('CONSORTIUM ID:', consortiumId)
+  console.log('USER ID:', userId)
+  console.log('EDIT CONSORTIUM:', data)
   try {
     const response = await instance.put(`api/consortium/editConsortium/${consortiumId}/${userId}`, data, {
       headers: {
