@@ -1,4 +1,4 @@
-<p align="center" ><img width="100%" align="center"src="https://res.cloudinary.com/dozwd1ssj/image/upload/v1677770281/consortia_fyobrk.png"></p>
+<p align="center" ><img width="100%" align="center"src="https://res.cloudinary.com/dozwd1ssj/image/upload/v1677770281/consortia_fyobrk.png"></p> 
 
 <br />
 
@@ -6,7 +6,7 @@
 
 <h3 align="center" >We have the perfect solution for you! Our Condominium Management application allows you to manage everything related to your condominium or building in an efficient and organized way.</h3> 
 <br/>
-<p align="center" ><img align="center"src="https://res.cloudinary.com/dozwd1ssj/image/upload/v1677762524/nuevo_logo_bold-removebg-preview_2_yfyw9i.png"></p>
+<p align="center" ><img align="center"src="https://res.cloudinary.com/dozwd1ssj/image/upload/v1677762524/nuevo_logo_bold-removebg-preview_2_yfyw9i.png"></p> 
 
 <p align = "center"> <img src = "[https://i.ibb.co/TLGMJGz/app.png](https://i.ibb.co/TLGMJGz/app.png)" /> </p>
 
@@ -23,6 +23,7 @@ With our Condominium Management application, you can take your condominium/build
 
 <hr/>
 
+
 ### ✔ Requirements 📋
 
 _1 - You will have to create a .env in **Front** and **Back** folders_
@@ -35,7 +36,7 @@ _4 - You will have to create you own account for [Cloudinary](https://cloudinary
 
 _5 - Install the dependencies with **`npm install`** at Back and Front folders_
 
-_6 - Run the server with **`npm run dev`** (development) or npm start (production)_
+_6 - Run the server with  **`npm run dev`** (development) or npm start (production)_
 
 ##### _Back .env_
 
@@ -71,12 +72,12 @@ VITE_APP_PRESET_CONSORTIUMS: preset to upload consortium photos in cloudinary.
 - Conduct user testing and ensure identified issues are addressed.
 - Ensure website response times are optimal and performance requirements are met.
 - Monitor implementation and ensure project timelines are met.
-  <br />
+<br />
 
-|                                             <img src="https://ca.slack-edge.com/T032Y55Q6VC-U047K0D926B-866efd742e9c-512" width=100>                                             |
-| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | --- |
-|                                                                                  Maitén Cullen                                                                                   |
-| <a href="https://www.linkedin.com/in/maiten-cullen-/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |     |
+| <img src="https://ca.slack-edge.com/T032Y55Q6VC-U047K0D926B-866efd742e9c-512" width=100>|
+|:-:|
+| Maitén Cullen|
+| <a href="https://www.linkedin.com/in/maiten-cullen-/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> ||
 
 ## ✔ Project Manager
 
@@ -92,12 +93,12 @@ VITE_APP_PRESET_CONSORTIUMS: preset to upload consortium photos in cloudinary.
 - Monitor implementation and ensure project timelines are met.
 - Perform final testing and ensure the website is ready for launch.
 - Conduct a project closing meeting to discuss results, team performance, and lessons learned.
-  <br />
+<br />
 
-|                                                                                                                                     <img src="https://avatars.githubusercontent.com/u/55728194?v=4" width=80>                                                                                                                                     |
-| :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | --- |
-|                                                                                                                                                                  Larry Aguilera                                                                                                                                                                   |
-| <a href="https://github.com/larrydaguilera"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/larrydaguilera//"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |     |
+| <img src="https://avatars.githubusercontent.com/u/55728194?v=4" width=80>|
+|:-:|
+| Larry Aguilera |
+|<a href="https://github.com/larrydaguilera"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/larrydaguilera//"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> ||
 
 ## ✔ DevOps
 
@@ -109,36 +110,36 @@ VITE_APP_PRESET_CONSORTIUMS: preset to upload consortium photos in cloudinary.
 - Implement a configuration management strategy to ensure consistency and repeatability of deployments.
 - Implement security measures for the application and its infrastructure.
 - Deploy the backend and frontend of the application to the production environment.
-  <br />
+<br />
 
-|                                                                                                                                     <img src="https://avatars.githubusercontent.com/u/64668681?v=4" width=80>                                                                                                                                     |
-| :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | --- |
-|                                                                                                                                                                    Yamila Paez                                                                                                                                                                    |
-| <a href="https://github.com/Bellantra"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/yamila-paez-70b7587b/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |     |
+| <img src="https://avatars.githubusercontent.com/u/64668681?v=4" width=80>|
+|:-:|
+| Yamila Paez |
+|<a href="https://github.com/Bellantra"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/yamila-paez-70b7587b/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> ||
 
 ## ✔ Backend
 
 ### 👉🏻 Task List ✅
 
 - Development of Rest Api for Lost and Found pets with NodeJs, TypeScript and Express.
-- MongoDb Database.
-- Creating filters with Mongoose and regular expressions.
-- Users validation wiith JWT and Google.
+- MongoDb Database. 
+- Creating filters with Mongoose and regular expressions. 
+- Users validation wiith JWT and Google. 
 - Sending emails with Nodemailer for contact, welcome and password recovery.
 - Deployed on Heroku
 
 ### 👉🏻 Built with 🛠️
 
-![NodeJS](https://img.shields.io/badge/Node.js-6DA55F?style=for-the-badge&logo=Node.js&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-blue.svg?style=for-the-badge&logo=TypeScript&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=MongoDB&logoColor=white)
-![Mongoose](https://img.shields.io/badge/Mongoose-%2320232a.svg?style=for-the-badge&logo=Mongoose&logoColor=%%2361DAFB) ![JWT](https://img.shields.io/badge/JWT-blue.svg?style=for-the-badge&logo=JWT&logoColor=%blue) ![Nodemailer](https://img.shields.io/badge/Nodemailer-0F9DCE?style=for-the-badge&logo=Nodemailer&logoColor=fff) ![Heroku](https://img.shields.io/badge/heroku%20-%23430098.svg?&style=for-the-badge&logo=heroku&logoColor=white)
+![NodeJS](https://img.shields.io/badge/Node.js-6DA55F?style=for-the-badge&logo=Node.js&logoColor=white) 
+![TypeScript](https://img.shields.io/badge/TypeScript-blue.svg?style=for-the-badge&logo=TypeScript&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=MongoDB&logoColor=white) 
+![Mongoose](https://img.shields.io/badge/Mongoose-%2320232a.svg?style=for-the-badge&logo=Mongoose&logoColor=%%2361DAFB) ![JWT](https://img.shields.io/badge/JWT-blue.svg?style=for-the-badge&logo=JWT&logoColor=%blue) ![Nodemailer](https://img.shields.io/badge/Nodemailer-0F9DCE?style=for-the-badge&logo=Nodemailer&logoColor=fff)  ![Heroku](https://img.shields.io/badge/heroku%20-%23430098.svg?&style=for-the-badge&logo=heroku&logoColor=white)
 
 ### 👉🏻 Developers
 
-|                                                                                                                                                                                                                      <img src="https://avatars.githubusercontent.com/u/57506571?v=4" width=50>                                                                                                                                                                                                                      |                                                                                                                                                                                                                            <img src="https://avatars.githubusercontent.com/u/61857753?v=4" width=50>                                                                                                                                                                                                                             |
-| :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|                                                                                                                                                                                                                                                  **Pablo Zalazar**                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                      **Santiago Rivanegra**                                                                                                                                                                                                                                                      |
-| <a href="https://github.com/pablo-zalazar"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/pablozalazar/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> <a href="https://pablo-zalazar.netlify.app/"><img src="https://img.shields.io/badge/Portfolio-%23FF6347.svg?style=for-the-badge&logo=Portfolio&logoColor=white"/></a> | <a href="https://github.com/SantiagoRivanegra"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/santiagorivanegra/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> <a href="https://santiagorivanegra.netlify.app/"><img src="https://img.shields.io/badge/Portfolio-%23FF6347.svg?style=for-the-badge&logo=Portfolio&logoColor=white"/></a> |
+| <img src="https://avatars.githubusercontent.com/u/57506571?v=4" width=50>| <img src="https://avatars.githubusercontent.com/u/61857753?v=4" width=50>|
+:-:|:-:|
+| **Pablo Zalazar**  | **Santiago Rivanegra**  |
+| <a href="https://github.com/pablo-zalazar"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/pablozalazar/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> <a href="https://pablo-zalazar.netlify.app/"><img src="https://img.shields.io/badge/Portfolio-%23FF6347.svg?style=for-the-badge&logo=Portfolio&logoColor=white"/></a> | <a href="https://github.com/SantiagoRivanegra"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/santiagorivanegra/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> <a href="https://santiagorivanegra.netlify.app/"><img src="https://img.shields.io/badge/Portfolio-%23FF6347.svg?style=for-the-badge&logo=Portfolio&logoColor=white"/></a>| 
 
 <hr/>
 
@@ -160,15 +161,15 @@ VITE_APP_PRESET_CONSORTIUMS: preset to upload consortium photos in cloudinary.
 
 ### 👉🏻 Developers
 
-|                                                                                                                           <img src="https://ca.slack-edge.com/T032Y55Q6VC-U047ZE0Q1KM-e8c525dd8f81-512" width=50>                                                                                                                            |                                                                                                                                                                                                                                       <img src="https://i.ibb.co/yB46R01/image.png" width=50>                                                                                                                                                                                                                                       |                                                                                                                                                                                                                        <img src="https://avatars.githubusercontent.com/u/76481399?v=4" width=50>                                                                                                                                                                                                                        |                                                                                                                                                                                                                  <img src="https://avatars.githubusercontent.com/u/70997096?v=4" width=50>                                                                                                                                                                                                                   |                                                                                                                               <img src="https://avatars.githubusercontent.com/u/77250452?v=4" width=50>                                                                                                                                |
-| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|                                                                                                                                                               **Emanuel Capo**                                                                                                                                                               |                                                                                                                                                                                                                                                           **Martín Kun**                                                                                                                                                                                                                                                            |                                                                                                                                                                                                                                                   **Ariel Martínez**                                                                                                                                                                                                                                                    |                                                                                                                                                                                                                                              **Ivan Belasich**                                                                                                                                                                                                                                               |                                                                                                                                                             **Nico Smael**                                                                                                                                                             |
+| <img src="https://ca.slack-edge.com/T032Y55Q6VC-U047ZE0Q1KM-e8c525dd8f81-512" width=50>| <img src="https://i.ibb.co/yB46R01/image.png" width=50>|  <img src="https://avatars.githubusercontent.com/u/76481399?v=4" width=50>  |  <img src="https://avatars.githubusercontent.com/u/70997096?v=4" width=50>  |  <img src="https://avatars.githubusercontent.com/u/77250452?v=4" width=50> |
+:-:|:-:|:-:|:-:|:-:|
+| **Emanuel Capo**  | **Martín Kun**  | **Ariel Martínez**  | **Ivan Belasich**  | **Nico Smael** |
 | <a href="https://github.com/Emanuel-Capo"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/emanuel-capo/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/MartinKun"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/mart%C3%ADn-kun-b13620209/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> <a href="https://martin-kun-portfolio.netlify.app/"><img src="https://img.shields.io/badge/Portfolio-%23FF6347.svg?style=for-the-badge&logo=Portfolio&logoColor=white"/></a> | <a href="https://github.com/Arielstereo"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/arielstereo/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> <a href="https://portfolio-arielstereo.vercel.app/"><img src="https://img.shields.io/badge/Portfolio-%23FF6347.svg?style=for-the-badge&logo=Portfolio&logoColor=white"/></a> | <a href="https://github.com/ivanbelasich"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a></a> <a href="https://www.linkedin.com/in/ivanbelasich/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> <a href="https://www.belasichivan.tk/"><img src="https://img.shields.io/badge/Portfolio-%23FF6347.svg?style=for-the-badge&logo=Portfolio&logoColor=white"/> | <a href="https://github.com/SmaelNicolas"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/smaeln/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
 
-|                                                                                                                                               <img src="https://avatars.githubusercontent.com/u/54191492?v=4" width=50>                                                                                                                                                |                                                                      <img src="https://media.licdn.com/dms/image/C4E03AQGAd-fOl_IvoQ/profile-displayphoto-shrink_800_800/0/1636827638945?e=1683158400&v=beta&t=HimNyjU9hnzEYzZltIRCYd87pFyQ32n4dlQ3Rxlhjfo" width=50>                                                                      |                                                                                                                                  <img src="https://avatars.githubusercontent.com/u/100742080?v=4" width=50>                                                                                                                                  |
-| :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|                                                                                                                                                                            **Javier Morón**                                                                                                                                                                            |                                                                                                                                                             **Omar Lestrade**                                                                                                                                                              |                                                                                                                                                               **David Castro**                                                                                                                                                               |
-| <a href="https://github.com/requin883"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/javier-alberto-moron-de-oliveira-a7504218a"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/Lestradez"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/omar-lestrade/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/deca-dev"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/davidcastroanaya/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
+| <img src="https://avatars.githubusercontent.com/u/54191492?v=4" width=50>| <img src="https://media.licdn.com/dms/image/C4E03AQGAd-fOl_IvoQ/profile-displayphoto-shrink_800_800/0/1636827638945?e=1683158400&v=beta&t=HimNyjU9hnzEYzZltIRCYd87pFyQ32n4dlQ3Rxlhjfo" width=50>|  <img src="https://avatars.githubusercontent.com/u/100742080?v=4" width=50>  | 
+:-:|:-:|:-:|
+| **Javier Morón**  | **Omar Lestrade**  | **David Castro**  |
+| <a href="https://github.com/requin883"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/javier-alberto-moron-de-oliveira-a7504218a"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/Lestradez"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/omar-lestrade/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/deca-dev"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/davidcastroanaya/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | 
 
 ## ✔ UI/UX
 
@@ -192,7 +193,9 @@ VITE_APP_PRESET_CONSORTIUMS: preset to upload consortium photos in cloudinary.
 
 ### 👉🏻 Designer
 
-|                                           <img src="https://ca.slack-edge.com/T032Y55Q6VC-U04FYD33P24-f276a0d22d2b-512" width=100>                                            |
-| :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | --- |
-|                                                                                  Sofía Munno                                                                                  |
-| <a href="https://www.linkedin.com/in/sofia-munno/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |     |
+| <img src="https://ca.slack-edge.com/T032Y55Q6VC-U04FYD33P24-f276a0d22d2b-512" width=100>|
+|:-:|
+| Sofía Munno|
+| <a href="https://www.linkedin.com/in/sofia-munno/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> ||
+
+
