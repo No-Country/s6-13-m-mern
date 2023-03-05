@@ -2,17 +2,12 @@ import { Link } from 'react-router-dom'
 import { TitleComponents } from '../../../components/TitleComponents'
 import { userStore } from '../../../store/user'
 import { useTitle } from '../../../store/title'
-import { useEffect } from 'react'
 
 const Profile = () => {
   const user = userStore((state) => state.userData)
 
   const setTitle = useTitle((state) => state.setTitle)
-  const title = useTitle((state) => state.title)
-
-  useEffect(() => {
-    setTitle('Profile')
-  }, [])
+  setTitle('Profile')
 
   console.log(user)
   return (

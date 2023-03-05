@@ -73,7 +73,7 @@ const adminDashboard = () => {
                     alt=""
                     className="h-5 mx-4 lg:mx-2"
                   />
-                  <span className="hidden lg:inline">My consortiums</span>
+                  <span className="hidden lg:inline">My consortia</span>
                 </button>
               </div>
             </div>

@@ -4,6 +4,7 @@ import { PulseLoader } from 'react-spinners'
 import { userStore } from '../../../store/user'
 import UserComplaintService from '../../../services/UserComplaintService'
 import BlueModal from '../../../components/modal/BlueModal'
+import { useTitle } from '../../../store/title'
 
 interface ComplaintForm {
   subject: string
@@ -17,6 +18,9 @@ interface Props {
 const UserComplaints = ({ setMenu }: Props) => {
   const [loading, setLoading] = useState(false)
   const [modalOk, setModalOk] = useState(false)
+
+  const setTitle = useTitle((state) => state.setTitle)
+  setTitle('Complaints')
 
   const {
     register,

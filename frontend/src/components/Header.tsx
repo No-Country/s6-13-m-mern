@@ -89,7 +89,7 @@ const Header = () => {
               />
             </svg>
           </div>
-          <h1 className=" text-4xl text-white font-bold sm:hidden">{title}</h1>
+          <h1 className=" text-xl text-white font-bold sm:hidden">{title}</h1>
           <img
             className=" h-8 sm:hidden"
             src="/assets/icons/Notif.svg"
