@@ -38,6 +38,11 @@ const EditConsortium2 = () => {
   const [showModal, setShowModal] = useState(false)
   const [modalMsg, setModalMsg] = useState('')
 
+  const [deleteModal, setDeleteModal] = useState(false)
+  const [okModal, setOkModal] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [msg, setMsg] = useState('')
+
   const defaultImage = 'https://res.cloudinary.com/dozwd1ssj/image/upload/v1677157941/edit_lgdzbk.png'
   const messageLoading = 'Loading Consortium...'
   const messageError = 'Sorry, there was an error retrieving the data from the server.<br /> Please try again later.'
@@ -173,9 +178,19 @@ const EditConsortium2 = () => {
 
   const handleDelete = async () => {
     if (id) {
-      const res = await deleteConsortiumService(id, userId)
-      console.log(res)
-      console.log('deleted')
+      try {
+        setLoading(true)
+        await deleteConsortiumService(id, userId)
+        setMsg('The consortium has benn deleted')
+        setLoading(false)
+        setDeleteModal(false)
+        setOkModal(true)
+        // eslint-disable-next-line @typescript-eslint/no-floating-promises
+        getUser()
+      } catch (error) {
+        setLoading(false)
+        setMsg('An error ocurred')
+      }
     }
   }
 
@@ -355,11 +370,46 @@ const EditConsortium2 = () => {
             className="mt-10 text-center
                         text-white rounded-md
                         px-10 py-3 bg-blueDark"
-            onClick={handleDelete}
-          >
-            Delete Consortium
-          </button>
-        </Container>
+                        onClick={() => {
+                          setDeleteModal(true)
+                        }}
+                      >
+                        Delete Consortium
+                      </button>
+                    </Container>
+                    <BlueModal isOpen={deleteModal}>
+                      <p>Are you sure to delete this consortium?</p>
+                      <button
+                        onClick={() => {
+                          // eslint-disable-next-line @typescript-eslint/no-floating-promises
+                          handleDelete()
+                          setDeleteModal(false)
+                        }}
+                        className="bg-blue text-white text-lg w-20 rounded-2xl mt-6 mx-4 h-[29px]"
+                      >
+                        {loading ? <PulseLoader color="white" /> : 'YES'}
+                      </button>
+                      <button
+                        onClick={() => {
+                          setDeleteModal(false)
+                        }}
+                        className=" bg-blueDark text-white text-lg w-20 rounded-2xl mt-6 mx-4 border-[1.5px] border-blue h-[29px]"
+                      >
+                        NO
+                      </button>
+                    </BlueModal>
+                    <BlueModal isOpen={okModal}>
+                      <h4>{msg}</h4>
+                      <button
+                        onClick={() => {
+                          setOkModal(false)
+                          navigate('/admin', { state: { show: 'My consortiums' } })
+                        }}
+                        className="bg-blue text-white text-lg w-14 h-10 rounded-2xl mt-6"
+                      >
+                        OK
+                      </button>
+                    </BlueModal>
       </section>
     </>
   )
