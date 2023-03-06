@@ -42,10 +42,10 @@ const CreateConsortium = ({ setMenu }: Props) => {
   } = useForm<FormValues>({ mode: 'onTouched' })
 
   useEffect(() => {
-    ;(async () => {
+    (async () => {
       const amenitiesCont: AmenitiesListInt[] = []
 
-      const newOptions: [{ name: string; _id: string }] = await getAllAmenitiesService()
+      const newOptions: [{ name: string, _id: string }] = await getAllAmenitiesService()
 
       // const res = (await getUserByIdService(userId)) as IResponseUser
 
@@ -74,7 +74,7 @@ const CreateConsortium = ({ setMenu }: Props) => {
       // setConsortium(userConsortiumValues)
       console.log(response)
       setState({ ...state, openModal: true, load: false })
-      location.reload()
+      location.reload() 
     } catch (error) {
       setState({
         ...state,
