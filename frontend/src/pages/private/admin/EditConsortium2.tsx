@@ -211,7 +211,7 @@ const EditConsortium2 = () => {
       </BlueModal>
       <section className="pb-32">
         <Container>
-          <div>
+          <div className=''>
             <div
               className="flex font-bold text-xl
                                text-blueDark mt-10
@@ -259,10 +259,10 @@ const EditConsortium2 = () => {
                 </div>
                 <div>
                   <form
-                    className="w-72 grid grid-flow-row md:w-[30rem]"
+                    className=" max-w-[95%] mx-auto grid grid-flow-row md:w-[30rem]"
                     onSubmit={handleSubmit}
                   >
-                    <div className="grid grid-flow-col grid-rows-2 gap-x-10">
+                    <div className="grid grid-flow-col grid-rows-2 gap-x-2 sm:gap-x-10">
                       <div className="relative">
                         <h5 className=" font-bold text-lg text-blueDark text-start">Name</h5>
                         <input
@@ -355,26 +355,26 @@ const EditConsortium2 = () => {
                       }
                       className="w-[250px] mt-10 disabled:bg-gray-500
                                  text-center text-white rounded-md px-10
-                                py-3 bg-blueDark ml-auto"
+                                py-3 bg-blueDark mx-auto sm:ml-auto sm:mr-0"
                       type="submit"
                     >
                       {isSavingData ? <PulseLoader color="white" /> : 'Save changes'}
                     </button>
                   </form>
+                <button
+                  className=" block mx-auto sm:ml-auto sm:mr-0  mt-10 text-center
+            text-white rounded-md
+            px-10 py-3 bg-blueDark"
+                  onClick={() => {
+                    setDeleteModal(true)
+                  }}
+                >
+                  Delete Consortium
+                </button>
                 </div>
               </div>
             )}
           </div>
-          <button
-            className="mt-10 text-center
-                        text-white rounded-md
-                        px-10 py-3 bg-blueDark"
-            onClick={() => {
-              setDeleteModal(true)
-            }}
-          >
-            Delete Consortium
-          </button>
         </Container>
         <BlueModal isOpen={deleteModal}>
           <p>Are you sure to delete this consortium?</p>
