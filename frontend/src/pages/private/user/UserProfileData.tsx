@@ -50,7 +50,7 @@ const UserProfile = () => {
           <div className=" text-center">
             <div className=" flex max-h-[130px] max-w-[130px] overflow-hidden border-2 border-[#002A61] rounded-lg relative mx-auto my-6">
               <img
-                className="object-cover max-h-[130px] max-w-[130px] "
+                className=" object-cover"
                 src={user?.img || defaultImg}
                 alt=""
               />
