@@ -245,7 +245,7 @@ const ConsortiumPayments = () => {
 
   return (
     <div
-      className="w-full min-h-[780px] mb-0 md:mb-[50px] bg-white"
+      className="w-full min-h-[780px] mb-0 pb-44 bg-white"
       ref={ref}
     >
       <Container>
