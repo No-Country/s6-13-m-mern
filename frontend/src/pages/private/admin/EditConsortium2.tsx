@@ -140,20 +140,19 @@ const EditConsortium2 = () => {
             setModalMsg('Your Consortium has been updated')
             setShowModal(true)
             setIsSavingData(false)
+            getUser()
+              .then((response) => {
+                console.log(response)
+              })
+              .catch((error) => {
+                console.log(error)
+              })
           })
           .catch((error) => {
             console.log(error)
             setModalMsg('An error has occurred, please try again later or make sure that you have admin privileges')
             setShowModal(true)
             setIsSavingData(false)
-          })
-
-        getUser()
-          .then((response) => {
-            console.log(response)
-          })
-          .catch((error) => {
-            console.log(error)
           })
       } catch (error) {
         setModalMsg('An error has occurred, please try again later or make sure that you have admin privileges')
@@ -248,7 +247,7 @@ const EditConsortium2 = () => {
               >
                 <div
                   className="overflow-hidden relative
-                               items-center flex mb-10"
+                               items-center flex mb-10 max-w-[270px] max-h-[160px] border"
                 >
                   <ImageUploader
                     setImage={setImage}
@@ -370,46 +369,46 @@ const EditConsortium2 = () => {
             className="mt-10 text-center
                         text-white rounded-md
                         px-10 py-3 bg-blueDark"
-                        onClick={() => {
-                          setDeleteModal(true)
-                        }}
-                      >
-                        Delete Consortium
-                      </button>
-                    </Container>
-                    <BlueModal isOpen={deleteModal}>
-                      <p>Are you sure to delete this consortium?</p>
-                      <button
-                        onClick={() => {
-                          // eslint-disable-next-line @typescript-eslint/no-floating-promises
-                          handleDelete()
-                          setDeleteModal(false)
-                        }}
-                        className="bg-blue text-white text-lg w-20 rounded-2xl mt-6 mx-4 h-[29px]"
-                      >
-                        {loading ? <PulseLoader color="white" /> : 'YES'}
-                      </button>
-                      <button
-                        onClick={() => {
-                          setDeleteModal(false)
-                        }}
-                        className=" bg-blueDark text-white text-lg w-20 rounded-2xl mt-6 mx-4 border-[1.5px] border-blue h-[29px]"
-                      >
-                        NO
-                      </button>
-                    </BlueModal>
-                    <BlueModal isOpen={okModal}>
-                      <h4>{msg}</h4>
-                      <button
-                        onClick={() => {
-                          setOkModal(false)
-                          navigate('/admin', { state: { show: 'My consortiums' } })
-                        }}
-                        className="bg-blue text-white text-lg w-14 h-10 rounded-2xl mt-6"
-                      >
-                        OK
-                      </button>
-                    </BlueModal>
+            onClick={() => {
+              setDeleteModal(true)
+            }}
+          >
+            Delete Consortium
+          </button>
+        </Container>
+        <BlueModal isOpen={deleteModal}>
+          <p>Are you sure to delete this consortium?</p>
+          <button
+            onClick={() => {
+              // eslint-disable-next-line @typescript-eslint/no-floating-promises
+              handleDelete()
+              setDeleteModal(false)
+            }}
+            className="bg-blue text-white text-lg w-20 rounded-2xl mt-6 mx-4 h-[29px]"
+          >
+            {loading ? <PulseLoader color="white" /> : 'YES'}
+          </button>
+          <button
+            onClick={() => {
+              setDeleteModal(false)
+            }}
+            className=" bg-blueDark text-white text-lg w-20 rounded-2xl mt-6 mx-4 border-[1.5px] border-blue h-[29px]"
+          >
+            NO
+          </button>
+        </BlueModal>
+        <BlueModal isOpen={okModal}>
+          <h4>{msg}</h4>
+          <button
+            onClick={() => {
+              setOkModal(false)
+              navigate('/admin', { state: { show: 'My consortiums' } })
+            }}
+            className="bg-blue text-white text-lg w-14 h-10 rounded-2xl mt-6"
+          >
+            OK
+          </button>
+        </BlueModal>
       </section>
     </>
   )
