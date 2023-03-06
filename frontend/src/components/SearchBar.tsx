@@ -11,7 +11,6 @@ export const SearchBar: FC<SearchBarProps> = ({ userType, searchIn }: SearchBarP
 
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault()
-    console.log(`Submit Query: ${query}`)
   }
 
   return (

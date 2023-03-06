@@ -30,9 +30,7 @@ const Header = () => {
     try {
       const res = (await getUserByIdService(userId)) as IResponseUser
       setUser(res.user)
-    } catch (error) {
-      console.log('error')
-    }
+    } catch (error) {}
   }
 
   const refOne = useRef<HTMLDivElement>(null)

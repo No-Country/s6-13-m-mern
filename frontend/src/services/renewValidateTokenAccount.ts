@@ -11,8 +11,6 @@ export const renewValidateTokenAccount = async (id: string) => {
     })
     return resp.data
   } catch (error) {
-    console.log(error)
-
     return error
   }
 }

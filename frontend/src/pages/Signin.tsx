@@ -32,7 +32,6 @@ const Signin = () => {
       setLoading(false)
     } else {
       setMailError(false)
-      console.log(resp)
       setLoading(false)
       setModalOpen(true)
     }
@@ -59,9 +58,7 @@ const Signin = () => {
           setRole(resp.role)
           resp.role === 'admin' ? navigate('/admin') : navigate('/user')
         }
-      } catch (err) {
-        console.log(err)
-      }
+      } catch (err) {}
     },
   })
 

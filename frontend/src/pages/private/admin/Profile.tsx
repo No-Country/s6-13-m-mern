@@ -8,8 +8,6 @@ const Profile = () => {
 
   const setTitle = useTitle((state) => state.setTitle)
   setTitle('Profile')
-
-  console.log(user)
   return (
     <section>
       <div className="hidden sm:flex gap-4">

@@ -12,8 +12,6 @@ const removeMembersService = async (consortiumId: string, userId: string) => {
     })
   } catch (error) {
     const err = error as AxiosError
-    console.log(err)
-    console.log('catch')
     return err.response?.data
   }
 }

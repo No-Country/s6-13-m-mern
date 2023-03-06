@@ -12,9 +12,7 @@ const editProfileService = async (data: UserProfile) => {
       },
     })
     return resp
-  } catch (error) {
-    console.log(error)
-  }
+  } catch (error) {}
 }
 
 export default editProfileService

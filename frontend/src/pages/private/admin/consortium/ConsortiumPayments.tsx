@@ -47,7 +47,6 @@ const ConsortiumPayments = () => {
         .then((response) => {
           if (!Array.isArray(data)) {
             setErrorGetPayments(true)
-            console.log('ERROR: ', response)
             return
           }
           setData(response)
@@ -55,7 +54,6 @@ const ConsortiumPayments = () => {
           setLoadingPayments(false)
         })
         .catch((error) => {
-          console.log(error)
           setErrorGetPayments(true)
           setLoadingPayments(false)
         })
@@ -79,7 +77,6 @@ const ConsortiumPayments = () => {
         }
       })
       .catch((error) => {
-        console.log(error)
         handleErrorSaveChanges()
       })
   }

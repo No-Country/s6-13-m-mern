@@ -14,8 +14,6 @@ const createNotificationsService = async (data: Notification) => {
     return res
   } catch (error) {
     const err = error as AxiosError
-    console.log(err)
-    console.log('catch')
     return err.response?.data
   }
 }

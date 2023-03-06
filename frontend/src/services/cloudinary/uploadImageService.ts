@@ -9,7 +9,6 @@ interface Props {
 
 export const uploadImageService = async ({ file, preset }: Props) => {
   if (cloudName === undefined) {
-    console.log('Cloudinary name is not defined.')
     return
   }
   try {

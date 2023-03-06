@@ -13,8 +13,6 @@ const getConsortiumService = async (id: string) => {
     return consortia.data.consortium
   } catch (error) {
     const err = error as AxiosError
-    console.log(err)
-    console.log('catch')
     return err.response?.data
   }
 }

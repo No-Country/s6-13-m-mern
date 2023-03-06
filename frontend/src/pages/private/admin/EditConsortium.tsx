@@ -24,7 +24,6 @@ const EditConsortium = () => {
 
   const getConsortium = async (idCons: string) => {
     const consort = await getConsortiumService(idCons)
-    console.log('CONSORT', consort)
     setimg(consort.img)
     const amenitiesDefault: AmenitiesListInt[] = []
     consort.amenities.forEach((option: Amenity) => {
@@ -70,9 +69,7 @@ const EditConsortium = () => {
         })
 
         setState({ ...state, amenitiesList: amenitiesCont })
-      })().catch((error) => {
-        console.log(error)
-      })
+      })().catch((error) => {})
     }
   }, [id])
 
@@ -85,12 +82,8 @@ const EditConsortium = () => {
         // await editConsortiumService(id, userId, newData)
         setState({ ...state, openModal: true, load: false })
         getUser()
-          .then((response) => {
-            console.log(response)
-          })
-          .catch((error) => {
-            console.log(error)
-          })
+          .then((response) => {})
+          .catch((error) => {})
       } catch (error) {
         setState({
           ...state,
@@ -98,15 +91,12 @@ const EditConsortium = () => {
           message: 'An error has occurred, please try again later or make sure that you have admin privileges',
           load: false,
         })
-        console.log(error)
       }
     }
   }
   const handleDelete = async () => {
     if (id) {
       const res = await deleteConsortiumService(id, userId)
-      console.log(res)
-      console.log('deleted')
     }
   }
 
@@ -116,9 +106,7 @@ const EditConsortium = () => {
     try {
       const res = (await getUserByIdService(userId)) as IResponseUser
       setUser(res.user)
-    } catch (error) {
-      console.log('error')
-    }
+    } catch (error) {}
   }
 
   return (

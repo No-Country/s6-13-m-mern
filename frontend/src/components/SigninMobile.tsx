@@ -34,7 +34,6 @@ const SigninMobile = () => {
       setLoading(false)
     } else {
       setMailError(false)
-      console.log(resp)
       setLoading(false)
       setModalOpen(true)
     }
@@ -61,9 +60,7 @@ const SigninMobile = () => {
           setRole(resp.role)
           resp.role === 'admin' ? navigate('/admin') : navigate('/user')
         }
-      } catch (err) {
-        console.log(err)
-      }
+      } catch (err) {}
     },
   })
 
@@ -97,7 +94,7 @@ const SigninMobile = () => {
               autoComplete="off"
               {...register('name', { required: true })}
             />
-             <div className="h-4 ml-4 text-xs  text-red">
+            <div className="h-4 ml-4 text-xs  text-red">
               {errors.name?.type === 'required' && <p>Name is required</p>}
             </div>
             <input
@@ -140,9 +137,11 @@ const SigninMobile = () => {
                 pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
               })}
             />
-             <div className="h-4 ml-4 text-xs  text-red">
+            <div className="h-4 ml-4 text-xs  text-red">
               {errors.password?.type === 'required' && <p>Password is required</p>}
-              {errors.password?.type === 'pattern' && <p className=' -ml-4'>8 characters, uppercase, lowercase, number and special</p>}
+              {errors.password?.type === 'pattern' && (
+                <p className=" -ml-4">8 characters, uppercase, lowercase, number and special</p>
+              )}
             </div>
             <input
               className={`border-2 ${
@@ -170,7 +169,7 @@ const SigninMobile = () => {
                   to=""
                   className="ml-2 underline text-blueDark font-bold mb-5"
                 >
-                 terms and conditions.
+                  terms and conditions.
                 </Link>
               </h3>
             </div>

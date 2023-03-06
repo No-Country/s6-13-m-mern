@@ -21,8 +21,6 @@ const UserComplaintService = async (data: Complaint) => {
     return resComplaint.data
   } catch (error) {
     const err = error as AxiosError
-    console.log(err)
-    console.log('catch')
     return err.response?.data
   }
 }

@@ -12,7 +12,6 @@ export const getAllAmenitiesService = async () => {
     })
     return allAmenities.data.amenityRetrieved
   } catch (err) {
-    console.log(err)
   }
 }
 
@@ -25,7 +24,6 @@ export const createConsortiumService = async (data: ConsortiumCreationValues) =>
     })
     return response
   } catch (err) {
-    console.log(err)
   }
 }
 
@@ -38,15 +36,10 @@ export const getConsortiumAmenities = async (consortiumId: string) => {
     })
     return consortiumAmenities
   } catch (err) {
-    console.log(err)
   }
 }
 
 export const editConsortiumService = async (consortiumId: string, userId: string, data: EditConsortium) => {
-  console.log('TOKEN', token)
-  console.log('CONSORTIUM ID:', consortiumId)
-  console.log('USER ID:', userId)
-  console.log('EDIT CONSORTIUM:', data)
   try {
     const response = await instance.put(`api/consortium/editConsortium/${consortiumId}/${userId}`, data, {
       headers: {
@@ -55,6 +48,5 @@ export const editConsortiumService = async (consortiumId: string, userId: string
     })
     return response
   } catch (err) {
-    console.log(err)
   }
 }

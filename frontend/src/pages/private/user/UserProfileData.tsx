@@ -20,8 +20,6 @@ const UserProfile = () => {
   const consortiumAddress = user?.consortium?.find(() => true)?.address
 
   const handleDelete = async () => {
-    console.log(userId, consortiumId)
-
     if (userId && consortiumId) {
       setLoading(true)
       await removeMembersService(consortiumId, userId)

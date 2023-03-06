@@ -42,10 +42,10 @@ const CreateConsortium = ({ setMenu }: Props) => {
   } = useForm<FormValues>({ mode: 'onTouched' })
 
   useEffect(() => {
-    ;(async () => {
+    (async () => {
       const amenitiesCont: AmenitiesListInt[] = []
 
-      const newOptions: [{ name: string; _id: string }] = await getAllAmenitiesService()
+      const newOptions: [{ name: string, _id: string }] = await getAllAmenitiesService()
 
       // const res = (await getUserByIdService(userId)) as IResponseUser
 
@@ -56,9 +56,7 @@ const CreateConsortium = ({ setMenu }: Props) => {
       })
 
       setState({ ...state, amenitiesList: amenitiesCont })
-    })().catch((error) => {
-      console.log(error)
-    })
+    })().catch((error) => {})
   }, [])
 
   const customSubmit = async (data: FormValues) => {
@@ -66,13 +64,11 @@ const CreateConsortium = ({ setMenu }: Props) => {
       setState({ ...state, load: true })
       const amenitieParsedValues = data.amenities.map((amenity) => amenity.id)
       const consortiumInfo: ConsortiumCreationValues = { admin: userId, ...data, amenities: amenitieParsedValues }
-      console.log(consortiumInfo)
       const response = await createConsortiumService(consortiumInfo)
       // const userConsortiumValues: [{ _id: string | undefined; address: string | undefined }] = [
       //   { _id: response.data?._id, address: data.address },
       // ]
       // setConsortium(userConsortiumValues)
-      console.log(response)
       setState({ ...state, openModal: true, load: false })
       location.reload()
     } catch (error) {
@@ -82,7 +78,6 @@ const CreateConsortium = ({ setMenu }: Props) => {
         message: 'An error has occurred, please try again later or make sure that you have admin privileges',
         load: false,
       })
-      console.log(error)
     }
   }
 
@@ -137,15 +132,15 @@ const CreateConsortium = ({ setMenu }: Props) => {
               <h3>Create Consortium</h3>
             </div>
             <button
-                className=""
-                onClick={() => {
-                  setMenu('My consortiums')
-                }}
-              >
-                <div className="absolute left-4 w-[11.25px] h-[22.5px] sm:hidden">
-                  <img src={'../../assets/icons/left-arrow.svg'} />
-                </div>
-              </button>
+              className=""
+              onClick={() => {
+                setMenu('My consortiums')
+              }}
+            >
+              <div className="absolute left-4 w-[11.25px] h-[22.5px] sm:hidden">
+                <img src={'../../assets/icons/left-arrow.svg'} />
+              </div>
+            </button>
             <img
               className="rounded-md mt-4 sm:mt-10 sm:ml-10 border-2 border-black"
               src="https://res.cloudinary.com/dozwd1ssj/image/upload/v1677111896/bild-sky_owpyai.png"

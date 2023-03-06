@@ -85,12 +85,8 @@ const EditConsortium2 = () => {
     setLoadingData(true)
     if (id) {
       getConsortium(id)
-        .then((response) => {
-          console.log(response)
-        })
-        .catch((error) => {
-          console.log(error)
-        })
+        .then((response) => {})
+        .catch((error) => {})
       ;(async () => {
         const amenitiesCont: OptionValues[] = []
 
@@ -102,7 +98,6 @@ const EditConsortium2 = () => {
 
         setAllOptions(amenitiesCont)
       })().catch((error) => {
-        console.log(error)
         setLoadingData(false)
         setErrorGettingData(true)
       })
@@ -131,31 +126,23 @@ const EditConsortium2 = () => {
 
         editConsortiumService(id, userId, consortiumToEdit)
           .then((response) => {
-            console.log(response)
             setModalMsg('Your Consortium has been updated')
             setShowModal(true)
             setIsSavingData(false)
           })
           .catch((error) => {
-            console.log(error)
             setModalMsg('An error has occurred, please try again later or make sure that you have admin privileges')
             setShowModal(true)
             setIsSavingData(false)
           })
 
         getUser()
-          .then((response) => {
-            console.log(response)
-          })
-          .catch((error) => {
-            console.log(error)
-          })
+          .then((response) => {})
+          .catch((error) => {})
       } catch (error) {
         setModalMsg('An error has occurred, please try again later or make sure that you have admin privileges')
         setShowModal(true)
         setIsSavingData(false)
-
-        console.log(error)
       }
     }
   }
@@ -166,16 +153,12 @@ const EditConsortium2 = () => {
     try {
       const res = (await getUserByIdService(userId)) as IResponseUser
       setUser(res.user)
-    } catch (error) {
-      console.log('error')
-    }
+    } catch (error) {}
   }
 
   const handleDelete = async () => {
     if (id) {
       const res = await deleteConsortiumService(id, userId)
-      console.log(res)
-      console.log('deleted')
     }
   }
 

@@ -9,10 +9,8 @@ export const resetPassService = async (data: { mail: string }) => {
         token: `${token}`,
       },
     })
-    console.log(response)
     return response
   } catch (error) {
-    console.log(error)
     return error
   }
 }

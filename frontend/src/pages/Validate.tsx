@@ -19,7 +19,6 @@ const Validate = () => {
     try {
       setResponse('loading')
       const resp = await validateUserAccount(id, token)
-      console.log(resp, 'respuesta')
       if (resp.ok === true) {
         setResponse('ok')
         setTimeout(() => {
@@ -28,10 +27,7 @@ const Validate = () => {
       }
       if (resp.ok === false) setResponse('wrong')
       if (resp.ok === false && resp.msg === 'User is already validated') setResponse('ok')
-    } catch (error) {
-      // console.log(error)
-      console.log('entro')
-    }
+    } catch (error) {}
   }
 
   const handleOnClick = async () => {
@@ -49,8 +45,6 @@ const Validate = () => {
       validate(id, token)
     }
   }, [])
-
-  console.log(response)
 
   return (
     <Container>

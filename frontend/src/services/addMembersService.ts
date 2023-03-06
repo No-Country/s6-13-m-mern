@@ -13,8 +13,6 @@ const addMembersService = async (consortiumId: string, userId: string) => {
     return resAdd
   } catch (error) {
     const err = error as AxiosError
-    console.log(err)
-    console.log('catch')
     return err.response?.data
   }
 }

@@ -43,7 +43,6 @@ const ConsortiumMembers = () => {
       }
     })
     setFilteredUsers(filtered)
-    console.log(filtered)
   }
 
   const getUsers = async () => {
@@ -243,7 +242,7 @@ const ConsortiumMembers = () => {
             <tr className=" border-b border-b-greyLight">
               <th>Name</th>
               <th>Email</th>
-              <th className='hidden sm:table-cell '>Contact</th>
+              <th className="hidden sm:table-cell ">Contact</th>
               <th></th>
             </tr>
           </thead>

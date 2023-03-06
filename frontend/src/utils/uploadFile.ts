@@ -9,12 +9,10 @@ export const upLoadFile = async (
   setError: Dispatch<SetStateAction<boolean>>,
 ) => {
   if (!file) {
-    console.log('The file is undefined')
     return
   }
 
   if (!preset) {
-    console.log('The preset is undefined')
     return
   }
 
@@ -23,7 +21,6 @@ export const upLoadFile = async (
     const response = await uploadImageService({ file, preset })
     setImage(response.secure_url)
   } catch (error) {
-    console.log(error)
     setLoading(false)
     setError(true)
   }

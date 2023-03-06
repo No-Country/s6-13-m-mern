@@ -28,14 +28,11 @@ const ImageUploader = ({ setImage, image, preset, width = 130, height = 130 }: P
     setLoading(true)
     upLoadFile(fileSelected, preset, setLoading, setImage, setError)
       .then((response) => {
-        console.log(response)
         setTimeout(() => {
           setLoading(false)
         }, 2000)
       })
-      .catch((error) => {
-        console.log(error)
-      })
+      .catch((error) => {})
   }
 
   const renderError = () => {
@@ -97,7 +94,7 @@ const ImageUploader = ({ setImage, image, preset, width = 130, height = 130 }: P
       <img
         src={image}
         alt=""
-        className=' object-cover'
+        className=" object-cover"
       />
       <input
         id={id}

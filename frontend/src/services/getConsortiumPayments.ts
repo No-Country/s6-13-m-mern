@@ -7,7 +7,6 @@ const getConsortiumPayments = async (id: string | undefined) => {
 
   try {
     if (!id) {
-      console.log('id is null')
       return
     }
     const res = await axios.get(`/api/payment/consortiumPayments/${id}`, {

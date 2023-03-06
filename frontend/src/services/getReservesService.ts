@@ -7,8 +7,6 @@ const getReserveService = async (id: string) => {
     return resGet.data.reserveRetrieved
   } catch (error) {
     const err = error as AxiosError
-    console.log(err)
-    console.log('catch')
     return err.response?.data
   }
 }

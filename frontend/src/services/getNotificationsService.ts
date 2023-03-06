@@ -13,8 +13,6 @@ const getNotificationsService = async (id: string) => {
     return res.data.notificationRetrived
   } catch (error) {
     const err = error as AxiosError
-    console.log(err)
-    console.log('catch')
     return err.response?.data
   }
 }

@@ -11,6 +11,5 @@ export const deleteConsortiumService = async (consortiumId: string, userId: stri
     })
     return res
   } catch (err) {
-    console.log(err)
   }
 }

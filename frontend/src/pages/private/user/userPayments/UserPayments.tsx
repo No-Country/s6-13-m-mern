@@ -50,14 +50,12 @@ const UserPayments = () => {
         .then((response) => {
           if (!Array.isArray(payments)) {
             setErrorGetPayments(true)
-            console.log('ERROR: ', response)
             return
           }
           setPayments(response)
           setLoadingPayments(false)
         })
         .catch((error) => {
-          console.log(error)
           setErrorGetPayments(true)
           setLoadingPayments(false)
         })

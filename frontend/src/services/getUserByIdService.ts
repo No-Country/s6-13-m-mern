@@ -10,7 +10,6 @@ const getUserByIdService = async (id: string) => {
     return resLogin.data
   } catch (error) {
     const err = error as AxiosError
-    console.log('catch', err)
     return err.response?.data
   }
 }

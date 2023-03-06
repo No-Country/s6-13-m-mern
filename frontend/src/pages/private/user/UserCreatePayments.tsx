@@ -64,7 +64,6 @@ const UserCreatePayments = ({ setIsCreateViewOpen, setIsCreatedPayment }: Props)
       } else {
         const preset = process.env.VITE_APP_PRESET_VOUCHERS
         if (preset === undefined) {
-          console.log('Preset vouchers is not defined.')
           return
         }
         const imageUploadResponse = await uploadImageService({ file, preset })
@@ -75,8 +74,6 @@ const UserCreatePayments = ({ setIsCreateViewOpen, setIsCreatedPayment }: Props)
           image: imageUploadResponse.url,
         }
       }
-
-      console.log('envio')
 
       await createPayment(newPayment)
     } catch (err) {
@@ -93,7 +90,6 @@ const UserCreatePayments = ({ setIsCreateViewOpen, setIsCreatedPayment }: Props)
         handleSuccess()
       }
     } catch (error) {
-      console.log(error)
       handleError()
     }
   }

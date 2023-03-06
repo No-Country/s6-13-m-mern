@@ -69,9 +69,7 @@ const LoginMobile = () => {
           setRole(resp.role)
           resp.role === 'admin' ? navigate('/admin') : navigate('/user')
         }
-      } catch (err) {
-        console.log(err)
-      }
+      } catch (err) {}
     },
   })
 
