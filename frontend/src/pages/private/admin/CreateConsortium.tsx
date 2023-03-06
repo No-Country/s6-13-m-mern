@@ -12,13 +12,17 @@ import {
 import { PulseLoader } from 'react-spinners'
 import BlueModal from '../../../components/modal/BlueModal'
 import { useTitle } from '../../../store/title'
+import ImageUploader from '../../../components/ImageUploader'
 
 interface Props {
   setMenu: React.Dispatch<React.SetStateAction<string>>
 }
 
+const defaultImage = 'https://res.cloudinary.com/dozwd1ssj/image/upload/v1677157941/edit_lgdzbk.png'
+
 const CreateConsortium = ({ setMenu }: Props) => {
   const userId = useAuthStore((state) => state.id)
+  const [image, setImage] = useState<string | undefined>(defaultImage)
 
   const setTitle = useTitle((state) => state.setTitle)
   setTitle('Create consortium')
@@ -65,7 +69,12 @@ const CreateConsortium = ({ setMenu }: Props) => {
     try {
       setState({ ...state, load: true })
       const amenitieParsedValues = data.amenities.map((amenity) => amenity.id)
-      const consortiumInfo: ConsortiumCreationValues = { admin: userId, ...data, amenities: amenitieParsedValues }
+      const consortiumInfo: ConsortiumCreationValues = {
+        admin: userId,
+        ...data,
+        amenities: amenitieParsedValues,
+        img: image,
+      }
       console.log(consortiumInfo)
       const response = await createConsortiumService(consortiumInfo)
       // const userConsortiumValues: [{ _id: string | undefined; address: string | undefined }] = [
@@ -74,7 +83,7 @@ const CreateConsortium = ({ setMenu }: Props) => {
       // setConsortium(userConsortiumValues)
       console.log(response)
       setState({ ...state, openModal: true, load: false })
-      location.reload() 
+      location.reload()
     } catch (error) {
       setState({
         ...state,
@@ -85,6 +94,8 @@ const CreateConsortium = ({ setMenu }: Props) => {
       console.log(error)
     }
   }
+
+  const preset = process.env.VITE_APP_PRESET_EDIT_CONSORTIUMS_PHOTOS
 
   return (
     <>
@@ -121,7 +132,7 @@ const CreateConsortium = ({ setMenu }: Props) => {
       )} */}
 
       <section className="pb-32">
-        <div className="flex flex-col sm:flex-row w-full sm:mt-10 justify-around items-center">
+        <div className=" w-full sm:mt-10 justify-around items-center">
           <div className="items-center sm:self-start">
             <div className=" hidden sm:flex gap-x-6 text-blueDark font-bold text-xl items-center">
               <button
@@ -137,26 +148,40 @@ const CreateConsortium = ({ setMenu }: Props) => {
               <h3>Create Consortium</h3>
             </div>
             <button
-                className=""
-                onClick={() => {
-                  setMenu('My consortiums')
-                }}
-              >
-                <div className="absolute left-4 w-[11.25px] h-[22.5px] sm:hidden">
-                  <img src={'../../assets/icons/left-arrow.svg'} />
-                </div>
-              </button>
-            <img
+              className=""
+              onClick={() => {
+                setMenu('My consortiums')
+              }}
+            >
+              <div className="absolute left-4 w-[11.25px] h-[22.5px] sm:hidden">
+                <img src={'../../assets/icons/left-arrow.svg'} />
+              </div>
+            </button>
+            {/* <img
               className="rounded-md mt-4 sm:mt-10 sm:ml-10 border-2 border-black"
               src="https://res.cloudinary.com/dozwd1ssj/image/upload/v1677111896/bild-sky_owpyai.png"
               alt=""
-            />
+            /> */}
           </div>
-          <div className="mt-16">
+          <div className=" px-4 mt-16 ">
             <form
-              className="w-72"
+              className=" sm:flex justify-around"
               onSubmit={handleSubmit(customSubmit)}
             >
+              <div
+                className=" sm:w-[35%] mx-auto overflow-hidden relative
+                               items-center flex mb-10 max-w-[270px] max-h-[160px] border"
+              >
+                <ImageUploader
+                  setImage={setImage}
+                  image={image}
+                  preset={preset}
+                  width={270}
+                  height={160}
+                />
+              </div>
+              <div className='sm:w-[45%] mx-auto'>
+
               <input
                 className={`border-2 ${
                   !errors.name ? 'border-blueDark' : 'border-red'
@@ -231,6 +256,7 @@ const CreateConsortium = ({ setMenu }: Props) => {
               >
                 {state.load ? <PulseLoader color="white" /> : 'Continue'}
               </button>
+                  </div>
             </form>
           </div>
         </div>
